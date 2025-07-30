@@ -1,8 +1,9 @@
+---
 environment:
   NODE_ENV: production
 
 deployment:
   tasks:
-    - /opt/cpanel/ea-nodejs18/bin/npm install
-    - /opt/cpanel/ea-nodejs18/bin/npm run build
-    - echo "✅ Next.js build complete!"
+    - /opt/cpanel/ea-nodejs18/bin/npm install --omit=dev
+    - echo "✅ Dependencies installed. Skipping build as it is already done locally."
+    - /opt/cpanel/ea-nodejs18/bin/npm start
