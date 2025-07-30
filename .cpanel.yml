@@ -3,14 +3,6 @@ environment:
 
 deployment:
   tasks:
-    # npm install করার জন্য node ও npm path সঠিক দিন (cPanel অনুযায়ী)
     - /opt/cpanel/ea-nodejs18/bin/npm install
-
-    # Next.js app build
     - /opt/cpanel/ea-nodejs18/bin/npm run build
-
-    # Build সফল হলে, আপনি চাইলে নিচের কমান্ড দিয়ে ফাইল move/copy করতে পারেন (optional)
-    # - cp -r .next public_html/   # যদি public_html তে serve করতে চান
-
-    # পরিশেষে সফল ডিপ্লয়মেন্ট বার্তা
-    - echo "✅ Deployment finished successfully"
+    - echo "✅ Next.js build complete!"
