@@ -3,6 +3,7 @@ import About from "@/components/sections/about";
 import AllProducts from "@/components/sections/allProducts";
 import BusinessPlan from "@/components/sections/businessPlan";
 import Contact from "@/components/sections/contact";
+import CustomerReview from "@/components/sections/customerReview";
 import Hero from "@/components/sections/hero";
 import Purchase from "@/components/sections/purchase";
 import RealDocuments from "@/components/sections/realDocuments";
@@ -24,6 +25,7 @@ export default function Home() {
         <Purchase />
         <BusinessPlan />
         <Contact />
+        <CustomerReview />
         
       </div>
 
