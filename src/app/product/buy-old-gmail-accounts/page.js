@@ -98,19 +98,19 @@ export default function BuyOldGmailAccounts() {
     {
       icon: Mail,
       label: "Email",
-      value: "pvasmmpro@gmail.com",
+      value: "pvasupply@gmail.com",
       color: "bg-red-500",
     },
     {
       icon: MessageCircle,
       label: "Skype",
-      value: "pvasmmpro",
+      value: "pvasupply",
       color: "bg-blue-500",
     },
     {
       icon: MessageCircle,
       label: "Telegram",
-      value: "@pvasmmpro",
+      value: "@pvasupply",
       color: "bg-cyan-500",
     },
     {
