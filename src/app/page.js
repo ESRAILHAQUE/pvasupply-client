@@ -1,3 +1,5 @@
+import Hero from "@/components/sections/hero";
+import RealDocuments from "@/components/sections/realDocuments";
 
 
 export default function Home() {
@@ -5,7 +7,9 @@ export default function Home() {
     <div className="min-h-screen flex flex-col">
       <div className="flex-grow">
         
-        <h1>This is homepage</h1>
+  
+        <Hero />
+        <RealDocuments />
       </div>
 
      

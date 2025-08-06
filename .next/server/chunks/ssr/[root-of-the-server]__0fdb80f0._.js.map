@@ -2,6 +2,5 @@
   "version": 3,
   "sources": [],
   "sections": [
-    {"offset": {"line": 6, "column": 0}, "map": {"version":3,"sources":[],"names":[],"mappings":"","debugId":null}},
-    {"offset": {"line": 18, "column": 0}, "map": {"version":3,"sources":["file:///P:/pvasupply-client/src/app/page.js"],"sourcesContent":["\r\n\r\nexport default function Home() {\r\n  return (\r\n    <div className=\"min-h-screen flex flex-col\">\r\n      <div className=\"flex-grow\">\r\n        \r\n        <h1>This is homepage</h1>\r\n      </div>\r\n\r\n     \r\n  \r\n    </div>\r\n  );\r\n}\r\n"],"names":[],"mappings":";;;;;AAEe,SAAS;IACtB,qBACE,8OAAC;QAAI,WAAU;kBACb,cAAA,8OAAC;YAAI,WAAU;sBAEb,cAAA,8OAAC;0BAAG;;;;;;;;;;;;;;;;AAOZ","debugId":null}}]
+    {"offset": {"line": 6, "column": 0}, "map": {"version":3,"sources":[],"names":[],"mappings":"","debugId":null}}]
 }
