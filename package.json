@@ -5,8 +5,9 @@
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
-   "start": "NODE_OPTIONS='--max-old-space-size=2048' next start",
-    "lint": "next lint"
+   "start": "next start",
+    "lint": "next lint",
+    "lint:fix": "next lint --fix"
   },
   "dependencies": {
     "framer-motion": "^12.23.12",
