@@ -1,8 +1,13 @@
+
 import About from "@/components/sections/about";
 import AllProducts from "@/components/sections/allProducts";
+import BusinessPlan from "@/components/sections/businessPlan";
+import Contact from "@/components/sections/contact";
 import Hero from "@/components/sections/hero";
+import Purchase from "@/components/sections/purchase";
 import RealDocuments from "@/components/sections/realDocuments";
 import Services from "@/components/sections/services";
+
 
 
 export default function Home() {
@@ -16,6 +21,10 @@ export default function Home() {
         <Services />
         <AllProducts />
         <About />
+        <Purchase />
+        <BusinessPlan />
+        <Contact />
+        
       </div>
 
      
