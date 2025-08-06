@@ -22,38 +22,90 @@ export default function Navbar() {
       isActive: false,
       hasDropdown: true,
       dropdownItems: [
-        { name: "Buy Old Gmail Accounts", href: "/product/buy-old-gmail-accounts" },
-        { name: "Facebook Accounts", href: "/social/facebook" },
-        { name: "Twitter Accounts", href: "/social/twitter" },
-        { name: "TikTok Accounts", href: "/social/tiktok" },
-        { name: "YouTube Accounts", href: "/social/youtube" },
-        { name: "LinkedIn Accounts", href: "/social/linkedin" },
-      ],
-    },
-    {
-      name: "Bank Accounts",
-      href: "/bank",
-      isActive: false,
-      hasDropdown: true,
-      dropdownItems: [
-        { name: "US Bank Accounts", href: "/bank/us" },
-        { name: "UK Bank Accounts", href: "/bank/uk" },
-        { name: "EU Bank Accounts", href: "/bank/eu" },
-        { name: "Verified PayPal Accounts", href: "/bank/paypal" },
-        { name: "Business Accounts", href: "/bank/business" },
+        {
+          name: "Buy Old Gmail Accounts",
+          href: "/product/buy-old-gmail-accounts",
+        },
+        {
+          name: "Buy Google Voice Accounts",
+          href: "/pruduct/buy-google-voice-accounts",
+        },
+        { name: "Buy Naver Accounts", href: "/product/buy-naver-accounts" },
+        { name: "Buy Twitter Accounts", href: "/product/buy-twitter-accounts" },
+        { name: "Buy WeChat Accounts", href: "/product/buy-wechat-accounts" },
+        {
+          name: "Buy LinkedIn Accounts",
+          href: "/product/buy-linkedin-accounts",
+        },
+        { name: "Buy Reddit Accounts", href: "/product/buy-reddit-accounts" },
+        { name: "Buy SSN Number", href: "/product/buy-ssn-number" },
       ],
     },
     {
       name: "Crypto Accounts",
-      href: "/crypto",
+      href: "/bank",
       isActive: false,
       hasDropdown: true,
       dropdownItems: [
-        { name: "Binance Accounts", href: "/crypto/binance" },
-        { name: "Coinbase Accounts", href: "/crypto/coinbase" },
-        { name: "Kraken Accounts", href: "/crypto/kraken" },
-        { name: "Verified Wallets", href: "/crypto/wallets" },
-        { name: "Exchange Accounts", href: "/crypto/exchanges" },
+        {
+          name: "Buy verified binance accounts",
+          href: "/bank/buy-verified-binance-accounts",
+        },
+        {
+          name: "Buy Verified Bybit Accounts",
+          href: "/product/buy-verified-bybit-accounts",
+        },
+        { name: "EU product Accounts", href: "/product/eu" },
+        { name: "Buy Verified Coinbase Accounts", href: "/product/buy-verified-coinbase-accounts" },
+ 
+      ],
+    },
+    {
+      name: "Bank Accounts",
+      href: "/product/bank-accounts",
+      isActive: false,
+      hasDropdown: true,
+      dropdownItems: [
+        {
+          name: "Buy Verified PayPal Accounts",
+          href: "/product/buy-verified-paypal-accounts",
+        },
+        {
+          name: "Buy Verified Cash App Accounts",
+          href: "/product/buy-verified-cash-app-accounts",
+        },
+        {
+          name: "Buy Verified Chime Bank Accounts",
+          href: "/product/buy-verified-chime-bank-accounts",
+        },
+        {
+          name: "Buy Verified Wise Accounts",
+          href: "/product/buy-verified-wise-accounts",
+        },
+        {
+          name: "Buy Verified Stripe Accounts",
+          href: "/product/buy-verified-stripe-accounts",
+        },
+        {
+          name: "Buy Verified Revolut Accounts",
+          href: "/product/buy-verified-revolut-accounts",
+        },
+        {
+          name: "Buy Verified Go2Bank Accounts",
+          href: "/product/buy-verified-go2bank-accounts",
+        },
+        {
+          name: "Buy Verified Venmo Accounts",
+          href: "/product/buy-verified-venmo-accounts",
+        },
+        {
+          name: "Buy Verified Chase Bank Accounts",
+          href: "/product/Buy Verified Chase Bank Accounts",
+        },
+        {
+          name: "Buy Verified OnlyFans Accounts",
+          href: "/product/buy-verified-onlyfans-accounts",
+        },
       ],
     },
     {
