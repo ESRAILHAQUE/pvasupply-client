@@ -1,5 +1,8 @@
+import About from "@/components/sections/about";
+import AllProducts from "@/components/sections/allProducts";
 import Hero from "@/components/sections/hero";
 import RealDocuments from "@/components/sections/realDocuments";
+import Services from "@/components/sections/services";
 
 
 export default function Home() {
@@ -10,6 +13,9 @@ export default function Home() {
   
         <Hero />
         <RealDocuments />
+        <Services />
+        <AllProducts />
+        <About />
       </div>
 
      
