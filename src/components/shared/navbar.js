@@ -110,7 +110,7 @@ export default function Navbar() {
     },
     {
       name: "Contact Us",
-      href: "/contact",
+      href: "/contact-us",
       isActive: false,
       hasDropdown: false,
     },
