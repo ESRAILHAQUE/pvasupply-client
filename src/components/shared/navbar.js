@@ -1,10 +1,12 @@
 "use client";
 import { useState } from "react";
+import { usePathname } from "next/navigation";
 import { ChevronDown, ShoppingCart, Menu, X, Crown } from "lucide-react";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [cartCount, setCartCount] = useState(0);
+  const pathname = usePathname();
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -56,8 +58,10 @@ export default function Navbar() {
           href: "/product/buy-verified-bybit-accounts",
         },
         { name: "EU product Accounts", href: "/product/eu" },
-        { name: "Buy Verified Coinbase Accounts", href: "/product/buy-verified-coinbase-accounts" },
- 
+        {
+          name: "Buy Verified Coinbase Accounts",
+          href: "/product/buy-verified-coinbase-accounts",
+        },
       ],
     },
     {
@@ -132,42 +136,62 @@ export default function Navbar() {
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center space-x-8">
-            {navItems.map((item) => (
-              <div key={item.name} className="relative group">
-                <a
-                  href={item.href}
-                  className={`flex items-center space-x-1 py-2 px-1 text-sm font-medium transition-all duration-300 hover:-translate-y-0.5 relative ${
-                    item.isActive
-                      ? "text-green-500"
-                      : "text-gray-600 hover:text-green-500"
-                  }`}>
-                  <span>{item.name}</span>
+            {navItems.map((item) => {
+              const isDropdownActive =
+                item.hasDropdown &&
+                item.dropdownItems?.some((d) => pathname?.startsWith(d.href));
+              const isSelfActive = !item.hasDropdown && pathname === item.href;
+              const isActive = Boolean(isDropdownActive || isSelfActive);
+
+              return (
+                <div key={item.name} className="relative group">
+                  <a
+                    href={item.href}
+                    aria-current={isActive ? "page" : undefined}
+                    className={`flex items-center space-x-1 py-2 px-1 text-sm font-medium transition-all duration-300 hover:-translate-y-0.5 relative ${
+                      isActive
+                        ? "text-green-500"
+                        : "text-gray-600 hover:text-green-500"
+                    }`}>
+                    <span>{item.name}</span>
+                    {item.hasDropdown && (
+                      <ChevronDown className="w-4 h-4 transition-transform duration-300 group-hover:rotate-180" />
+                    )}
+                  </a>
+                  {/* Animated underline */}
+                  <div
+                    className={`absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-green-400 to-green-600 transition-all duration-300 ${
+                      isActive ? "w-full" : "w-0 group-hover:w-full"
+                    }`}></div>
+
+                  {/* Dropdown Menu */}
                   {item.hasDropdown && (
-                    <ChevronDown className="w-4 h-4 transition-transform duration-300 group-hover:rotate-180" />
+                    <div className="absolute left-0 mt-2 w-56 origin-top-left bg-white rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 divide-y divide-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform group-hover:translate-y-0 z-50">
+                      {item.dropdownItems.map((dropdownItem) => {
+                        const isDropdownItemActive = pathname?.startsWith(
+                          dropdownItem.href
+                        );
+                        return (
+                          <a
+                            key={dropdownItem.name}
+                            href={dropdownItem.href}
+                            aria-current={
+                              isDropdownItemActive ? "page" : undefined
+                            }
+                            className={`block px-4 py-3 text-sm transition-colors duration-200 ${
+                              isDropdownItemActive
+                                ? "bg-green-50 text-green-600"
+                                : "text-gray-700 hover:bg-green-50 hover:text-green-600"
+                            }`}>
+                            {dropdownItem.name}
+                          </a>
+                        );
+                      })}
+                    </div>
                   )}
-                </a>
-                {/* Animated underline */}
-                <div
-                  className={`absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-green-400 to-green-600 transition-all duration-300 ${
-                    item.isActive ? "w-full" : "w-0 group-hover:w-full"
-                  }`}></div>
-                
-                {/* Dropdown Menu */}
-                {item.hasDropdown && (
-                  <div className="absolute left-0 mt-2 w-56 origin-top-left bg-white rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 divide-y divide-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform group-hover:translate-y-0 z-50">
-                    {item.dropdownItems.map((dropdownItem) => (
-                      <a
-                        key={dropdownItem.name}
-                        href={dropdownItem.href}
-                        className="block px-4 py-3 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600 transition-colors duration-200"
-                      >
-                        {dropdownItem.name}
-                      </a>
-                    ))}
-                  </div>
-                )}
-              </div>
-            ))}
+                </div>
+              );
+            })}
           </div>
 
           {/* Cart and Mobile Menu */}
@@ -205,35 +229,55 @@ export default function Navbar() {
               : "max-h-0 opacity-0 overflow-hidden"
           }`}>
           <div className="py-4 space-y-2 border-t border-gray-200">
-            {navItems.map((item) => (
-              <div key={item.name}>
-                <a
-                  href={item.href}
-                  className={`flex items-center justify-between py-3 px-4 rounded-lg transition-all duration-200 ${
-                    item.isActive
-                      ? "bg-green-50 text-green-600 border-l-4 border-green-500"
-                      : "text-gray-600 hover:bg-gray-50 hover:text-green-500"
-                  }`}
-                  onClick={() => setIsMenuOpen(false)}>
-                  <span className="font-medium">{item.name}</span>
-                  {item.hasDropdown && <ChevronDown className="w-4 h-4" />}
-                </a>
-                {item.hasDropdown && (
-                  <div className="pl-6 space-y-1 mt-1">
-                    {item.dropdownItems.map((dropdownItem) => (
-                      <a
-                        key={dropdownItem.name}
-                        href={dropdownItem.href}
-                        className="block py-2 px-4 text-sm text-gray-600 hover:bg-green-50 hover:text-green-600 rounded-lg transition-colors duration-200"
-                        onClick={() => setIsMenuOpen(false)}
-                      >
-                        {dropdownItem.name}
-                      </a>
-                    ))}
-                  </div>
-                )}
-              </div>
-            ))}
+            {navItems.map((item) => {
+              const isDropdownActive =
+                item.hasDropdown &&
+                item.dropdownItems?.some((d) => pathname?.startsWith(d.href));
+              const isSelfActive = !item.hasDropdown && pathname === item.href;
+              const isActive = Boolean(isDropdownActive || isSelfActive);
+
+              return (
+                <div key={item.name}>
+                  <a
+                    href={item.href}
+                    aria-current={isActive ? "page" : undefined}
+                    className={`flex items-center justify-between py-3 px-4 rounded-lg transition-all duration-200 ${
+                      isActive
+                        ? "bg-green-50 text-green-600 border-l-4 border-green-500"
+                        : "text-gray-600 hover:bg-gray-50 hover:text-green-500"
+                    }`}
+                    onClick={() => setIsMenuOpen(false)}>
+                    <span className="font-medium">{item.name}</span>
+                    {item.hasDropdown && <ChevronDown className="w-4 h-4" />}
+                  </a>
+                  {item.hasDropdown && (
+                    <div className="pl-6 space-y-1 mt-1">
+                      {item.dropdownItems.map((dropdownItem) => {
+                        const isDropdownItemActive = pathname?.startsWith(
+                          dropdownItem.href
+                        );
+                        return (
+                          <a
+                            key={dropdownItem.name}
+                            href={dropdownItem.href}
+                            aria-current={
+                              isDropdownItemActive ? "page" : undefined
+                            }
+                            className={`block py-2 px-4 text-sm rounded-lg transition-colors duration-200 ${
+                              isDropdownItemActive
+                                ? "bg-green-50 text-green-600"
+                                : "text-gray-600 hover:bg-green-50 hover:text-green-600"
+                            }`}
+                            onClick={() => setIsMenuOpen(false)}>
+                            {dropdownItem.name}
+                          </a>
+                        );
+                      })}
+                    </div>
+                  )}
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>
