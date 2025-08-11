@@ -225,7 +225,7 @@ export default function ContactUs() {
             </button>
           </form>
         </div>
-      </motion.section>
-    </div>
+      </div>
+    </section>
   );
 }
