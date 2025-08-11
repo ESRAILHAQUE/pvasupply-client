@@ -8,7 +8,7 @@ export default function Contact() {
           </h2>
           <p className="text-xl mb-8">
             Contact us today to discuss how we can help you achieve your
-            marketing goals.
+            marketing goals. 
           </p>
           <form className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <input
