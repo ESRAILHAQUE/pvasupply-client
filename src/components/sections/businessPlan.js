@@ -249,10 +249,10 @@ const BusinessPlan = () => {
             height: particle.size,
             left: `${particle.x}%`,
             top: `${particle.y}%`,
+            animationDelay: `${particle.delay}s`,
           }}
           variants={particleVariants}
           animate="animate"
-          style={{ animationDelay: `${particle.delay}s` }}
         />
       ))}
 
@@ -367,7 +367,14 @@ const BusinessPlan = () => {
               variants={buttonVariants}
               whileHover="hover"
               whileTap="tap"
-              onClick={(e) => handleEmailClick(e, 'pvasupply0@gmail.com', 'Business Plan Inquiry', 'Hi PVA Supply Team,\n\nI would like to discuss my business needs and get a customized plan.\n\nPlease contact me at your earliest convenience.\n\nBest regards')}>
+              onClick={(e) =>
+                handleEmailClick(
+                  e,
+                  "pvasupply0@gmail.com",
+                  "Business Plan Inquiry",
+                  "Hi PVA Supply Team,\n\nI would like to discuss my business needs and get a customized plan.\n\nPlease contact me at your earliest convenience.\n\nBest regards"
+                )
+              }>
               {/* Button shine effect */}
               <motion.div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
 

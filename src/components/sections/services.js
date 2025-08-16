@@ -108,10 +108,9 @@ function Services() {
             }}>
             <motion.div
               className={`${service.bgColor} p-3 rounded-full mb-3 relative overflow-hidden`}
-              variants={iconVariants}
+              variants={floatingVariants}
               whileHover="hover"
               animate="animate"
-              variants={floatingVariants}
               style={{ animationDelay: `${service.delay}s` }}>
               <motion.div
                 className="absolute inset-0 bg-white/20 rounded-full"
