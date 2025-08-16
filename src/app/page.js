@@ -1,3 +1,4 @@
+"use client";
 
 import About from "@/components/sections/about";
 import AllProducts from "@/components/sections/allProducts";
@@ -9,14 +10,10 @@ import Purchase from "@/components/sections/purchase";
 import RealDocuments from "@/components/sections/realDocuments";
 import Services from "@/components/sections/services";
 
-
-
 export default function Home() {
   return (
     <div className="min-h-screen flex flex-col">
       <div className="flex-grow">
-        
-  
         <Hero />
         <RealDocuments />
         <Services />
@@ -26,11 +23,7 @@ export default function Home() {
         <BusinessPlan />
         <Contact />
         <CustomerReview />
-        
       </div>
-
-     
-  
     </div>
   );
 }

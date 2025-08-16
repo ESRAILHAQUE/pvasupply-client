@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import { useEmailHandler } from "@/hooks/useEmailHandler";
 import {
   Mail,
   Shield,
@@ -26,6 +27,7 @@ export default function BuyVerifiedPayPalAccounts() {
   const [quantity, setQuantity] = useState(1);
   const [selectedOption, setSelectedOption] = useState("90");
   const [openFaq, setOpenFaq] = useState(null);
+  const { handleEmailClick } = useEmailHandler();
 
   const accountOptions = [
     { value: "90", label: "Single Account", price: "$90.00" },
@@ -271,8 +273,8 @@ export default function BuyVerifiedPayPalAccounts() {
                   Premium Verified PayPal Accounts
                 </h3>
                 <p className="text-gray-700 leading-relaxed">
-                  PayPal is the world&apos;s leading online payment system, and our
-                  fully verified accounts provide seamless access to global
+                  PayPal is the world&apos;s leading online payment system, and
+                  our fully verified accounts provide seamless access to global
                   transactions. We specialize in providing 100% verified
                   personal and business PayPal accounts for USA, UK, CA and
                   other countries. Each account comes complete with all
@@ -285,8 +287,8 @@ export default function BuyVerifiedPayPalAccounts() {
                   Whether you need an account for e-commerce, freelancing, or
                   business transactions, our verified PayPal accounts offer the
                   highest success rates with complete documentation. We maintain
-                  strict quality control to ensure every account meets PayPal&apos;s
-                  verification standards.
+                  strict quality control to ensure every account meets
+                  PayPal&apos;s verification standards.
                 </p>
               </div>
 
@@ -376,23 +378,24 @@ export default function BuyVerifiedPayPalAccounts() {
                     <div className="font-medium text-blue-600 mb-1">
                       Email Support
                     </div>
-                    <div className="text-gray-700">pvasmmepro@gmail.com</div>
+                    <a
+                      href="mailto:pvasupply0@gmail.com"
+                      onClick={(e) => handleEmailClick(e, 'pvasupply0@gmail.com', 'PayPal Account Support', 'Hi PVA Supply Team,\n\nI need assistance with PayPal account services.\n\nPlease contact me at your earliest convenience.\n\nBest regards')}
+                      className="text-gray-700 hover:text-blue-600 cursor-pointer transition-colors">
+                      pvasupply0@gmail.com
+                    </a>
                   </div>
                   <div className="bg-white p-3 rounded-lg border border-blue-100">
                     <div className="font-medium text-blue-600 mb-1">
                       Telegram
                     </div>
-                    <div className="text-gray-700">@pvasmmepro</div>
-                  </div>
-                  <div className="bg-white p-3 rounded-lg border border-blue-100">
-                    <div className="font-medium text-blue-600 mb-1">Skype</div>
-                    <div className="text-gray-700">pvasmmepro</div>
+                    <div className="text-gray-700">@pvasupply</div>
                   </div>
                   <div className="bg-white p-3 rounded-lg border border-blue-100">
                     <div className="font-medium text-blue-600 mb-1">
                       WhatsApp
                     </div>
-                    <div className="text-gray-700">+1 (614) 908-6231</div>
+                    <div className="text-gray-700">WhatsApp Chat</div>
                   </div>
                 </div>
               </div>
@@ -651,10 +654,11 @@ export default function BuyVerifiedPayPalAccounts() {
               </h2>
               <div className="space-y-4 text-gray-700">
                 <p>
-                  When you purchase a verified PayPal account from us, you&apos;re
-                  not just buying access - you&apos;re investing in peace of mind.
-                  Our accounts come with complete documentation and full support
-                  to ensure seamless integration with your business operations.
+                  When you purchase a verified PayPal account from us,
+                  you&apos;re not just buying access - you&apos;re investing in
+                  peace of mind. Our accounts come with complete documentation
+                  and full support to ensure seamless integration with your
+                  business operations.
                 </p>
                 <div className="bg-blue-50 rounded-lg p-4 border border-blue-100">
                   <h4 className="font-semibold text-blue-800 mb-3">
