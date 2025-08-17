@@ -1,19 +1,21 @@
 "use client";
 import { useState } from "react";
 import { usePathname } from "next/navigation";
+import Link from "next/link";
 import { ChevronDown, ShoppingCart, Menu, X, Crown } from "lucide-react";
+import { useCart } from "../../contexts/CartContext";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [cartCount, setCartCount] = useState(0);
   const pathname = usePathname();
+  const { getCartCount } = useCart();
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
   const handleCartClick = () => {
-    setCartCount((prev) => (prev + 1) % 10);
+    // Cart click handled by Link component
   };
 
   const navItems = [
@@ -30,7 +32,7 @@ export default function Navbar() {
         },
         {
           name: "Buy Google Voice Accounts",
-          href: "/pruduct/buy-google-voice-accounts",
+          href: "/product/buy-google-voice-accounts",
         },
         { name: "Buy Naver Accounts", href: "/product/buy-naver-accounts" },
         { name: "Buy Twitter Accounts", href: "/product/buy-twitter-accounts" },
@@ -45,22 +47,29 @@ export default function Navbar() {
     },
     {
       name: "Crypto Accounts",
-      href: "/bank",
+      href: "/crypto",
       isActive: false,
       hasDropdown: true,
       dropdownItems: [
         {
-          name: "Buy verified binance accounts",
-          href: "/bank/buy-verified-binance-accounts",
+          name: "Buy Verified Binance Accounts",
+          href: "/product/buy-verified-binance-accounts",
         },
         {
           name: "Buy Verified Bybit Accounts",
           href: "/product/buy-verified-bybit-accounts",
         },
-        { name: "EU product Accounts", href: "/product/eu" },
         {
           name: "Buy Verified Coinbase Accounts",
           href: "/product/buy-verified-coinbase-accounts",
+        },
+        {
+          name: "Buy Verified Crypto.com Accounts",
+          href: "/product/buy-verified-crypto-com-accounts",
+        },
+        {
+          name: "Buy Verified OKX Accounts",
+          href: "/product/buy-verified-okx-accounts",
         },
       ],
     },
@@ -91,6 +100,14 @@ export default function Navbar() {
           href: "/product/buy-verified-stripe-accounts",
         },
         {
+          name: "Buy Verified Payoneer Accounts",
+          href: "/product/buy-verified-payoneer-accounts",
+        },
+        {
+          name: "Buy Verified Skrill Accounts",
+          href: "/product/buy-verified-skrill-accounts",
+        },
+        {
           name: "Buy Verified Revolut Accounts",
           href: "/product/buy-verified-revolut-accounts",
         },
@@ -104,11 +121,47 @@ export default function Navbar() {
         },
         {
           name: "Buy Verified Chase Bank Accounts",
-          href: "/product/Buy Verified Chase Bank Accounts",
+          href: "/product/buy-verified-chase-bank-accounts",
         },
         {
           name: "Buy Verified OnlyFans Accounts",
           href: "/product/buy-verified-onlyfans-accounts",
+        },
+      ],
+    },
+    {
+      name: "Payment Services",
+      href: "/payment-services",
+      isActive: false,
+      hasDropdown: true,
+      dropdownItems: [
+        {
+          name: "Buy Verified Apple Pay Accounts",
+          href: "/product/buy-verified-apple-pay-accounts",
+        },
+      ],
+    },
+    {
+      name: "Marketplace Accounts",
+      href: "/marketplace-accounts",
+      isActive: false,
+      hasDropdown: true,
+      dropdownItems: [
+        {
+          name: "Buy Walmart Seller Account",
+          href: "/product/buy-walmart-seller-account",
+        },
+      ],
+    },
+    {
+      name: "Advertising Accounts",
+      href: "/advertising-accounts",
+      isActive: false,
+      hasDropdown: true,
+      dropdownItems: [
+        {
+          name: "Buy Verified Google Ads Accounts",
+          href: "/product/buy-verified-google-ads-accounts",
         },
       ],
     },
@@ -125,14 +178,16 @@ export default function Navbar() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16 lg:h-20">
           {/* Logo */}
-          <div className="flex items-center space-x-3">
+          <Link
+            href="/"
+            className="flex items-center space-x-3 hover:scale-105 transition-transform duration-300">
             <div className="bg-gradient-to-br from-red-500 to-red-600 p-2.5 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5">
               <Crown className="w-6 h-6 text-white" />
             </div>
             <div className="text-xl lg:text-2xl font-bold text-gray-800">
               PVA<span className="text-green-500">Supp</span>ly
             </div>
-          </div>
+          </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center space-x-8">
@@ -145,7 +200,7 @@ export default function Navbar() {
 
               return (
                 <div key={item.name} className="relative group">
-                  <a
+                  <Link
                     href={item.href}
                     aria-current={isActive ? "page" : undefined}
                     className={`flex items-center space-x-1 py-2 px-1 text-sm font-medium transition-all duration-300 hover:-translate-y-0.5 relative ${
@@ -157,7 +212,7 @@ export default function Navbar() {
                     {item.hasDropdown && (
                       <ChevronDown className="w-4 h-4 transition-transform duration-300 group-hover:rotate-180" />
                     )}
-                  </a>
+                  </Link>
                   {/* Animated underline */}
                   <div
                     className={`absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-green-400 to-green-600 transition-all duration-300 ${
@@ -172,7 +227,7 @@ export default function Navbar() {
                           dropdownItem.href
                         );
                         return (
-                          <a
+                          <Link
                             key={dropdownItem.name}
                             href={dropdownItem.href}
                             aria-current={
@@ -184,7 +239,7 @@ export default function Navbar() {
                                 : "text-gray-700 hover:bg-green-50 hover:text-green-600"
                             }`}>
                             {dropdownItem.name}
-                          </a>
+                          </Link>
                         );
                       })}
                     </div>
@@ -197,16 +252,16 @@ export default function Navbar() {
           {/* Cart and Mobile Menu */}
           <div className="flex items-center space-x-4">
             {/* Cart Button */}
-            <button
-              onClick={handleCartClick}
+            <Link
+              href="/cart"
               className="relative bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white p-3 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2">
               <ShoppingCart className="w-5 h-5" />
-              {cartCount > 0 && (
+              {getCartCount() > 0 && (
                 <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center animate-pulse">
-                  {cartCount}
+                  {getCartCount()}
                 </span>
               )}
-            </button>
+            </Link>
 
             {/* Mobile Menu Button */}
             <button
@@ -238,7 +293,7 @@ export default function Navbar() {
 
               return (
                 <div key={item.name}>
-                  <a
+                  <Link
                     href={item.href}
                     aria-current={isActive ? "page" : undefined}
                     className={`flex items-center justify-between py-3 px-4 rounded-lg transition-all duration-200 ${
@@ -249,7 +304,7 @@ export default function Navbar() {
                     onClick={() => setIsMenuOpen(false)}>
                     <span className="font-medium">{item.name}</span>
                     {item.hasDropdown && <ChevronDown className="w-4 h-4" />}
-                  </a>
+                  </Link>
                   {item.hasDropdown && (
                     <div className="pl-6 space-y-1 mt-1">
                       {item.dropdownItems.map((dropdownItem) => {
@@ -257,7 +312,7 @@ export default function Navbar() {
                           dropdownItem.href
                         );
                         return (
-                          <a
+                          <Link
                             key={dropdownItem.name}
                             href={dropdownItem.href}
                             aria-current={
@@ -270,7 +325,7 @@ export default function Navbar() {
                             }`}
                             onClick={() => setIsMenuOpen(false)}>
                             {dropdownItem.name}
-                          </a>
+                          </Link>
                         );
                       })}
                     </div>

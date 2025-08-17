@@ -17,34 +17,32 @@ import {
 } from "lucide-react";
 import { useCart } from "../../../contexts/CartContext";
 
-export default function BuyVerifiedPayPalAccounts() {
+export default function BuyVerifiedWiseAccounts() {
   const [selectedOption, setSelectedOption] = useState("");
   const [quantity, setQuantity] = useState(1);
   const [activeTab, setActiveTab] = useState("description");
   const { addToCart } = useCart();
 
   const features = [
-    "Email verified",
-    "Phone number verified",
-    "SSN verified",
-    "Selfie verified",
-    "Driver's License verified",
-    "Billing papers verified",
-    "LLC verified (for business accounts)",
-    "100% replacement guarantee",
-    "100% satisfaction guarantee — better service, better results",
+    "Guaranteed satisfaction & recovery",
+    "Email and phone access",
+    "Bitcoin transactions enabled",
+    "Personal & business accounts available",
+    "Phone verified",
+    "Real Gmail accounts used",
+    "Bank & card verified",
+    "Complete verification documents provided",
   ];
 
   const productFeatures = [
-    "Email verified",
-    "Phone number verified",
-    "SSN verified",
-    "Selfie verified",
-    "Driver's License verified",
-    "Billing papers verified",
-    "LLC verified (for business accounts)",
-    "100% replacement guarantee",
-    "100% satisfaction guarantee — better service, better results",
+    "Guaranteed satisfaction & recovery",
+    "Email and phone access",
+    "Bitcoin transactions enabled",
+    "Personal & business accounts available",
+    "Phone verified",
+    "Real Gmail accounts used",
+    "Bank & card verified",
+    "Complete verification documents provided",
   ];
 
   const contactInfo = [
@@ -55,16 +53,16 @@ export default function BuyVerifiedPayPalAccounts() {
 
   const sidebarItems = [
     "Introduction",
-    "Your relationship with PayPal",
-    "Using PayPal services",
-    "Content in PayPal services",
-    "Software in PayPal services",
+    "Your relationship with Wise",
+    "Using Wise services",
+    "Content in Wise services",
+    "Software in Wise services",
     "In-case of problems or disagreements",
     "About these terms",
     "Updates",
     "Definitions",
     "List of services & service-specific additional terms",
-    "How PayPal handles government requests for user information",
+    "How Wise handles government requests for user information",
   ];
 
   const handleAddToCart = () => {
@@ -74,15 +72,14 @@ export default function BuyVerifiedPayPalAccounts() {
     }
 
     const optionPrices = {
-      single: 110,
-      two: 130,
-      three: 150,
-      bulk: 150,
+      basic: 200,
+      premium: 300,
+      enterprise: 380,
     };
 
     const product = {
-      id: "paypal-accounts",
-      name: "Buy Verified PayPal Accounts",
+      id: "wise-accounts",
+      name: "Buy Verified Wise Accounts",
       option: selectedOption,
       price: optionPrices[selectedOption],
       quantity: quantity,
@@ -116,15 +113,15 @@ export default function BuyVerifiedPayPalAccounts() {
                 <h1 className="text-3xl font-bold leading-tight">
                   <span className="text-green-600">BUY VERIFIED</span>
                   <br />
-                  <span className="text-black">PAYPAL ACCOUNTS</span>
+                  <span className="text-black">WISE ACCOUNTS</span>
                 </h1>
               </div>
 
-              {/* PayPal Graphic */}
+              {/* Wise Graphic */}
               <div className="relative mb-6">
                 <div className="w-24 h-20 bg-white rounded-lg shadow-md relative">
                   <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="text-blue-500 text-3xl font-bold">P</div>
+                    <div className="text-blue-500 text-3xl font-bold">W</div>
                   </div>
                 </div>
 
@@ -173,7 +170,7 @@ export default function BuyVerifiedPayPalAccounts() {
               <span>/</span>
               <span>Products</span>
               <span>/</span>
-              <span className="text-gray-900">PayPal Accounts</span>
+              <span className="text-gray-900">Wise Accounts</span>
             </div>
 
             {/* Category Link */}
@@ -187,28 +184,34 @@ export default function BuyVerifiedPayPalAccounts() {
 
             {/* Product Title */}
             <h1 className="text-2xl font-bold text-gray-900 mb-2">
-              Buy Verified PayPal Accounts
+              Buy Verified Wise Accounts
             </h1>
 
             {/* Price Range */}
             <div className="mb-4">
-              <span className="text-3xl font-bold text-green-600">$110.00</span>
-              <span className="text-gray-500 ml-2">- $150.00</span>
+              <span className="text-3xl font-bold text-green-600">$200.00</span>
+              <span className="text-gray-500 ml-2">- $380.00</span>
             </div>
 
             {/* Product Description */}
             <p className="text-gray-600 mb-6">
-              Looking for a secure and hassle-free way to purchase a verified
-              PayPal account? At pvasupply.com, we provide fully verified PayPal
-              accounts for both personal and business use — available in the
-              USA, UK, Canada, and other countries. Better security, better
-              convenience, better results.
+              Looking to streamline your international financial transactions? A
+              verified Wise (formerly TransferWise) account is the ultimate
+              online banking solution! With Wise, you can effortlessly send and
+              receive money globally, benefiting from low fees, lightning-fast
+              processing times, and competitive exchange rates.
+            </p>
+            <p className="text-gray-600 mb-6">
+              At pvasupply.com, our verified Wise accounts are designed for
+              users who value convenience and peace of mind. Whether for
+              personal or business purposes, our accounts are ready for
+              immediate use.
             </p>
 
             {/* Features List */}
             <div className="space-y-2 mb-6">
               <h3 className="text-base font-bold text-gray-900 mb-3">
-                Features of Our PayPal Accounts:
+                Features of Verified Wise Accounts:
               </h3>
               {productFeatures.map((feature, index) => (
                 <div key={index} className="flex items-center gap-2">
@@ -253,10 +256,11 @@ export default function BuyVerifiedPayPalAccounts() {
                     onChange={(e) => setSelectedOption(e.target.value)}
                     className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent appearance-none bg-white">
                     <option value="">Choose an option</option>
-                    <option value="single">Single Account - $110.00</option>
-                    <option value="two">2 Accounts - $130.00</option>
-                    <option value="three">3 Accounts - $150.00</option>
-                    <option value="bulk">Bulk Package - $150.00</option>
+                    <option value="basic">Basic Package - $200.00</option>
+                    <option value="premium">Premium Package - $300.00</option>
+                    <option value="enterprise">
+                      Enterprise Package - $380.00
+                    </option>
                   </select>
                   <ChevronDown className="absolute right-3 top-2.5 h-4 w-4 text-gray-400 pointer-events-none" />
                 </div>
@@ -304,7 +308,7 @@ export default function BuyVerifiedPayPalAccounts() {
               <div className="grid grid-cols-2 gap-4 text-sm">
                 <div>
                   <span className="text-gray-500">SKU:</span>
-                  <span className="ml-2 text-gray-900">PAYPAL-001</span>
+                  <span className="ml-2 text-gray-900">WISE-001</span>
                 </div>
                 <div>
                   <span className="text-gray-500">Category:</span>
@@ -344,27 +348,28 @@ export default function BuyVerifiedPayPalAccounts() {
             {activeTab === "description" && (
               <div className="prose max-w-none">
                 <h3 className="text-lg font-semibold text-gray-900 mb-4">
-                  Verified PayPal Accounts for Online Payments
+                  Verified Wise Accounts for International Banking
                 </h3>
                 <p className="text-gray-600 mb-4">
-                  Our verified PayPal accounts are perfect for online payments,
-                  business transactions, and e-commerce operations. Each account
-                  comes with full verification and established history.
+                  Our verified Wise accounts are perfect for international money
+                  transfers, multi-currency banking, and global financial
+                  services. Each account comes with full verification and
+                  established history.
                 </p>
                 <p className="text-gray-600 mb-4">
-                  Whether you need PayPal accounts for business payments, online
-                  shopping, or international transactions, our verified accounts
-                  provide the foundation you need for success.
+                  Whether you need Wise accounts for international business,
+                  personal transfers, or multi-currency banking, our verified
+                  accounts provide the foundation you need for success.
                 </p>
                 <h4 className="text-md font-semibold text-gray-900 mb-2">
                   What You Get:
                 </h4>
                 <ul className="list-disc list-inside text-gray-600 space-y-1">
-                  <li>Fully verified PayPal accounts</li>
+                  <li>Fully verified Wise accounts</li>
                   <li>Phone number verification</li>
                   <li>Email access and recovery</li>
-                  <li>Photo ID verification</li>
-                  <li>Bank account linking</li>
+                  <li>Multi-currency support</li>
+                  <li>International transfer capability</li>
                   <li>24/7 customer support</li>
                 </ul>
               </div>

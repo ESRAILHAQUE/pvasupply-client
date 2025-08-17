@@ -17,34 +17,32 @@ import {
 } from "lucide-react";
 import { useCart } from "../../../contexts/CartContext";
 
-export default function BuyVerifiedPayPalAccounts() {
+export default function BuyVerifiedGoogleAdsAccounts() {
   const [selectedOption, setSelectedOption] = useState("");
   const [quantity, setQuantity] = useState(1);
   const [activeTab, setActiveTab] = useState("description");
   const { addToCart } = useCart();
 
   const features = [
-    "Email verified",
-    "Phone number verified",
-    "SSN verified",
-    "Selfie verified",
-    "Driver's License verified",
-    "Billing papers verified",
-    "LLC verified (for business accounts)",
-    "100% replacement guarantee",
-    "100% satisfaction guarantee — better service, better results",
+    "Guaranteed Satisfaction & Recovery",
+    "Email and Phone Access",
+    "Fully KYC Verified",
+    "Personal & Business Accounts Available",
+    "Phone Verified",
+    "Real Gmail Accounts Used",
+    "Pre-Activated & Ready for Ads",
+    "Billing & Payment Methods Verified",
   ];
 
   const productFeatures = [
-    "Email verified",
-    "Phone number verified",
-    "SSN verified",
-    "Selfie verified",
-    "Driver's License verified",
-    "Billing papers verified",
-    "LLC verified (for business accounts)",
-    "100% replacement guarantee",
-    "100% satisfaction guarantee — better service, better results",
+    "Guaranteed Satisfaction & Recovery",
+    "Email and Phone Access",
+    "Fully KYC Verified",
+    "Personal & Business Accounts Available",
+    "Phone Verified",
+    "Real Gmail Accounts Used",
+    "Pre-Activated & Ready for Ads",
+    "Billing & Payment Methods Verified",
   ];
 
   const contactInfo = [
@@ -55,16 +53,16 @@ export default function BuyVerifiedPayPalAccounts() {
 
   const sidebarItems = [
     "Introduction",
-    "Your relationship with PayPal",
-    "Using PayPal services",
-    "Content in PayPal services",
-    "Software in PayPal services",
+    "Your relationship with Google Ads",
+    "Using Google Ads services",
+    "Content in Google Ads services",
+    "Software in Google Ads services",
     "In-case of problems or disagreements",
     "About these terms",
     "Updates",
     "Definitions",
     "List of services & service-specific additional terms",
-    "How PayPal handles government requests for user information",
+    "How Google Ads handles government requests for user information",
   ];
 
   const handleAddToCart = () => {
@@ -74,19 +72,18 @@ export default function BuyVerifiedPayPalAccounts() {
     }
 
     const optionPrices = {
-      single: 110,
-      two: 130,
-      three: 150,
-      bulk: 150,
+      basic: 220,
+      premium: 270,
+      enterprise: 320,
     };
 
     const product = {
-      id: "paypal-accounts",
-      name: "Buy Verified PayPal Accounts",
+      id: "google-ads-accounts",
+      name: "Buy Verified Google Ads Accounts",
       option: selectedOption,
       price: optionPrices[selectedOption],
       quantity: quantity,
-      category: "Bank Accounts",
+      category: "Advertising Accounts",
     };
 
     addToCart(product);
@@ -99,66 +96,47 @@ export default function BuyVerifiedPayPalAccounts() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
           {/* Left Section - Promotional Banner */}
           <div className="relative h-[600px]">
-            <div className="bg-gradient-to-br from-orange-400 via-orange-500 to-yellow-400 rounded-xl p-6 h-full relative overflow-hidden shadow-lg">
+            <div className="bg-gradient-to-br from-blue-500 via-blue-600 to-red-500 rounded-xl p-6 h-full relative overflow-hidden shadow-lg">
               {/* Sale Badge */}
               <div className="absolute top-3 left-3 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded-full">
                 Sale!
               </div>
 
-              {/* Order Now Badge */}
-              <div className="absolute top-3 right-3 bg-black text-white text-xs font-bold px-3 py-1.5 rounded-lg flex items-center gap-1.5">
-                <Search className="w-3 h-3" />
-                ORDER NOW
-              </div>
-
-              {/* Main Title */}
-              <div className="mt-12 mb-4">
-                <h1 className="text-3xl font-bold leading-tight">
-                  <span className="text-green-600">BUY VERIFIED</span>
-                  <br />
-                  <span className="text-black">PAYPAL ACCOUNTS</span>
-                </h1>
-              </div>
-
-              {/* PayPal Graphic */}
-              <div className="relative mb-6">
-                <div className="w-24 h-20 bg-white rounded-lg shadow-md relative">
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="text-blue-500 text-3xl font-bold">P</div>
-                  </div>
+              {/* Main Content */}
+              <div className="text-white h-full flex flex-col justify-between">
+                <div>
+                  <h2 className="text-3xl font-bold mb-4">
+                    Buy Verified Google Ads Accounts
+                  </h2>
+                  <p className="text-lg mb-6">
+                                         Looking to purchase a fully verified Google Ads account?
+                     You&apos;re in the right place! At https://pvasupply.com/, we
+                     provide 100% secure and reliable verified Google Ads
+                     accounts, ready for running high-performance ad campaigns.
+                     These accounts allow you to create and manage ads
+                     effortlessly while staying compliant with Google&apos;s policies.
+                  </p>
+                  <p className="text-lg mb-6">
+                    Our verified Google Ads accounts are perfect for businesses,
+                    marketers, and advertisers looking to scale campaigns
+                    without restrictions.
+                  </p>
                 </div>
 
-                {/* 15% OFF Badge */}
-                <div className="absolute -top-1 -right-1 w-12 h-12 bg-green-500 border-3 border-yellow-400 rounded-full flex items-center justify-center">
-                  <span className="text-white text-xs font-bold">15% OFF</span>
-                </div>
-              </div>
-
-              {/* Service Features */}
-              <div className="space-y-3 mb-6">
-                {features.map((feature, index) => (
-                  <div key={index} className="flex items-center gap-2">
-                    <Check className="w-4 h-4 text-green-600" />
-                    <span className="text-sm text-gray-800 font-medium">
-                      {feature}
-                    </span>
-                  </div>
-                ))}
-              </div>
-
-              {/* Contact Section */}
-              <div className="absolute bottom-6 left-6 right-6">
-                <div className="bg-white/20 backdrop-blur-sm rounded-lg p-4">
-                  <h3 className="text-white font-bold mb-3">Contact Us</h3>
-                  <div className="space-y-2">
-                    {contactInfo.map((info, index) => (
-                      <div
-                        key={index}
-                        className="flex items-center gap-2 text-white text-sm">
-                        <div className="w-2 h-2 bg-white rounded-full"></div>
-                        <span>{info.text}</span>
-                      </div>
-                    ))}
+                {/* Contact Section */}
+                <div className="absolute bottom-6 left-6 right-6">
+                  <div className="bg-white/20 backdrop-blur-sm rounded-lg p-4">
+                    <h3 className="text-white font-bold mb-3">Contact Us</h3>
+                    <div className="space-y-2">
+                      {contactInfo.map((info, index) => (
+                        <div
+                          key={index}
+                          className="flex items-center gap-2 text-white text-sm">
+                          <div className="w-2 h-2 bg-white rounded-full"></div>
+                          <span>{info.text}</span>
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 </div>
               </div>
@@ -166,49 +144,46 @@ export default function BuyVerifiedPayPalAccounts() {
           </div>
 
           {/* Right Section - Product Details */}
-          <div className="bg-white rounded-lg p-6 shadow-lg">
-            {/* Breadcrumbs */}
-            <div className="flex items-center gap-2 text-sm text-gray-500 mb-4">
-              <span>Home</span>
-              <span>/</span>
-              <span>Products</span>
-              <span>/</span>
-              <span className="text-gray-900">PayPal Accounts</span>
-            </div>
-
+          <div className="space-y-6">
             {/* Category Link */}
             <div className="mb-4">
               <a
                 href="#"
                 className="text-blue-600 hover:text-blue-800 text-sm font-medium">
-                Bank Accounts
+                Advertising Accounts
               </a>
             </div>
 
             {/* Product Title */}
             <h1 className="text-2xl font-bold text-gray-900 mb-2">
-              Buy Verified PayPal Accounts
+              Buy Verified Google Ads Accounts
             </h1>
 
             {/* Price Range */}
             <div className="mb-4">
-              <span className="text-3xl font-bold text-green-600">$110.00</span>
-              <span className="text-gray-500 ml-2">- $150.00</span>
+              <span className="text-3xl font-bold text-green-600">$220.00</span>
+              <span className="text-gray-500 ml-2">- $320.00</span>
             </div>
 
             {/* Product Description */}
             <p className="text-gray-600 mb-6">
-              Looking for a secure and hassle-free way to purchase a verified
-              PayPal account? At pvasupply.com, we provide fully verified PayPal
-              accounts for both personal and business use — available in the
-              USA, UK, Canada, and other countries. Better security, better
-              convenience, better results.
+                             Looking to purchase a fully verified Google Ads account? You&apos;re in
+               the right place! At https://pvasupply.com/, we provide 100% secure
+               and reliable verified Google Ads accounts, ready for running
+               high-performance ad campaigns. These accounts allow you to create
+               and manage ads effortlessly while staying compliant with Google&apos;s
+               policies.
+            </p>
+            <p className="text-gray-600 mb-6">
+              Our verified Google Ads accounts are perfect for businesses,
+              marketers, and advertisers looking to scale campaigns without
+              restrictions.
             </p>
 
             {/* Features List */}
             <div className="space-y-2 mb-6">
               <h3 className="text-base font-bold text-gray-900 mb-3">
-                Features of Our PayPal Accounts:
+                Features of Verified Google Ads Accounts:
               </h3>
               {productFeatures.map((feature, index) => (
                 <div key={index} className="flex items-center gap-2">
@@ -240,12 +215,16 @@ export default function BuyVerifiedPayPalAccounts() {
               </div>
             </div>
 
-            {/* Purchase Section */}
-            <div className="space-y-4">
+            {/* Product Options */}
+            <div className="bg-white rounded-lg p-6 shadow-sm border">
+              <h3 className="text-lg font-semibold text-gray-900 mb-4">
+                Choose Your Package
+              </h3>
+
               {/* Option Selection */}
-              <div>
+              <div className="mb-4">
                 <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Select Option
+                  Select Package
                 </label>
                 <div className="relative">
                   <select
@@ -253,17 +232,18 @@ export default function BuyVerifiedPayPalAccounts() {
                     onChange={(e) => setSelectedOption(e.target.value)}
                     className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent appearance-none bg-white">
                     <option value="">Choose an option</option>
-                    <option value="single">Single Account - $110.00</option>
-                    <option value="two">2 Accounts - $130.00</option>
-                    <option value="three">3 Accounts - $150.00</option>
-                    <option value="bulk">Bulk Package - $150.00</option>
+                    <option value="basic">Basic Package - $220.00</option>
+                    <option value="premium">Premium Package - $270.00</option>
+                    <option value="enterprise">
+                      Enterprise Package - $320.00
+                    </option>
                   </select>
                   <ChevronDown className="absolute right-3 top-2.5 h-4 w-4 text-gray-400 pointer-events-none" />
                 </div>
               </div>
 
               {/* Quantity Selection */}
-              <div>
+              <div className="mb-6">
                 <label className="block text-sm font-medium text-gray-700 mb-2">
                   Quantity
                 </label>
@@ -295,29 +275,15 @@ export default function BuyVerifiedPayPalAccounts() {
                 onClick={handleAddToCart}
                 className="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-2.5 px-4 rounded-md transition duration-200 flex items-center justify-center gap-2 text-sm">
                 <ShoppingCart className="w-4 h-4" />
-                Add to cart
+                Add to Cart
               </button>
-            </div>
-
-            {/* Product Info */}
-            <div className="mt-6 pt-6 border-t border-gray-200">
-              <div className="grid grid-cols-2 gap-4 text-sm">
-                <div>
-                  <span className="text-gray-500">SKU:</span>
-                  <span className="ml-2 text-gray-900">PAYPAL-001</span>
-                </div>
-                <div>
-                  <span className="text-gray-500">Category:</span>
-                  <span className="ml-2 text-gray-900">Bank Accounts</span>
-                </div>
-              </div>
             </div>
           </div>
         </div>
 
-        {/* Detailed Description Section */}
-        <div className="bg-white rounded-lg shadow-lg mb-8">
-          {/* Tabs */}
+        {/* Bottom Section - Tabs */}
+        <div className="bg-white rounded-lg shadow-sm border">
+          {/* Tab Navigation */}
           <div className="border-b border-gray-200">
             <nav className="flex space-x-8 px-6">
               {[
@@ -342,29 +308,30 @@ export default function BuyVerifiedPayPalAccounts() {
           {/* Tab Content */}
           <div className="p-6">
             {activeTab === "description" && (
-              <div className="prose max-w-none">
-                <h3 className="text-lg font-semibold text-gray-900 mb-4">
-                  Verified PayPal Accounts for Online Payments
+              <div className="space-y-4">
+                <h3 className="text-lg font-semibold text-gray-900">
+                  About Our Google Ads Accounts
                 </h3>
                 <p className="text-gray-600 mb-4">
-                  Our verified PayPal accounts are perfect for online payments,
-                  business transactions, and e-commerce operations. Each account
-                  comes with full verification and established history.
+                  Our verified Google Ads accounts are perfect for digital
+                  marketing, online advertising, and campaign management. Each
+                  account comes with full verification and established history.
                 </p>
                 <p className="text-gray-600 mb-4">
-                  Whether you need PayPal accounts for business payments, online
-                  shopping, or international transactions, our verified accounts
-                  provide the foundation you need for success.
+                  Whether you need Google Ads accounts for business marketing,
+                  client campaigns, or advertising services, our verified
+                  accounts provide the foundation you need for success.
                 </p>
                 <h4 className="text-md font-semibold text-gray-900 mb-2">
                   What You Get:
                 </h4>
                 <ul className="list-disc list-inside text-gray-600 space-y-1">
-                  <li>Fully verified PayPal accounts</li>
-                  <li>Phone number verification</li>
-                  <li>Email access and recovery</li>
-                  <li>Photo ID verification</li>
-                  <li>Bank account linking</li>
+                  <li>Fully verified Google Ads accounts</li>
+                  <li>Complete KYC verification</li>
+                  <li>Billing and payment methods</li>
+                  <li>Email and phone access</li>
+                  <li>Pre-activated for immediate use</li>
+                  <li>Recovery guarantee</li>
                   <li>24/7 customer support</li>
                 </ul>
               </div>
@@ -377,8 +344,10 @@ export default function BuyVerifiedPayPalAccounts() {
                 </h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   {productFeatures.map((feature, index) => (
-                    <div key={index} className="flex items-start gap-3">
-                      <Check className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
+                    <div
+                      key={index}
+                      className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg">
+                      <Check className="w-4 h-4 text-green-600" />
                       <span className="text-gray-700">{feature}</span>
                     </div>
                   ))}

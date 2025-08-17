@@ -17,34 +17,32 @@ import {
 } from "lucide-react";
 import { useCart } from "../../../contexts/CartContext";
 
-export default function BuyVerifiedPayPalAccounts() {
+export default function BuyVerifiedBybitAccounts() {
   const [selectedOption, setSelectedOption] = useState("");
   const [quantity, setQuantity] = useState(1);
   const [activeTab, setActiveTab] = useState("description");
   const { addToCart } = useCart();
 
   const features = [
-    "Email verified",
-    "Phone number verified",
-    "SSN verified",
-    "Selfie verified",
-    "Driver's License verified",
-    "Billing papers verified",
-    "LLC verified (for business accounts)",
-    "100% replacement guarantee",
-    "100% satisfaction guarantee — better service, better results",
+    "100% satisfaction & recovery guarantee",
+    "Instant access with email & phone credentials",
+    "Fully KYC verified",
+    "Personal & business accounts available",
+    "Phone verified for added security",
+    "Real Gmail accounts used",
+    "Bank & card linked & verified",
+    "Complete verification documents included",
   ];
 
   const productFeatures = [
-    "Email verified",
-    "Phone number verified",
-    "SSN verified",
-    "Selfie verified",
-    "Driver's License verified",
-    "Billing papers verified",
-    "LLC verified (for business accounts)",
-    "100% replacement guarantee",
-    "100% satisfaction guarantee — better service, better results",
+    "100% satisfaction & recovery guarantee",
+    "Instant access with email & phone credentials",
+    "Fully KYC verified",
+    "Personal & business accounts available",
+    "Phone verified for added security",
+    "Real Gmail accounts used",
+    "Bank & card linked & verified",
+    "Complete verification documents included",
   ];
 
   const contactInfo = [
@@ -55,16 +53,16 @@ export default function BuyVerifiedPayPalAccounts() {
 
   const sidebarItems = [
     "Introduction",
-    "Your relationship with PayPal",
-    "Using PayPal services",
-    "Content in PayPal services",
-    "Software in PayPal services",
+    "Your relationship with Bybit",
+    "Using Bybit services",
+    "Content in Bybit services",
+    "Software in Bybit services",
     "In-case of problems or disagreements",
     "About these terms",
     "Updates",
     "Definitions",
     "List of services & service-specific additional terms",
-    "How PayPal handles government requests for user information",
+    "How Bybit handles government requests for user information",
   ];
 
   const handleAddToCart = () => {
@@ -74,19 +72,18 @@ export default function BuyVerifiedPayPalAccounts() {
     }
 
     const optionPrices = {
-      single: 110,
-      two: 130,
-      three: 150,
-      bulk: 150,
+      basic: 170,
+      premium: 220,
+      enterprise: 270,
     };
 
     const product = {
-      id: "paypal-accounts",
-      name: "Buy Verified PayPal Accounts",
+      id: "bybit-accounts",
+      name: "Buy Verified Bybit Accounts",
       option: selectedOption,
       price: optionPrices[selectedOption],
       quantity: quantity,
-      category: "Bank Accounts",
+      category: "Crypto Accounts",
     };
 
     addToCart(product);
@@ -111,39 +108,49 @@ export default function BuyVerifiedPayPalAccounts() {
                 ORDER NOW
               </div>
 
-              {/* Main Title */}
-              <div className="mt-12 mb-4">
-                <h1 className="text-3xl font-bold leading-tight">
-                  <span className="text-green-600">BUY VERIFIED</span>
-                  <br />
-                  <span className="text-black">PAYPAL ACCOUNTS</span>
-                </h1>
-              </div>
+              {/* Main Content */}
+              <div className="text-white h-full flex flex-col justify-between">
+                <div>
+                  <h2 className="text-3xl font-bold mb-4">
+                    Buy Bybit Accounts
+                  </h2>
+                  <p className="text-lg mb-6">
+                    Get your fully verified Bybit account today from
+                    https://pvasupply.com/ — 100% secure, reliable, and ready
+                    for instant use. Trade cryptocurrencies, deposit, and
+                    withdraw funds with ease, ensuring a smooth and hassle-free
+                    trading experience. Perfect for both personal and business
+                    needs.
+                  </p>
+                </div>
 
-              {/* PayPal Graphic */}
-              <div className="relative mb-6">
-                <div className="w-24 h-20 bg-white rounded-lg shadow-md relative">
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="text-blue-500 text-3xl font-bold">P</div>
+                {/* Bybit Graphic */}
+                <div className="relative mb-6">
+                  <div className="w-24 h-20 bg-white rounded-lg shadow-md relative">
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <div className="text-blue-500 text-3xl font-bold">B</div>
+                    </div>
                   </div>
-                </div>
 
-                {/* 15% OFF Badge */}
-                <div className="absolute -top-1 -right-1 w-12 h-12 bg-green-500 border-3 border-yellow-400 rounded-full flex items-center justify-center">
-                  <span className="text-white text-xs font-bold">15% OFF</span>
-                </div>
-              </div>
-
-              {/* Service Features */}
-              <div className="space-y-3 mb-6">
-                {features.map((feature, index) => (
-                  <div key={index} className="flex items-center gap-2">
-                    <Check className="w-4 h-4 text-green-600" />
-                    <span className="text-sm text-gray-800 font-medium">
-                      {feature}
+                  {/* 15% OFF Badge */}
+                  <div className="absolute -top-1 -right-1 w-12 h-12 bg-green-500 border-3 border-yellow-400 rounded-full flex items-center justify-center">
+                    <span className="text-white text-xs font-bold">
+                      15% OFF
                     </span>
                   </div>
-                ))}
+                </div>
+
+                {/* Service Features */}
+                <div className="space-y-3 mb-6">
+                  {features.map((feature, index) => (
+                    <div key={index} className="flex items-center gap-2">
+                      <Check className="w-4 h-4 text-green-600" />
+                      <span className="text-sm text-gray-800 font-medium">
+                        {feature}
+                      </span>
+                    </div>
+                  ))}
+                </div>
               </div>
 
               {/* Contact Section */}
@@ -173,7 +180,7 @@ export default function BuyVerifiedPayPalAccounts() {
               <span>/</span>
               <span>Products</span>
               <span>/</span>
-              <span className="text-gray-900">PayPal Accounts</span>
+              <span className="text-gray-900">Bybit Accounts</span>
             </div>
 
             {/* Category Link */}
@@ -181,34 +188,34 @@ export default function BuyVerifiedPayPalAccounts() {
               <a
                 href="#"
                 className="text-blue-600 hover:text-blue-800 text-sm font-medium">
-                Bank Accounts
+                Crypto Accounts
               </a>
             </div>
 
             {/* Product Title */}
             <h1 className="text-2xl font-bold text-gray-900 mb-2">
-              Buy Verified PayPal Accounts
+              Buy Verified Bybit Account
             </h1>
 
             {/* Price Range */}
             <div className="mb-4">
-              <span className="text-3xl font-bold text-green-600">$110.00</span>
-              <span className="text-gray-500 ml-2">- $150.00</span>
+              <span className="text-3xl font-bold text-green-600">$170.00</span>
+              <span className="text-gray-500 ml-2">- $270.00</span>
             </div>
 
             {/* Product Description */}
             <p className="text-gray-600 mb-6">
-              Looking for a secure and hassle-free way to purchase a verified
-              PayPal account? At pvasupply.com, we provide fully verified PayPal
-              accounts for both personal and business use — available in the
-              USA, UK, Canada, and other countries. Better security, better
-              convenience, better results.
+              Get your fully verified Bybit account today from
+              https://pvasupply.com/ — 100% secure, reliable, and ready for
+              instant use. Trade cryptocurrencies, deposit, and withdraw funds
+              with ease, ensuring a smooth and hassle-free trading experience.
+              Perfect for both personal and business needs.
             </p>
 
             {/* Features List */}
             <div className="space-y-2 mb-6">
               <h3 className="text-base font-bold text-gray-900 mb-3">
-                Features of Our PayPal Accounts:
+                Features of Our Verified Bybit Accounts:
               </h3>
               {productFeatures.map((feature, index) => (
                 <div key={index} className="flex items-center gap-2">
@@ -253,10 +260,11 @@ export default function BuyVerifiedPayPalAccounts() {
                     onChange={(e) => setSelectedOption(e.target.value)}
                     className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent appearance-none bg-white">
                     <option value="">Choose an option</option>
-                    <option value="single">Single Account - $110.00</option>
-                    <option value="two">2 Accounts - $130.00</option>
-                    <option value="three">3 Accounts - $150.00</option>
-                    <option value="bulk">Bulk Package - $150.00</option>
+                    <option value="basic">Basic Package - $170.00</option>
+                    <option value="premium">Premium Package - $220.00</option>
+                    <option value="enterprise">
+                      Enterprise Package - $270.00
+                    </option>
                   </select>
                   <ChevronDown className="absolute right-3 top-2.5 h-4 w-4 text-gray-400 pointer-events-none" />
                 </div>
@@ -304,11 +312,11 @@ export default function BuyVerifiedPayPalAccounts() {
               <div className="grid grid-cols-2 gap-4 text-sm">
                 <div>
                   <span className="text-gray-500">SKU:</span>
-                  <span className="ml-2 text-gray-900">PAYPAL-001</span>
+                  <span className="ml-2 text-gray-900">BYBIT-001</span>
                 </div>
                 <div>
                   <span className="text-gray-500">Category:</span>
-                  <span className="ml-2 text-gray-900">Bank Accounts</span>
+                  <span className="ml-2 text-gray-900">Crypto Accounts</span>
                 </div>
               </div>
             </div>
@@ -344,27 +352,27 @@ export default function BuyVerifiedPayPalAccounts() {
             {activeTab === "description" && (
               <div className="prose max-w-none">
                 <h3 className="text-lg font-semibold text-gray-900 mb-4">
-                  Verified PayPal Accounts for Online Payments
+                  Verified Bybit Accounts for Cryptocurrency Trading
                 </h3>
                 <p className="text-gray-600 mb-4">
-                  Our verified PayPal accounts are perfect for online payments,
-                  business transactions, and e-commerce operations. Each account
-                  comes with full verification and established history.
+                  Our verified Bybit accounts are perfect for cryptocurrency
+                  trading, futures trading, and digital asset management. Each
+                  account comes with full verification and established history.
                 </p>
                 <p className="text-gray-600 mb-4">
-                  Whether you need PayPal accounts for business payments, online
-                  shopping, or international transactions, our verified accounts
+                  Whether you need Bybit accounts for crypto trading, futures
+                  trading, or digital asset management, our verified accounts
                   provide the foundation you need for success.
                 </p>
                 <h4 className="text-md font-semibold text-gray-900 mb-2">
                   What You Get:
                 </h4>
                 <ul className="list-disc list-inside text-gray-600 space-y-1">
-                  <li>Fully verified PayPal accounts</li>
+                  <li>Fully verified Bybit accounts</li>
                   <li>Phone number verification</li>
                   <li>Email access and recovery</li>
-                  <li>Photo ID verification</li>
-                  <li>Bank account linking</li>
+                  <li>Cryptocurrency trading access</li>
+                  <li>Futures trading capability</li>
                   <li>24/7 customer support</li>
                 </ul>
               </div>

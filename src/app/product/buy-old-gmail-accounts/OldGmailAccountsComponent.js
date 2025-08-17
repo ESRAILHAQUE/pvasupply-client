@@ -22,28 +22,39 @@ export default function OldGmailAccountsComponent() {
   const [activeTab, setActiveTab] = useState("description");
 
   const features = [
-    "USA & European Local IP Created Accounts",
-    "Real Phone Number Used for Verification",
-    "Unique Username Gmail Accounts Available",
-    "2019-2024 Years Gmail Accounts Available",
-    "PVA New/Old Accounts Are Available",
-    "100% Safe & Private",
+    "USA, UK, CA, and AU Gmail accounts with English names",
+    "Available from 2010 to the current year",
+    "2014 Gmail accounts available",
+    "2018–2023 Gmail accounts available",
+    "PVA new or old accounts from any country",
+    "Created with USA & European local IPs",
+    "Real phone numbers used for verification",
+    "Unique username Gmail accounts available",
+    "Delivery within 10 minutes after order",
+    "100% safe & private",
+    "100% satisfaction guaranteed — better service, better results",
+    "24/7 active customer care service",
   ];
 
   const productFeatures = [
-    "USA & European Local IP Created Accounts",
-    "Real Phone Number Used for Verification",
-    "Unique Username Gmail Accounts Available",
-    "2019-2023 Years Gmail Accounts are Available",
-    "Any Countries PVA New/Old Accounts are Available",
-    "Delivery Time Within 10 Minutes After Your Order",
-    "100% Safe & Private",
+    "USA, UK, CA, and AU Gmail accounts with English names",
+    "Available from 2010 to the current year",
+    "2014 Gmail accounts available",
+    "2018–2023 Gmail accounts available",
+    "PVA new or old accounts from any country",
+    "Created with USA & European local IPs",
+    "Real phone numbers used for verification",
+    "Unique username Gmail accounts available",
+    "Delivery within 10 minutes after order",
+    "100% safe & private",
+    "100% satisfaction guaranteed — better service, better results",
+    "24/7 active customer care service",
   ];
 
   const contactInfo = [
     { icon: "Email", text: "pvasupply0@gmail.com" },
     { icon: "Telegram", text: "@pvasupply" },
-    { icon: "WhatsApp", text: "WhatsApp Chat" },
+    { icon: "WhatsApp", text: "+1 (979) 633-0236" },
   ];
 
   const sidebarItems = [
@@ -81,9 +92,9 @@ export default function OldGmailAccountsComponent() {
               {/* Main Title */}
               <div className="mt-12 mb-4">
                 <h1 className="text-3xl font-bold leading-tight">
-                  <span className="text-green-600">BUY OLD</span>
+                  <span className="text-green-600">BUY GMAIL</span>
                   <br />
-                  <span className="text-black">GMAIL ACCOUNTS</span>
+                  <span className="text-black">ACCOUNTS</span>
                 </h1>
               </div>
 
@@ -155,7 +166,9 @@ export default function OldGmailAccountsComponent() {
                         <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.87 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488" />
                       </svg>
                     </div>
-                    <span className="text-xs text-black">WhatsApp</span>
+                    <span className="text-xs text-black">
+                      +1 (979) 633-0236
+                    </span>
                   </div>
                 </div>
               </div>
@@ -166,7 +179,7 @@ export default function OldGmailAccountsComponent() {
           <div className="bg-white rounded-lg p-6 shadow-lg">
             {/* Breadcrumbs */}
             <div className="text-sm text-gray-600 mb-1">
-              Home / Social Accounts / Buy Old Gmail Accounts
+              Home / Social Accounts / Buy Gmail Accounts
             </div>
 
             {/* Category Link */}
@@ -178,26 +191,31 @@ export default function OldGmailAccountsComponent() {
 
             {/* Product Title */}
             <h1 className="text-2xl font-bold text-gray-900 mb-1">
-              Buy Old Gmail Accounts
+              Buy Gmail Accounts
             </h1>
 
             {/* Price */}
             <div className="text-xl font-bold text-green-600 mb-4">
-              $6.00 - $200.00
+              $6.00 - $340.00
             </div>
 
             {/* Product Description */}
             <div className="mb-4 space-y-3">
               <p className="text-gray-700 text-sm">
-                Are you looking for best quality real, active, fresh and aged
-                Gmail accounts? Do you need USA and European countries real
-                phone number verified old Gmail accounts? Or do you want to buy
-                old PVA Gmail accounts with cheap price?
+                Need high-quality, real, and active Gmail accounts? We&apos;ve got
+                you covered! From USA and European phone-verified aged Gmail
+                accounts to trusted platforms like Gmail, Yahoo, and Outlook —
+                you&apos;ll find exactly what you need at competitive prices.
               </p>
               <p className="text-gray-700 text-sm">
-                Phone verified accounts are provided upon request. Aged Gmail
-                accounts are indispensable for your business or personal use. We
-                provide instant delivery at Pvasmmpro.
+                Why choose aged Gmail accounts? They&apos;re more reliable, build
+                trust, and work seamlessly for both personal and business
+                purposes. Plus, with our instant delivery, managing your email
+                needs is easier than ever.
+              </p>
+              <p className="text-gray-700 text-sm">
+                Don&apos;t wait — get your aged Gmail accounts now from pvasupply.com
+                and enjoy instant access with dependable service.
               </p>
             </div>
 
@@ -253,9 +271,9 @@ export default function OldGmailAccountsComponent() {
                       className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent text-sm">
                       <option value="">Select an option</option>
                       <option value="basic">Basic Package - $6.00</option>
-                      <option value="premium">Premium Package - $50.00</option>
+                      <option value="premium">Premium Package - $100.00</option>
                       <option value="enterprise">
-                        Enterprise Package - $200.00
+                        Enterprise Package - $340.00
                       </option>
                     </select>
                     <ChevronDown className="absolute right-3 top-2.5 w-4 h-4 text-gray-400 pointer-events-none" />

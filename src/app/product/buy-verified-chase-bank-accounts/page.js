@@ -17,54 +17,49 @@ import {
 } from "lucide-react";
 import { useCart } from "../../../contexts/CartContext";
 
-export default function BuyVerifiedPayPalAccounts() {
+export default function BuyVerifiedChaseBankAccounts() {
   const [selectedOption, setSelectedOption] = useState("");
   const [quantity, setQuantity] = useState(1);
   const [activeTab, setActiveTab] = useState("description");
   const { addToCart } = useCart();
 
   const features = [
-    "Email verified",
-    "Phone number verified",
-    "SSN verified",
-    "Selfie verified",
-    "Driver's License verified",
-    "Billing papers verified",
-    "LLC verified (for business accounts)",
-    "100% replacement guarantee",
-    "100% satisfaction guarantee — better service, better results",
+    "USA & European Local IP Created Accounts",
+    "Real Phone Number Used for Verification",
+    "Unique Username Chase Bank Accounts Available",
+    "2019-2024 Years Chase Bank Accounts Available",
+    "PVA New/Old Accounts Are Available",
+    "100% Safe & Private",
   ];
 
   const productFeatures = [
-    "Email verified",
-    "Phone number verified",
-    "SSN verified",
-    "Selfie verified",
-    "Driver's License verified",
-    "Billing papers verified",
-    "LLC verified (for business accounts)",
-    "100% replacement guarantee",
-    "100% satisfaction guarantee — better service, better results",
+    "USA & European Local IP Created Accounts",
+    "Real Phone Number Used for Verification",
+    "Unique Username Chase Bank Accounts Available",
+    "2019-2023 Years Chase Bank Accounts are Available",
+    "Any Countries PVA New/Old Accounts are Available",
+    "Delivery Time Within 10 Minutes After Your Order",
+    "100% Safe & Private",
   ];
 
   const contactInfo = [
     { icon: "Email", text: "pvasupply0@gmail.com" },
     { icon: "Telegram", text: "@pvasupply" },
-    { icon: "WhatsApp", text: "+1 (979) 633-0236" },
+    { icon: "WhatsApp", text: "WhatsApp Chat" },
   ];
 
   const sidebarItems = [
     "Introduction",
-    "Your relationship with PayPal",
-    "Using PayPal services",
-    "Content in PayPal services",
-    "Software in PayPal services",
+    "Your relationship with Chase Bank",
+    "Using Chase Bank services",
+    "Content in Chase Bank services",
+    "Software in Chase Bank services",
     "In-case of problems or disagreements",
     "About these terms",
     "Updates",
     "Definitions",
     "List of services & service-specific additional terms",
-    "How PayPal handles government requests for user information",
+    "How Chase Bank handles government requests for user information",
   ];
 
   const handleAddToCart = () => {
@@ -74,15 +69,14 @@ export default function BuyVerifiedPayPalAccounts() {
     }
 
     const optionPrices = {
-      single: 110,
-      two: 130,
-      three: 150,
-      bulk: 150,
+      basic: 150,
+      premium: 300,
+      enterprise: 600,
     };
 
     const product = {
-      id: "paypal-accounts",
-      name: "Buy Verified PayPal Accounts",
+      id: "chase-bank-accounts",
+      name: "Buy Verified Chase Bank Accounts",
       option: selectedOption,
       price: optionPrices[selectedOption],
       quantity: quantity,
@@ -99,7 +93,7 @@ export default function BuyVerifiedPayPalAccounts() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
           {/* Left Section - Promotional Banner */}
           <div className="relative h-[600px]">
-            <div className="bg-gradient-to-br from-orange-400 via-orange-500 to-yellow-400 rounded-xl p-6 h-full relative overflow-hidden shadow-lg">
+            <div className="bg-gradient-to-br from-blue-400 via-blue-500 to-indigo-400 rounded-xl p-6 h-full relative overflow-hidden shadow-lg">
               {/* Sale Badge */}
               <div className="absolute top-3 left-3 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded-full">
                 Sale!
@@ -116,15 +110,15 @@ export default function BuyVerifiedPayPalAccounts() {
                 <h1 className="text-3xl font-bold leading-tight">
                   <span className="text-green-600">BUY VERIFIED</span>
                   <br />
-                  <span className="text-black">PAYPAL ACCOUNTS</span>
+                  <span className="text-black">CHASE BANK ACCOUNTS</span>
                 </h1>
               </div>
 
-              {/* PayPal Graphic */}
+              {/* Chase Bank Graphic */}
               <div className="relative mb-6">
                 <div className="w-24 h-20 bg-white rounded-lg shadow-md relative">
                   <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="text-blue-500 text-3xl font-bold">P</div>
+                    <div className="text-blue-500 text-3xl font-bold">C</div>
                   </div>
                 </div>
 
@@ -173,7 +167,7 @@ export default function BuyVerifiedPayPalAccounts() {
               <span>/</span>
               <span>Products</span>
               <span>/</span>
-              <span className="text-gray-900">PayPal Accounts</span>
+              <span className="text-gray-900">Chase Bank Accounts</span>
             </div>
 
             {/* Category Link */}
@@ -187,29 +181,24 @@ export default function BuyVerifiedPayPalAccounts() {
 
             {/* Product Title */}
             <h1 className="text-2xl font-bold text-gray-900 mb-2">
-              Buy Verified PayPal Accounts
+              Buy Verified Chase Bank Accounts
             </h1>
 
             {/* Price Range */}
             <div className="mb-4">
-              <span className="text-3xl font-bold text-green-600">$110.00</span>
-              <span className="text-gray-500 ml-2">- $150.00</span>
+              <span className="text-3xl font-bold text-green-600">$150.00</span>
+              <span className="text-gray-500 ml-2">- $600.00</span>
             </div>
 
             {/* Product Description */}
             <p className="text-gray-600 mb-6">
-              Looking for a secure and hassle-free way to purchase a verified
-              PayPal account? At pvasupply.com, we provide fully verified PayPal
-              accounts for both personal and business use — available in the
-              USA, UK, Canada, and other countries. Better security, better
-              convenience, better results.
+              Get high-quality verified Chase Bank accounts for traditional
+              banking, credit cards, and financial services. Our accounts are
+              fully verified, safe, and ready to use immediately.
             </p>
 
             {/* Features List */}
             <div className="space-y-2 mb-6">
-              <h3 className="text-base font-bold text-gray-900 mb-3">
-                Features of Our PayPal Accounts:
-              </h3>
               {productFeatures.map((feature, index) => (
                 <div key={index} className="flex items-center gap-2">
                   <Check className="w-4 h-4 text-green-600" />
@@ -221,8 +210,7 @@ export default function BuyVerifiedPayPalAccounts() {
             {/* Contact Information */}
             <div className="bg-gray-50 rounded-lg p-4 mb-6">
               <h3 className="font-semibold text-gray-900 mb-2">
-                If you want to more information just contact now. 24 Hours
-                Reply/Contact
+                Contact Information
               </h3>
               <div className="space-y-2 text-sm">
                 <div className="flex items-center gap-2">
@@ -235,7 +223,7 @@ export default function BuyVerifiedPayPalAccounts() {
                 </div>
                 <div className="flex items-center gap-2">
                   <span className="text-gray-500">WhatsApp:</span>
-                  <span className="text-blue-600">+1 (979) 633-0236</span>
+                  <span className="text-blue-600">WhatsApp Chat</span>
                 </div>
               </div>
             </div>
@@ -253,10 +241,11 @@ export default function BuyVerifiedPayPalAccounts() {
                     onChange={(e) => setSelectedOption(e.target.value)}
                     className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent appearance-none bg-white">
                     <option value="">Choose an option</option>
-                    <option value="single">Single Account - $110.00</option>
-                    <option value="two">2 Accounts - $130.00</option>
-                    <option value="three">3 Accounts - $150.00</option>
-                    <option value="bulk">Bulk Package - $150.00</option>
+                    <option value="basic">Basic Package - $150.00</option>
+                    <option value="premium">Premium Package - $300.00</option>
+                    <option value="enterprise">
+                      Enterprise Package - $600.00
+                    </option>
                   </select>
                   <ChevronDown className="absolute right-3 top-2.5 h-4 w-4 text-gray-400 pointer-events-none" />
                 </div>
@@ -304,7 +293,7 @@ export default function BuyVerifiedPayPalAccounts() {
               <div className="grid grid-cols-2 gap-4 text-sm">
                 <div>
                   <span className="text-gray-500">SKU:</span>
-                  <span className="ml-2 text-gray-900">PAYPAL-001</span>
+                  <span className="ml-2 text-gray-900">CHASE-001</span>
                 </div>
                 <div>
                   <span className="text-gray-500">Category:</span>
@@ -344,62 +333,88 @@ export default function BuyVerifiedPayPalAccounts() {
             {activeTab === "description" && (
               <div className="prose max-w-none">
                 <h3 className="text-lg font-semibold text-gray-900 mb-4">
-                  Verified PayPal Accounts for Online Payments
+                  Verified Chase Bank Accounts for Traditional Banking
                 </h3>
                 <p className="text-gray-600 mb-4">
-                  Our verified PayPal accounts are perfect for online payments,
-                  business transactions, and e-commerce operations. Each account
-                  comes with full verification and established history.
+                  Our verified Chase Bank accounts are perfect for traditional
+                  banking, credit cards, and comprehensive financial services.
+                  Each account comes with full verification and established
+                  history.
                 </p>
                 <p className="text-gray-600 mb-4">
-                  Whether you need PayPal accounts for business payments, online
-                  shopping, or international transactions, our verified accounts
-                  provide the foundation you need for success.
+                  Whether you need Chase Bank accounts for personal banking,
+                  business services, or credit card applications, our verified
+                  accounts provide the foundation you need for success.
                 </p>
                 <h4 className="text-md font-semibold text-gray-900 mb-2">
                   What You Get:
                 </h4>
                 <ul className="list-disc list-inside text-gray-600 space-y-1">
-                  <li>Fully verified PayPal accounts</li>
+                  <li>Fully verified Chase Bank accounts</li>
                   <li>Phone number verification</li>
                   <li>Email access and recovery</li>
                   <li>Photo ID verification</li>
                   <li>Bank account linking</li>
+                  <li>Credit card access</li>
                   <li>24/7 customer support</li>
                 </ul>
               </div>
             )}
 
             {activeTab === "features" && (
-              <div className="space-y-4">
-                <h3 className="text-lg font-semibold text-gray-900">
-                  Key Features
+              <div className="prose max-w-none">
+                <h3 className="text-lg font-semibold text-gray-900 mb-4">
+                  Chase Bank Account Features
                 </h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  {productFeatures.map((feature, index) => (
-                    <div key={index} className="flex items-start gap-3">
-                      <Check className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
-                      <span className="text-gray-700">{feature}</span>
-                    </div>
-                  ))}
+                  <div className="space-y-3">
+                    <h4 className="font-semibold text-gray-800">
+                      Banking Services
+                    </h4>
+                    <ul className="space-y-2 text-sm text-gray-600">
+                      <li>• Checking & Savings Accounts</li>
+                      <li>• Online Banking Access</li>
+                      <li>• Mobile App Access</li>
+                      <li>• Bill Pay Services</li>
+                    </ul>
+                  </div>
+                  <div className="space-y-3">
+                    <h4 className="font-semibold text-gray-800">
+                      Credit Services
+                    </h4>
+                    <ul className="space-y-2 text-sm text-gray-600">
+                      <li>• Credit Card Applications</li>
+                      <li>• Loan Applications</li>
+                      <li>• Mortgage Services</li>
+                      <li>• Investment Accounts</li>
+                    </ul>
+                  </div>
                 </div>
               </div>
             )}
 
             {activeTab === "terms" && (
-              <div className="space-y-4">
-                <h3 className="text-lg font-semibold text-gray-900">
+              <div className="prose max-w-none">
+                <h3 className="text-lg font-semibold text-gray-900 mb-4">
                   Terms & Conditions
                 </h3>
-                <div className="space-y-3">
-                  {sidebarItems.map((item, index) => (
-                    <div
-                      key={index}
-                      className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg">
-                      <FileText className="w-4 h-4 text-gray-500" />
-                      <span className="text-gray-700">{item}</span>
-                    </div>
-                  ))}
+                <div className="space-y-4 text-sm text-gray-600">
+                  <p>
+                    By purchasing our verified Chase Bank accounts, you agree to
+                    use them responsibly and in compliance with all applicable
+                    laws and regulations.
+                  </p>
+                  <p>
+                    We provide fully verified accounts with all necessary
+                    documentation. However, users are responsible for
+                    maintaining account security and following Chase Bank&apos;s
+                    terms of service.
+                  </p>
+                  <p>
+                    All accounts come with a satisfaction guarantee. If you
+                    experience any issues within 24 hours of purchase, we will
+                    provide a replacement account at no additional cost.
+                  </p>
                 </div>
               </div>
             )}
