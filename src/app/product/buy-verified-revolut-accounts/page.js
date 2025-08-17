@@ -16,6 +16,8 @@ import {
   Globe as GlobeIcon,
 } from "lucide-react";
 import { useCart } from "../../../contexts/CartContext";
+import PriceDisplay from "../../../components/shared/PriceDisplay";
+import ContactInfo from "../../../components/shared/ContactInfo";
 
 export default function BuyVerifiedRevolutAccounts() {
   const [selectedOption, setSelectedOption] = useState("");
@@ -192,10 +194,7 @@ export default function BuyVerifiedRevolutAccounts() {
             </h1>
 
             {/* Price Range */}
-            <div className="mb-4">
-              <span className="text-3xl font-bold text-green-600">$200.00</span>
-              <span className="text-gray-500 ml-2">- $380.00</span>
-            </div>
+            <PriceDisplay price="$200.00 - $380.00" className="mb-4" />
 
             {/* Product Description */}
             <p className="text-gray-600 mb-6">
@@ -221,26 +220,7 @@ export default function BuyVerifiedRevolutAccounts() {
             </div>
 
             {/* Contact Information */}
-            <div className="bg-gray-50 rounded-lg p-4 mb-6">
-              <h3 className="font-semibold text-gray-900 mb-2">
-                If you want to more information just contact now. 24 Hours
-                Reply/Contact
-              </h3>
-              <div className="space-y-2 text-sm">
-                <div className="flex items-center gap-2">
-                  <span className="text-gray-500">Email:</span>
-                  <span className="text-blue-600">pvasupply0@gmail.com</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <span className="text-gray-500">Telegram:</span>
-                  <span className="text-blue-600">@pvasupply</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <span className="text-gray-500">WhatsApp:</span>
-                  <span className="text-blue-600">+1 (979) 633-0236</span>
-                </div>
-              </div>
-            </div>
+            <ContactInfo className="mb-6" />
 
             {/* Purchase Section */}
             <div className="space-y-4">

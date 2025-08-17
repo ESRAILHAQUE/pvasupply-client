@@ -16,6 +16,8 @@ import {
   Globe as GlobeIcon,
 } from "lucide-react";
 import { useCart } from "../../../contexts/CartContext";
+import PriceDisplay from "../../../components/shared/PriceDisplay";
+import ContactInfo from "../../../components/shared/ContactInfo";
 
 export default function BuyVerifiedGoogleAdsAccounts() {
   const [selectedOption, setSelectedOption] = useState("");
@@ -109,12 +111,13 @@ export default function BuyVerifiedGoogleAdsAccounts() {
                     Buy Verified Google Ads Accounts
                   </h2>
                   <p className="text-lg mb-6">
-                                         Looking to purchase a fully verified Google Ads account?
-                     You&apos;re in the right place! At https://pvasupply.com/, we
-                     provide 100% secure and reliable verified Google Ads
-                     accounts, ready for running high-performance ad campaigns.
-                     These accounts allow you to create and manage ads
-                     effortlessly while staying compliant with Google&apos;s policies.
+                    Looking to purchase a fully verified Google Ads account?
+                    You&apos;re in the right place! At https://pvasupply.com/,
+                    we provide 100% secure and reliable verified Google Ads
+                    accounts, ready for running high-performance ad campaigns.
+                    These accounts allow you to create and manage ads
+                    effortlessly while staying compliant with Google&apos;s
+                    policies.
                   </p>
                   <p className="text-lg mb-6">
                     Our verified Google Ads accounts are perfect for businesses,
@@ -160,19 +163,16 @@ export default function BuyVerifiedGoogleAdsAccounts() {
             </h1>
 
             {/* Price Range */}
-            <div className="mb-4">
-              <span className="text-3xl font-bold text-green-600">$220.00</span>
-              <span className="text-gray-500 ml-2">- $320.00</span>
-            </div>
+            <PriceDisplay price="$220.00 - $320.00" className="mb-4" />
 
             {/* Product Description */}
             <p className="text-gray-600 mb-6">
-                             Looking to purchase a fully verified Google Ads account? You&apos;re in
-               the right place! At https://pvasupply.com/, we provide 100% secure
-               and reliable verified Google Ads accounts, ready for running
-               high-performance ad campaigns. These accounts allow you to create
-               and manage ads effortlessly while staying compliant with Google&apos;s
-               policies.
+              Looking to purchase a fully verified Google Ads account?
+              You&apos;re in the right place! At https://pvasupply.com/, we
+              provide 100% secure and reliable verified Google Ads accounts,
+              ready for running high-performance ad campaigns. These accounts
+              allow you to create and manage ads effortlessly while staying
+              compliant with Google&apos;s policies.
             </p>
             <p className="text-gray-600 mb-6">
               Our verified Google Ads accounts are perfect for businesses,
@@ -194,26 +194,7 @@ export default function BuyVerifiedGoogleAdsAccounts() {
             </div>
 
             {/* Contact Information */}
-            <div className="bg-gray-50 rounded-lg p-4 mb-6">
-              <h3 className="font-semibold text-gray-900 mb-2">
-                If you want to more information just contact now. 24 Hours
-                Reply/Contact
-              </h3>
-              <div className="space-y-2 text-sm">
-                <div className="flex items-center gap-2">
-                  <span className="text-gray-500">Email:</span>
-                  <span className="text-blue-600">pvasupply0@gmail.com</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <span className="text-gray-500">Telegram:</span>
-                  <span className="text-blue-600">@pvasupply</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <span className="text-gray-500">WhatsApp:</span>
-                  <span className="text-blue-600">+1 (979) 633-0236</span>
-                </div>
-              </div>
-            </div>
+            <ContactInfo className="mb-6" />
 
             {/* Product Options */}
             <div className="bg-white rounded-lg p-6 shadow-sm border">

@@ -43,6 +43,10 @@ export default function Navbar() {
         },
         { name: "Buy Reddit Accounts", href: "/product/buy-reddit-accounts" },
         { name: "Buy SSN Number", href: "/product/buy-ssn-number" },
+        {
+          name: "Buy Verified Google Ads Accounts",
+          href: "/product/buy-verified-google-ads-accounts",
+        },
       ],
     },
     {
@@ -130,8 +134,8 @@ export default function Navbar() {
       ],
     },
     {
-      name: "Payment Services",
-      href: "/payment-services",
+      name: "Special Accounts",
+      href: "/special-accounts",
       isActive: false,
       hasDropdown: true,
       dropdownItems: [
@@ -139,29 +143,9 @@ export default function Navbar() {
           name: "Buy Verified Apple Pay Accounts",
           href: "/product/buy-verified-apple-pay-accounts",
         },
-      ],
-    },
-    {
-      name: "Marketplace Accounts",
-      href: "/marketplace-accounts",
-      isActive: false,
-      hasDropdown: true,
-      dropdownItems: [
         {
           name: "Buy Walmart Seller Account",
           href: "/product/buy-walmart-seller-account",
-        },
-      ],
-    },
-    {
-      name: "Advertising Accounts",
-      href: "/advertising-accounts",
-      isActive: false,
-      hasDropdown: true,
-      dropdownItems: [
-        {
-          name: "Buy Verified Google Ads Accounts",
-          href: "/product/buy-verified-google-ads-accounts",
         },
       ],
     },

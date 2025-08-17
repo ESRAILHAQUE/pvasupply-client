@@ -16,6 +16,8 @@ import {
   Globe as GlobeIcon,
 } from "lucide-react";
 import { useCart } from "../../../contexts/CartContext";
+import PriceDisplay from "../../../components/shared/PriceDisplay";
+import ContactInfo from "../../../components/shared/ContactInfo";
 
 export default function BuyRedditAccounts() {
   const [selectedOption, setSelectedOption] = useState("");
@@ -133,7 +135,9 @@ export default function BuyRedditAccounts() {
                 {features.map((feature, index) => (
                   <div key={index} className="flex items-center gap-2">
                     <Check className="w-4 h-4 text-green-600" />
-                    <span className="text-sm text-gray-800 font-medium">{feature}</span>
+                    <span className="text-sm text-gray-800 font-medium">
+                      {feature}
+                    </span>
                   </div>
                 ))}
               </div>
@@ -144,7 +148,9 @@ export default function BuyRedditAccounts() {
                   <h3 className="text-white font-bold mb-3">Contact Us</h3>
                   <div className="space-y-2">
                     {contactInfo.map((info, index) => (
-                      <div key={index} className="flex items-center gap-2 text-white text-sm">
+                      <div
+                        key={index}
+                        className="flex items-center gap-2 text-white text-sm">
                         <div className="w-2 h-2 bg-white rounded-full"></div>
                         <span>{info.text}</span>
                       </div>
@@ -168,7 +174,9 @@ export default function BuyRedditAccounts() {
 
             {/* Category Link */}
             <div className="mb-4">
-              <a href="#" className="text-blue-600 hover:text-blue-800 text-sm font-medium">
+              <a
+                href="#"
+                className="text-blue-600 hover:text-blue-800 text-sm font-medium">
                 Social Media Accounts
               </a>
             </div>
@@ -179,14 +187,13 @@ export default function BuyRedditAccounts() {
             </h1>
 
             {/* Price Range */}
-            <div className="mb-4">
-              <span className="text-3xl font-bold text-green-600">$25.00</span>
-              <span className="text-gray-500 ml-2">- $80.00</span>
-            </div>
+            <PriceDisplay price="$25.00 - $80.00" className="mb-4" />
 
             {/* Product Description */}
             <p className="text-gray-600 mb-6">
-              Get high-quality Reddit accounts for community engagement, marketing, and social media management. Our accounts are verified, safe, and ready to use immediately.
+              Get high-quality Reddit accounts for community engagement,
+              marketing, and social media management. Our accounts are verified,
+              safe, and ready to use immediately.
             </p>
 
             {/* Features List */}
@@ -200,23 +207,7 @@ export default function BuyRedditAccounts() {
             </div>
 
             {/* Contact Information */}
-            <div className="bg-gray-50 rounded-lg p-4 mb-6">
-              <h3 className="font-semibold text-gray-900 mb-2">Contact Information</h3>
-              <div className="space-y-2 text-sm">
-                <div className="flex items-center gap-2">
-                  <span className="text-gray-500">Email:</span>
-                  <span className="text-blue-600">pvasupply0@gmail.com</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <span className="text-gray-500">Telegram:</span>
-                  <span className="text-blue-600">@pvasupply</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <span className="text-gray-500">WhatsApp:</span>
-                  <span className="text-blue-600">WhatsApp Chat</span>
-                </div>
-              </div>
-            </div>
+            <ContactInfo className="mb-6" />
 
             {/* Purchase Section */}
             <div className="space-y-4">
@@ -229,12 +220,13 @@ export default function BuyRedditAccounts() {
                   <select
                     value={selectedOption}
                     onChange={(e) => setSelectedOption(e.target.value)}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent appearance-none bg-white"
-                  >
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent appearance-none bg-white">
                     <option value="">Choose an option</option>
                     <option value="basic">Basic Package - $25.00</option>
                     <option value="premium">Premium Package - $45.00</option>
-                    <option value="enterprise">Enterprise Package - $80.00</option>
+                    <option value="enterprise">
+                      Enterprise Package - $80.00
+                    </option>
                   </select>
                   <ChevronDown className="absolute right-3 top-2.5 h-4 w-4 text-gray-400 pointer-events-none" />
                 </div>
@@ -248,28 +240,28 @@ export default function BuyRedditAccounts() {
                 <div className="flex items-center border border-gray-300 rounded-md">
                   <button
                     onClick={() => setQuantity(Math.max(1, quantity - 1))}
-                    className="px-3 py-2 text-gray-600 hover:text-gray-800"
-                  >
+                    className="px-3 py-2 text-gray-600 hover:text-gray-800">
                     -
                   </button>
                   <input
                     type="number"
                     min="1"
                     value={quantity}
-                    onChange={(e) => setQuantity(Math.max(1, parseInt(e.target.value) || 1))}
+                    onChange={(e) =>
+                      setQuantity(Math.max(1, parseInt(e.target.value) || 1))
+                    }
                     className="flex-1 text-center border-0 focus:ring-0 focus:outline-none"
                   />
                   <button
                     onClick={() => setQuantity(quantity + 1)}
-                    className="px-3 py-2 text-gray-600 hover:text-gray-800"
-                  >
+                    className="px-3 py-2 text-gray-600 hover:text-gray-800">
                     +
                   </button>
                 </div>
               </div>
 
               {/* Add to Cart Button */}
-              <button 
+              <button
                 onClick={handleAddToCart}
                 className="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-2.5 px-4 rounded-md transition duration-200 flex items-center justify-center gap-2 text-sm">
                 <ShoppingCart className="w-4 h-4" />
@@ -310,8 +302,7 @@ export default function BuyRedditAccounts() {
                     activeTab === tab.id
                       ? "border-blue-500 text-blue-600"
                       : "border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300"
-                  }`}
-                >
+                  }`}>
                   {tab.label}
                 </button>
               ))}
@@ -326,12 +317,19 @@ export default function BuyRedditAccounts() {
                   Reddit Accounts for Community Engagement
                 </h3>
                 <p className="text-gray-600 mb-4">
-                  Our Reddit accounts are perfect for community management, marketing campaigns, and social media engagement. Each account comes with a unique username, verified phone number, and established history.
+                  Our Reddit accounts are perfect for community management,
+                  marketing campaigns, and social media engagement. Each account
+                  comes with a unique username, verified phone number, and
+                  established history.
                 </p>
                 <p className="text-gray-600 mb-4">
-                  Whether you need accounts for moderating subreddits, running marketing campaigns, or building community presence, our Reddit accounts provide the foundation you need for success.
+                  Whether you need accounts for moderating subreddits, running
+                  marketing campaigns, or building community presence, our
+                  Reddit accounts provide the foundation you need for success.
                 </p>
-                <h4 className="text-md font-semibold text-gray-900 mb-2">What You Get:</h4>
+                <h4 className="text-md font-semibold text-gray-900 mb-2">
+                  What You Get:
+                </h4>
                 <ul className="list-disc list-inside text-gray-600 space-y-1">
                   <li>Fully verified Reddit accounts</li>
                   <li>Unique usernames and profiles</li>
@@ -345,7 +343,9 @@ export default function BuyRedditAccounts() {
 
             {activeTab === "features" && (
               <div className="space-y-4">
-                <h3 className="text-lg font-semibold text-gray-900">Key Features</h3>
+                <h3 className="text-lg font-semibold text-gray-900">
+                  Key Features
+                </h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   {productFeatures.map((feature, index) => (
                     <div key={index} className="flex items-start gap-3">
@@ -359,10 +359,14 @@ export default function BuyRedditAccounts() {
 
             {activeTab === "terms" && (
               <div className="space-y-4">
-                <h3 className="text-lg font-semibold text-gray-900">Terms & Conditions</h3>
+                <h3 className="text-lg font-semibold text-gray-900">
+                  Terms & Conditions
+                </h3>
                 <div className="space-y-3">
                   {sidebarItems.map((item, index) => (
-                    <div key={index} className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg">
+                    <div
+                      key={index}
+                      className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg">
                       <FileText className="w-4 h-4 text-gray-500" />
                       <span className="text-gray-700">{item}</span>
                     </div>

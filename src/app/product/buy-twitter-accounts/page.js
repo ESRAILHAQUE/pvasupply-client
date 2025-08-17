@@ -15,6 +15,8 @@ import {
   User,
   Globe as GlobeIcon,
 } from "lucide-react";
+import PriceDisplay from "../../../components/shared/PriceDisplay";
+import ContactInfo from "../../../components/shared/ContactInfo";
 
 export default function BuyTwitterAccounts() {
   const [selectedOption, setSelectedOption] = useState("");
@@ -182,17 +184,15 @@ export default function BuyTwitterAccounts() {
             </h1>
 
             {/* Price */}
-            <div className="text-xl font-bold text-green-600 mb-4">
-              $12.00 - $350.00
-            </div>
+            <PriceDisplay price="$12.00 - $350.00" className="mb-4" />
 
             {/* Product Description */}
             <div className="mb-4 space-y-3">
               <p className="text-gray-700 text-sm">
                 Are you looking for best quality real, active, fresh and aged
                 Twitter accounts? Do you need USA and European countries real
-                phone number verified old Twitter accounts? Or do you want to buy
-                old PVA Twitter accounts with cheap price?
+                phone number verified old Twitter accounts? Or do you want to
+                buy old PVA Twitter accounts with cheap price?
               </p>
               <p className="text-gray-700 text-sm">
                 Phone verified accounts are provided upon request. Aged Twitter
@@ -217,22 +217,7 @@ export default function BuyTwitterAccounts() {
             </div>
 
             {/* Contact Information */}
-            <div className="mb-4">
-              <h3 className="text-base font-bold text-gray-900 mb-3">
-                If you want to more information just contact now. 24 Hours
-                Reply/Contact
-              </h3>
-              <ul className="space-y-1.5">
-                {contactInfo.map((contact, index) => (
-                  <li key={index} className="flex items-start gap-2">
-                    <span className="text-black text-base mt-0.5">▲</span>
-                    <span className="text-gray-700 text-sm">
-                      <strong>{contact.icon}:</strong> {contact.text}
-                    </span>
-                  </li>
-                ))}
-              </ul>
-            </div>
+            <ContactInfo className="mb-4" />
 
             {/* Purchase Section */}
             <div className="border-t pt-4">
@@ -337,10 +322,16 @@ export default function BuyTwitterAccounts() {
                   Twitter Accounts for Sale
                 </h2>
                 <p className="text-gray-700 mb-4">
-                  Twitter is a social media platform that allows users to share short messages, known as tweets. Our Twitter accounts are perfect for businesses and individuals who need to establish a social media presence or engage with their audience.
+                  Twitter is a social media platform that allows users to share
+                  short messages, known as tweets. Our Twitter accounts are
+                  perfect for businesses and individuals who need to establish a
+                  social media presence or engage with their audience.
                 </p>
                 <p className="text-gray-700 mb-4">
-                  All our accounts come with full verification and are ready for immediate use. Whether you need a single account or bulk orders, we can accommodate your requirements with competitive pricing and excellent customer support.
+                  All our accounts come with full verification and are ready for
+                  immediate use. Whether you need a single account or bulk
+                  orders, we can accommodate your requirements with competitive
+                  pricing and excellent customer support.
                 </p>
               </div>
             )}
@@ -352,7 +343,9 @@ export default function BuyTwitterAccounts() {
                 </h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
-                    <h3 className="font-semibold text-gray-900 mb-2">Account Features</h3>
+                    <h3 className="font-semibold text-gray-900 mb-2">
+                      Account Features
+                    </h3>
                     <ul className="text-gray-700 space-y-1">
                       <li>• Full phone number verification</li>
                       <li>• Email verification completed</li>
@@ -361,7 +354,9 @@ export default function BuyTwitterAccounts() {
                     </ul>
                   </div>
                   <div>
-                    <h3 className="font-semibold text-gray-900 mb-2">Delivery</h3>
+                    <h3 className="font-semibold text-gray-900 mb-2">
+                      Delivery
+                    </h3>
                     <ul className="text-gray-700 space-y-1">
                       <li>• Instant delivery available</li>
                       <li>• Secure account transfer</li>
@@ -388,10 +383,14 @@ export default function BuyTwitterAccounts() {
 
         {/* Sidebar Section */}
         <div className="bg-white rounded-lg shadow-lg p-6">
-          <h3 className="text-lg font-bold text-gray-900 mb-4">Terms & Conditions</h3>
+          <h3 className="text-lg font-bold text-gray-900 mb-4">
+            Terms & Conditions
+          </h3>
           <div className="space-y-2">
             {sidebarItems.map((item, index) => (
-              <div key={index} className="flex items-center justify-between py-2 border-b border-gray-100 last:border-b-0">
+              <div
+                key={index}
+                className="flex items-center justify-between py-2 border-b border-gray-100 last:border-b-0">
                 <span className="text-sm text-gray-700">{item}</span>
                 <ChevronDown className="w-4 h-4 text-gray-400" />
               </div>

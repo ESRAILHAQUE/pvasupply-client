@@ -15,6 +15,8 @@ import {
   User,
   Globe as GlobeIcon,
 } from "lucide-react";
+import PriceDisplay from "../../../components/shared/PriceDisplay";
+import ContactInfo from "../../../components/shared/ContactInfo";
 
 export default function BuyLinkedInAccounts() {
   const [selectedOption, setSelectedOption] = useState("");
@@ -191,9 +193,7 @@ export default function BuyLinkedInAccounts() {
             </h1>
 
             {/* Price */}
-            <div className="text-xl font-bold text-green-600 mb-4">
-              $30.00 - $250.00
-            </div>
+            <PriceDisplay price="$30.00 - $250.00" className="mb-4" />
 
             {/* Product Description */}
             <div className="mb-4 space-y-3">
@@ -226,22 +226,7 @@ export default function BuyLinkedInAccounts() {
             </div>
 
             {/* Contact Information */}
-            <div className="mb-4">
-              <h3 className="text-base font-bold text-gray-900 mb-3">
-                If you want to more information just contact now. 24 Hours
-                Reply/Contact
-              </h3>
-              <ul className="space-y-1.5">
-                {contactInfo.map((contact, index) => (
-                  <li key={index} className="flex items-start gap-2">
-                    <span className="text-black text-base mt-0.5">▲</span>
-                    <span className="text-gray-700 text-sm">
-                      <strong>{contact.icon}:</strong> {contact.text}
-                    </span>
-                  </li>
-                ))}
-              </ul>
-            </div>
+            <ContactInfo className="mb-4" />
 
             {/* Purchase Section */}
             <div className="border-t pt-4">

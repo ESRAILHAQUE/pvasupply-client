@@ -16,6 +16,8 @@ import {
   Globe as GlobeIcon,
 } from "lucide-react";
 import { useCart } from "../../../contexts/CartContext";
+import PriceDisplay from "../../../components/shared/PriceDisplay";
+import ContactInfo from "../../../components/shared/ContactInfo";
 
 export default function BuyVerifiedCryptoComAccounts() {
   const [selectedOption, setSelectedOption] = useState("");
@@ -111,7 +113,13 @@ export default function BuyVerifiedCryptoComAccounts() {
                     Buy Verified Crypto.com Accounts
                   </h2>
                   <p className="text-lg mb-6">
-                    Looking for a fully verified, secure, and ready-to-use Crypto.com account? Get yours today from https://pvasupply.com/ and start trading, staking, and managing digital assets without delays. Whether for personal use or business needs, our verified accounts give you instant access to all Crypto.com features — including buying, selling, storing crypto, and earning rewards.
+                    Looking for a fully verified, secure, and ready-to-use
+                    Crypto.com account? Get yours today from
+                    https://pvasupply.com/ and start trading, staking, and
+                    managing digital assets without delays. Whether for personal
+                    use or business needs, our verified accounts give you
+                    instant access to all Crypto.com features — including
+                    buying, selling, storing crypto, and earning rewards.
                   </p>
                 </div>
 
@@ -152,14 +160,16 @@ export default function BuyVerifiedCryptoComAccounts() {
             </h1>
 
             {/* Price Range */}
-            <div className="mb-4">
-              <span className="text-3xl font-bold text-green-600">$220.00</span>
-              <span className="text-gray-500 ml-2">- $350.00</span>
-            </div>
+            <PriceDisplay price="$220.00 - $350.00" className="mb-4" />
 
             {/* Product Description */}
             <p className="text-gray-600 mb-6">
-              Looking for a fully verified, secure, and ready-to-use Crypto.com account? Get yours today from https://pvasupply.com/ and start trading, staking, and managing digital assets without delays. Whether for personal use or business needs, our verified accounts give you instant access to all Crypto.com features — including buying, selling, storing crypto, and earning rewards.
+              Looking for a fully verified, secure, and ready-to-use Crypto.com
+              account? Get yours today from https://pvasupply.com/ and start
+              trading, staking, and managing digital assets without delays.
+              Whether for personal use or business needs, our verified accounts
+              give you instant access to all Crypto.com features — including
+              buying, selling, storing crypto, and earning rewards.
             </p>
 
             {/* Features List */}
@@ -176,25 +186,7 @@ export default function BuyVerifiedCryptoComAccounts() {
             </div>
 
             {/* Contact Information */}
-            <div className="bg-gray-50 rounded-lg p-4 mb-6">
-              <h3 className="font-semibold text-gray-900 mb-2">
-                If you want to more information just contact now. 24 Hours Reply/Contact
-              </h3>
-              <div className="space-y-2 text-sm">
-                <div className="flex items-center gap-2">
-                  <span className="text-gray-500">Email:</span>
-                  <span className="text-blue-600">pvasupply0@gmail.com</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <span className="text-gray-500">Telegram:</span>
-                  <span className="text-blue-600">@pvasupply</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <span className="text-gray-500">WhatsApp:</span>
-                  <span className="text-blue-600">+1 (979) 633-0236</span>
-                </div>
-              </div>
-            </div>
+            <ContactInfo className="mb-6" />
 
             {/* Product Options */}
             <div className="bg-white rounded-lg p-6 shadow-sm border">
@@ -294,9 +286,10 @@ export default function BuyVerifiedCryptoComAccounts() {
                   About Our Crypto.com Accounts
                 </h3>
                 <p className="text-gray-600 mb-4">
-                  Our verified Crypto.com accounts are perfect for cryptocurrency
-                  trading, staking, and digital asset management. Each account
-                  comes with full verification and established history.
+                  Our verified Crypto.com accounts are perfect for
+                  cryptocurrency trading, staking, and digital asset management.
+                  Each account comes with full verification and established
+                  history.
                 </p>
                 <p className="text-gray-600 mb-4">
                   Whether you need Crypto.com accounts for personal trading,
