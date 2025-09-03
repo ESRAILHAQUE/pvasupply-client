@@ -190,14 +190,14 @@ export default function BuyGoogleVoiceAccounts() {
             <div className="mb-4 space-y-3">
               <p className="text-gray-700 text-sm">
                 Are you looking for best quality real, active, fresh and aged
-                Google Voice accounts? Do you need USA and European countries real
-                phone number verified old Google Voice accounts? Or do you want to buy
-                old PVA Google Voice accounts with cheap price?
+                Google Voice accounts? Do you need USA and European countries
+                real phone number verified old Google Voice accounts? Or do you
+                want to buy old PVA Google Voice accounts with cheap price?
               </p>
               <p className="text-gray-700 text-sm">
-                Phone verified accounts are provided upon request. Aged Google Voice
-                accounts are indispensable for your business or personal use. We
-                provide instant delivery at Pvasmmpro.
+                Phone verified accounts are provided upon request. Aged Google
+                Voice accounts are indispensable for your business or personal
+                use. We provide instant delivery at Pvasmmpro.
               </p>
             </div>
 
@@ -322,10 +322,17 @@ export default function BuyGoogleVoiceAccounts() {
                   Google Voice Accounts for Sale
                 </h2>
                 <p className="text-gray-700 mb-4">
-                  Google Voice is a telecommunications service that provides call forwarding and voicemail services, voice and text messaging, as well as U.S. and international calling. Our Google Voice accounts are perfect for businesses and individuals who need reliable communication solutions.
+                  Google Voice is a telecommunications service that provides
+                  call forwarding and voicemail services, voice and text
+                  messaging, as well as U.S. and international calling. Our
+                  Google Voice accounts are perfect for businesses and
+                  individuals who need reliable communication solutions.
                 </p>
                 <p className="text-gray-700 mb-4">
-                  All our accounts come with full verification and are ready for immediate use. Whether you need a single account or bulk orders, we can accommodate your requirements with competitive pricing and excellent customer support.
+                  All our accounts come with full verification and are ready for
+                  immediate use. Whether you need a single account or bulk
+                  orders, we can accommodate your requirements with competitive
+                  pricing and excellent customer support.
                 </p>
               </div>
             )}
@@ -337,7 +344,9 @@ export default function BuyGoogleVoiceAccounts() {
                 </h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
-                    <h3 className="font-semibold text-gray-900 mb-2">Account Features</h3>
+                    <h3 className="font-semibold text-gray-900 mb-2">
+                      Account Features
+                    </h3>
                     <ul className="text-gray-700 space-y-1">
                       <li>• Full phone number verification</li>
                       <li>• Email verification completed</li>
@@ -346,7 +355,9 @@ export default function BuyGoogleVoiceAccounts() {
                     </ul>
                   </div>
                   <div>
-                    <h3 className="font-semibold text-gray-900 mb-2">Delivery</h3>
+                    <h3 className="font-semibold text-gray-900 mb-2">
+                      Delivery
+                    </h3>
                     <ul className="text-gray-700 space-y-1">
                       <li>• Instant delivery available</li>
                       <li>• Secure account transfer</li>
@@ -373,14 +384,142 @@ export default function BuyGoogleVoiceAccounts() {
 
         {/* Sidebar Section */}
         <div className="bg-white rounded-lg shadow-lg p-6">
-          <h3 className="text-lg font-bold text-gray-900 mb-4">Terms & Conditions</h3>
+          <h3 className="text-lg font-bold text-gray-900 mb-4">
+            Terms & Conditions
+          </h3>
           <div className="space-y-2">
             {sidebarItems.map((item, index) => (
-              <div key={index} className="flex items-center justify-between py-2 border-b border-gray-100 last:border-b-0">
+              <div
+                key={index}
+                className="flex items-center justify-between py-2 border-b border-gray-100 last:border-b-0">
                 <span className="text-sm text-gray-700">{item}</span>
                 <ChevronDown className="w-4 h-4 text-gray-400" />
               </div>
             ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Related Products Section */}
+      <div className="bg-white rounded-lg shadow-lg p-6 mt-8">
+        <h2 className="text-2xl font-bold text-gray-900 mb-6">
+          Related products
+        </h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          {/* Card 1 */}
+          <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+            <div>
+              <Image
+                src="/images/All Product/Buy LinkedIn Accounts.png"
+                alt="Buy LinkedIn Accounts"
+                width={300}
+                height={80}
+              />
+            </div>
+            <div className="p-4 bg-white">
+              <div className="text-gray-500 text-xs mb-2">Social Accounts</div>
+              <h4 className="font-bold text-black mb-2">
+                Buy LinkedIn Accounts
+              </h4>
+              <div className="flex gap-1 mb-3">
+                {[...Array(5)].map((_, i) => (
+                  <div
+                    key={i}
+                    className="w-4 h-4 border border-gray-300 rounded"
+                  />
+                ))}
+              </div>
+              <div className="text-black font-bold mb-3">$30.00 - $250.00</div>
+              <button className="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-md transition duration-200 text-sm">
+                Select options
+              </button>
+            </div>
+          </div>
+
+          {/* Card 2 */}
+          <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+            <div>
+              <Image
+                src="/images/All Product/Buy Gmail Accounts.png"
+                alt="Buy Gmail Accounts"
+                width={300}
+                height={80}
+              />
+            </div>
+            <div className="p-4 bg-white">
+              <div className="text-gray-500 text-xs mb-2">Social Accounts</div>
+              <h4 className="font-bold text-black mb-2">Buy Gmail Accounts</h4>
+              <div className="flex gap-1 mb-3">
+                {[...Array(5)].map((_, i) => (
+                  <div
+                    key={i}
+                    className="w-4 h-4 border border-gray-300 rounded"
+                  />
+                ))}
+              </div>
+              <div className="text-black font-bold mb-3">$6.00 - $340.00</div>
+              <button className="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-md transition duration-200 text-sm">
+                Select options
+              </button>
+            </div>
+          </div>
+
+          {/* Card 3 */}
+          <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+            <div>
+              <Image
+                src="/images/All Product/Buy Naver Accounts.png"
+                alt="Buy Naver Accounts"
+                width={300}
+                height={80}
+              />
+            </div>
+            <div className="p-4 bg-white">
+              <div className="text-gray-500 text-xs mb-2">Social Accounts</div>
+              <h4 className="font-bold text-black mb-2">Buy Naver Accounts</h4>
+              <div className="flex gap-1 mb-3">
+                {[...Array(5)].map((_, i) => (
+                  <div
+                    key={i}
+                    className="w-4 h-4 border border-gray-300 rounded"
+                  />
+                ))}
+              </div>
+              <div className="text-black font-bold mb-3">$10.00 - $300.00</div>
+              <button className="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-md transition duration-200 text-sm">
+                Select options
+              </button>
+            </div>
+          </div>
+
+          {/* Card 4 */}
+          <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+            <div>
+              <Image
+                src="/images/All Product/Buy Google Voice Accounts.png"
+                alt="Buy Google Voice Accounts"
+                width={300}
+                height={80}
+              />
+            </div>
+            <div className="p-4 bg-white">
+              <div className="text-gray-500 text-xs mb-2">Social Accounts</div>
+              <h4 className="font-bold text-black mb-2">
+                Buy Google Voice Accounts
+              </h4>
+              <div className="flex gap-1 mb-3">
+                {[...Array(5)].map((_, i) => (
+                  <div
+                    key={i}
+                    className="w-4 h-4 border border-gray-300 rounded"
+                  />
+                ))}
+              </div>
+              <div className="text-black font-bold mb-3">$8.00 - $250.00</div>
+              <button className="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-md transition duration-200 text-sm">
+                Select options
+              </button>
+            </div>
           </div>
         </div>
       </div>
