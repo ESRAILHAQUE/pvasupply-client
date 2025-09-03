@@ -17,6 +17,7 @@ import {
 } from "lucide-react";
 import PriceDisplay from "../../../components/shared/PriceDisplay";
 import ContactInfo from "../../../components/shared/ContactInfo";
+import RelatedProducts from "../../../components/shared/RelatedProducts";
 
 export default function BuyVerifiedCryptoComAccounts() {
   const [selectedOption, setSelectedOption] = useState("");
@@ -172,7 +173,6 @@ export default function BuyVerifiedCryptoComAccounts() {
                           Enterprise Package - $350.00
                         </option>
                       </select>
-
                     </div>
                   </div>
 
@@ -603,6 +603,12 @@ export default function BuyVerifiedCryptoComAccounts() {
                     </div>
                   </div>
                 </div>
+
+                {/* Related Products */}
+                <RelatedProducts
+                  currentProduct="Buy Verified Crypto.com Accounts"
+                  category="Crypto Accounts"
+                />
               </div>
             )}
 

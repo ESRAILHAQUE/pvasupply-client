@@ -17,6 +17,7 @@ import {
 } from "lucide-react";
 import PriceDisplay from "../../../components/shared/PriceDisplay";
 import ContactInfo from "../../../components/shared/ContactInfo";
+import RelatedProducts from "../../../components/shared/RelatedProducts";
 
 export default function BuyVerifiedPaypalAccounts() {
   const [selectedOption, setSelectedOption] = useState("");
@@ -172,7 +173,6 @@ export default function BuyVerifiedPaypalAccounts() {
                           Enterprise Package - $900.00
                         </option>
                       </select>
-
                     </div>
                   </div>
 
@@ -642,6 +642,12 @@ export default function BuyVerifiedPaypalAccounts() {
                     </div>
                   </div>
                 </div>
+
+                {/* Related Products */}
+                <RelatedProducts
+                  currentProduct="Buy Verified PayPal Accounts"
+                  category="Bank Accounts"
+                />
               </div>
             )}
 

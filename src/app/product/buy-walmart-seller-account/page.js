@@ -17,6 +17,7 @@ import {
 import { useCart } from "../../../contexts/CartContext";
 import PriceDisplay from "../../../components/shared/PriceDisplay";
 import ContactInfo from "../../../components/shared/ContactInfo";
+import RelatedProducts from "../../../components/shared/RelatedProducts";
 
 export default function BuyWalmartSellerAccount() {
   const [selectedOption, setSelectedOption] = useState("");
@@ -116,7 +117,13 @@ export default function BuyWalmartSellerAccount() {
                     Buy Walmart Seller Account
                   </h2>
                   <p className="text-lg mb-6">
-                    Start your E-Commerce journey on one of the most trusted marketplaces in the world with a fully verified Walmart Seller Account from https://pvasupply.com/. We&apos;ve already delivered more than 10 verified Walmart personal and business accounts to clients in the USA, UK, CA, and other countries — and every account comes ready to use with full verification.
+                    Start your E-Commerce journey on one of the most trusted
+                    marketplaces in the world with a fully verified Walmart
+                    Seller Account from https://pvasupply.com/. We&apos;ve
+                    already delivered more than 10 verified Walmart personal and
+                    business accounts to clients in the USA, UK, CA, and other
+                    countries — and every account comes ready to use with full
+                    verification.
                   </p>
                 </div>
 
@@ -161,7 +168,12 @@ export default function BuyWalmartSellerAccount() {
 
             {/* Product Description */}
             <p className="text-gray-600 mb-6">
-              Start your E-Commerce journey on one of the most trusted marketplaces in the world with a fully verified Walmart Seller Account from https://pvasupply.com/. We&apos;ve already delivered more than 10 verified Walmart personal and business accounts to clients in the USA, UK, CA, and other countries — and every account comes ready to use with full verification.
+              Start your E-Commerce journey on one of the most trusted
+              marketplaces in the world with a fully verified Walmart Seller
+              Account from https://pvasupply.com/. We&apos;ve already delivered
+              more than 10 verified Walmart personal and business accounts to
+              clients in the USA, UK, CA, and other countries — and every
+              account comes ready to use with full verification.
             </p>
 
             {/* Features List */}
@@ -203,7 +215,6 @@ export default function BuyWalmartSellerAccount() {
                       Enterprise Package - $4,900.00
                     </option>
                   </select>
-                  
                 </div>
               </div>
 
@@ -278,10 +289,17 @@ export default function BuyWalmartSellerAccount() {
                   About Our Walmart Seller Accounts
                 </h3>
                 <p className="text-gray-600 mb-4">
-                  Our verified Walmart Seller accounts are perfect for starting your e-commerce business on one of the world&apos;s largest and most trusted marketplaces. Each account comes with full verification and established history, allowing you to start selling immediately.
+                  Our verified Walmart Seller accounts are perfect for starting
+                  your e-commerce business on one of the world&apos;s largest
+                  and most trusted marketplaces. Each account comes with full
+                  verification and established history, allowing you to start
+                  selling immediately.
                 </p>
                 <p className="text-gray-600 mb-4">
-                  Whether you need a Walmart Seller account for personal business, dropshipping, or retail operations, our verified accounts provide the foundation you need for success in the competitive e-commerce landscape.
+                  Whether you need a Walmart Seller account for personal
+                  business, dropshipping, or retail operations, our verified
+                  accounts provide the foundation you need for success in the
+                  competitive e-commerce landscape.
                 </p>
                 <h4 className="text-md font-semibold text-gray-900 mb-2">
                   What You Get:
@@ -294,6 +312,12 @@ export default function BuyWalmartSellerAccount() {
                   <li>Recovery guarantee</li>
                   <li>24/7 customer support</li>
                 </ul>
+
+                {/* Related Products */}
+                <RelatedProducts
+                  currentProduct="Buy Walmart Seller Account"
+                  category="Special Accounts"
+                />
               </div>
             )}
 

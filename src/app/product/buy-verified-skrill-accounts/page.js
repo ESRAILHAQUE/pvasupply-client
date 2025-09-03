@@ -17,6 +17,7 @@ import {
 import { useCart } from "../../../contexts/CartContext";
 import PriceDisplay from "../../../components/shared/PriceDisplay";
 import ContactInfo from "../../../components/shared/ContactInfo";
+import RelatedProducts from "../../../components/shared/RelatedProducts";
 
 export default function BuyVerifiedSkrillAccounts() {
   const [selectedOption, setSelectedOption] = useState("");
@@ -241,7 +242,6 @@ export default function BuyVerifiedSkrillAccounts() {
                       Enterprise Package - $800.00
                     </option>
                   </select>
-                  
                 </div>
               </div>
 
@@ -777,6 +777,12 @@ export default function BuyVerifiedSkrillAccounts() {
                     </div>
                   </div>
                 </div>
+
+                {/* Related Products */}
+                <RelatedProducts
+                  currentProduct="Buy Verified Skrill Accounts"
+                  category="Bank Accounts"
+                />
               </div>
             )}
 

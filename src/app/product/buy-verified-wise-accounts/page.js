@@ -17,6 +17,7 @@ import {
 import { useCart } from "../../../contexts/CartContext";
 import PriceDisplay from "../../../components/shared/PriceDisplay";
 import ContactInfo from "../../../components/shared/ContactInfo";
+import RelatedProducts from "../../../components/shared/RelatedProducts";
 
 export default function BuyVerifiedWiseAccounts() {
   const [selectedOption, setSelectedOption] = useState("");
@@ -241,7 +242,6 @@ export default function BuyVerifiedWiseAccounts() {
                       Enterprise Package - $380.00
                     </option>
                   </select>
-                  
                 </div>
               </div>
 
@@ -686,6 +686,12 @@ export default function BuyVerifiedWiseAccounts() {
                     </div>
                   </div>
                 </div>
+
+                {/* Related Products */}
+                <RelatedProducts
+                  currentProduct="Buy Verified Wise Accounts"
+                  category="Bank Accounts"
+                />
               </div>
             )}
 

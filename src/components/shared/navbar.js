@@ -40,6 +40,10 @@ export default function Navbar() {
           href: "/product/buy-linkedin-accounts",
         },
         {
+          name: "Buy Old Yahoo Accounts",
+          href: "/product/buy-old-yahoo-accounts",
+        },
+        {
           name: "Buy Verified Google Ads Accounts",
           href: "/product/buy-verified-google-ads-accounts",
         },

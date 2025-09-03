@@ -17,6 +17,7 @@ import {
 import { useCart } from "../../../contexts/CartContext";
 import PriceDisplay from "../../../components/shared/PriceDisplay";
 import ContactInfo from "../../../components/shared/ContactInfo";
+import RelatedProducts from "../../../components/shared/RelatedProducts";
 
 export default function BuyVerifiedGoogleAdsAccounts() {
   const [selectedOption, setSelectedOption] = useState("");
@@ -96,53 +97,15 @@ export default function BuyVerifiedGoogleAdsAccounts() {
       <div className="max-w-6xl mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
           {/* Left Section - Promotional Banner */}
-          <div className="relative h-[600px]">
-            <div className="bg-gradient-to-br from-blue-500 via-blue-600 to-red-500 rounded-xl p-6 h-full relative overflow-hidden shadow-lg">
-              {/* Sale Badge */}
-              <div className="absolute top-3 left-3 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded-full">
-                Sale!
-              </div>
-
-              {/* Main Content */}
-              <div className="text-white h-full flex flex-col justify-between">
-                <div>
-                  <h2 className="text-3xl font-bold mb-4">
-                    Buy Verified Google Ads Accounts
-                  </h2>
-                  <p className="text-lg mb-6">
-                    Looking to purchase a fully verified Google Ads account?
-                    You&apos;re in the right place! At https://pvasupply.com/,
-                    we provide 100% secure and reliable verified Google Ads
-                    accounts, ready for running high-performance ad campaigns.
-                    These accounts allow you to create and manage ads
-                    effortlessly while staying compliant with Google&apos;s
-                    policies.
-                  </p>
-                  <p className="text-lg mb-6">
-                    Our verified Google Ads accounts are perfect for businesses,
-                    marketers, and advertisers looking to scale campaigns
-                    without restrictions.
-                  </p>
-                </div>
-
-                {/* Contact Section */}
-                <div className="absolute bottom-6 left-6 right-6">
-                  <div className="bg-white/20 backdrop-blur-sm rounded-lg p-4">
-                    <h3 className="text-white font-bold mb-3">Contact Us</h3>
-                    <div className="space-y-2">
-                      {contactInfo.map((info, index) => (
-                        <div
-                          key={index}
-                          className="flex items-center gap-2 text-white text-sm">
-                          <div className="w-2 h-2 bg-white rounded-full"></div>
-                          <span>{info.text}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+          <div className="relative h-[600px] flex items-center justify-center">
+            <Image
+              src="/images/All Product/Buy Verified Google Ads Accounts.png"
+              alt="Buy Verified Google Ads Accounts"
+              width={1200}
+              height={1200}
+              className="max-w-full max-h-full object-contain"
+              priority
+            />
           </div>
 
           {/* Right Section - Product Details */}
@@ -218,7 +181,6 @@ export default function BuyVerifiedGoogleAdsAccounts() {
                       Enterprise Package - $320.00
                     </option>
                   </select>
-                  
                 </div>
               </div>
 
@@ -631,6 +593,12 @@ export default function BuyVerifiedGoogleAdsAccounts() {
                     </div>
                   </div>
                 </div>
+
+                {/* Related Products */}
+                <RelatedProducts
+                  currentProduct="Buy Verified Google Ads Accounts"
+                  category="Special Accounts"
+                />
               </div>
             )}
 

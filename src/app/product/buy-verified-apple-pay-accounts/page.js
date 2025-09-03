@@ -17,6 +17,7 @@ import {
 } from "lucide-react";
 import PriceDisplay from "../../../components/shared/PriceDisplay";
 import ContactInfo from "../../../components/shared/ContactInfo";
+import RelatedProducts from "../../../components/shared/RelatedProducts";
 
 export default function BuyVerifiedApplePayAccounts() {
   const [selectedOption, setSelectedOption] = useState("");
@@ -255,6 +256,12 @@ export default function BuyVerifiedApplePayAccounts() {
                   <li>Recovery guarantee</li>
                   <li>24/7 customer support</li>
                 </ul>
+
+                {/* Related Products */}
+                <RelatedProducts
+                  currentProduct="Buy Verified Apple Pay Accounts"
+                  category="Special Accounts"
+                />
               </div>
             )}
 

@@ -17,6 +17,7 @@ import {
 import { useCart } from "../../../contexts/CartContext";
 import PriceDisplay from "../../../components/shared/PriceDisplay";
 import ContactInfo from "../../../components/shared/ContactInfo";
+import RelatedProducts from "../../../components/shared/RelatedProducts";
 
 export default function BuyVerifiedPayoneerAccounts() {
   const [selectedOption, setSelectedOption] = useState("");
@@ -238,7 +239,6 @@ export default function BuyVerifiedPayoneerAccounts() {
                       Enterprise Package - $250.00
                     </option>
                   </select>
-                  
                 </div>
               </div>
 
@@ -716,6 +716,12 @@ export default function BuyVerifiedPayoneerAccounts() {
                     </div>
                   </div>
                 </div>
+
+                {/* Related Products */}
+                <RelatedProducts
+                  currentProduct="Buy Verified Payoneer Accounts"
+                  category="Special Accounts"
+                />
               </div>
             )}
 

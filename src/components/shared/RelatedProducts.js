@@ -50,41 +50,41 @@ export default function RelatedProducts({ currentProduct, category }) {
           price: "$12.00 - $280.00",
           category: "Social Accounts",
         },
+        {
+          name: "Buy Old Yahoo Accounts",
+          href: "/product/buy-old-yahoo-accounts",
+          image: "/images/All Product/Buy Verified Yahoo Accounts.jpg",
+          price: "$8.00 - $25.00",
+          category: "Social Accounts",
+        },
       ],
       "Crypto Accounts": [
         {
           name: "Buy Verified Binance Accounts",
           href: "/product/buy-verified-binance-accounts",
-          image: "/images/All Product/Buy Binance Accounts.png",
+          image: "/images/All Product/Buy KYC Verified Binance Accounts.png",
           price: "$50.00 - $500.00",
           category: "Crypto Accounts",
         },
         {
           name: "Buy Verified Bybit Accounts",
           href: "/product/buy-verified-bybit-accounts",
-          image: "/images/All Product/Buy Bybit Accounts.png",
+          image: "/images/All Product/Buy Verified Bybit Account.png",
           price: "$45.00 - $480.00",
           category: "Crypto Accounts",
         },
         {
           name: "Buy Verified Coinbase Accounts",
           href: "/product/buy-verified-coinbase-accounts",
-          image: "/images/All Product/Buy Coinbase Accounts.png",
+          image: "/images/All Product/Buy Verified Coinbase Account.png",
           price: "$60.00 - $550.00",
           category: "Crypto Accounts",
         },
         {
           name: "Buy Verified Crypto.com Accounts",
           href: "/product/buy-verified-crypto-com-accounts",
-          image: "/images/All Product/Buy Crypto.com Accounts.png",
+          image: "/images/All Product/Buy Verified Crypto.com Account.png",
           price: "$40.00 - $450.00",
-          category: "Crypto Accounts",
-        },
-        {
-          name: "Buy Verified OKX Accounts",
-          href: "/product/buy-verified-okx-accounts",
-          image: "/images/All Product/Buy OKX Accounts.png",
-          price: "$35.00 - $400.00",
           category: "Crypto Accounts",
         },
       ],
@@ -92,21 +92,21 @@ export default function RelatedProducts({ currentProduct, category }) {
         {
           name: "Buy Verified PayPal Accounts",
           href: "/product/buy-verified-paypal-accounts",
-          image: "/images/All Product/Buy PayPal Accounts.png",
+          image: "/images/All Product/Buy Verified PayPal Accounts.png",
           price: "$25.00 - $300.00",
           category: "Bank Accounts",
         },
         {
           name: "Buy Verified Cash App Accounts",
           href: "/product/buy-verified-cash-app-accounts",
-          image: "/images/All Product/Buy Cash App Accounts.png",
+          image: "/images/All Product/Buy Verified Cash App Accounts.png",
           price: "$20.00 - $250.00",
           category: "Bank Accounts",
         },
         {
           name: "Buy Verified Chime Bank Accounts",
           href: "/product/buy-verified-chime-bank-accounts",
-          image: "/images/All Product/Buy Chime Bank Accounts.png",
+          image: "/images/All Product/Buy Verified Chime Bank Accounts.png",
           price: "$30.00 - $350.00",
           category: "Bank Accounts",
         },
@@ -120,14 +120,14 @@ export default function RelatedProducts({ currentProduct, category }) {
         {
           name: "Buy Verified Go2Bank Accounts",
           href: "/product/buy-verified-go2bank-accounts",
-          image: "/images/All Product/Buy Go2Bank Accounts.png",
+          image: "/images/All Product/Buy Verified Go2Bank Accounts.png",
           price: "$25.00 - $280.00",
           category: "Bank Accounts",
         },
         {
           name: "Buy Verified Venmo Accounts",
           href: "/product/buy-verified-venmo-accounts",
-          image: "/images/All Product/Buy Venmo Accounts.png",
+          image: "/images/All Product/Buy Verified Venmo Accounts.png",
           price: "$18.00 - $220.00",
           category: "Bank Accounts",
         },
@@ -143,7 +143,7 @@ export default function RelatedProducts({ currentProduct, category }) {
         {
           name: "Buy Verified Apple Pay Accounts",
           href: "/product/buy-verified-apple-pay-accounts",
-          image: "/images/All Product/Buy Apple Pay Accounts.png",
+          image: "/images/All Product/Buy Verified Apple Pay Account.png",
           price: "$40.00 - $450.00",
           category: "Special Accounts",
         },
@@ -157,7 +157,7 @@ export default function RelatedProducts({ currentProduct, category }) {
         {
           name: "Buy Verified Google Ads Accounts",
           href: "/product/buy-verified-google-ads-accounts",
-          image: "/images/All Product/Buy Google Ads Accounts.png",
+          image: "/images/All Product/Buy Verified Google Ads Accounts.png",
           price: "$80.00 - $600.00",
           category: "Special Accounts",
         },
@@ -184,7 +184,12 @@ export default function RelatedProducts({ currentProduct, category }) {
       (product) => product.name !== currentProduct
     );
 
-    // Return exactly 4 products
+    // Return different number of products based on category
+    if (category === "Special Accounts") {
+      return filteredProducts.slice(0, 2);
+    }
+
+    // Return exactly 4 products for other categories
     return filteredProducts.slice(0, 4);
   };
 
@@ -208,6 +213,7 @@ export default function RelatedProducts({ currentProduct, category }) {
                   src={product.image}
                   alt={product.name}
                   fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                   className="object-cover"
                 />
               </div>
