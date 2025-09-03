@@ -2,12 +2,12 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import {
   Search,
   Globe,
   Send,
   Check,
-  ChevronDown,
   ShoppingCart,
   Scale,
   FileText,
@@ -15,7 +15,6 @@ import {
   User,
   Globe as GlobeIcon,
 } from "lucide-react";
-import { useCart } from "../../../contexts/CartContext";
 import PriceDisplay from "../../../components/shared/PriceDisplay";
 import ContactInfo from "../../../components/shared/ContactInfo";
 
@@ -23,7 +22,6 @@ export default function BuyVerifiedChaseBankAccounts() {
   const [selectedOption, setSelectedOption] = useState("");
   const [quantity, setQuantity] = useState(1);
   const [activeTab, setActiveTab] = useState("description");
-  const { addToCart } = useCart();
 
   const features = [
     "USA & European Local IP Created Accounts",
@@ -64,221 +62,141 @@ export default function BuyVerifiedChaseBankAccounts() {
     "How Chase Bank handles government requests for user information",
   ];
 
-  const handleAddToCart = () => {
-    if (!selectedOption) {
-      alert("Please select an option first");
-      return;
-    }
-
-    const optionPrices = {
-      basic: 150,
-      premium: 300,
-      enterprise: 600,
-    };
-
-    const product = {
-      id: "chase-bank-accounts",
-      name: "Buy Verified Chase Bank Accounts",
-      option: selectedOption,
-      price: optionPrices[selectedOption],
-      quantity: quantity,
-      category: "Bank Accounts",
-    };
-
-    addToCart(product);
-    alert("Added to cart successfully!");
-  };
-
   return (
     <div className="min-h-screen bg-gray-100 py-4">
       <div className="max-w-6xl mx-auto px-4">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
-          {/* Left Section - Promotional Banner */}
-          <div className="relative h-[600px]">
-            <div className="bg-gradient-to-br from-blue-400 via-blue-500 to-indigo-400 rounded-xl p-6 h-full relative overflow-hidden shadow-lg">
-              {/* Sale Badge */}
-              <div className="absolute top-3 left-3 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded-full">
-                Sale!
+        <div className="bg-white rounded-xl shadow-lg p-4 lg:p-6 mb-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            {/* Left Section - Promotional Banner */}
+            <div className="relative h-[600px] flex items-center justify-center">
+              <Image
+                src="/images/All Product/Buy Verified Chase Bank Accounts.png"
+                alt="Buy Verified Chase Bank Accounts"
+                width={1200}
+                height={1200}
+                className="max-w-full max-h-full object-contain"
+                priority
+              />
+            </div>
+
+            {/* Right Section - Product Details */}
+            <div className="p-6">
+              {/* Breadcrumbs */}
+              <div className="text-sm text-gray-600 mb-1">
+                <Link href="/" className="text-blue-600 hover:underline">
+                  Home
+                </Link>
+                <span> / </span>
+                <Link href="/bank" className="text-blue-600 hover:underline">
+                  Bank Accounts
+                </Link>
+                <span> / </span>
+                <span className="text-gray-900">
+                  Buy Verified Chase Bank Accounts
+                </span>
               </div>
 
-              {/* Order Now Badge */}
-              <div className="absolute top-3 right-3 bg-black text-white text-xs font-bold px-3 py-1.5 rounded-lg flex items-center gap-1.5">
-                <Search className="w-3 h-3" />
-                ORDER NOW
+              {/* Category Link */}
+              <div className="mb-3">
+                <a
+                  href="#"
+                  className="text-blue-600 hover:text-blue-800 text-sm">
+                  Bank Accounts
+                </a>
               </div>
 
-              {/* Main Title */}
-              <div className="mt-12 mb-4">
-                <h1 className="text-3xl font-bold leading-tight">
-                  <span className="text-green-600">BUY VERIFIED</span>
-                  <br />
-                  <span className="text-black">CHASE BANK ACCOUNTS</span>
-                </h1>
+              {/* Product Title */}
+              <h1 className="text-2xl font-bold text-gray-900 mb-1">
+                Buy Verified Chase Bank Accounts
+              </h1>
+
+              {/* Price */}
+              <PriceDisplay price="$80.00 - $1000.00" className="mb-4" />
+
+              {/* Product Description */}
+              <div className="mb-4 space-y-3">
+                <p className="text-gray-700 text-sm">
+                  Are you looking for best quality real, active, fresh and aged
+                  Chase Bank accounts? Do you need USA and European countries
+                  real phone number verified old Chase Bank accounts? Or do you
+                  want to buy old PVA Chase Bank accounts with cheap price?
+                </p>
+                <p className="text-gray-700 text-sm">
+                  Phone verified accounts are provided upon request. Aged Chase
+                  Bank accounts are indispensable for your business or personal
+                  use. We provide instant delivery at Pvasmmpro.
+                </p>
               </div>
 
-              {/* Chase Bank Graphic */}
-              <div className="relative mb-6">
-                <div className="w-24 h-20 bg-white rounded-lg shadow-md relative">
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="text-blue-500 text-3xl font-bold">C</div>
+              {/* Features */}
+              <div className="mb-4">
+                <h3 className="text-base font-bold text-gray-900 mb-3">
+                  Features of Our PVA Aged Chase Bank Accounts
+                </h3>
+                <ul className="space-y-1.5">
+                  {productFeatures.map((feature, index) => (
+                    <li key={index} className="flex items-start gap-2">
+                      <Check className="w-4 h-4 text-green-600 mt-0.5 flex-shrink-0" />
+                      <span className="text-gray-700 text-sm">{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Contact Information */}
+              <ContactInfo className="mb-4" />
+
+              {/* Purchase Section */}
+              <div className="border-t pt-4">
+                <h3 className="text-lg font-bold text-gray-900 mb-3">
+                  Buy Verified Chase Bank Accounts
+                </h3>
+
+                <div className="space-y-3">
+                  {/* Option Dropdown */}
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1.5">
+                      Choose an option
+                    </label>
+                    <div className="relative">
+                      <select
+                        value={selectedOption}
+                        onChange={(e) => setSelectedOption(e.target.value)}
+                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent text-sm">
+                        <option value="">Select an option</option>
+                        <option value="basic">Basic Package - $80.00</option>
+                        <option value="premium">
+                          Premium Package - $400.00
+                        </option>
+                        <option value="enterprise">
+                          Enterprise Package - $1000.00
+                        </option>
+                      </select>
+
+                    </div>
                   </div>
-                </div>
 
-                {/* 15% OFF Badge */}
-                <div className="absolute -top-1 -right-1 w-12 h-12 bg-green-500 border-3 border-yellow-400 rounded-full flex items-center justify-center">
-                  <span className="text-white text-xs font-bold">15% OFF</span>
-                </div>
-              </div>
-
-              {/* Service Features */}
-              <div className="space-y-3 mb-6">
-                {features.map((feature, index) => (
-                  <div key={index} className="flex items-center gap-2">
-                    <Check className="w-4 h-4 text-green-600" />
-                    <span className="text-sm text-gray-800 font-medium">
-                      {feature}
-                    </span>
+                  {/* Quantity */}
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1.5">
+                      Quantity
+                    </label>
+                    <input
+                      type="number"
+                      min="1"
+                      value={quantity}
+                      onChange={(e) =>
+                        setQuantity(parseInt(e.target.value) || 1)
+                      }
+                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent text-sm"
+                    />
                   </div>
-                ))}
-              </div>
 
-              {/* Contact Section */}
-              <div className="absolute bottom-6 left-6 right-6">
-                <div className="bg-white/20 backdrop-blur-sm rounded-lg p-4">
-                  <h3 className="text-white font-bold mb-3">Contact Us</h3>
-                  <div className="space-y-2">
-                    {contactInfo.map((info, index) => (
-                      <div
-                        key={index}
-                        className="flex items-center gap-2 text-white text-sm">
-                        <div className="w-2 h-2 bg-white rounded-full"></div>
-                        <span>{info.text}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Right Section - Product Details */}
-          <div className="bg-white rounded-lg p-6 shadow-lg">
-            {/* Breadcrumbs */}
-            <div className="flex items-center gap-2 text-sm text-gray-500 mb-4">
-              <span>Home</span>
-              <span>/</span>
-              <span>Products</span>
-              <span>/</span>
-              <span className="text-gray-900">Chase Bank Accounts</span>
-            </div>
-
-            {/* Category Link */}
-            <div className="mb-4">
-              <a
-                href="#"
-                className="text-blue-600 hover:text-blue-800 text-sm font-medium">
-                Bank Accounts
-              </a>
-            </div>
-
-            {/* Product Title */}
-            <h1 className="text-2xl font-bold text-gray-900 mb-2">
-              Buy Verified Chase Bank Accounts
-            </h1>
-
-            {/* Price Range */}
-            <PriceDisplay price="$150.00 - $600.00" className="mb-4" />
-
-            {/* Product Description */}
-            <p className="text-gray-600 mb-6">
-              Get high-quality verified Chase Bank accounts for traditional
-              banking, credit cards, and financial services. Our accounts are
-              fully verified, safe, and ready to use immediately.
-            </p>
-
-            {/* Features List */}
-            <div className="space-y-2 mb-6">
-              {productFeatures.map((feature, index) => (
-                <div key={index} className="flex items-center gap-2">
-                  <Check className="w-4 h-4 text-green-600" />
-                  <span className="text-sm text-gray-700">{feature}</span>
-                </div>
-              ))}
-            </div>
-
-            {/* Contact Information */}
-            <ContactInfo className="mb-6" />
-
-            {/* Purchase Section */}
-            <div className="space-y-4">
-              {/* Option Selection */}
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Select Option
-                </label>
-                <div className="relative">
-                  <select
-                    value={selectedOption}
-                    onChange={(e) => setSelectedOption(e.target.value)}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent appearance-none bg-white">
-                    <option value="">Choose an option</option>
-                    <option value="basic">Basic Package - $150.00</option>
-                    <option value="premium">Premium Package - $300.00</option>
-                    <option value="enterprise">
-                      Enterprise Package - $600.00
-                    </option>
-                  </select>
-                  <ChevronDown className="absolute right-3 top-2.5 h-4 w-4 text-gray-400 pointer-events-none" />
-                </div>
-              </div>
-
-              {/* Quantity Selection */}
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Quantity
-                </label>
-                <div className="flex items-center border border-gray-300 rounded-md">
-                  <button
-                    onClick={() => setQuantity(Math.max(1, quantity - 1))}
-                    className="px-3 py-2 text-gray-600 hover:text-gray-800">
-                    -
+                  {/* Add to Cart Button */}
+                  <button className="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-2.5 px-4 rounded-md transition duration-200 flex items-center justify-center gap-2 text-sm">
+                    <ShoppingCart className="w-4 h-4" />
+                    Add to cart
                   </button>
-                  <input
-                    type="number"
-                    min="1"
-                    value={quantity}
-                    onChange={(e) =>
-                      setQuantity(Math.max(1, parseInt(e.target.value) || 1))
-                    }
-                    className="flex-1 text-center border-0 focus:ring-0 focus:outline-none"
-                  />
-                  <button
-                    onClick={() => setQuantity(quantity + 1)}
-                    className="px-3 py-2 text-gray-600 hover:text-gray-800">
-                    +
-                  </button>
-                </div>
-              </div>
-
-              {/* Add to Cart Button */}
-              <button
-                onClick={handleAddToCart}
-                className="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-2.5 px-4 rounded-md transition duration-200 flex items-center justify-center gap-2 text-sm">
-                <ShoppingCart className="w-4 h-4" />
-                Add to cart
-              </button>
-            </div>
-
-            {/* Product Info */}
-            <div className="mt-6 pt-6 border-t border-gray-200">
-              <div className="grid grid-cols-2 gap-4 text-sm">
-                <div>
-                  <span className="text-gray-500">SKU:</span>
-                  <span className="ml-2 text-gray-900">CHASE-001</span>
-                </div>
-                <div>
-                  <span className="text-gray-500">Category:</span>
-                  <span className="ml-2 text-gray-900">Bank Accounts</span>
                 </div>
               </div>
             </div>

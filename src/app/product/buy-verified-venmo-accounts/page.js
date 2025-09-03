@@ -2,12 +2,12 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import {
   Search,
   Globe,
   Send,
   Check,
-  ChevronDown,
   ShoppingCart,
   Scale,
   FileText,
@@ -15,7 +15,6 @@ import {
   User,
   Globe as GlobeIcon,
 } from "lucide-react";
-import { useCart } from "../../../contexts/CartContext";
 import PriceDisplay from "../../../components/shared/PriceDisplay";
 import ContactInfo from "../../../components/shared/ContactInfo";
 
@@ -23,32 +22,30 @@ export default function BuyVerifiedVenmoAccounts() {
   const [selectedOption, setSelectedOption] = useState("");
   const [quantity, setQuantity] = useState(1);
   const [activeTab, setActiveTab] = useState("description");
-  const { addToCart } = useCart();
 
   const features = [
-    "100% customer satisfaction guaranteed",
-    "Thoroughly verified and document-checked accounts",
-    "All necessary documents included",
-    "Affordable and competitive pricing",
-    "100% money-back guarantee",
-    "24/7 dedicated customer support",
-    "Exclusive bonuses with each purchase",
+    "USA & European Local IP Created Accounts",
+    "Real Phone Number Used for Verification",
+    "Unique Username Venmo Accounts Available",
+    "2019-2024 Years Venmo Accounts Available",
+    "PVA New/Old Accounts Are Available",
+    "100% Safe & Private",
   ];
 
   const productFeatures = [
-    "100% customer satisfaction guaranteed",
-    "Thoroughly verified and document-checked accounts",
-    "All necessary documents included",
-    "Affordable and competitive pricing",
-    "100% money-back guarantee",
-    "24/7 dedicated customer support",
-    "Exclusive bonuses with each purchase",
+    "USA & European Local IP Created Accounts",
+    "Real Phone Number Used for Verification",
+    "Unique Username Venmo Accounts Available",
+    "2019-2023 Years Venmo Accounts are Available",
+    "Any Countries PVA New/Old Accounts are Available",
+    "Delivery Time Within 10 Minutes After Your Order",
+    "100% Safe & Private",
   ];
 
   const contactInfo = [
     { icon: "Email", text: "pvasupply0@gmail.com" },
     { icon: "Telegram", text: "@pvasupply" },
-    { icon: "WhatsApp", text: "+1 (979) 633-0236" },
+    { icon: "WhatsApp", text: "WhatsApp Chat" },
   ];
 
   const sidebarItems = [
@@ -65,235 +62,140 @@ export default function BuyVerifiedVenmoAccounts() {
     "How Venmo handles government requests for user information",
   ];
 
-  const handleAddToCart = () => {
-    if (!selectedOption) {
-      alert("Please select an option first");
-      return;
-    }
-
-    const optionPrices = {
-      basic: 120,
-      premium: 180,
-      enterprise: 250,
-    };
-
-    const product = {
-      id: "venmo-accounts",
-      name: "Buy Verified Venmo Accounts",
-      option: selectedOption,
-      price: optionPrices[selectedOption],
-      quantity: quantity,
-      category: "Bank Accounts",
-    };
-
-    addToCart(product);
-    alert("Added to cart successfully!");
-  };
-
   return (
     <div className="min-h-screen bg-gray-100 py-4">
       <div className="max-w-6xl mx-auto px-4">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
-          {/* Left Section - Promotional Banner */}
-          <div className="relative h-[600px]">
-            <div className="bg-gradient-to-br from-orange-400 via-orange-500 to-yellow-400 rounded-xl p-6 h-full relative overflow-hidden shadow-lg">
-              {/* Sale Badge */}
-              <div className="absolute top-3 left-3 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded-full">
-                Sale!
+        <div className="bg-white rounded-xl shadow-lg p-4 lg:p-6 mb-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            {/* Left Section - Promotional Banner */}
+            <div className="relative h-[600px] flex items-center justify-center">
+              <Image
+                src="/images/All Product/Buy Verified Venmo Accounts.png"
+                alt="Buy Verified Venmo Accounts"
+                width={1200}
+                height={1200}
+                className="max-w-full max-h-full object-contain"
+                priority
+              />
+            </div>
+
+            {/* Right Section - Product Details */}
+            <div className="p-6">
+              {/* Breadcrumbs */}
+              <div className="text-sm text-gray-600 mb-1">
+                <Link href="/" className="text-blue-600 hover:underline">
+                  Home
+                </Link>
+                <span> / </span>
+                <Link href="/special" className="text-blue-600 hover:underline">
+                  Special Accounts
+                </Link>
+                <span> / </span>
+                <span className="text-gray-900">
+                  Buy Verified Venmo Accounts
+                </span>
               </div>
 
-              {/* Order Now Badge */}
-              <div className="absolute top-3 right-3 bg-black text-white text-xs font-bold px-3 py-1.5 rounded-lg flex items-center gap-1.5">
-                <Search className="w-3 h-3" />
-                ORDER NOW
+              {/* Category Link */}
+              <div className="mb-3">
+                <a
+                  href="#"
+                  className="text-blue-600 hover:text-blue-800 text-sm">
+                  Special Accounts
+                </a>
               </div>
 
-              {/* Main Title */}
-              <div className="mt-12 mb-4">
-                <h1 className="text-3xl font-bold leading-tight">
-                  <span className="text-green-600">BUY VERIFIED</span>
-                  <br />
-                  <span className="text-black">VENMO ACCOUNTS</span>
-                </h1>
+              {/* Product Title */}
+              <h1 className="text-2xl font-bold text-gray-900 mb-1">
+                Buy Verified Venmo Accounts
+              </h1>
+
+              {/* Price */}
+              <PriceDisplay price="$25.00 - $400.00" className="mb-4" />
+
+              {/* Product Description */}
+              <div className="mb-4 space-y-3">
+                <p className="text-gray-700 text-sm">
+                  Are you looking for best quality real, active, fresh and aged
+                  Venmo accounts? Do you need USA and European countries real
+                  phone number verified old Venmo accounts? Or do you want to
+                  buy old PVA Venmo accounts with cheap price?
+                </p>
+                <p className="text-gray-700 text-sm">
+                  Phone verified accounts are provided upon request. Aged Venmo
+                  accounts are indispensable for your business or personal use.
+                  We provide instant delivery at Pvasmmpro.
+                </p>
               </div>
 
-              {/* Venmo Graphic */}
-              <div className="relative mb-6">
-                <div className="w-24 h-20 bg-white rounded-lg shadow-md relative">
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="text-blue-500 text-3xl font-bold">V</div>
+              {/* Features */}
+              <div className="mb-4">
+                <h3 className="text-base font-bold text-gray-900 mb-3">
+                  Features of Our PVA Aged Venmo Accounts
+                </h3>
+                <ul className="space-y-1.5">
+                  {productFeatures.map((feature, index) => (
+                    <li key={index} className="flex items-start gap-2">
+                      <Check className="w-4 h-4 text-green-600 mt-0.5 flex-shrink-0" />
+                      <span className="text-gray-700 text-sm">{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Contact Information */}
+              <ContactInfo className="mb-4" />
+
+              {/* Purchase Section */}
+              <div className="border-t pt-4">
+                <h3 className="text-lg font-bold text-gray-900 mb-3">
+                  Buy Verified Venmo Accounts
+                </h3>
+
+                <div className="space-y-3">
+                  {/* Option Dropdown */}
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1.5">
+                      Choose an option
+                    </label>
+                    <div className="relative">
+                      <select
+                        value={selectedOption}
+                        onChange={(e) => setSelectedOption(e.target.value)}
+                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent text-sm">
+                        <option value="">Select an option</option>
+                        <option value="basic">Basic Package - $25.00</option>
+                        <option value="premium">
+                          Premium Package - $150.00
+                        </option>
+                        <option value="enterprise">
+                          Enterprise Package - $400.00
+                        </option>
+                      </select>
+                    </div>
                   </div>
-                </div>
 
-                {/* 15% OFF Badge */}
-                <div className="absolute -top-1 -right-1 w-12 h-12 bg-green-500 border-3 border-yellow-400 rounded-full flex items-center justify-center">
-                  <span className="text-white text-xs font-bold">15% OFF</span>
-                </div>
-              </div>
-
-              {/* Service Features */}
-              <div className="space-y-3 mb-6">
-                {features.map((feature, index) => (
-                  <div key={index} className="flex items-center gap-2">
-                    <Check className="w-4 h-4 text-green-600" />
-                    <span className="text-sm text-gray-800 font-medium">
-                      {feature}
-                    </span>
+                  {/* Quantity */}
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1.5">
+                      Quantity
+                    </label>
+                    <input
+                      type="number"
+                      min="1"
+                      value={quantity}
+                      onChange={(e) =>
+                        setQuantity(parseInt(e.target.value) || 1)
+                      }
+                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent text-sm"
+                    />
                   </div>
-                ))}
-              </div>
 
-              {/* Contact Section */}
-              <div className="absolute bottom-6 left-6 right-6">
-                <div className="bg-white/20 backdrop-blur-sm rounded-lg p-4">
-                  <h3 className="text-white font-bold mb-3">Contact Us</h3>
-                  <div className="space-y-2">
-                    {contactInfo.map((info, index) => (
-                      <div
-                        key={index}
-                        className="flex items-center gap-2 text-white text-sm">
-                        <div className="w-2 h-2 bg-white rounded-full"></div>
-                        <span>{info.text}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Right Section - Product Details */}
-          <div className="bg-white rounded-lg p-6 shadow-lg">
-            {/* Breadcrumbs */}
-            <div className="flex items-center gap-2 text-sm text-gray-500 mb-4">
-              <span>Home</span>
-              <span>/</span>
-              <span>Products</span>
-              <span>/</span>
-              <span className="text-gray-900">Venmo Accounts</span>
-            </div>
-
-            {/* Category Link */}
-            <div className="mb-4">
-              <a
-                href="#"
-                className="text-blue-600 hover:text-blue-800 text-sm font-medium">
-                Bank Accounts
-              </a>
-            </div>
-
-            {/* Product Title */}
-            <h1 className="text-2xl font-bold text-gray-900 mb-2">
-              Buy Verified Venmo Accounts
-            </h1>
-
-            {/* Price Range */}
-            <PriceDisplay price="$120.00 - $250.00" className="mb-4" />
-
-            {/* Product Description */}
-            <p className="text-gray-600 mb-6">
-              If you&apos;re aiming to enhance transaction security and ensure
-              smoother financial operations, buying a verified Venmo account
-              could be the ideal solution. A verified Venmo account adds an
-              extra layer of protection to your transactions, safeguarding your
-              business and customers from potential fraud.
-            </p>
-            <p className="text-gray-600 mb-6">
-              When transactions are secure, customers gain confidence in your
-              business — making a verified Venmo account a smart and strategic
-              choice for any online business.
-            </p>
-            <p className="text-gray-600 mb-6">
-              At pvasupply.com, we provide high-quality verified Venmo accounts
-              ready for immediate use.
-            </p>
-
-            {/* Features List */}
-            <div className="space-y-2 mb-6">
-              <h3 className="text-base font-bold text-gray-900 mb-3">
-                Features of Verified Venmo Accounts:
-              </h3>
-              {productFeatures.map((feature, index) => (
-                <div key={index} className="flex items-center gap-2">
-                  <Check className="w-4 h-4 text-green-600" />
-                  <span className="text-sm text-gray-700">{feature}</span>
-                </div>
-              ))}
-            </div>
-
-            {/* Contact Information */}
-            <ContactInfo className="mb-6" />
-
-            {/* Purchase Section */}
-            <div className="space-y-4">
-              {/* Option Selection */}
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Select Option
-                </label>
-                <div className="relative">
-                  <select
-                    value={selectedOption}
-                    onChange={(e) => setSelectedOption(e.target.value)}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent appearance-none bg-white">
-                    <option value="">Choose an option</option>
-                    <option value="basic">Basic Package - $120.00</option>
-                    <option value="premium">Premium Package - $180.00</option>
-                    <option value="enterprise">
-                      Enterprise Package - $250.00
-                    </option>
-                  </select>
-                  <ChevronDown className="absolute right-3 top-2.5 h-4 w-4 text-gray-400 pointer-events-none" />
-                </div>
-              </div>
-
-              {/* Quantity Selection */}
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Quantity
-                </label>
-                <div className="flex items-center border border-gray-300 rounded-md">
-                  <button
-                    onClick={() => setQuantity(Math.max(1, quantity - 1))}
-                    className="px-3 py-2 text-gray-600 hover:text-gray-800">
-                    -
+                  {/* Add to Cart Button */}
+                  <button className="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-2.5 px-4 rounded-md transition duration-200 flex items-center justify-center gap-2 text-sm">
+                    <ShoppingCart className="w-4 h-4" />
+                    Add to cart
                   </button>
-                  <input
-                    type="number"
-                    min="1"
-                    value={quantity}
-                    onChange={(e) =>
-                      setQuantity(Math.max(1, parseInt(e.target.value) || 1))
-                    }
-                    className="flex-1 text-center border-0 focus:ring-0 focus:outline-none"
-                  />
-                  <button
-                    onClick={() => setQuantity(quantity + 1)}
-                    className="px-3 py-2 text-gray-600 hover:text-gray-800">
-                    +
-                  </button>
-                </div>
-              </div>
-
-              {/* Add to Cart Button */}
-              <button
-                onClick={handleAddToCart}
-                className="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-2.5 px-4 rounded-md transition duration-200 flex items-center justify-center gap-2 text-sm">
-                <ShoppingCart className="w-4 h-4" />
-                Add to cart
-              </button>
-            </div>
-
-            {/* Product Info */}
-            <div className="mt-6 pt-6 border-t border-gray-200">
-              <div className="grid grid-cols-2 gap-4 text-sm">
-                <div>
-                  <span className="text-gray-500">SKU:</span>
-                  <span className="ml-2 text-gray-900">VENMO-001</span>
-                </div>
-                <div>
-                  <span className="text-gray-500">Category:</span>
-                  <span className="ml-2 text-gray-900">Bank Accounts</span>
                 </div>
               </div>
             </div>
@@ -329,29 +231,302 @@ export default function BuyVerifiedVenmoAccounts() {
             {activeTab === "description" && (
               <div className="prose max-w-none">
                 <h3 className="text-lg font-semibold text-gray-900 mb-4">
-                  Verified Venmo Accounts for Peer-to-Peer Payments
+                  Buy Verified Venmo Accounts
                 </h3>
-                <p className="text-gray-600 mb-4">
-                  Our verified Venmo accounts are perfect for peer-to-peer
-                  payments, mobile money transfers, and digital banking. Each
-                  account comes with full verification and established history.
-                </p>
-                <p className="text-gray-600 mb-4">
-                  Whether you need Venmo accounts for personal payments,
-                  business transactions, or digital banking, our verified
-                  accounts provide the foundation you need for success.
-                </p>
-                <h4 className="text-md font-semibold text-gray-900 mb-2">
-                  What You Get:
-                </h4>
-                <ul className="list-disc list-inside text-gray-600 space-y-1">
-                  <li>Fully verified Venmo accounts</li>
-                  <li>Phone number verification</li>
-                  <li>Email access and recovery</li>
-                  <li>Peer-to-peer payment access</li>
-                  <li>Mobile money transfer capability</li>
-                  <li>24/7 customer support</li>
-                </ul>
+
+                <div className="space-y-6">
+                  {/* Introduction */}
+                  <div>
+                    <p className="text-gray-600 mb-4">
+                      Purchasing verified Venmo accounts can provide many
+                      benefits for users who want a smooth payment experience.
+                      These accounts are already confirmed, which makes
+                      transactions more trustworthy and easier to manage.
+                    </p>
+                    <p className="text-gray-600 mb-4">
+                      When you choose a verified account, you avoid the usual
+                      steps that new users have to go through to confirm their
+                      identity. This means faster access to sending and
+                      receiving money without delays or problems.
+                    </p>
+                    <p className="text-gray-600 mb-4">
+                      Another advantage is that verified accounts are less
+                      likely to be targeted by fraud. They carry more
+                      authenticity, which is important in a world where scams
+                      are common.
+                    </p>
+                    <p className="text-gray-600 mb-4">
+                      Also, having a verified account can improve your
+                      reputation among friends and businesses that use Venmo.
+                      People often prefer to deal with verified accounts because
+                      they're more reliable.
+                    </p>
+                    <p className="text-gray-600 mb-4">
+                      This option is especially helpful if you're involved in
+                      regular trades or services that require quick payments.
+                      Buying a verified account can save time and improve your
+                      online financial experiences.
+                    </p>
+                  </div>
+
+                  {/* Benefits Of Buying Verified Accounts Section */}
+                  <div>
+                    <h4 className="text-md font-semibold text-gray-900 mb-3">
+                      Benefits Of Buying Verified Accounts
+                    </h4>
+                    <div className="space-y-3">
+                      <p className="text-gray-600">
+                        Buying verified Venmo accounts brings several advantages
+                        that improve your digital transactions. These accounts
+                        are often already set up with a good payment history and
+                        good standing, which is helpful for users who need to
+                        send or receive money quickly.
+                      </p>
+                      <p className="text-gray-600">
+                        Verified accounts usually have higher transaction limits
+                        than unverified ones. This means you can make larger
+                        payments without having to wait for approval.
+                      </p>
+                      <p className="text-gray-600">
+                        Another key benefit is better security. Verified
+                        accounts are less likely to be affected by fraud, giving
+                        you confidence when making payments.
+                      </p>
+                      <p className="text-gray-600">
+                        Additionally, having a verified account gives you access
+                        to more services and features within the Venmo app that
+                        you wouldn't get otherwise. Users enjoy a better
+                        experience when using Venmo for peer-to-peer payments.
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Where To Buy Verified Venmo Accounts Section */}
+                  <div>
+                    <h4 className="text-md font-semibold text-gray-900 mb-3">
+                      Where To Buy Verified Venmo Accounts
+                    </h4>
+                    <div className="space-y-3">
+                      <p className="text-gray-600">
+                        Finding a trustworthy place to buy verified Venmo
+                        accounts can be hard. It's important to do your research
+                        before making any purchase.
+                      </p>
+                      <p className="text-gray-600">
+                        There are many online marketplaces and forums where
+                        people sell these accounts, but not all are reliable.
+                        Look for sites with good reviews and a strong reputation
+                        in the community.
+                      </p>
+                      <p className="text-gray-600">
+                        Social media platforms often have groups or pages where
+                        people buy and sell digital items, like Venmo accounts.
+                        Talking to users there can help you find where others
+                        have made successful purchases.
+                      </p>
+                      <p className="text-gray-600">
+                        Be careful of offers that seem too good to be true.
+                        Often, they are. Always check the seller's credibility
+                        by looking at their feedback and ratings from other
+                        buyers. This helps you find real options and avoid risky
+                        situations.
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* What is Venmo and Why Is It Popular Section */}
+                  <div>
+                    <h4 className="text-md font-semibold text-gray-900 mb-3">
+                      What is Venmo and Why Is It Popular?
+                    </h4>
+                    <div className="space-y-3">
+                      <p className="text-gray-600">
+                        Venmo is a way to send and receive money using your
+                        phone. It's easy to use and great for splitting bills or
+                        sharing expenses with friends or family.
+                      </p>
+                      <p className="text-gray-600">
+                        Venmo started in 2009 and became very popular with
+                        younger generations like millennials and Gen Z. Its
+                        simple design makes it easy for anyone to use. The
+                        social part of the app adds to its appeal, letting you
+                        see your friends' transactions with fun messages and
+                        emojis.
+                      </p>
+                      <p className="text-gray-600">
+                        The instant transfer feature makes it even more
+                        convenient, letting you get your money quickly. This
+                        fits well with the fast pace of modern life.
+                      </p>
+                      <p className="text-gray-600">
+                        Venmo also works well with other apps like shopping and
+                        food delivery services. This makes it a flexible tool
+                        for handling different financial needs without much
+                        trouble.
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Risks and Precautions When Buying a Verified Venmo Account Section */}
+                  <div>
+                    <h4 className="text-md font-semibold text-gray-900 mb-3">
+                      Risks and Precautions When Buying a Verified Venmo Account
+                    </h4>
+                    <div className="space-y-3">
+                      <p className="text-gray-600">
+                        Buying a verified Venmo account might seem useful, but
+                        it comes with several risks. First, you might fall for a
+                        scam. Not all sellers are honest, and some might give
+                        fake accounts or take your money without delivering.
+                      </p>
+                      <p className="text-gray-600">
+                        There's also the danger of identity theft. If you buy
+                        from an untrustworthy seller, they could get access to
+                        your personal information, which could be used to harm
+                        you.
+                      </p>
+                      <p className="text-gray-600">
+                        Venmo has strict rules against using unauthorized
+                        accounts. If they find out you're using a bought
+                        account, they might ban your account or take your money.
+                      </p>
+                      <p className="text-gray-600">
+                        Always do your homework before making a purchase. Check
+                        sellers carefully and look for reviews from previous
+                        buyers to avoid being scammed.
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Tips for Using a Verified Venmo Account Section */}
+                  <div>
+                    <h4 className="text-md font-semibold text-gray-900 mb-3">
+                      Tips for Using a Verified Venmo Account
+                    </h4>
+                    <div className="space-y-3">
+                      <p className="text-gray-600">
+                        Using a verified Venmo account can make your experience
+                        better and more secure. Start by linking it to a bank
+                        account so you can send and receive larger amounts
+                        easily.
+                      </p>
+                      <p className="text-gray-600">
+                        Keep an eye on your transactions regularly. This helps
+                        you notice any strange activity quickly, which is
+                        important for keeping your account safe.
+                      </p>
+                      <p className="text-gray-600">
+                        When sending money, always check the recipient's details
+                        again. Mistakes can happen, especially with similar
+                        usernames.
+                      </p>
+                      <p className="text-gray-600">
+                        Use privacy settings wisely. You can choose who sees
+                        your transactions, so you can keep your information safe
+                        from others.
+                      </p>
+                      <p className="text-gray-600">
+                        Enable two-factor authentication for extra security.
+                        This makes it harder for someone else to access your
+                        account without your permission.
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Frequently Asked Questions Section */}
+                  <div>
+                    <h4 className="text-md font-semibold text-gray-900 mb-3">
+                      Frequently Asked Questions
+                    </h4>
+
+                    <div className="space-y-4">
+                      <div>
+                        <h5 className="text-sm font-semibold text-gray-900 mb-2">
+                          What Is a Verified Venmo Account?
+                        </h5>
+                        <p className="text-gray-600">
+                          A verified Venmo account is one where the user has
+                          completed the necessary steps to prove their identity.
+                          This adds more security and trust to your
+                          transactions.
+                        </p>
+                      </div>
+
+                      <div>
+                        <h5 className="text-sm font-semibold text-gray-900 mb-2">
+                          Is It Legal to Buy a Verified Venmo Account?
+                        </h5>
+                        <p className="text-gray-600">
+                          Buying accounts isn't illegal, but it goes against
+                          Venmo's terms of service. Doing this could result in
+                          your account being blocked or you losing your money.
+                        </p>
+                      </div>
+
+                      <div>
+                        <h5 className="text-sm font-semibold text-gray-900 mb-2">
+                          How Do I Know If a Seller Is Trustworthy?
+                        </h5>
+                        <p className="text-gray-600">
+                          Check the seller carefully before buying. Look for
+                          reviews and see if they have a good reputation among
+                          users.
+                        </p>
+                      </div>
+
+                      <div>
+                        <h5 className="text-sm font-semibold text-gray-900 mb-2">
+                          Can I Transfer Money from My Verified Account to My
+                          Bank?
+                        </h5>
+                        <p className="text-gray-600">
+                          Yes, once you've purchased and set up your verified
+                          account, transferring money to your bank is just like
+                          using a regular Venmo account.
+                        </p>
+                      </div>
+
+                      <div>
+                        <h5 className="text-sm font-semibold text-gray-900 mb-2">
+                          What Are Common Uses for Buying These Accounts?
+                        </h5>
+                        <p className="text-gray-600">
+                          Verified accounts are often used by businesses to
+                          process payments without the usual restrictions that
+                          come with unverified accounts.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Conclusion Section */}
+                  <div>
+                    <h4 className="text-md font-semibold text-gray-900 mb-3">
+                      Conclusion
+                    </h4>
+                    <div className="space-y-3">
+                      <p className="text-gray-600">
+                        Buying verified Venmo accounts can be a convenient way
+                        to make payments easier. These accounts offer benefits
+                        like better security, higher transaction limits, and
+                        more credibility with others.
+                      </p>
+                      <p className="text-gray-600">
+                        However, you need to be cautious when buying. Always
+                        check if the seller is reliable and take steps to
+                        protect your personal information. Understanding what
+                        Venmo is and why it's popular helps you use it better.
+                      </p>
+                      <p className="text-gray-600">
+                        With the right tips, using a verified account can make
+                        your payments easier and give you more confidence in
+                        your security. Whether you're looking to buy or use an
+                        existing account, knowing the risks and best practices
+                        helps make your digital transactions safer.
+                      </p>
+                    </div>
+                  </div>
+                </div>
               </div>
             )}
 

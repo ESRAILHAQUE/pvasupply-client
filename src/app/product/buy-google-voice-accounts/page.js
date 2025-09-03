@@ -2,12 +2,12 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import {
   Search,
   Globe,
   Send,
   Check,
-  ChevronDown,
   ShoppingCart,
   Scale,
   FileText,
@@ -17,6 +17,7 @@ import {
 } from "lucide-react";
 import PriceDisplay from "../../../components/shared/PriceDisplay";
 import ContactInfo from "../../../components/shared/ContactInfo";
+import RelatedProducts from "../../../components/shared/RelatedProducts";
 
 export default function BuyGoogleVoiceAccounts() {
   const [selectedOption, setSelectedOption] = useState("");
@@ -50,230 +51,152 @@ export default function BuyGoogleVoiceAccounts() {
 
   const sidebarItems = [
     "Introduction",
-    "Your relationship with Google",
-    "Using Google services",
-    "Content in Google services",
-    "Software in Google services",
+    "Your relationship with Google Voice",
+    "Using Google Voice services",
+    "Content in Google Voice services",
+    "Software in Google Voice services",
     "In-case of problems or disagreements",
     "About these terms",
     "Updates",
     "Definitions",
     "List of services & service-specific additional terms",
-    "How Google handles government requests for user information",
+    "How Google Voice handles government requests for user information",
   ];
 
   return (
     <div className="min-h-screen bg-gray-100 py-4">
       <div className="max-w-6xl mx-auto px-4">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
-          {/* Left Section - Promotional Banner */}
-          <div className="relative h-[600px]">
-            <div className="bg-gradient-to-br from-orange-400 via-orange-500 to-yellow-400 rounded-xl p-6 h-full relative overflow-hidden shadow-lg">
-              {/* Sale Badge */}
-              <div className="absolute top-3 left-3 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded-full">
-                Sale!
-              </div>
-
-              {/* Order Now Badge */}
-              <div className="absolute top-3 right-3 bg-black text-white text-xs font-bold px-3 py-1.5 rounded-lg flex items-center gap-1.5">
-                <Search className="w-3 h-3" />
-                ORDER NOW
-              </div>
-
-              {/* Main Title */}
-              <div className="mt-12 mb-4">
-                <h1 className="text-3xl font-bold leading-tight">
-                  <span className="text-green-600">BUY GOOGLE</span>
-                  <br />
-                  <span className="text-black">VOICE ACCOUNTS</span>
-                </h1>
-              </div>
-
-              {/* Google Voice Graphic */}
-              <div className="relative mb-6">
-                <div className="w-24 h-20 bg-white rounded-lg shadow-md relative">
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="text-blue-500 text-3xl font-bold">V</div>
-                  </div>
-                </div>
-
-                {/* 15% OFF Badge */}
-                <div className="absolute -top-1 -right-1 w-12 h-12 bg-green-500 border-3 border-yellow-400 rounded-full flex items-center justify-center">
-                  <span className="text-white text-xs font-bold">15% OFF</span>
-                </div>
-              </div>
-
-              {/* Service Features */}
-              <div className="mb-6">
-                <h3 className="text-base font-bold text-black mb-3">
-                  SERVICE FEATURES:
-                </h3>
-                <div className="space-y-1.5">
-                  {features.map((feature, index) => (
-                    <div key={index} className="flex items-center gap-2">
-                      <Check className="w-3.5 h-3.5 text-green-600 flex-shrink-0" />
-                      <span className="text-xs text-black">{feature}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* Contact Section */}
-              <div className="absolute bottom-3 left-3 right-3">
-                <div className="bg-black text-white px-3 py-1.5 rounded-lg text-center mb-2">
-                  <span className="text-xs font-bold">CONTACT NOW</span>
-                </div>
-                <div className="flex justify-center gap-3">
-                  <div className="flex flex-col items-center">
-                    <div className="w-6 h-6 bg-white rounded-full flex items-center justify-center mb-0.5">
-                      <svg
-                        className="w-3 h-3 text-black"
-                        fill="currentColor"
-                        viewBox="0 0 24 24">
-                        <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                      </svg>
-                    </div>
-                    <span className="text-xs text-black">
-                      pvasupply0@gmail.com
-                    </span>
-                  </div>
-                  <div className="flex flex-col items-center">
-                    <div className="w-6 h-6 bg-white rounded-full flex items-center justify-center mb-0.5">
-                      <svg
-                        className="w-3 h-3 text-black"
-                        fill="currentColor"
-                        viewBox="0 0 24 24">
-                        <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.25-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z" />
-                      </svg>
-                    </div>
-                    <span className="text-xs text-black">@pvasupply</span>
-                  </div>
-                  <div className="flex flex-col items-center">
-                    <div className="w-6 h-6 bg-white rounded-full flex items-center justify-center mb-0.5">
-                      <svg
-                        className="w-3 h-3 text-black"
-                        fill="currentColor"
-                        viewBox="0 0 24 24">
-                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.87 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.87 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488" />
-                      </svg>
-                    </div>
-                    <span className="text-xs text-black">WhatsApp</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Right Section - Product Details */}
-          <div className="bg-white rounded-lg p-6 shadow-lg">
-            {/* Breadcrumbs */}
-            <div className="text-sm text-gray-600 mb-1">
-              Home / Social Accounts / Buy Google Voice Accounts
+        <div className="bg-white rounded-xl shadow-lg p-4 lg:p-6 mb-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            {/* Left Section - Promotional Banner */}
+            <div className="relative h-[600px] flex items-center justify-center">
+              <Image
+                src="/images/All Product/Buy Google Voice Accounts.png"
+                alt="Buy Google Voice Accounts"
+                width={1200}
+                height={1200}
+                className="max-w-full max-h-full object-contain"
+                priority
+              />
             </div>
 
-            {/* Category Link */}
-            <div className="mb-3">
-              <a href="#" className="text-blue-600 hover:text-blue-800 text-sm">
-                Social Accounts
-              </a>
-            </div>
+            {/* Right Section - Product Details */}
+            <div className="p-6">
+              {/* Breadcrumbs */}
+              <div className="text-sm text-gray-600 mb-1">
+                <Link href="/" className="text-blue-600 hover:underline">
+                  Home
+                </Link>
+                <span> / </span>
+                <Link href="/social" className="text-blue-600 hover:underline">
+                  Social Accounts
+                </Link>
+                <span> / </span>
+                <span className="text-gray-900">Buy Google Voice Accounts</span>
+              </div>
 
-            {/* Product Title */}
-            <h1 className="text-2xl font-bold text-gray-900 mb-1">
-              Buy Google Voice Accounts
-            </h1>
+              {/* Category Link */}
+              <div className="mb-3">
+                <a
+                  href="#"
+                  className="text-blue-600 hover:text-blue-800 text-sm">
+                  Social Accounts
+                </a>
+              </div>
 
-            {/* Price */}
-            <PriceDisplay price="$8.00 - $250.00" className="mb-4" />
-
-            {/* Product Description */}
-            <div className="mb-4 space-y-3">
-              <p className="text-gray-700 text-sm">
-                Are you looking for best quality real, active, fresh and aged
-                Google Voice accounts? Do you need USA and European countries
-                real phone number verified old Google Voice accounts? Or do you
-                want to buy old PVA Google Voice accounts with cheap price?
-              </p>
-              <p className="text-gray-700 text-sm">
-                Phone verified accounts are provided upon request. Aged Google
-                Voice accounts are indispensable for your business or personal
-                use. We provide instant delivery at Pvasmmpro.
-              </p>
-            </div>
-
-            {/* Features */}
-            <div className="mb-4">
-              <h3 className="text-base font-bold text-gray-900 mb-3">
-                Features of Our PVA Aged Google Voice Accounts
-              </h3>
-              <ul className="space-y-1.5">
-                {productFeatures.map((feature, index) => (
-                  <li key={index} className="flex items-start gap-2">
-                    <span className="text-black text-base mt-0.5">◆</span>
-                    <span className="text-gray-700 text-sm">{feature}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Contact Information */}
-            <ContactInfo className="mb-4" />
-
-            {/* Purchase Section */}
-            <div className="border-t pt-4">
-              <h3 className="text-lg font-bold text-gray-900 mb-3">
+              {/* Product Title */}
+              <h1 className="text-2xl font-bold text-gray-900 mb-1">
                 Buy Google Voice Accounts
-              </h3>
+              </h1>
 
-              <div className="space-y-3">
-                {/* Option Dropdown */}
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1.5">
-                    Choose an option
-                  </label>
-                  <div className="relative">
-                    <select
-                      value={selectedOption}
-                      onChange={(e) => setSelectedOption(e.target.value)}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent text-sm">
-                      <option value="">Select an option</option>
-                      <option value="basic">Basic Package - $8.00</option>
-                      <option value="premium">Premium Package - $75.00</option>
-                      <option value="enterprise">
-                        Enterprise Package - $250.00
-                      </option>
-                    </select>
-                    <ChevronDown className="absolute right-3 top-2.5 w-4 h-4 text-gray-400 pointer-events-none" />
-                  </div>
-                </div>
+              {/* Price */}
+              <PriceDisplay price="$15.00 - $400.00" className="mb-4" />
 
-                {/* Quantity */}
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1.5">
-                    Quantity
-                  </label>
-                  <input
-                    type="number"
-                    min="1"
-                    value={quantity}
-                    onChange={(e) => setQuantity(parseInt(e.target.value) || 1)}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent text-sm"
-                  />
-                </div>
-
-                {/* Add to Cart Button */}
-                <button className="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-2.5 px-4 rounded-md transition duration-200 flex items-center justify-center gap-2 text-sm">
-                  <ShoppingCart className="w-4 h-4" />
-                  Add to cart
-                </button>
+              {/* Product Description */}
+              <div className="mb-4 space-y-3">
+                <p className="text-gray-700 text-sm">
+                  Are you looking for best quality real, active, fresh and aged
+                  Google Voice accounts? Do you need USA and European countries
+                  real phone number verified old Google Voice accounts? Or do
+                  you want to buy old PVA Google Voice accounts with cheap
+                  price?
+                </p>
+                <p className="text-gray-700 text-sm">
+                  Phone verified accounts are provided upon request. Aged Google
+                  Voice accounts are indispensable for your business or personal
+                  use. We provide instant delivery at Pvasmmpro.
+                </p>
               </div>
-            </div>
 
-            {/* Product Info */}
-            <div className="mt-4 pt-4 border-t text-xs text-gray-600">
-              <div className="flex justify-between">
-                <span>SKU: N/A</span>
-                <span>Category: Social Accounts</span>
+              {/* Features */}
+              <div className="mb-4">
+                <h3 className="text-base font-bold text-gray-900 mb-3">
+                  Features of Our PVA Aged Google Voice Accounts
+                </h3>
+                <ul className="space-y-1.5">
+                  {productFeatures.map((feature, index) => (
+                    <li key={index} className="flex items-start gap-2">
+                      <Check className="w-4 h-4 text-green-600 mt-0.5 flex-shrink-0" />
+                      <span className="text-gray-700 text-sm">{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Contact Information */}
+              <ContactInfo className="mb-4" />
+
+              {/* Purchase Section */}
+              <div className="border-t pt-4">
+                <h3 className="text-lg font-bold text-gray-900 mb-3">
+                  Buy Google Voice Accounts
+                </h3>
+
+                <div className="space-y-3">
+                  {/* Option Dropdown */}
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1.5">
+                      Choose an option
+                    </label>
+                    <div className="relative">
+                      <select
+                        value={selectedOption}
+                        onChange={(e) => setSelectedOption(e.target.value)}
+                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent text-sm">
+                        <option value="">Select an option</option>
+                        <option value="basic">Basic Package - $15.00</option>
+                        <option value="premium">
+                          Premium Package - $150.00
+                        </option>
+                        <option value="enterprise">
+                          Enterprise Package - $400.00
+                        </option>
+                      </select>
+                    </div>
+                  </div>
+
+                  {/* Quantity */}
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1.5">
+                      Quantity
+                    </label>
+                    <input
+                      type="number"
+                      min="1"
+                      value={quantity}
+                      onChange={(e) =>
+                        setQuantity(parseInt(e.target.value) || 1)
+                      }
+                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent text-sm"
+                    />
+                  </div>
+
+                  {/* Add to Cart Button */}
+                  <button className="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-2.5 px-4 rounded-md transition duration-200 flex items-center justify-center gap-2 text-sm">
+                    <ShoppingCart className="w-4 h-4" />
+                    Add to cart
+                  </button>
+                </div>
               </div>
             </div>
           </div>
@@ -319,21 +242,404 @@ export default function BuyGoogleVoiceAccounts() {
             {activeTab === "description" && (
               <div className="prose max-w-none">
                 <h2 className="text-xl font-bold text-gray-900 mb-4">
-                  Google Voice Accounts for Sale
+                  Buy Verified Google Voice Accounts: Secure
                 </h2>
-                <p className="text-gray-700 mb-4">
-                  Google Voice is a telecommunications service that provides
-                  call forwarding and voicemail services, voice and text
-                  messaging, as well as U.S. and international calling. Our
-                  Google Voice accounts are perfect for businesses and
-                  individuals who need reliable communication solutions.
-                </p>
-                <p className="text-gray-700 mb-4">
-                  All our accounts come with full verification and are ready for
-                  immediate use. Whether you need a single account or bulk
-                  orders, we can accommodate your requirements with competitive
-                  pricing and excellent customer support.
-                </p>
+
+                <div className="space-y-6">
+                  {/* Introduction */}
+                  <div>
+                    <p className="text-gray-700 mb-4">
+                      When thinking about communication tools, security is very
+                      important. Purchasing verified Google Voice accounts gives
+                      you a safe way to communicate without putting your
+                      personal information at risk.
+                    </p>
+                    <p className="text-gray-700 mb-4">
+                      These accounts are already checked and approved, so you
+                      don't need to use your own phone number to set them up.
+                      This keeps your main phone number private and safe from
+                      being seen by the wrong people.
+                    </p>
+                    <p className="text-gray-700 mb-4">
+                      Using verified accounts also helps protect you from spam
+                      and fake messages. You can use the service with
+                      confidence, knowing it's a trusted system that keeps your
+                      data safe.
+                    </p>
+                    <p className="text-gray-700 mb-4">
+                      Also, these accounts are less likely to be blocked or
+                      banned than unverified ones. This makes them more reliable
+                      for both personal and business use.
+                    </p>
+                    <p className="text-gray-700 mb-4">
+                      Investing in verified Google Voice accounts improves
+                      privacy and makes it easier to handle communication across
+                      different platforms.
+                    </p>
+                  </div>
+
+                  {/* What Are Google Voice Accounts Section */}
+                  <div>
+                    <h3 className="text-lg font-bold text-gray-900 mb-3">
+                      What Are Google Voice Accounts?
+                    </h3>
+                    <div className="space-y-3">
+                      <p className="text-gray-700">
+                        Google Voice accounts give users a special phone number
+                        that can be used for many communication tasks. These
+                        accounts are connected to your Google account, making it
+                        simple to use with other Google services.
+                      </p>
+                      <p className="text-gray-700">
+                        With Google Voice, you can make calls, send text
+                        messages, and receive voicemail—all from one place. This
+                        flexibility makes it a good choice for both personal and
+                        business use.
+                      </p>
+                      <p className="text-gray-700">
+                        Each account has features like call forwarding, custom
+                        voicemail messages, and the option to choose which calls
+                        to answer.
+                      </p>
+                      <p className="text-gray-700">
+                        Users also can access their messages from different
+                        devices. Whether on a computer or a phone, staying in
+                        touch is easy.
+                      </p>
+                      <p className="text-gray-700">
+                        The service is especially popular with people who work
+                        from home and need reliable communication tools without
+                        the trouble of traditional phone lines.
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Why Buy from pvasupply Section */}
+                  <div>
+                    <h3 className="text-lg font-bold text-gray-900 mb-3">
+                      Why Buy Google Voice Accounts From pvasupply?
+                    </h3>
+                    <div className="space-y-3">
+                      <p className="text-gray-700">
+                        When looking to buy Google Voice accounts, pvasupply is
+                        a top choice for several reasons. First, they offer
+                        verified accounts that are safe and dependable. This
+                        means you can use the service without concerns about
+                        security or account issues.
+                      </p>
+                      <p className="text-gray-700">
+                        Customer support is also a key feature. They help you
+                        with everything from setting up the account to using it,
+                        so you never feel lost.
+                      </p>
+                      <p className="text-gray-700">
+                        The pricing is competitive too. You get good value
+                        without any hidden costs.
+                      </p>
+                      <p className="text-gray-700">
+                        Their easy-to-use interface makes managing multiple
+                        accounts a breeze. Whether you're an individual or
+                        running a business, you'll find their services helpful.
+                      </p>
+                      <p className="text-gray-700">
+                        Choose pvasupply for a worry-free and reliable
+                        experience when buying Google Voice accounts.
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Features and Benefits Section */}
+                  <div>
+                    <h3 className="text-lg font-bold text-gray-900 mb-3">
+                      Great Features and Benefits of Google Voice Accounts
+                    </h3>
+                    <div className="space-y-3">
+                      <p className="text-gray-700">
+                        Google Voice has many features that help with
+                        communication. One big advantage is the ability to
+                        manage multiple phone numbers from one place. This makes
+                        it easy to separate personal and business calls.
+                      </p>
+                      <p className="text-gray-700">
+                        Call forwarding is another great feature. You can get
+                        calls on any device, making sure you're always
+                        reachable, whether you're at home or on the move.
+                      </p>
+                      <p className="text-gray-700">
+                        Voicemail transcription saves time by turning voice
+                        messages into text. This lets you read messages quickly
+                        instead of listening to them.
+                      </p>
+                      <p className="text-gray-700">
+                        Also, Google Voice includes free text messaging and
+                        low-cost international calls. These options are useful
+                        for both individuals and businesses wanting to save
+                        money while keeping communication flowing.
+                      </p>
+                      <p className="text-gray-700">
+                        The integration with other Google services makes things
+                        even easier for users who already use Google products.
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* 100% Phone Verified Section */}
+                  <div>
+                    <h3 className="text-lg font-bold text-gray-900 mb-3">
+                      Buy Google Voice Accounts; 100% Phone Verified Google
+                      Voice Accounts For Sell
+                    </h3>
+                    <div className="space-y-3">
+                      <p className="text-gray-700">
+                        If you're looking to buy Google Voice accounts, consider
+                        100% phone verified options. These accounts offer a
+                        level of trust that many users want when using virtual
+                        communication services.
+                      </p>
+                      <p className="text-gray-700">
+                        Having a verified account means you can use all the
+                        features without facing security risks or limits. This
+                        is especially helpful for businesses that need
+                        dependable communication tools.
+                      </p>
+                      <p className="text-gray-700">
+                        Purchasing these accounts makes the setup process much
+                        simpler. You get instant access to features like call
+                        forwarding, voicemail transcription, and even text
+                        messaging—important tools for smooth operations.
+                      </p>
+                      <p className="text-gray-700">
+                        With many vendors to choose from, it's important to pick
+                        one that focuses on real accounts and good customer
+                        service. Buying verified Google Voice accounts helps
+                        avoid the problems of unverified services and makes your
+                        overall experience better.
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Introduction To Google Voice Section */}
+                  <div>
+                    <h3 className="text-lg font-bold text-gray-900 mb-3">
+                      Introduction To Google Voice
+                    </h3>
+                    <div className="space-y-3">
+                      <p className="text-gray-700">
+                        Google Voice is a useful tool that helps people manage
+                        their phone calls, texts, and voicemails. It was started
+                        by Google in 2009 and has changed the way people and
+                        companies communicate.
+                      </p>
+                      <p className="text-gray-700">
+                        With a Google Voice account, you get one phone number
+                        that can work on many devices. This means you don't have
+                        to use different numbers for different things. It makes
+                        life easier.
+                      </p>
+                      <p className="text-gray-700">
+                        The service also gives you features like voicemail that
+                        turns voice messages into text and call screening. These
+                        tools help you stay organized and work more efficiently.
+                      </p>
+                      <p className="text-gray-700">
+                        One of the best things about Google Voice is that it
+                        works on both computers and phones. This means you can
+                        stay connected no matter where you are or which device
+                        you're using.
+                      </p>
+                      <p className="text-gray-700">
+                        Whether you're using it for your own needs or for a
+                        business, Google Voice can help with different
+                        communication tasks in a simple way.
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Google Voice for Business Section */}
+                  <div>
+                    <h3 className="text-lg font-bold text-gray-900 mb-3">
+                      Google Voice for business
+                    </h3>
+                    <div className="space-y-3">
+                      <p className="text-gray-700">
+                        Google Voice for business is a tool that helps companies
+                        manage calls, texts, and voicemail all in one place.
+                      </p>
+                      <p className="text-gray-700">
+                        It has features like call forwarding and voicemail
+                        transcription, which help keep things organized and make
+                        businesses more responsive. This helps maintain good
+                        customer service.
+                      </p>
+                      <p className="text-gray-700">
+                        The tool also connects with Google Workspace, which
+                        makes it easier for team members to work together.
+                        Sharing contacts and setting up meetings becomes
+                        simpler.
+                      </p>
+                      <p className="text-gray-700">
+                        Businesses can save money by using Google Voice. It
+                        offers a cost-effective solution with helpful features.
+                      </p>
+                      <p className="text-gray-700">
+                        Having a separate business number makes communication
+                        look more professional. Customers like knowing there's a
+                        clear line between personal and business messages.
+                      </p>
+                      <p className="text-gray-700">
+                        With more people working from home, Google Voice helps
+                        them stay connected without being limited by location.
+                        The easy-to-use interface helps everyone get used to the
+                        tool quickly.
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Setup Process Section */}
+                  <div>
+                    <h3 className="text-lg font-bold text-gray-900 mb-3">
+                      How do you set up a Google Voice account?
+                    </h3>
+                    <div className="space-y-3">
+                      <p className="text-gray-700">
+                        Setting up a Google Voice account is simple. First, you
+                        need a Google account. If you don't have one, creating
+                        it is easy and takes just a few minutes.
+                      </p>
+                      <p className="text-gray-700">
+                        Once you're logged in, go to the Google Voice website or
+                        download the app. Click on "Get Started" and pick a
+                        phone number that works for you. You can choose from
+                        numbers in different areas or even custom numbers.
+                      </p>
+                      <p className="text-gray-700">
+                        Next, verify your current phone number by entering it.
+                        You will get a code by text or call to confirm.
+                      </p>
+                      <p className="text-gray-700">
+                        After that, set up your preferences like voicemail
+                        messages and how you want to receive notifications. You
+                        can also set up call forwarding and screening.
+                      </p>
+                      <p className="text-gray-700">
+                        Once everything is set, you can start making calls and
+                        sending texts with your new Google Voice account.
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* US Availability Section */}
+                  <div>
+                    <h3 className="text-lg font-bold text-gray-900 mb-3">
+                      Is Google Voice only for the US?
+                    </h3>
+                    <div className="space-y-3">
+                      <p className="text-gray-700">
+                        Google Voice mainly works in the United States. It gives
+                        you a special phone number that can be used for calls,
+                        texts, and managing voicemail.
+                      </p>
+                      <p className="text-gray-700">
+                        However, people from other countries can use Google
+                        Voice, but they need a US phone number to sign up first.
+                      </p>
+                      <p className="text-gray-700">
+                        Once you have an account, you can use Google Voice
+                        anywhere. This is good for people who travel or live
+                        abroad and want to stay in touch without expensive
+                        roaming fees.
+                      </p>
+                      <p className="text-gray-700">
+                        It's important to remember that some features might not
+                        be available outside the US. While basic features work
+                        everywhere, some advanced ones are only for US users.
+                      </p>
+                      <p className="text-gray-700">
+                        If you're planning to use Google Voice outside the US,
+                        check the available features and make sure it works with
+                        your local phone services.
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Security Features Section */}
+                  <div>
+                    <h3 className="text-lg font-bold text-gray-900 mb-3">
+                      Security Features
+                    </h3>
+                    <div className="space-y-3">
+                      <p className="text-gray-700">
+                        Keeping your information safe is very important when
+                        using a communication tool. Google Voice has strong
+                        security features to protect your data.
+                      </p>
+                      <p className="text-gray-700">
+                        Two-factor authentication adds a layer of protection.
+                        Every time you log in from a new location, you get a
+                        code on your phone to confirm your identity.
+                      </p>
+                      <p className="text-gray-700">
+                        Call screening lets you see who is calling before you
+                        answer. You can hear the caller's name and decide
+                        whether to answer. This helps you avoid unwanted calls.
+                      </p>
+                      <p className="text-gray-700">
+                        You can also block numbers that are bothering you. Just
+                        a few clicks and they're gone.
+                      </p>
+                      <p className="text-gray-700">
+                        Google Voice also encrypts your voice calls, so your
+                        conversations stay private and aren't heard by others.
+                        These features help you use the service safely and
+                        confidently.
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Customizing Preferences Section */}
+                  <div>
+                    <h3 className="text-lg font-bold text-gray-900 mb-3">
+                      Customizing Your Preferences
+                    </h3>
+                    <div className="space-y-3">
+                      <p className="text-gray-700">
+                        Customizing your Google Voice preferences lets you make
+                        the service fit your needs. You can choose how to handle
+                        calls, texts, and voicemail.
+                      </p>
+                      <p className="text-gray-700">
+                        Start by adjusting how you get notifications. You can
+                        set them to come by email or directly on your phone.
+                        This keeps you updated in a way that's right for you.
+                      </p>
+                      <p className="text-gray-700">
+                        Next, set up your voicemail greetings. A personal
+                        message can be great for business, while a friendly
+                        message works better for personal use.
+                      </p>
+                      <p className="text-gray-700">
+                        You can also set up call forwarding so that your calls
+                        go to multiple devices. This way, you never miss an
+                        important call.
+                      </p>
+                      <p className="text-gray-700">
+                        Take advantage of the blocking feature to stop unwanted
+                        numbers. This helps you focus on the messages and calls
+                        that matter.
+                      </p>
+                      <p className="text-gray-700">
+                        Google Voice is flexible and can work well for both
+                        personal and professional use, making it a great tool
+                        for different lifestyles and needs.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <RelatedProducts
+                  currentProduct="Buy Google Voice Accounts"
+                  category="Social Accounts"
+                />
               </div>
             )}
 
@@ -382,146 +688,7 @@ export default function BuyGoogleVoiceAccounts() {
           </div>
         </div>
 
-        {/* Sidebar Section */}
-        <div className="bg-white rounded-lg shadow-lg p-6">
-          <h3 className="text-lg font-bold text-gray-900 mb-4">
-            Terms & Conditions
-          </h3>
-          <div className="space-y-2">
-            {sidebarItems.map((item, index) => (
-              <div
-                key={index}
-                className="flex items-center justify-between py-2 border-b border-gray-100 last:border-b-0">
-                <span className="text-sm text-gray-700">{item}</span>
-                <ChevronDown className="w-4 h-4 text-gray-400" />
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-
-      {/* Related Products Section */}
-      <div className="bg-white rounded-lg shadow-lg p-6 mt-8">
-        <h2 className="text-2xl font-bold text-gray-900 mb-6">
-          Related products
-        </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          {/* Card 1 */}
-          <div className="bg-white rounded-lg shadow-lg overflow-hidden">
-            <div>
-              <Image
-                src="/images/All Product/Buy LinkedIn Accounts.png"
-                alt="Buy LinkedIn Accounts"
-                width={300}
-                height={80}
-              />
-            </div>
-            <div className="p-4 bg-white">
-              <div className="text-gray-500 text-xs mb-2">Social Accounts</div>
-              <h4 className="font-bold text-black mb-2">
-                Buy LinkedIn Accounts
-              </h4>
-              <div className="flex gap-1 mb-3">
-                {[...Array(5)].map((_, i) => (
-                  <div
-                    key={i}
-                    className="w-4 h-4 border border-gray-300 rounded"
-                  />
-                ))}
-              </div>
-              <div className="text-black font-bold mb-3">$30.00 - $250.00</div>
-              <button className="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-md transition duration-200 text-sm">
-                Select options
-              </button>
-            </div>
-          </div>
-
-          {/* Card 2 */}
-          <div className="bg-white rounded-lg shadow-lg overflow-hidden">
-            <div>
-              <Image
-                src="/images/All Product/Buy Gmail Accounts.png"
-                alt="Buy Gmail Accounts"
-                width={300}
-                height={80}
-              />
-            </div>
-            <div className="p-4 bg-white">
-              <div className="text-gray-500 text-xs mb-2">Social Accounts</div>
-              <h4 className="font-bold text-black mb-2">Buy Gmail Accounts</h4>
-              <div className="flex gap-1 mb-3">
-                {[...Array(5)].map((_, i) => (
-                  <div
-                    key={i}
-                    className="w-4 h-4 border border-gray-300 rounded"
-                  />
-                ))}
-              </div>
-              <div className="text-black font-bold mb-3">$6.00 - $340.00</div>
-              <button className="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-md transition duration-200 text-sm">
-                Select options
-              </button>
-            </div>
-          </div>
-
-          {/* Card 3 */}
-          <div className="bg-white rounded-lg shadow-lg overflow-hidden">
-            <div>
-              <Image
-                src="/images/All Product/Buy Naver Accounts.png"
-                alt="Buy Naver Accounts"
-                width={300}
-                height={80}
-              />
-            </div>
-            <div className="p-4 bg-white">
-              <div className="text-gray-500 text-xs mb-2">Social Accounts</div>
-              <h4 className="font-bold text-black mb-2">Buy Naver Accounts</h4>
-              <div className="flex gap-1 mb-3">
-                {[...Array(5)].map((_, i) => (
-                  <div
-                    key={i}
-                    className="w-4 h-4 border border-gray-300 rounded"
-                  />
-                ))}
-              </div>
-              <div className="text-black font-bold mb-3">$10.00 - $300.00</div>
-              <button className="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-md transition duration-200 text-sm">
-                Select options
-              </button>
-            </div>
-          </div>
-
-          {/* Card 4 */}
-          <div className="bg-white rounded-lg shadow-lg overflow-hidden">
-            <div>
-              <Image
-                src="/images/All Product/Buy Google Voice Accounts.png"
-                alt="Buy Google Voice Accounts"
-                width={300}
-                height={80}
-              />
-            </div>
-            <div className="p-4 bg-white">
-              <div className="text-gray-500 text-xs mb-2">Social Accounts</div>
-              <h4 className="font-bold text-black mb-2">
-                Buy Google Voice Accounts
-              </h4>
-              <div className="flex gap-1 mb-3">
-                {[...Array(5)].map((_, i) => (
-                  <div
-                    key={i}
-                    className="w-4 h-4 border border-gray-300 rounded"
-                  />
-                ))}
-              </div>
-              <div className="text-black font-bold mb-3">$8.00 - $250.00</div>
-              <button className="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-md transition duration-200 text-sm">
-                Select options
-              </button>
-            </div>
-          </div>
-        </div>
+       
       </div>
     </div>
   );

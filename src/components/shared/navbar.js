@@ -35,14 +35,10 @@ export default function Navbar() {
           href: "/product/buy-google-voice-accounts",
         },
         { name: "Buy Naver Accounts", href: "/product/buy-naver-accounts" },
-        { name: "Buy Twitter Accounts", href: "/product/buy-twitter-accounts" },
-        { name: "Buy WeChat Accounts", href: "/product/buy-wechat-accounts" },
         {
           name: "Buy LinkedIn Accounts",
           href: "/product/buy-linkedin-accounts",
         },
-        { name: "Buy Reddit Accounts", href: "/product/buy-reddit-accounts" },
-        { name: "Buy SSN Number", href: "/product/buy-ssn-number" },
         {
           name: "Buy Verified Google Ads Accounts",
           href: "/product/buy-verified-google-ads-accounts",
@@ -70,10 +66,6 @@ export default function Navbar() {
         {
           name: "Buy Verified Crypto.com Accounts",
           href: "/product/buy-verified-crypto-com-accounts",
-        },
-        {
-          name: "Buy Verified OKX Accounts",
-          href: "/product/buy-verified-okx-accounts",
         },
       ],
     },
@@ -110,10 +102,6 @@ export default function Navbar() {
         {
           name: "Buy Verified Skrill Accounts",
           href: "/product/buy-verified-skrill-accounts",
-        },
-        {
-          name: "Buy Verified Revolut Accounts",
-          href: "/product/buy-verified-revolut-accounts",
         },
         {
           name: "Buy Verified Go2Bank Accounts",

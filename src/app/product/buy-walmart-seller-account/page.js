@@ -7,7 +7,6 @@ import {
   Globe,
   Send,
   Check,
-  ChevronDown,
   ShoppingCart,
   Scale,
   FileText,
@@ -204,7 +203,7 @@ export default function BuyWalmartSellerAccount() {
                       Enterprise Package - $4,900.00
                     </option>
                   </select>
-                  <ChevronDown className="absolute right-3 top-2.5 h-4 w-4 text-gray-400 pointer-events-none" />
+                  
                 </div>
               </div>
 

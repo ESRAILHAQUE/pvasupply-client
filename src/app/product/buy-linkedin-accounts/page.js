@@ -2,12 +2,12 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import {
   Search,
   Globe,
   Send,
   Check,
-  ChevronDown,
   ShoppingCart,
   Scale,
   FileText,
@@ -17,6 +17,7 @@ import {
 } from "lucide-react";
 import PriceDisplay from "../../../components/shared/PriceDisplay";
 import ContactInfo from "../../../components/shared/ContactInfo";
+import RelatedProducts from "../../../components/shared/RelatedProducts";
 
 export default function BuyLinkedInAccounts() {
   const [selectedOption, setSelectedOption] = useState("");
@@ -74,215 +75,141 @@ export default function BuyLinkedInAccounts() {
   return (
     <div className="min-h-screen bg-gray-100 py-4">
       <div className="max-w-6xl mx-auto px-4">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
-          {/* Left Section - Promotional Banner */}
-          <div className="relative h-[600px]">
-            <div className="bg-gradient-to-br from-orange-400 via-orange-500 to-yellow-400 rounded-xl p-6 h-full relative overflow-hidden shadow-lg">
-              {/* Sale Badge */}
-              <div className="absolute top-3 left-3 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded-full">
-                Sale!
-              </div>
-
-              {/* Order Now Badge */}
-              <div className="absolute top-3 right-3 bg-black text-white text-xs font-bold px-3 py-1.5 rounded-lg flex items-center gap-1.5">
-                <Search className="w-3 h-3" />
-                ORDER NOW
-              </div>
-
-              {/* Main Title */}
-              <div className="mt-12 mb-4">
-                <h1 className="text-3xl font-bold leading-tight">
-                  <span className="text-green-600">BUY LINKEDIN</span>
-                  <br />
-                  <span className="text-black">ACCOUNTS</span>
-                </h1>
-              </div>
-
-              {/* LinkedIn Graphic */}
-              <div className="relative mb-6">
-                <div className="w-24 h-20 bg-white rounded-lg shadow-md relative">
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="text-blue-600 text-3xl font-bold">L</div>
-                  </div>
-                </div>
-
-                {/* 15% OFF Badge */}
-                <div className="absolute -top-1 -right-1 w-12 h-12 bg-green-500 border-3 border-yellow-400 rounded-full flex items-center justify-center">
-                  <span className="text-white text-xs font-bold">15% OFF</span>
-                </div>
-              </div>
-
-              {/* Service Features */}
-              <div className="mb-6">
-                <h3 className="text-base font-bold text-black mb-3">
-                  SERVICE FEATURES:
-                </h3>
-                <div className="space-y-1.5">
-                  {features.map((feature, index) => (
-                    <div key={index} className="flex items-center gap-2">
-                      <Check className="w-3.5 h-3.5 text-green-600 flex-shrink-0" />
-                      <span className="text-xs text-black">{feature}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* Contact Section */}
-              <div className="absolute bottom-3 left-3 right-3">
-                <div className="bg-black text-white px-3 py-1.5 rounded-lg text-center mb-2">
-                  <span className="text-xs font-bold">CONTACT NOW</span>
-                </div>
-                <div className="flex justify-center gap-3">
-                  <div className="flex flex-col items-center">
-                    <div className="w-6 h-6 bg-white rounded-full flex items-center justify-center mb-0.5">
-                      <svg
-                        className="w-3 h-3 text-black"
-                        fill="currentColor"
-                        viewBox="0 0 24 24">
-                        <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                      </svg>
-                    </div>
-                    <span className="text-xs text-black">
-                      pvasupply0@gmail.com
-                    </span>
-                  </div>
-                  <div className="flex flex-col items-center">
-                    <div className="w-6 h-6 bg-white rounded-full flex items-center justify-center mb-0.5">
-                      <svg
-                        className="w-3 h-3 text-black"
-                        fill="currentColor"
-                        viewBox="0 0 24 24">
-                        <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.25-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z" />
-                      </svg>
-                    </div>
-                    <span className="text-xs text-black">@pvasupply</span>
-                  </div>
-                  <div className="flex flex-col items-center">
-                    <div className="w-6 h-6 bg-white rounded-full flex items-center justify-center mb-0.5">
-                      <svg
-                        className="w-3 h-3 text-black"
-                        fill="currentColor"
-                        viewBox="0 0 24 24">
-                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.87 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.87 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488" />
-                      </svg>
-                    </div>
-                    <span className="text-xs text-black">WhatsApp</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Right Section - Product Details */}
-          <div className="bg-white rounded-lg p-6 shadow-lg">
-            {/* Breadcrumbs */}
-            <div className="text-sm text-gray-600 mb-1">
-              Home / Social Accounts / Buy LinkedIn Accounts
+        <div className="bg-white rounded-xl shadow-lg p-4 lg:p-6 mb-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            {/* Left Section - Promotional Banner */}
+            <div className="relative h-[600px] flex items-center justify-center">
+              <Image
+                src="/images/All Product/Buy LinkedIn Accounts.png"
+                alt="Buy LinkedIn Accounts"
+                width={1200}
+                height={1200}
+                className="max-w-full max-h-full object-contain"
+                priority
+              />
             </div>
 
-            {/* Category Link */}
-            <div className="mb-3">
-              <a href="#" className="text-blue-600 hover:text-blue-800 text-sm">
-                Social Accounts
-              </a>
-            </div>
+            {/* Right Section - Product Details */}
+            <div className="p-6">
+              {/* Breadcrumbs */}
+              <div className="text-sm text-gray-600 mb-1">
+                <Link href="/" className="text-blue-600 hover:underline">
+                  Home
+                </Link>
+                <span> / </span>
+                <Link href="/social" className="text-blue-600 hover:underline">
+                  Social Accounts
+                </Link>
+                <span> / </span>
+                <span className="text-gray-900">Buy LinkedIn Accounts</span>
+              </div>
 
-            {/* Product Title */}
-            <h1 className="text-2xl font-bold text-gray-900 mb-1">
-              Buy LinkedIn Accounts
-            </h1>
+              {/* Category Link */}
+              <div className="mb-3">
+                <a
+                  href="#"
+                  className="text-blue-600 hover:text-blue-800 text-sm">
+                  Social Accounts
+                </a>
+              </div>
 
-            {/* Price */}
-            <PriceDisplay price="$30.00 - $250.00" className="mb-4" />
-
-            {/* Product Description */}
-            <div className="mb-4 space-y-3">
-              <p className="text-gray-700 text-sm">
-                Are you looking for best quality real, active, fresh and aged
-                LinkedIn accounts? Do you need USA and European countries real
-                phone number verified old LinkedIn accounts? Or do you want to
-                buy old PVA LinkedIn accounts with cheap price?
-              </p>
-              <p className="text-gray-700 text-sm">
-                Phone verified accounts are provided upon request. Aged LinkedIn
-                accounts are indispensable for your business or personal use. We
-                provide instant delivery at Pvasmmpro.
-              </p>
-            </div>
-
-            {/* Features */}
-            <div className="mb-4">
-              <h3 className="text-base font-bold text-gray-900 mb-3">
-                Features of Our PVA Aged LinkedIn Accounts
-              </h3>
-              <ul className="space-y-1.5">
-                {productFeatures.map((feature, index) => (
-                  <li key={index} className="flex items-start gap-2">
-                    <span className="text-black text-base mt-0.5">◆</span>
-                    <span className="text-gray-700 text-sm">{feature}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Contact Information */}
-            <ContactInfo className="mb-4" />
-
-            {/* Purchase Section */}
-            <div className="border-t pt-4">
-              <h3 className="text-lg font-bold text-gray-900 mb-3">
+              {/* Product Title */}
+              <h1 className="text-2xl font-bold text-gray-900 mb-1">
                 Buy LinkedIn Accounts
-              </h3>
+              </h1>
 
-              <div className="space-y-3">
-                {/* Option Dropdown */}
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1.5">
-                    Choose an option
-                  </label>
-                  <div className="relative">
-                    <select
-                      value={selectedOption}
-                      onChange={(e) => setSelectedOption(e.target.value)}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent text-sm">
-                      <option value="">Select an option</option>
-                      <option value="basic">Basic Package - $20.00</option>
-                      <option value="premium">Premium Package - $200.00</option>
-                      <option value="enterprise">
-                        Enterprise Package - $500.00
-                      </option>
-                    </select>
-                    <ChevronDown className="absolute right-3 top-2.5 w-4 h-4 text-gray-400 pointer-events-none" />
-                  </div>
-                </div>
+              {/* Price */}
+              <PriceDisplay price="$30.00 - $250.00" className="mb-4" />
 
-                {/* Quantity */}
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1.5">
-                    Quantity
-                  </label>
-                  <input
-                    type="number"
-                    min="1"
-                    value={quantity}
-                    onChange={(e) => setQuantity(parseInt(e.target.value) || 1)}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent text-sm"
-                  />
-                </div>
-
-                {/* Add to Cart Button */}
-                <button className="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-2.5 px-4 rounded-md transition duration-200 flex items-center justify-center gap-2 text-sm">
-                  <ShoppingCart className="w-4 h-4" />
-                  Add to cart
-                </button>
+              {/* Product Description */}
+              <div className="mb-4 space-y-3">
+                <p className="text-gray-700 text-sm">
+                  Are you looking for best quality real, active, fresh and aged
+                  LinkedIn accounts? Do you need USA and European countries real
+                  phone number verified old LinkedIn accounts? Or do you want to
+                  buy old PVA LinkedIn accounts with cheap price?
+                </p>
+                <p className="text-gray-700 text-sm">
+                  Phone verified accounts are provided upon request. Aged
+                  LinkedIn accounts are indispensable for your business or
+                  personal use. We provide instant delivery at Pvasmmpro.
+                </p>
+                <p className="text-gray-700 text-sm">
+                  Don&apos;t wait — get your LinkedIn accounts now from
+                  pvasupply.com and enjoy instant access with dependable
+                  service.
+                </p>
               </div>
-            </div>
 
-            {/* Product Info */}
-            <div className="mt-4 pt-4 border-t text-xs text-gray-600">
-              <div className="flex justify-between">
-                <span>SKU: N/A</span>
-                <span>Category: Social Accounts</span>
+              {/* Features */}
+              <div className="mb-4">
+                <h3 className="text-base font-bold text-gray-900 mb-3">
+                  Features of Our PVA Aged LinkedIn Accounts
+                </h3>
+                <ul className="space-y-1.5">
+                  {productFeatures.map((feature, index) => (
+                    <li key={index} className="flex items-start gap-2">
+                      <Check className="w-4 h-4 text-green-600 mt-0.5 flex-shrink-0" />
+                      <span className="text-gray-700 text-sm">{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Contact Information */}
+              <ContactInfo className="mb-4" />
+
+              {/* Purchase Section */}
+              <div className="border-t pt-4">
+                <h3 className="text-lg font-bold text-gray-900 mb-3">
+                  Buy LinkedIn Accounts
+                </h3>
+
+                <div className="space-y-3">
+                  {/* Option Dropdown */}
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1.5">
+                      Choose an option
+                    </label>
+                    <div className="relative">
+                      <select
+                        value={selectedOption}
+                        onChange={(e) => setSelectedOption(e.target.value)}
+                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent text-sm">
+                        <option value="">Select an option</option>
+                        <option value="basic">Basic Package - $20.00</option>
+                        <option value="premium">
+                          Premium Package - $200.00
+                        </option>
+                        <option value="enterprise">
+                          Enterprise Package - $500.00
+                        </option>
+                      </select>
+                    </div>
+                  </div>
+
+                  {/* Quantity */}
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1.5">
+                      Quantity
+                    </label>
+                    <input
+                      type="number"
+                      min="1"
+                      value={quantity}
+                      onChange={(e) =>
+                        setQuantity(parseInt(e.target.value) || 1)
+                      }
+                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent text-sm"
+                    />
+                  </div>
+
+                  {/* Add to Cart Button */}
+                  <button className="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-2.5 px-4 rounded-md transition duration-200 flex items-center justify-center gap-2 text-sm">
+                    <ShoppingCart className="w-4 h-4" />
+                    Add to cart
+                  </button>
+                </div>
               </div>
             </div>
           </div>
@@ -328,21 +255,410 @@ export default function BuyLinkedInAccounts() {
             {activeTab === "description" && (
               <div className="prose max-w-none">
                 <h2 className="text-xl font-bold text-gray-900 mb-4">
-                  LinkedIn Accounts for Sale
+                  Buy verified LinkedIn accounts : and enjoy easy transfers
+                  today
                 </h2>
-                <p className="text-gray-700 mb-4">
-                  LinkedIn is a professional networking platform that allows
-                  users to connect with other professionals, share content, and
-                  build their professional brand. Our LinkedIn accounts are
-                  perfect for businesses and individuals who need to establish a
-                  professional online presence.
-                </p>
-                <p className="text-gray-700 mb-4">
-                  All our accounts come with full verification and are ready for
-                  immediate use. Whether you need a single account or bulk
-                  orders, we can accommodate your requirements with competitive
-                  pricing and excellent customer support.
-                </p>
+
+                <div className="space-y-6">
+                  {/* Introduction */}
+                  <div>
+                    <p className="text-gray-700 mb-4">
+                      Purchasing verified LinkedIn accounts can make your
+                      professional journey much easier. With these accounts, you
+                      get instant credibility, which helps you stand out in busy
+                      industries.
+                    </p>
+                    <p className="text-gray-700 mb-4">
+                      Getting a verified account is simple and fast. You can
+                      have your new profile ready to use right away without
+                      going through the hassle of starting from scratch.
+                    </p>
+                    <p className="text-gray-700 mb-4">
+                      These accounts come with existing connections,
+                      endorsements, and even recommendations. This makes it
+                      easier to start networking right from the beginning.
+                    </p>
+                    <p className="text-gray-700 mb-4">
+                      Whether you want to grow your reach or enter new markets,
+                      investing in a verified LinkedIn account gives you a head
+                      start. It's about working smarter, not harder. Why wait?
+                      Take this easy path to improving your professional
+                      presence today!
+                    </p>
+                  </div>
+
+                  {/* Buy LinkedIn accounts; USA, UK, and Canada accounts for sale Section */}
+                  <div>
+                    <h3 className="text-lg font-bold text-gray-900 mb-3">
+                      Buy LinkedIn accounts; USA, UK, and Canada accounts for
+                      sale
+                    </h3>
+                    <div className="space-y-3">
+                      <p className="text-gray-700">
+                        If you're looking to buy LinkedIn accounts, you'll find
+                        a wide variety available from the USA, UK, and Canada.
+                        Each location offers its own benefits that can help you
+                        grow your network.
+                      </p>
+                      <p className="text-gray-700">
+                        US accounts often have strong connections in technology
+                        and finance. They can be useful if you're targeting
+                        American businesses or clients.
+                      </p>
+                      <p className="text-gray-700">
+                        UK accounts are great for connecting with professionals
+                        in Europe. With many users active on the platform, they
+                        are a good way to expand your reach.
+                      </p>
+                      <p className="text-gray-700">
+                        Canadian accounts give access to a growing economy with
+                        a friendly business environment. These profiles show
+                        professionalism and openness, making them good for
+                        forming partnerships.
+                      </p>
+                      <p className="text-gray-700">
+                        Choosing the right account based on location can greatly
+                        affect your engagement and open doors to new
+                        opportunities around the world.
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Benefits of Verified LinkedIn Accounts Section */}
+                  <div>
+                    <h3 className="text-lg font-bold text-gray-900 mb-3">
+                      Benefits of Verified LinkedIn Accounts
+                    </h3>
+                    <div className="space-y-3">
+                      <p className="text-gray-700">
+                        Verified LinkedIn accounts boost your professional
+                        presence. They show authenticity, which is important in
+                        today's digital world. When people see your account is
+                        verified, they are more likely to trust you and connect
+                        with you.
+                      </p>
+                      <p className="text-gray-700">
+                        Having a verified account improves your credibility. It
+                        shows you've taken steps to build your presence on the
+                        platform. This can make you more visible in searches and
+                        recommendations, helping others find you easier.
+                      </p>
+                      <p className="text-gray-700">
+                        Networking becomes much easier with a verified profile.
+                        You can connect with leaders and peers who might not
+                        have engaged with unverified accounts before.
+                      </p>
+                      <p className="text-gray-700">
+                        This added trust opens up chances for collaboration and
+                        partnerships that might otherwise stay closed. A
+                        verified profile shows professionalism, helping you
+                        stand out from competitors and creating a welcoming
+                        space for meaningful conversations in your field.
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Increased Credibility Section */}
+                  <div>
+                    <h3 className="text-lg font-bold text-gray-900 mb-3">
+                      Increased Credibility
+                    </h3>
+                    <div className="space-y-3">
+                      <p className="text-gray-700">
+                        Having a verified LinkedIn account greatly increases
+                        your credibility in the professional world. When others
+                        see your profile is verified, they view you as reliable
+                        and trustworthy.
+                      </p>
+                      <p className="text-gray-700">
+                        This trust is especially important when building
+                        relationships or looking for job opportunities.
+                        Recruiters and business partners are more likely to
+                        engage with profiles that show authenticity.
+                      </p>
+                      <p className="text-gray-700">
+                        A credible presence on LinkedIn helps you build your
+                        personal brand. It makes you more noticeable among many
+                        profiles, helping people remember you.
+                      </p>
+                      <p className="text-gray-700">
+                        Also, having increased credibility leads to more
+                        engagement on your posts and articles. People are more
+                        likely to connect with someone they believe is genuine
+                        and established in their industry.
+                      </p>
+                      <p className="text-gray-700">
+                        Buying verified accounts helps build long-lasting
+                        professional relationships based on trust and respect.
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Better Networking Opportunities Section */}
+                  <div>
+                    <h3 className="text-lg font-bold text-gray-900 mb-3">
+                      Better Networking Opportunities
+                    </h3>
+                    <div className="space-y-3">
+                      <p className="text-gray-700">
+                        Buying verified LinkedIn accounts gives you better
+                        networking opportunities. With a credible account, you
+                        can connect with industry leaders and professionals who
+                        may be hard to reach otherwise.
+                      </p>
+                      <p className="text-gray-700">
+                        The platform is built on connections. When your profile
+                        is real and verified, others are more likely to talk to
+                        you. This leads to meaningful conversations that can
+                        start collaborations or mentorship.
+                      </p>
+                      <p className="text-gray-700">
+                        Also, having an established network means you can get
+                        introductions faster. Your circle grows quickly as your
+                        new connections introduce you to their contacts.
+                      </p>
+                      <p className="text-gray-700">
+                        Whether you are looking for partnerships or job chances,
+                        a strong LinkedIn presence sets you up for successful
+                        interactions. By investing in an account now, you're
+                        positioning yourself well in your professional world.
+                        The relationships you form can lead to big career growth
+                        over time.
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Basic Information About the LinkedIn Platform Section */}
+                  <div>
+                    <h3 className="text-lg font-bold text-gray-900 mb-3">
+                      Basic Information About the LinkedIn Platform
+                    </h3>
+                    <div className="space-y-3">
+                      <p className="text-gray-700">
+                        LinkedIn is a professional networking site that started
+                        in 2003. It connects millions of professionals
+                        worldwide, making it the best place for career growth
+                        and business opportunities.
+                      </p>
+                      <p className="text-gray-700">
+                        Users can create profiles that show their skills,
+                        experience, and education. This helps others understand
+                        what they're good at at a glance.
+                      </p>
+                      <p className="text-gray-700">
+                        The platform has several uses. Job seekers use it to
+                        find jobs, while employers search for talent. LinkedIn
+                        also has groups, articles, and networking events that
+                        help users work together.
+                      </p>
+                      <p className="text-gray-700">
+                        With over 900 million members across different
+                        industries, LinkedIn is a big platform for sharing
+                        knowledge and growing professionally. Adding images and
+                        videos to your profile helps you stand out more than a
+                        regular resume ever could.
+                      </p>
+                      <p className="text-gray-700">
+                        Engagement on LinkedIn isn't just about job searching.
+                        Many people use it for marketing or sharing ideas in
+                        their fields.
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Why Would You Buy LinkedIn Accounts From pvasupply Section */}
+                  <div>
+                    <h3 className="text-lg font-bold text-gray-900 mb-3">
+                      Why Would You Buy LinkedIn Accounts From pvasupply?
+                    </h3>
+                    <div className="space-y-3">
+                      <p className="text-gray-700">
+                        When you're looking to buy LinkedIn accounts, pvasupply
+                        is a great choice for several reasons. First, we focus
+                        on quality. Every account goes through a careful check
+                        to make sure it's up to a high standard.
+                      </p>
+                      <p className="text-gray-700">
+                        Our customers like our dependable customer support. Our
+                        team is always available to help with any questions or
+                        issues you might have about your purchase.
+                      </p>
+                      <p className="text-gray-700">
+                        We also offer a variety of accounts suited for different
+                        markets like the USA, UK, and Canada. This wide
+                        selection helps you find the right fit for your
+                        networking goals.
+                      </p>
+                      <p className="text-gray-700">
+                        Your safety is important to us. We take steps to keep
+                        your investment secure by using strict privacy rules and
+                        safe payment methods.
+                      </p>
+                      <p className="text-gray-700">
+                        By buying from pvasupply, you also get helpful tips on
+                        how to best use LinkedIn after you get your account.
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Best Place To Buy LinkedIn Accounts in 2025 Section */}
+                  <div>
+                    <h3 className="text-lg font-bold text-gray-900 mb-3">
+                      Best Place To Buy LinkedIn Accounts in 2025
+                    </h3>
+                    <div className="space-y-3">
+                      <p className="text-gray-700">
+                        As we head into 2025, the need for LinkedIn accounts is
+                        growing. Both professionals and businesses see the value
+                        in using the platform for networking and building their
+                        brand.
+                      </p>
+                      <p className="text-gray-700">
+                        Choosing the right place to buy LinkedIn accounts is
+                        important. The best sellers offer verified profiles that
+                        are real and authentic. Look for providers with a good
+                        name and positive feedback from other users.
+                      </p>
+                      <p className="text-gray-700">
+                        Transparency is important when picking a vendor. Getting
+                        detailed info on the account's past, connections, and
+                        activity can help you understand its quality.
+                      </p>
+                      <p className="text-gray-700">
+                        Also, having quick and friendly customer support can
+                        make your buying experience better. You want a seller
+                        who can answer your questions fast.
+                      </p>
+                      <p className="text-gray-700">
+                        Look for platforms that provide extra help like tools
+                        for automation or marketing advice after your purchase.
+                        This can give you more value than just getting an
+                        account, helping you use it better in your career.
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Best Automation Practices After You Buy LinkedIn Accounts Section */}
+                  <div>
+                    <h3 className="text-lg font-bold text-gray-900 mb-3">
+                      Best Automation Practices After You Buy LinkedIn Accounts
+                    </h3>
+                    <div className="space-y-3">
+                      <p className="text-gray-700">
+                        After buying LinkedIn accounts, using automation can
+                        make your work easier. Start by using tools that plan
+                        and post your content. This way, your messages reach
+                        more people without needing constant effort.
+                      </p>
+                      <p className="text-gray-700">
+                        Use automated tools to send personalized messages to
+                        your followers. It's a smart way to connect with others
+                        and save time.
+                      </p>
+                      <p className="text-gray-700">
+                        Also, consider setting up tools that update your profile
+                        automatically. Keeping your profile fresh and relevant
+                        helps you stay credible in your field.
+                      </p>
+                      <p className="text-gray-700">
+                        Having access to analytics tools is also important. They
+                        help you see what's working and what needs to be
+                        adjusted. This lets you make smarter decisions based on
+                        real data.
+                      </p>
+                      <p className="text-gray-700">
+                        But remember to keep an eye on the activity of these
+                        accounts. Automation should support your real efforts,
+                        not replace them. It's there to help you be more
+                        efficient while still keeping your interactions
+                        authentic on LinkedIn.
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* How Can I Make Sure The Quality Of My Purchased LinkedIn Accounts Is Good Section */}
+                  <div>
+                    <h3 className="text-lg font-bold text-gray-900 mb-3">
+                      How Can I Make Sure The Quality Of My Purchased LinkedIn
+                      Accounts Is Good?
+                    </h3>
+                    <div className="space-y-3">
+                      <p className="text-gray-700">
+                        When you're buying LinkedIn accounts, making sure
+                        they're good is very important. Start by checking the
+                        seller's reputation. Read reviews and look for feedback
+                        from other customers to see if they're reliable.
+                      </p>
+                      <p className="text-gray-700">
+                        Next, look for verified accounts. These usually have a
+                        blue checkmark and are more trustworthy in the LinkedIn
+                        community.
+                      </p>
+                      <p className="text-gray-700">
+                        Before buying, ask for detailed info about each account.
+                        This can include the account's age, number of
+                        connections, and how active it is. Accounts that are
+                        regularly used and have real interactions are usually
+                        higher quality.
+                      </p>
+                      <p className="text-gray-700">
+                        You might also want to test a few accounts before buying
+                        a large number. This lets you see how they work in real
+                        life and decide if they're right for you.
+                      </p>
+                      <p className="text-gray-700">
+                        Be careful of prices that seem too low. These can often
+                        mean lower quality or even scams. Taking time to do your
+                        research now can save you from problems later when using
+                        the accounts effectively on LinkedIn.
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Conclusion Section */}
+                  <div>
+                    <h3 className="text-lg font-bold text-gray-900 mb-3">
+                      Conclusion
+                    </h3>
+                    <div className="space-y-3">
+                      <p className="text-gray-700">
+                        Buying LinkedIn accounts can really help your
+                        professional life. With verified accounts, you get
+                        instant trust and access to more networking
+                        opportunities. Whether you need USA, UK, or Canadian
+                        profiles, the advantages are clear.
+                      </p>
+                      <p className="text-gray-700">
+                        Choosing trusted sources like pvasupply ensures you get
+                        top-quality accounts that fit your needs. As we move
+                        into 2025, finding dependable platforms becomes even
+                        more important for managing your accounts well.
+                      </p>
+                      <p className="text-gray-700">
+                        Once you've bought your accounts, using smart automation
+                        can help you get the most out of your new LinkedIn
+                        presence. This makes your work easier and helps you
+                        connect better with your network.
+                      </p>
+                      <p className="text-gray-700">
+                        It's important to focus on quality when buying LinkedIn
+                        accounts. Doing your research and choosing dependable
+                        providers can make a big difference in your success on
+                        this powerful platform.
+                      </p>
+                      <p className="text-gray-700">
+                        With these ideas in mind, buying LinkedIn accounts could
+                        be a big step forward for professionals looking to boost
+                        their careers and grow their networks more effectively.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <RelatedProducts
+                  currentProduct="Buy LinkedIn Accounts"
+                  category="Social Accounts"
+                />
               </div>
             )}
 
@@ -391,146 +707,7 @@ export default function BuyLinkedInAccounts() {
           </div>
         </div>
 
-        {/* Sidebar Section */}
-        <div className="bg-white rounded-lg shadow-lg p-6">
-          <h3 className="text-lg font-bold text-gray-900 mb-4">
-            Terms & Conditions
-          </h3>
-          <div className="space-y-2">
-            {sidebarItems.map((item, index) => (
-              <div
-                key={index}
-                className="flex items-center justify-between py-2 border-b border-gray-100 last:border-b-0">
-                <span className="text-sm text-gray-700">{item}</span>
-                <ChevronDown className="w-4 h-4 text-gray-400" />
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-
-      {/* Related Products Section */}
-      <div className="bg-white rounded-lg shadow-lg p-6 mt-8">
-        <h2 className="text-2xl font-bold text-gray-900 mb-6">
-          Related products
-        </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          {/* Card 1 */}
-          <div className="bg-white rounded-lg shadow-lg overflow-hidden">
-            <div>
-              <Image
-                src="/images/All Product/Buy Google Voice Accounts.png"
-                alt="Buy Google Voice Accounts"
-                width={300}
-                height={80}
-              />
-            </div>
-            <div className="p-4 bg-white">
-              <div className="text-gray-500 text-xs mb-2">Social Accounts</div>
-              <h4 className="font-bold text-black mb-2">
-                Buy Google Voice Accounts
-              </h4>
-              <div className="flex gap-1 mb-3">
-                {[...Array(5)].map((_, i) => (
-                  <div
-                    key={i}
-                    className="w-4 h-4 border border-gray-300 rounded"
-                  />
-                ))}
-              </div>
-              <div className="text-black font-bold mb-3">$8.00 - $250.00</div>
-              <button className="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-md transition duration-200 text-sm">
-                Select options
-              </button>
-            </div>
-          </div>
-
-          {/* Card 2 */}
-          <div className="bg-white rounded-lg shadow-lg overflow-hidden">
-            <div>
-              <Image
-                src="/images/All Product/Buy Gmail Accounts.png"
-                alt="Buy Gmail Accounts"
-                width={300}
-                height={80}
-              />
-            </div>
-            <div className="p-4 bg-white">
-              <div className="text-gray-500 text-xs mb-2">Social Accounts</div>
-              <h4 className="font-bold text-black mb-2">Buy Gmail Accounts</h4>
-              <div className="flex gap-1 mb-3">
-                {[...Array(5)].map((_, i) => (
-                  <div
-                    key={i}
-                    className="w-4 h-4 border border-gray-300 rounded"
-                  />
-                ))}
-              </div>
-              <div className="text-black font-bold mb-3">$6.00 - $340.00</div>
-              <button className="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-md transition duration-200 text-sm">
-                Select options
-              </button>
-            </div>
-          </div>
-
-          {/* Card 3 */}
-          <div className="bg-white rounded-lg shadow-lg overflow-hidden">
-            <div>
-              <Image
-                src="/images/All Product/Buy Naver Accounts.png"
-                alt="Buy Naver Accounts"
-                width={300}
-                height={80}
-              />
-            </div>
-            <div className="p-4 bg-white">
-              <div className="text-gray-500 text-xs mb-2">Social Accounts</div>
-              <h4 className="font-bold text-black mb-2">Buy Naver Accounts</h4>
-              <div className="flex gap-1 mb-3">
-                {[...Array(5)].map((_, i) => (
-                  <div
-                    key={i}
-                    className="w-4 h-4 border border-gray-300 rounded"
-                  />
-                ))}
-              </div>
-              <div className="text-black font-bold mb-3">$10.00 - $300.00</div>
-              <button className="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-md transition duration-200 text-sm">
-                Select options
-              </button>
-            </div>
-          </div>
-
-          {/* Card 4 */}
-          <div className="bg-white rounded-lg shadow-lg overflow-hidden">
-            <div>
-              <Image
-                src="/images/All Product/Buy LinkedIn Accounts.png"
-                alt="Buy LinkedIn Accounts"
-                width={300}
-                height={80}
-              />
-            </div>
-            <div className="p-4 bg-white">
-              <div className="text-gray-500 text-xs mb-2">Social Accounts</div>
-              <h4 className="font-bold text-black mb-2">
-                Buy LinkedIn Accounts
-              </h4>
-              <div className="flex gap-1 mb-3">
-                {[...Array(5)].map((_, i) => (
-                  <div
-                    key={i}
-                    className="w-4 h-4 border border-gray-300 rounded"
-                  />
-                ))}
-              </div>
-              <div className="text-black font-bold mb-3">$30.00 - $250.00</div>
-              <button className="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-md transition duration-200 text-sm">
-                Select options
-              </button>
-            </div>
-          </div>
-        </div>
+     
       </div>
     </div>
   );

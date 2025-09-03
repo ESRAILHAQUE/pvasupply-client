@@ -2,12 +2,12 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import {
   Search,
   Globe,
   Send,
   Check,
-  ChevronDown,
   ShoppingCart,
   Scale,
   FileText,
@@ -15,7 +15,6 @@ import {
   User,
   Globe as GlobeIcon,
 } from "lucide-react";
-import { useCart } from "../../../contexts/CartContext";
 import PriceDisplay from "../../../components/shared/PriceDisplay";
 import ContactInfo from "../../../components/shared/ContactInfo";
 
@@ -23,34 +22,30 @@ export default function BuyVerifiedApplePayAccounts() {
   const [selectedOption, setSelectedOption] = useState("");
   const [quantity, setQuantity] = useState(1);
   const [activeTab, setActiveTab] = useState("description");
-  const { addToCart } = useCart();
 
   const features = [
-    "100% satisfaction & recovery guarantee",
-    "Instant access with email & phone credentials",
-    "Fully KYC verified",
-    "Personal & business accounts available",
-    "Phone verified for added security",
-    "Real Gmail accounts used",
-    "Bank & card linked & verified",
-    "Complete verification documents included",
+    "USA & European Local IP Created Accounts",
+    "Real Phone Number Used for Verification",
+    "Unique Username Apple Pay Accounts Available",
+    "2019-2024 Years Apple Pay Accounts Available",
+    "PVA New/Old Accounts Are Available",
+    "100% Safe & Private",
   ];
 
   const productFeatures = [
-    "100% satisfaction & recovery guarantee",
-    "Instant access with email & phone credentials",
-    "Fully KYC verified",
-    "Personal & business accounts available",
-    "Phone verified for added security",
-    "Real Gmail accounts used",
-    "Bank & card linked & verified",
-    "Complete verification documents included",
+    "USA & European Local IP Created Accounts",
+    "Real Phone Number Used for Verification",
+    "Unique Username Apple Pay Accounts Available",
+    "2019-2023 Years Apple Pay Accounts are Available",
+    "Any Countries PVA New/Old Accounts are Available",
+    "Delivery Time Within 10 Minutes After Your Order",
+    "100% Safe & Private",
   ];
 
   const contactInfo = [
     { icon: "Email", text: "pvasupply0@gmail.com" },
     { icon: "Telegram", text: "@pvasupply" },
-    { icon: "WhatsApp", text: "+1 (979) 633-0236" },
+    { icon: "WhatsApp", text: "WhatsApp Chat" },
   ];
 
   const sidebarItems = [
@@ -67,184 +62,142 @@ export default function BuyVerifiedApplePayAccounts() {
     "How Apple Pay handles government requests for user information",
   ];
 
-  const handleAddToCart = () => {
-    if (!selectedOption) {
-      alert("Please select an option first");
-      return;
-    }
-
-    const optionPrices = {
-      basic: 370,
-      premium: 420,
-      enterprise: 470,
-    };
-
-    const product = {
-      id: "apple-pay-accounts",
-      name: "Buy Verified Apple Pay Accounts",
-      option: selectedOption,
-      price: optionPrices[selectedOption],
-      quantity: quantity,
-      category: "Payment Services",
-    };
-
-    addToCart(product);
-    alert("Added to cart successfully!");
-  };
-
   return (
     <div className="min-h-screen bg-gray-100 py-4">
       <div className="max-w-6xl mx-auto px-4">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
-          {/* Left Section - Promotional Banner */}
-          <div className="relative h-[600px]">
-            <div className="bg-gradient-to-br from-blue-400 via-blue-500 to-indigo-400 rounded-xl p-6 h-full relative overflow-hidden shadow-lg">
-              {/* Sale Badge */}
-              <div className="absolute top-3 left-3 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded-full">
-                Sale!
+        <div className="bg-white rounded-xl shadow-lg p-4 lg:p-6 mb-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            {/* Left Section - Promotional Banner */}
+            <div className="relative h-[600px] flex items-center justify-center">
+              <Image
+                src="/images/All Product/Buy Verified Apple Pay Account.png"
+                alt="Buy Verified Apple Pay Account"
+                width={1200}
+                height={1200}
+                className="max-w-full max-h-full object-contain"
+                priority
+              />
+            </div>
+
+            {/* Right Section - Product Details */}
+            <div className="p-6">
+              {/* Breadcrumbs */}
+              <div className="text-sm text-gray-600 mb-1">
+                <Link href="/" className="text-blue-600 hover:underline">
+                  Home
+                </Link>
+                <span> / </span>
+                <Link href="/special" className="text-blue-600 hover:underline">
+                  Special Accounts
+                </Link>
+                <span> / </span>
+                <span className="text-gray-900">
+                  Buy Verified Apple Pay Account
+                </span>
               </div>
 
-              {/* Main Content */}
-              <div className="text-white h-full flex flex-col justify-between">
-                <div>
-                  <h2 className="text-3xl font-bold mb-4">
-                    Buy Apple Pay Accounts
-                  </h2>
-                  <p className="text-lg mb-6">
-                    Get your fully verified Apple Pay account today from
-                    https://pvasupply.com/ — 100% secure, reliable, and ready
-                    for instant use. Enjoy smooth payments, fast fund transfers,
-                    and complete control of your transactions across all Apple
-                    devices. Perfect for both personal and business needs.
-                  </p>
-                </div>
+              {/* Category Link */}
+              <div className="mb-3">
+                <a
+                  href="#"
+                  className="text-blue-600 hover:text-blue-800 text-sm">
+                  Special Accounts
+                </a>
+              </div>
 
-                {/* Contact Section */}
-                <div className="absolute bottom-6 left-6 right-6">
-                  <div className="bg-white/20 backdrop-blur-sm rounded-lg p-4">
-                    <h3 className="text-white font-bold mb-3">Contact Us</h3>
-                    <div className="space-y-2">
-                      {contactInfo.map((info, index) => (
-                        <div
-                          key={index}
-                          className="flex items-center gap-2 text-white text-sm">
-                          <div className="w-2 h-2 bg-white rounded-full"></div>
-                          <span>{info.text}</span>
-                        </div>
-                      ))}
+              {/* Product Title */}
+              <h1 className="text-2xl font-bold text-gray-900 mb-1">
+                Buy Verified Apple Pay Account
+              </h1>
+
+              {/* Price */}
+              <PriceDisplay price="$45.00 - $700.00" className="mb-4" />
+
+              {/* Product Description */}
+              <div className="mb-4 space-y-3">
+                <p className="text-gray-700 text-sm">
+                  Are you looking for best quality real, active, fresh and aged
+                  Apple Pay accounts? Do you need USA and European countries
+                  real phone number verified old Apple Pay accounts? Or do you
+                  want to buy old PVA Apple Pay accounts with cheap price?
+                </p>
+                <p className="text-gray-700 text-sm">
+                  Phone verified accounts are provided upon request. Aged Apple
+                  Pay accounts are indispensable for your business or personal
+                  use. We provide instant delivery at Pvasmmpro.
+                </p>
+              </div>
+
+              {/* Features */}
+              <div className="mb-4">
+                <h3 className="text-base font-bold text-gray-900 mb-3">
+                  Features of Our PVA Aged Apple Pay Accounts
+                </h3>
+                <ul className="space-y-1.5">
+                  {productFeatures.map((feature, index) => (
+                    <li key={index} className="flex items-start gap-2">
+                      <Check className="w-4 h-4 text-green-600 mt-0.5 flex-shrink-0" />
+                      <span className="text-gray-700 text-sm">{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Contact Information */}
+              <ContactInfo className="mb-4" />
+
+              {/* Purchase Section */}
+              <div className="border-t pt-4">
+                <h3 className="text-lg font-bold text-gray-900 mb-3">
+                  Buy Verified Apple Pay Account
+                </h3>
+
+                <div className="space-y-3">
+                  {/* Option Dropdown */}
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1.5">
+                      Choose an option
+                    </label>
+                    <div className="relative">
+                      <select
+                        value={selectedOption}
+                        onChange={(e) => setSelectedOption(e.target.value)}
+                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent text-sm">
+                        <option value="">Select an option</option>
+                        <option value="basic">Basic Package - $45.00</option>
+                        <option value="premium">
+                          Premium Package - $250.00
+                        </option>
+                        <option value="enterprise">
+                          Enterprise Package - $700.00
+                        </option>
+                      </select>
                     </div>
                   </div>
-                </div>
-              </div>
-            </div>
-          </div>
 
-          {/* Right Section - Product Details */}
-          <div className="space-y-6">
-            {/* Category Link */}
-            <div className="mb-4">
-              <a
-                href="#"
-                className="text-blue-600 hover:text-blue-800 text-sm font-medium">
-                Payment Services
-              </a>
-            </div>
+                  {/* Quantity */}
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1.5">
+                      Quantity
+                    </label>
+                    <input
+                      type="number"
+                      min="1"
+                      value={quantity}
+                      onChange={(e) =>
+                        setQuantity(parseInt(e.target.value) || 1)
+                      }
+                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent text-sm"
+                    />
+                  </div>
 
-            {/* Product Title */}
-            <h1 className="text-2xl font-bold text-gray-900 mb-2">
-              Buy Verified Apple Pay Account
-            </h1>
-
-            {/* Price Range */}
-            <PriceDisplay price="$370.00 - $470.00" className="mb-4" />
-
-            {/* Product Description */}
-            <p className="text-gray-600 mb-6">
-              Get your fully verified Apple Pay account today from
-              https://pvasupply.com/ — 100% secure, reliable, and ready for
-              instant use. Enjoy smooth payments, fast fund transfers, and
-              complete control of your transactions across all Apple devices.
-              Perfect for both personal and business needs.
-            </p>
-
-            {/* Features List */}
-            <div className="space-y-2 mb-6">
-              <h3 className="text-base font-bold text-gray-900 mb-3">
-                Features of Our Verified Apple Pay Accounts:
-              </h3>
-              {productFeatures.map((feature, index) => (
-                <div key={index} className="flex items-center gap-2">
-                  <Check className="w-4 h-4 text-green-600" />
-                  <span className="text-sm text-gray-700">{feature}</span>
-                </div>
-              ))}
-            </div>
-
-            {/* Contact Information */}
-            <ContactInfo className="mb-6" />
-
-            {/* Product Options */}
-            <div className="bg-white rounded-lg p-6 shadow-sm border">
-              <h3 className="text-lg font-semibold text-gray-900 mb-4">
-                Choose Your Package
-              </h3>
-
-              {/* Option Selection */}
-              <div className="mb-4">
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Select Package
-                </label>
-                <div className="relative">
-                  <select
-                    value={selectedOption}
-                    onChange={(e) => setSelectedOption(e.target.value)}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent appearance-none bg-white">
-                    <option value="">Choose an option</option>
-                    <option value="basic">Basic Package - $370.00</option>
-                    <option value="premium">Premium Package - $420.00</option>
-                    <option value="enterprise">
-                      Enterprise Package - $470.00
-                    </option>
-                  </select>
-                  <ChevronDown className="absolute right-3 top-2.5 h-4 w-4 text-gray-400 pointer-events-none" />
-                </div>
-              </div>
-
-              {/* Quantity Selection */}
-              <div className="mb-6">
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Quantity
-                </label>
-                <div className="flex items-center border border-gray-300 rounded-md">
-                  <button
-                    onClick={() => setQuantity(Math.max(1, quantity - 1))}
-                    className="px-3 py-2 text-gray-600 hover:text-gray-800">
-                    -
-                  </button>
-                  <input
-                    type="number"
-                    min="1"
-                    value={quantity}
-                    onChange={(e) =>
-                      setQuantity(Math.max(1, parseInt(e.target.value) || 1))
-                    }
-                    className="flex-1 text-center border-0 focus:ring-0 focus:outline-none"
-                  />
-                  <button
-                    onClick={() => setQuantity(quantity + 1)}
-                    className="px-3 py-2 text-gray-600 hover:text-gray-800">
-                    +
+                  {/* Add to Cart Button */}
+                  <button className="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-2.5 px-4 rounded-md transition duration-200 flex items-center justify-center gap-2 text-sm">
+                    <ShoppingCart className="w-4 h-4" />
+                    Add to cart
                   </button>
                 </div>
               </div>
-
-              {/* Add to Cart Button */}
-              <button
-                onClick={handleAddToCart}
-                className="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-2.5 px-4 rounded-md transition duration-200 flex items-center justify-center gap-2 text-sm">
-                <ShoppingCart className="w-4 h-4" />
-                Add to Cart
-              </button>
             </div>
           </div>
         </div>

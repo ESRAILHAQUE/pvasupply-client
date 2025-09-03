@@ -15,14 +15,28 @@ import {
   Shield,
   User,
   Globe as GlobeIcon,
+  Star,
 } from "lucide-react";
 import PriceDisplay from "../../../components/shared/PriceDisplay";
 import ContactInfo from "../../../components/shared/ContactInfo";
+import RelatedProducts from "../../../components/shared/RelatedProducts";
 
 export default function OldGmailAccountsComponent() {
   const [selectedOption, setSelectedOption] = useState("");
   const [quantity, setQuantity] = useState(1);
   const [activeTab, setActiveTab] = useState("description");
+
+  // Helper function to render stars
+  const renderStars = (rating = 5) => {
+    return [...Array(5)].map((_, i) => (
+      <Star
+        key={i}
+        className={`w-4 h-4 ${
+          i < rating ? "fill-yellow-400 text-yellow-400" : "text-gray-300"
+        }`}
+      />
+    ));
+  };
 
   const features = [
     "USA, UK, CA, and AU Gmail accounts with English names",
@@ -153,7 +167,7 @@ export default function OldGmailAccountsComponent() {
                 <ul className="space-y-1.5">
                   {productFeatures.map((feature, index) => (
                     <li key={index} className="flex items-start gap-2">
-                      <span className="text-black text-base mt-0.5">◆</span>
+                      <Check className="w-4 h-4 text-green-600 mt-0.5 flex-shrink-0" />
                       <span className="text-gray-700 text-sm">{feature}</span>
                     </li>
                   ))}
@@ -261,35 +275,24 @@ export default function OldGmailAccountsComponent() {
               <div className="space-y-6">
                 {/* Main Title */}
                 <h2 className="text-2xl font-bold text-gray-900">
-                  Buy Old Gmail Accounts
+                  Buy Gmail Accounts
                 </h2>
 
                 {/* Introductory Paragraphs */}
                 <div className="space-y-4">
                   <p className="text-gray-700 leading-relaxed">
-                    In today&apos;s digital age, having reliable online accounts
-                    is more important than ever. Whether you&apos;re a business
-                    owner, marketer, or individual user, you need accounts that
-                    can be trusted and won&apos;t let you down. That&apos;s
-                    where old Gmail accounts come in as a hidden gem in the
-                    digital marketplace. These accounts offer established
-                    histories, enhanced credibility, and the chance to avoid the
-                    tiresome process of creating new ones from scratch. Are you
-                    ready to explore the world of{" "}
-                    <a
-                      href="#"
-                      className="text-blue-600 hover:text-blue-800 underline">
-                      buy old Gmail accounts?
-                    </a>
-                  </p>
-
-                  <p className="text-gray-700 leading-relaxed">
-                    The market for old Gmail accounts is thriving, and for good
-                    reason. These accounts come with advantages that new
-                    accounts simply can&apos;t match. From fewer chances of
-                    getting flagged as spam to immediate access to features that
-                    come only with time, old Gmail accounts provide a shortcut
-                    to digital success.
+                    In today's digital world, having a strong online presence is
+                    key to success. One way to improve that presence is by
+                    getting Gmail accounts. But not just any accounts—old and
+                    verified ones can help businesses and individuals a lot.
+                    With millions of users worldwide, Gmail is one of the most
+                    trusted email services. So, what are the benefits of buying
+                    old Gmail accounts? Let's look at how they can open up new
+                    opportunities and help your business grow while keeping you
+                    safe and credible in a competitive market. Whether you're
+                    trying to improve your marketing or organize your emails
+                    better, buying these accounts could make a big difference
+                    for you.
                   </p>
                 </div>
 
@@ -301,43 +304,35 @@ export default function OldGmailAccountsComponent() {
 
                   <div className="space-y-4">
                     <p className="text-gray-700 leading-relaxed">
-                      Old Gmail accounts have established histories that lend
-                      credibility to your online presence. This is crucial for
-                      businesses seeking trust from customers and partners
-                      alike.
+                      Buying old Gmail accounts can really help your online
+                      plans. One big benefit is that they already have a
+                      history, which makes them more trustworthy. Older accounts
+                      often show that they've been used for a while, which tells
+                      users and clients that you're reliable.
                     </p>
 
                     <p className="text-gray-700 leading-relaxed">
-                      Google&apos;s algorithms frequently flag new Google
-                      accounts, but older ones typically come with a clean
-                      slate, minimizing the likelihood of sudden bans or
-                      restrictions.
+                      Another good thing is that they can avoid certain limits.
+                      New accounts might have trouble sending lots of emails or
+                      getting through spam filters, but older ones are more
+                      flexible. This means you can send emails more easily and
+                      work better with your contacts.
                     </p>
 
                     <p className="text-gray-700 leading-relaxed">
-                      These accounts may already possess valuable features like
-                      contacts or subscriptions accumulated over time, which can
-                      save you significant effort in building your online
-                      presence. When you <strong>Buy Old Gmail Accounts</strong>
-                      , you&apos;re getting more than just an email address.
+                      Also, old Gmail accounts are less likely to be marked as
+                      spam. With a good track record, they can be used for
+                      marketing without ending up in the junk folder. This helps
+                      your messages reach the right people.
                     </p>
 
                     <p className="text-gray-700 leading-relaxed">
-                      Old Gmail accounts offer an excellent platform for
-                      outreach campaigns and promotions without starting from
-                      ground zero. They provide a shortcut to enhanced digital
-                      performance while reducing common hurdles faced by new
-                      users.
+                      Using old Gmail accounts can also give you access to
+                      useful tools and features that new accounts don't have.
+                      Being able to use Google services smoothly can help your
+                      team work better together—this is especially helpful for
+                      growing businesses.
                     </p>
-
-                    <div className="flex justify-center items-center">
-                      <Image
-                        src="/images/All Product/Buy Gmail Accounts.png"
-                        alt="Dummy Image"
-                        width={500}
-                        height={50}
-                      />
-                    </div>
                   </div>
                 </div>
 
@@ -1001,254 +996,10 @@ export default function OldGmailAccountsComponent() {
                   </div>
                 </div>
 
-                {/* Related Products Section */}
-                <div className="mb-8">
-                  <h2 className="text-2xl font-bold text-gray-900 mb-6">
-                    Related products
-                  </h2>
-
-                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                    {/* Reddit Accounts Card */}
-                    <div className="bg-white rounded-lg shadow-lg overflow-hidden">
-                      {/* Top Section - Promotional Banner */}
-                      <div>
-                        <Image
-                          src="/images/All Product/Buy LinkedIn Accounts.png"
-                          alt="Dummy Image"
-                          width={300}
-                          height={80}
-                        />
-                      </div>
-
-                      {/* Bottom Section - Product Details */}
-                      <div className="p-4 bg-white">
-                        {/* Contact Icons */}
-                        <div className="flex gap-2 mb-3">
-                          <div className="w-6 h-6 bg-white border border-gray-300 rounded-full flex items-center justify-center">
-                            <Globe className="w-3 h-3 text-black" />
-                          </div>
-                          <div className="w-6 h-6 bg-white border border-gray-300 rounded-full flex items-center justify-center">
-                            <Send className="w-3 h-3 text-black" />
-                          </div>
-                          <div className="w-6 h-6 bg-white border border-gray-300 rounded-full flex items-center justify-center">
-                            <span className="text-black font-bold text-xs">
-                              S
-                            </span>
-                          </div>
-                        </div>
-
-                        {/* Category */}
-                        <div className="text-gray-500 text-xs mb-2">
-                          Social Accounts
-                        </div>
-
-                        {/* Product Name */}
-                        <h4 className="font-bold text-black mb-2">
-                          Buy LinkedIn Accounts
-                        </h4>
-
-                        {/* Star Rating */}
-                        <div className="flex gap-1 mb-3">
-                          {[...Array(5)].map((_, i) => (
-                            <div
-                              key={i}
-                              className="w-4 h-4 border border-gray-300 rounded"></div>
-                          ))}
-                        </div>
-
-                        {/* Price */}
-                        <div className="text-black font-bold mb-3">
-                          $10.00 - $320.00
-                        </div>
-
-                        {/* Select Options Button */}
-                        <button className="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-md transition duration-200 text-sm">
-                          Select options
-                        </button>
-                      </div>
-                    </div>
-
-                    {/* Twitter Accounts Card */}
-                    <div className="bg-white rounded-lg shadow-lg overflow-hidden">
-                      {/* Top Section - Promotional Banner */}
-                      <div>
-                        <Image
-                          src="/images/All Product/Buy Google Voice Accounts.png"
-                          alt="Dummy Image"
-                          width={300}
-                          height={80}
-                        />
-                      </div>
-
-                      {/* Bottom Section - Product Details */}
-                      <div className="p-4 bg-white">
-                        {/* Contact Icons */}
-                        <div className="flex gap-2 mb-3">
-                          <div className="w-6 h-6 bg-white border border-gray-300 rounded-full flex items-center justify-center">
-                            <Globe className="w-3 h-3 text-black" />
-                          </div>
-                          <div className="w-6 h-6 bg-white border border-gray-300 rounded-full flex items-center justify-center">
-                            <Send className="w-3 h-3 text-black" />
-                          </div>
-                          <div className="w-6 h-6 bg-white border border-gray-300 rounded-full flex items-center justify-center">
-                            <span className="text-black font-bold text-xs">
-                              S
-                            </span>
-                          </div>
-                        </div>
-
-                        {/* Category */}
-                        <div className="text-gray-500 text-xs mb-2">
-                          Social Accounts
-                        </div>
-
-                        {/* Product Name */}
-                        <h4 className="font-bold text-black mb-2">
-                          Buy Google Voice Accounts
-                        </h4>
-
-                        {/* Star Rating */}
-                        <div className="flex gap-1 mb-3">
-                          {[...Array(5)].map((_, i) => (
-                            <div
-                              key={i}
-                              className="w-4 h-4 border border-gray-300 rounded"></div>
-                          ))}
-                        </div>
-
-                        {/* Price */}
-                        <div className="text-black font-bold mb-3">
-                          $15.00 - $450.00
-                        </div>
-
-                        {/* Select Options Button */}
-                        <button className="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-md transition duration-200 text-sm">
-                          Select options
-                        </button>
-                      </div>
-                    </div>
-
-                    {/* SSN Number Card */}
-                    <div className="bg-white rounded-lg shadow-lg overflow-hidden">
-                      {/* Top Section - Promotional Banner */}
-                      <div>
-                        <Image
-                          src="/images/All Product/Buy Gmail Accounts.png"
-                          alt="Dummy Image"
-                          width={300}
-                          height={80}
-                        />
-                      </div>
-
-                      {/* Bottom Section - Product Details */}
-                      <div className="p-4 bg-white">
-                        {/* Contact Icons */}
-                        <div className="flex gap-2 mb-3">
-                          <div className="w-6 h-6 bg-white border border-gray-300 rounded-full flex items-center justify-center">
-                            <Globe className="w-3 h-3 text-black" />
-                          </div>
-                          <div className="w-6 h-6 bg-white border border-gray-300 rounded-full flex items-center justify-center">
-                            <Send className="w-3 h-3 text-black" />
-                          </div>
-                          <div className="w-6 h-6 bg-white border border-gray-300 rounded-full flex items-center justify-center">
-                            <span className="text-black font-bold text-xs">
-                              S
-                            </span>
-                          </div>
-                        </div>
-
-                        {/* Category */}
-                        <div className="text-gray-500 text-xs mb-2">
-                          Social Accounts
-                        </div>
-
-                        {/* Product Name */}
-                        <h4 className="font-bold text-black mb-2">
-                          Buy Gmail Accounts
-                        </h4>
-
-                        {/* Star Rating */}
-                        <div className="flex gap-1 mb-3">
-                          {[...Array(5)].map((_, i) => (
-                            <div
-                              key={i}
-                              className="w-4 h-4 border border-gray-300 rounded"></div>
-                          ))}
-                        </div>
-
-                        {/* Price */}
-                        <div className="text-black font-bold mb-3">
-                          $25.00 - $180.00
-                        </div>
-
-                        {/* Select Options Button */}
-                        <button className="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-md transition duration-200 text-sm">
-                          Select options
-                        </button>
-                      </div>
-                    </div>
-
-                    {/* Naver Accounts Card */}
-                    <div className="bg-white rounded-lg shadow-lg overflow-hidden">
-                      {/* Top Section - Promotional Banner */}
-                      <div>
-                        <Image
-                          src="/images/All Product/Buy Naver Accounts.png"
-                          alt="Dummy Image"
-                          width={300}
-                          height={80}
-                        />
-                      </div>
-
-                      {/* Bottom Section - Product Details */}
-                      <div className="p-4 bg-white">
-                        {/* Contact Icons */}
-                        <div className="flex gap-2 mb-3">
-                          <div className="w-6 h-6 bg-white border border-gray-300 rounded-full flex items-center justify-center">
-                            <Globe className="w-3 h-3 text-black" />
-                          </div>
-                          <div className="w-6 h-6 bg-white border border-gray-300 rounded-full flex items-center justify-center">
-                            <Send className="w-3 h-3 text-black" />
-                          </div>
-                          <div className="w-6 h-6 bg-white border border-gray-300 rounded-full flex items-center justify-center">
-                            <span className="text-black font-bold text-xs">
-                              S
-                            </span>
-                          </div>
-                        </div>
-
-                        {/* Category */}
-                        <div className="text-gray-500 text-xs mb-2">
-                          Social Accounts
-                        </div>
-
-                        {/* Product Name */}
-                        <h4 className="font-bold text-black mb-2">
-                          Buy Naver Accounts
-                        </h4>
-
-                        {/* Star Rating */}
-                        <div className="flex gap-1 mb-3">
-                          {[...Array(5)].map((_, i) => (
-                            <div
-                              key={i}
-                              className="w-4 h-4 border border-gray-300 rounded"></div>
-                          ))}
-                        </div>
-
-                        {/* Price */}
-                        <div className="text-black font-bold mb-3">
-                          $12.00 - $280.00
-                        </div>
-
-                        {/* Select Options Button */}
-                        <button className="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-md transition duration-200 text-sm">
-                          Select options
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                <RelatedProducts
+                  currentProduct="Buy Old Gmail Accounts"
+                  category="Social Accounts"
+                />
               </div>
             )}
 
