@@ -87,6 +87,10 @@ export default function ParticlesBackground({
         for (let j = i + 1; j < particlesRef.current.length; j++) {
           const a = particlesRef.current[i];
           const b = particlesRef.current[j];
+
+          // Add null checks to prevent TDZ errors
+          if (!a || !b) continue;
+
           const dx = a.x - b.x;
           const dy = a.y - b.y;
           const dist = Math.hypot(dx, dy);
@@ -103,6 +107,10 @@ export default function ParticlesBackground({
         // line to mouse
         if (hoverEffect && mouseRef.current.active) {
           const a = particlesRef.current[i];
+
+          // Add null check to prevent TDZ errors
+          if (!a) continue;
+
           const dxm = a.x - mouseRef.current.x;
           const dym = a.y - mouseRef.current.y;
           const dm = Math.hypot(dxm, dym);
