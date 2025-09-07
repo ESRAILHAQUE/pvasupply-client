@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import * as THREE from "three";
@@ -26,7 +26,10 @@ export default function Hero() {
 
   const goToSlide = (idx) => setCurrent(idx);
 
-  const nextSlide = () => setCurrent((prev) => (prev + 1) % images.length);
+  const nextSlide = useCallback(
+    () => setCurrent((prev) => (prev + 1) % images.length),
+    [images.length]
+  );
 
   const prevSlide = () =>
     setCurrent((prev) => (prev - 1 + images.length) % images.length);
