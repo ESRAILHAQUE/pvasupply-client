@@ -2,7 +2,16 @@
 import { useState } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
-import { ChevronDown, ShoppingCart, Menu, X, Crown } from "lucide-react";
+import Image from "next/image";
+import {
+  ChevronDown,
+  ShoppingCart,
+  Menu,
+  X,
+  Mail,
+  Send,
+  MessageCircle,
+} from "lucide-react";
 import { useCart } from "../../contexts/CartContext";
 
 export default function Navbar() {
@@ -150,168 +159,209 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className="bg-gradient-to-r from-white to-gray-50 shadow-lg border-b border-gray-100 sticky top-0 z-50">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16 lg:h-20">
-          {/* Logo */}
-          <Link
-            href="/"
-            className="flex items-center space-x-3 hover:scale-105 transition-transform duration-300">
-            <div className="bg-gradient-to-br from-red-500 to-red-600 p-2.5 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5">
-              <Crown className="w-6 h-6 text-white" />
-            </div>
-            <div className="text-xl lg:text-2xl font-bold text-gray-800">
-              PVA<span className="text-green-500">Supp</span>ly
-            </div>
-          </Link>
-
-          {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center space-x-8">
-            {navItems.map((item) => {
-              const isDropdownActive =
-                item.hasDropdown &&
-                item.dropdownItems?.some((d) => pathname?.startsWith(d.href));
-              const isSelfActive = !item.hasDropdown && pathname === item.href;
-              const isActive = Boolean(isDropdownActive || isSelfActive);
-
-              return (
-                <div key={item.name} className="relative group">
-                  <Link
-                    href={item.href}
-                    aria-current={isActive ? "page" : undefined}
-                    className={`flex items-center space-x-1 py-2 px-1 text-sm font-medium transition-all duration-300 hover:-translate-y-0.5 relative ${
-                      isActive
-                        ? "text-green-500"
-                        : "text-gray-600 hover:text-green-500"
-                    }`}>
-                    <span>{item.name}</span>
-                    {item.hasDropdown && (
-                      <ChevronDown className="w-4 h-4 transition-transform duration-300 group-hover:rotate-180" />
-                    )}
-                  </Link>
-                  {/* Animated underline */}
-                  <div
-                    className={`absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-green-400 to-green-600 transition-all duration-300 ${
-                      isActive ? "w-full" : "w-0 group-hover:w-full"
-                    }`}></div>
-
-                  {/* Dropdown Menu */}
-                  {item.hasDropdown && (
-                    <div className="absolute left-0 mt-2 w-56 origin-top-left bg-white rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 divide-y divide-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform group-hover:translate-y-0 z-50">
-                      {item.dropdownItems.map((dropdownItem) => {
-                        const isDropdownItemActive = pathname?.startsWith(
-                          dropdownItem.href
-                        );
-                        return (
-                          <Link
-                            key={dropdownItem.name}
-                            href={dropdownItem.href}
-                            aria-current={
-                              isDropdownItemActive ? "page" : undefined
-                            }
-                            className={`block px-4 py-3 text-sm transition-colors duration-200 ${
-                              isDropdownItemActive
-                                ? "bg-green-50 text-green-600"
-                                : "text-gray-700 hover:bg-green-50 hover:text-green-600"
-                            }`}>
-                            {dropdownItem.name}
-                          </Link>
-                        );
-                      })}
-                    </div>
-                  )}
-                </div>
-              );
-            })}
+    <div className="sticky top-0 z-50">
+      {/* Top Info Bar */}
+      <div className="w-full bg-gray-900 text-gray-100 text-xs sm:text-sm">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-2 flex items-center justify-between">
+          <div className="font-medium tracking-wide">
+            Welcome To pvasupply.com
           </div>
-
-          {/* Cart and Mobile Menu */}
-          <div className="flex items-center space-x-4">
-            {/* Cart Button */}
-            <Link
-              href="/cart"
-              className="relative bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white p-3 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2">
-              <ShoppingCart className="w-5 h-5" />
-              {getCartCount() > 0 && (
-                <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center animate-pulse">
-                  {getCartCount()}
-                </span>
-              )}
-            </Link>
-
-            {/* Mobile Menu Button */}
-            <button
-              onClick={toggleMenu}
-              className="lg:hidden p-2 rounded-lg text-gray-600 hover:text-gray-900 hover:bg-gray-100 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-gray-300">
-              {isMenuOpen ? (
-                <X className="w-6 h-6" />
-              ) : (
-                <Menu className="w-6 h-6" />
-              )}
-            </button>
-          </div>
-        </div>
-
-        {/* Mobile Menu */}
-        <div
-          className={`lg:hidden transition-all duration-300 ease-in-out ${
-            isMenuOpen
-              ? "max-h-96 opacity-100"
-              : "max-h-0 opacity-0 overflow-hidden"
-          }`}>
-          <div className="py-4 space-y-2 border-t border-gray-200">
-            {navItems.map((item) => {
-              const isDropdownActive =
-                item.hasDropdown &&
-                item.dropdownItems?.some((d) => pathname?.startsWith(d.href));
-              const isSelfActive = !item.hasDropdown && pathname === item.href;
-              const isActive = Boolean(isDropdownActive || isSelfActive);
-
-              return (
-                <div key={item.name}>
-                  <Link
-                    href={item.href}
-                    aria-current={isActive ? "page" : undefined}
-                    className={`flex items-center justify-between py-3 px-4 rounded-lg transition-all duration-200 ${
-                      isActive
-                        ? "bg-green-50 text-green-600 border-l-4 border-green-500"
-                        : "text-gray-600 hover:bg-gray-50 hover:text-green-500"
-                    }`}
-                    onClick={() => setIsMenuOpen(false)}>
-                    <span className="font-medium">{item.name}</span>
-                    {item.hasDropdown && <ChevronDown className="w-4 h-4" />}
-                  </Link>
-                  {item.hasDropdown && (
-                    <div className="pl-6 space-y-1 mt-1">
-                      {item.dropdownItems.map((dropdownItem) => {
-                        const isDropdownItemActive = pathname?.startsWith(
-                          dropdownItem.href
-                        );
-                        return (
-                          <Link
-                            key={dropdownItem.name}
-                            href={dropdownItem.href}
-                            aria-current={
-                              isDropdownItemActive ? "page" : undefined
-                            }
-                            className={`block py-2 px-4 text-sm rounded-lg transition-colors duration-200 ${
-                              isDropdownItemActive
-                                ? "bg-green-50 text-green-600"
-                                : "text-gray-600 hover:bg-green-50 hover:text-green-600"
-                            }`}
-                            onClick={() => setIsMenuOpen(false)}>
-                            {dropdownItem.name}
-                          </Link>
-                        );
-                      })}
-                    </div>
-                  )}
-                </div>
-              );
-            })}
+          <div className="flex items-center gap-4">
+            <a
+              href="https://wa.me/19796330236"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1 hover:text-green-400 transition-colors">
+              <MessageCircle className="w-4 h-4" />
+              <span>+1 (979) 633-0236</span>
+            </a>
+            <a
+              href="https://t.me/pvasupply"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1 hover:text-blue-400 transition-colors">
+              <Send className="w-4 h-4" />
+              <span>@pvasupply</span>
+            </a>
+            <a
+              href="mailto:pvasupply0@gmail.com"
+              className="flex items-center gap-1 hover:text-red-400 transition-colors">
+              <Mail className="w-4 h-4" />
+              <span>pvasupply0@gmail.com</span>
+            </a>
           </div>
         </div>
       </div>
-    </nav>
+
+      {/* Main Navbar */}
+      <nav className="bg-gradient-to-r from-white to-gray-50 shadow-lg border-b border-gray-100">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center h-16 lg:h-20">
+            {/* Logo */}
+            <Link
+              href="/"
+              className="flex items-center space-x-3 hover:scale-105 transition-transform duration-300">
+              <Image
+                src="/images/logo/logo.png"
+                alt="PVA Supply Logo"
+                width={180}
+                height={56}
+                className="object-contain"
+                priority
+                quality={100}
+              />
+            </Link>
+
+            {/* Desktop Navigation */}
+            <div className="hidden lg:flex items-center space-x-8">
+              {navItems.map((item) => {
+                const isDropdownActive =
+                  item.hasDropdown &&
+                  item.dropdownItems?.some((d) => pathname?.startsWith(d.href));
+                const isSelfActive =
+                  !item.hasDropdown && pathname === item.href;
+                const isActive = Boolean(isDropdownActive || isSelfActive);
+
+                return (
+                  <div key={item.name} className="relative group">
+                    <Link
+                      href={item.href}
+                      aria-current={isActive ? "page" : undefined}
+                      className={`flex items-center space-x-1 py-2 px-1 text-sm font-medium transition-all duration-300 hover:-translate-y-0.5 relative ${
+                        isActive
+                          ? "text-green-500"
+                          : "text-gray-600 hover:text-green-500"
+                      }`}>
+                      <span>{item.name}</span>
+                      {item.hasDropdown && (
+                        <ChevronDown className="w-4 h-4 transition-transform duration-300 group-hover:rotate-180" />
+                      )}
+                    </Link>
+                    {/* Animated underline */}
+                    <div
+                      className={`absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-green-400 to-green-600 transition-all duration-300 ${
+                        isActive ? "w-full" : "w-0 group-hover:w-full"
+                      }`}></div>
+
+                    {/* Dropdown Menu */}
+                    {item.hasDropdown && (
+                      <div className="absolute left-0 mt-2 w-56 origin-top-left bg-white rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 divide-y divide-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform group-hover:translate-y-0 z-50">
+                        {item.dropdownItems.map((dropdownItem) => {
+                          const isDropdownItemActive = pathname?.startsWith(
+                            dropdownItem.href
+                          );
+                          return (
+                            <Link
+                              key={dropdownItem.name}
+                              href={dropdownItem.href}
+                              aria-current={
+                                isDropdownItemActive ? "page" : undefined
+                              }
+                              className={`block px-4 py-3 text-sm transition-colors duration-200 ${
+                                isDropdownItemActive
+                                  ? "bg-green-50 text-green-600"
+                                  : "text-gray-700 hover:bg-green-50 hover:text-green-600"
+                              }`}>
+                              {dropdownItem.name}
+                            </Link>
+                          );
+                        })}
+                      </div>
+                    )}
+                  </div>
+                );
+              })}
+            </div>
+
+            {/* Cart and Mobile Menu */}
+            <div className="flex items-center space-x-4">
+              {/* Cart Button */}
+              <Link
+                href="/cart"
+                className="relative bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white p-3 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2">
+                <ShoppingCart className="w-5 h-5" />
+                {getCartCount() > 0 && (
+                  <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center animate-pulse">
+                    {getCartCount()}
+                  </span>
+                )}
+              </Link>
+
+              {/* Mobile Menu Button */}
+              <button
+                onClick={toggleMenu}
+                className="lg:hidden p-2 rounded-lg text-gray-600 hover:text-gray-900 hover:bg-gray-100 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-gray-300">
+                {isMenuOpen ? (
+                  <X className="w-6 h-6" />
+                ) : (
+                  <Menu className="w-6 h-6" />
+                )}
+              </button>
+            </div>
+          </div>
+
+          {/* Mobile Menu */}
+          <div
+            className={`lg:hidden transition-all duration-300 ease-in-out ${
+              isMenuOpen
+                ? "max-h-96 opacity-100"
+                : "max-h-0 opacity-0 overflow-hidden"
+            }`}>
+            <div className="py-4 space-y-2 border-t border-gray-200">
+              {navItems.map((item) => {
+                const isDropdownActive =
+                  item.hasDropdown &&
+                  item.dropdownItems?.some((d) => pathname?.startsWith(d.href));
+                const isSelfActive =
+                  !item.hasDropdown && pathname === item.href;
+                const isActive = Boolean(isDropdownActive || isSelfActive);
+
+                return (
+                  <div key={item.name}>
+                    <Link
+                      href={item.href}
+                      aria-current={isActive ? "page" : undefined}
+                      className={`flex items-center justify-between py-3 px-4 rounded-lg transition-all duration-200 ${
+                        isActive
+                          ? "bg-green-50 text-green-600 border-l-4 border-green-500"
+                          : "text-gray-600 hover:bg-gray-50 hover:text-green-500"
+                      }`}
+                      onClick={() => setIsMenuOpen(false)}>
+                      <span className="font-medium">{item.name}</span>
+                      {item.hasDropdown && <ChevronDown className="w-4 h-4" />}
+                    </Link>
+                    {item.hasDropdown && (
+                      <div className="pl-6 space-y-1 mt-1">
+                        {item.dropdownItems.map((dropdownItem) => {
+                          const isDropdownItemActive = pathname?.startsWith(
+                            dropdownItem.href
+                          );
+                          return (
+                            <Link
+                              key={dropdownItem.name}
+                              href={dropdownItem.href}
+                              aria-current={
+                                isDropdownItemActive ? "page" : undefined
+                              }
+                              className={`block py-2 px-4 text-sm rounded-lg transition-colors duration-200 ${
+                                isDropdownItemActive
+                                  ? "bg-green-50 text-green-600"
+                                  : "text-gray-600 hover:bg-green-50 hover:text-green-600"
+                              }`}
+                              onClick={() => setIsMenuOpen(false)}>
+                              {dropdownItem.name}
+                            </Link>
+                          );
+                        })}
+                      </div>
+                    )}
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
   );
 }
