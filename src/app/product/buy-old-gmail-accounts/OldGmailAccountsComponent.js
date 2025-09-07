@@ -7,7 +7,6 @@ import {
   Search,
   Globe,
   Send,
-  Check,
   ChevronDown,
   ShoppingCart,
   Scale,
@@ -17,6 +16,7 @@ import {
   Globe as GlobeIcon,
   Star,
 } from "lucide-react";
+import TickSign from "@/components/shared/TickSign";
 import PriceDisplay from "../../../components/shared/PriceDisplay";
 import ContactInfo from "../../../components/shared/ContactInfo";
 import RelatedProducts from "../../../components/shared/RelatedProducts";
@@ -167,7 +167,7 @@ export default function OldGmailAccountsComponent() {
                 <ul className="space-y-1.5">
                   {productFeatures.map((feature, index) => (
                     <li key={index} className="flex items-start gap-2">
-                      <Check className="w-4 h-4 text-green-600 mt-0.5 flex-shrink-0" />
+                      <TickSign className="w-4 h-4 mt-0.5 flex-shrink-0" />
                       <span className="text-gray-700 text-sm">{feature}</span>
                     </li>
                   ))}
@@ -562,15 +562,6 @@ export default function OldGmailAccountsComponent() {
                         Buy Old Gmail Accounts.
                       </a>
                     </p>
-
-                    <div className="flex justify-center items-center">
-                      <Image
-                        src="/images/All Product/Buy Gmail Accounts.png"
-                        alt="Dummy Image"
-                        width={500}
-                        height={50}
-                      />
-                    </div>
                   </div>
                 </div>
 
@@ -614,6 +605,15 @@ export default function OldGmailAccountsComponent() {
                       processing times.
                     </p>
                   </div>
+                </div>
+
+                <div className="flex justify-center items-center my-8">
+                  <Image
+                    src="/images/long-description-photo/Buy Gmail Accounts.png"
+                    alt="Gmail Accounts Description"
+                    width={500}
+                    height={350}
+                  />
                 </div>
 
                 {/* Buy PVA Gmail Accounts On Pvasmmpro Platform Section */}
@@ -732,15 +732,6 @@ export default function OldGmailAccountsComponent() {
                       reliability while safeguarding sensitive information
                       across all platforms.
                     </p>
-
-                    <div className="flex justify-center items-center">
-                      <Image
-                        src="/images/All Product/Buy Gmail Accounts.png"
-                        alt="Dummy Image"
-                        width={500}
-                        height={50}
-                      />
-                    </div>
                   </div>
                 </div>
 

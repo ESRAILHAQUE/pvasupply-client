@@ -1,71 +1,85 @@
-import { useCallback } from 'react';
+import { useCallback } from "react";
 
 export const useEmailHandler = () => {
-  const handleEmailClick = useCallback((e, email = 'pvasupply0@gmail.com', subject = '', body = '') => {
-    // Enhanced email handling with consistent fallbacks
-    const isMobile = /Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-    const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
-    const isAndroid = /Android/.test(navigator.userAgent);
+  const handleEmailClick = useCallback(
+    (e, email = "pvasupply0@gmail.com", subject = "", body = "") => {
+      // Enhanced email handling with consistent fallbacks
+      const isMobile =
+        /Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+          navigator.userAgent
+        );
+      const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+      const isAndroid = /Android/.test(navigator.userAgent);
 
-    // Build mailto URL
-    let mailtoUrl = `mailto:${email}`;
-    if (subject) mailtoUrl += `?subject=${encodeURIComponent(subject)}`;
-    if (body) mailtoUrl += `${subject ? '&' : '?'}body=${encodeURIComponent(body)}`;
+      // Build mailto URL
+      let mailtoUrl = `mailto:${email}`;
+      if (subject) mailtoUrl += `?subject=${encodeURIComponent(subject)}`;
+      if (body)
+        mailtoUrl += `${subject ? "&" : "?"}body=${encodeURIComponent(body)}`;
 
-    if (isMobile) {
-      e.preventDefault();
-      
-      // For mobile devices, show contact options with better UX
-      const message = `📧 Email: ${email}\n\n💬 For faster response, use:\n• WhatsApp: https://wa.me/message/LMBKKSKH7RLRG1?src=qr\n• Telegram: https://t.me/pvasupply\n\n📱 Copy email: ${email}`;
+      if (isMobile) {
+        e.preventDefault();
 
-      // Try native sharing first (works better on mobile)
-      if (navigator.share && !isIOS) {
-        navigator.share({
-          title: "PVA Supply Contact",
-          text: `Contact PVA Supply for services. Email: ${email}`,
-          url: mailtoUrl,
-        }).catch(() => {
-          // Fallback to alert if sharing fails
+        // For mobile devices, show contact options with better UX
+        const message = `📧 Email: ${email}\n\n💬 For faster response, use:\n• WhatsApp: https://wa.me/message/LMBKKSKH7RLRG1?src=qr\n• Telegram: https://t.me/pvasupply\n\n📱 Copy email: ${email}`;
+
+        // Try native sharing first (works better on mobile)
+        if (navigator.share && !isIOS) {
+          navigator
+            .share({
+              title: "PVA Supply Contact",
+              text: `Contact PVA Supply for services. Email: ${email}`,
+              url: mailtoUrl,
+            })
+            .catch(() => {
+              // Fallback to alert if sharing fails
+              showContactOptions(email, message);
+            });
+        } else {
+          // For iOS or when sharing is not available
           showContactOptions(email, message);
-        });
+        }
       } else {
-        // For iOS or when sharing is not available
-        showContactOptions(email, message);
+        // For desktop, let the mailto link work normally
+        // But add a fallback in case no email client is configured
+        try {
+          // Try to open the mailto link
+          window.location.href = mailtoUrl;
+        } catch (error) {
+          // Fallback: copy email to clipboard
+          copyEmailToClipboard(email);
+        }
       }
-    } else {
-      // For desktop, let the mailto link work normally
-      // But add a fallback in case no email client is configured
+    },
+    [copyEmailToClipboard, showContactOptions]
+  );
+
+  const copyEmailToClipboard = useCallback(
+    async (email = "pvasupply0@gmail.com") => {
       try {
-        // Try to open the mailto link
-        window.location.href = mailtoUrl;
+        await navigator.clipboard.writeText(email);
+        showNotification("Email copied to clipboard!", "success");
       } catch (error) {
-        // Fallback: copy email to clipboard
-        copyEmailToClipboard(email);
+        // Fallback for older browsers
+        const textArea = document.createElement("textarea");
+        textArea.value = email;
+        document.body.appendChild(textArea);
+        textArea.select();
+        document.execCommand("copy");
+        document.body.removeChild(textArea);
+        showNotification("Email copied to clipboard!", "success");
       }
-    }
-  }, []);
+    },
+    [showNotification]
+  );
 
-  const copyEmailToClipboard = useCallback(async (email = 'pvasupply0@gmail.com') => {
-    try {
-      await navigator.clipboard.writeText(email);
-      showNotification('Email copied to clipboard!', 'success');
-    } catch (error) {
-      // Fallback for older browsers
-      const textArea = document.createElement('textarea');
-      textArea.value = email;
-      document.body.appendChild(textArea);
-      textArea.select();
-      document.execCommand('copy');
-      document.body.removeChild(textArea);
-      showNotification('Email copied to clipboard!', 'success');
-    }
-  }, []);
-
-  const showContactOptions = useCallback((email, message) => {
-    // Create a custom modal for better UX
-    const modal = document.createElement('div');
-    modal.className = 'fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50';
-    modal.innerHTML = `
+  const showContactOptions = useCallback(
+    (email, message) => {
+      // Create a custom modal for better UX
+      const modal = document.createElement("div");
+      modal.className =
+        "fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50";
+      modal.innerHTML = `
       <div class="bg-white rounded-lg p-6 max-w-md mx-4 text-center">
         <h3 class="text-lg font-semibold mb-4 text-gray-800">Contact PVA Supply</h3>
         <p class="text-gray-600 mb-4">Choose your preferred contact method:</p>
@@ -92,40 +106,44 @@ export const useEmailHandler = () => {
       </div>
     `;
 
-    // Add event listeners
-    modal.querySelector('#copy-email').addEventListener('click', () => {
-      copyEmailToClipboard(email);
-      modal.remove();
-    });
+      // Add event listeners
+      modal.querySelector("#copy-email").addEventListener("click", () => {
+        copyEmailToClipboard(email);
+        modal.remove();
+      });
 
-    modal.querySelector('#close-modal').addEventListener('click', () => {
-      modal.remove();
-    });
+      modal.querySelector("#close-modal").addEventListener("click", () => {
+        modal.remove();
+      });
 
-    // Close on outside click
-    modal.addEventListener('click', (e) => {
-      if (e.target === modal) modal.remove();
-    });
+      // Close on outside click
+      modal.addEventListener("click", (e) => {
+        if (e.target === modal) modal.remove();
+      });
 
-    document.body.appendChild(modal);
-  }, [copyEmailToClipboard]);
+      document.body.appendChild(modal);
+    },
+    [copyEmailToClipboard]
+  );
 
-  const showNotification = useCallback((message, type = 'info') => {
+  const showNotification = useCallback((message, type = "info") => {
     // Create a toast notification
-    const notification = document.createElement('div');
-    notification.className = `fixed top-4 right-4 bg-${type === 'success' ? 'green' : 'blue'}-500 text-white px-6 py-3 rounded-lg shadow-lg z-50 transform translate-x-full transition-transform duration-300`;
+    const notification = document.createElement("div");
+    notification.className = `fixed top-4 right-4 bg-${
+      type === "success" ? "green" : "blue"
+    }-500 text-white px-6 py-3 rounded-lg shadow-lg z-50 transform translate-x-full transition-transform duration-300`;
     notification.textContent = message;
 
     document.body.appendChild(notification);
 
     // Animate in
     setTimeout(() => {
-      notification.classList.remove('translate-x-full');
+      notification.classList.remove("translate-x-full");
     }, 100);
 
     // Remove after 3 seconds
     setTimeout(() => {
-      notification.classList.add('translate-x-full');
+      notification.classList.add("translate-x-full");
       setTimeout(() => {
         if (notification.parentNode) {
           notification.parentNode.removeChild(notification);
@@ -138,6 +156,6 @@ export const useEmailHandler = () => {
     handleEmailClick,
     copyEmailToClipboard,
     showContactOptions,
-    showNotification
+    showNotification,
   };
 };

@@ -7,7 +7,6 @@ import {
   Search,
   Globe,
   Send,
-  Check,
   ShoppingCart,
   Scale,
   FileText,
@@ -15,6 +14,7 @@ import {
   User,
   Globe as GlobeIcon,
 } from "lucide-react";
+import TickSign from "@/components/shared/TickSign";
 import PriceDisplay from "../../../components/shared/PriceDisplay";
 import ContactInfo from "../../../components/shared/ContactInfo";
 import RelatedProducts from "../../../components/shared/RelatedProducts";
@@ -112,7 +112,7 @@ export default function BuyVerifiedBybitAccounts() {
               </h1>
 
               {/* Price */}
-              <PriceDisplay price="$20.00 - $400.00" className="mb-4" />
+              <PriceDisplay price="$170.00 - $270.00" className="mb-4" />
 
               {/* Product Description */}
               <div className="mb-4 space-y-3">
@@ -137,7 +137,7 @@ export default function BuyVerifiedBybitAccounts() {
                 <ul className="space-y-1.5">
                   {productFeatures.map((feature, index) => (
                     <li key={index} className="flex items-start gap-2">
-                      <Check className="w-4 h-4 text-green-600 mt-0.5 flex-shrink-0" />
+                      <TickSign className="w-4 h-4 mt-0.5 flex-shrink-0" />
                       <span className="text-gray-700 text-sm">{feature}</span>
                     </li>
                   ))}
@@ -165,15 +165,14 @@ export default function BuyVerifiedBybitAccounts() {
                         onChange={(e) => setSelectedOption(e.target.value)}
                         className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent text-sm">
                         <option value="">Select an option</option>
-                        <option value="basic">Basic Package - $20.00</option>
+                        <option value="basic">Basic Package - $170.00</option>
                         <option value="premium">
-                          Premium Package - $150.00
+                          Premium Package - $220.00
                         </option>
                         <option value="enterprise">
-                          Enterprise Package - $400.00
+                          Enterprise Package - $270.00
                         </option>
                       </select>
-
                     </div>
                   </div>
 
@@ -335,6 +334,17 @@ export default function BuyVerifiedBybitAccounts() {
                         involved in buying and selling.
                       </p>
                     </div>
+                  </div>
+
+                  {/* Description Image */}
+                  <div className="flex justify-center my-8">
+                    <Image
+                      src="/images/long-description-photo/Buy Verified Bybit Account.png"
+                      alt="Bybit Accounts Description"
+                      width={500}
+                      height={350}
+                      className="rounded-lg shadow-lg"
+                    />
                   </div>
 
                   {/* Best Crypto Trading Platform Section */}
@@ -611,7 +621,7 @@ export default function BuyVerifiedBybitAccounts() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   {productFeatures.map((feature, index) => (
                     <div key={index} className="flex items-start gap-3">
-                      <Check className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
+                      <TickSign className="w-5 h-5 mt-0.5 flex-shrink-0" />
                       <span className="text-gray-700">{feature}</span>
                     </div>
                   ))}

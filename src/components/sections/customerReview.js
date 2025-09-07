@@ -145,8 +145,9 @@ const CustomerReview = () => {
       if (animationIdRef.current) {
         cancelAnimationFrame(animationIdRef.current);
       }
-      if (mountRef.current && renderer.domElement) {
-        mountRef.current.removeChild(renderer.domElement);
+      const currentMountRef = mountRef.current;
+      if (currentMountRef && renderer.domElement) {
+        currentMountRef.removeChild(renderer.domElement);
       }
       if (renderer) {
         renderer.dispose();

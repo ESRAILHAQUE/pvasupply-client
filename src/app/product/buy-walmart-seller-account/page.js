@@ -6,7 +6,6 @@ import {
   Search,
   Globe,
   Send,
-  Check,
   ShoppingCart,
   Scale,
   FileText,
@@ -14,6 +13,7 @@ import {
   User,
   Globe as GlobeIcon,
 } from "lucide-react";
+import TickSign from "@/components/shared/TickSign";
 import { useCart } from "../../../contexts/CartContext";
 import PriceDisplay from "../../../components/shared/PriceDisplay";
 import ContactInfo from "../../../components/shared/ContactInfo";
@@ -102,49 +102,15 @@ export default function BuyWalmartSellerAccount() {
     <div className="min-h-screen bg-gray-100 py-4">
       <div className="max-w-6xl mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
-          {/* Left Section - Promotional Banner */}
-          <div className="relative h-[600px]">
-            <div className="bg-gradient-to-br from-blue-500 via-blue-600 to-indigo-500 rounded-xl p-6 h-full relative overflow-hidden shadow-lg">
-              {/* Sale Badge */}
-              <div className="absolute top-3 left-3 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded-full">
-                Sale!
-              </div>
-
-              {/* Main Content */}
-              <div className="text-white h-full flex flex-col justify-between">
-                <div>
-                  <h2 className="text-3xl font-bold mb-4">
-                    Buy Walmart Seller Account
-                  </h2>
-                  <p className="text-lg mb-6">
-                    Start your E-Commerce journey on one of the most trusted
-                    marketplaces in the world with a fully verified Walmart
-                    Seller Account from https://pvasupply.com/. We&apos;ve
-                    already delivered more than 10 verified Walmart personal and
-                    business accounts to clients in the USA, UK, CA, and other
-                    countries — and every account comes ready to use with full
-                    verification.
-                  </p>
-                </div>
-
-                {/* Contact Section */}
-                <div className="absolute bottom-6 left-6 right-6">
-                  <div className="bg-white/20 backdrop-blur-sm rounded-lg p-4">
-                    <h3 className="text-white font-bold mb-3">Contact Us</h3>
-                    <div className="space-y-2">
-                      {contactInfo.map((info, index) => (
-                        <div
-                          key={index}
-                          className="flex items-center gap-2 text-white text-sm">
-                          <div className="w-2 h-2 bg-white rounded-full"></div>
-                          <span>{info.text}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+          {/* Left Section - Product Image */}
+          <div className="relative h-[600px] flex items-center justify-center bg-gray-50 rounded-xl shadow-lg">
+            <Image
+              src="/images/All Product/Buy Walmart Seller Account.png"
+              alt="Walmart Seller Account"
+              width={500}
+              height={500}
+              className="max-w-full max-h-full object-contain"
+            />
           </div>
 
           {/* Right Section - Product Details */}
@@ -183,7 +149,7 @@ export default function BuyWalmartSellerAccount() {
               </h3>
               {productFeatures.map((feature, index) => (
                 <div key={index} className="flex items-center gap-2">
-                  <Check className="w-4 h-4 text-green-600" />
+                  <TickSign className="w-4 h-4" />
                   <span className="text-sm text-gray-700">{feature}</span>
                 </div>
               ))}
@@ -331,7 +297,7 @@ export default function BuyWalmartSellerAccount() {
                     <div
                       key={index}
                       className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg">
-                      <Check className="w-4 h-4 text-green-600" />
+                      <TickSign className="w-4 h-4" />
                       <span className="text-gray-700">{feature}</span>
                     </div>
                   ))}

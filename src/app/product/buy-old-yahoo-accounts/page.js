@@ -7,7 +7,6 @@ import {
   Search,
   Globe,
   Send,
-  Check,
   ShoppingCart,
   Scale,
   FileText,
@@ -15,6 +14,7 @@ import {
   User,
   Globe as GlobeIcon,
 } from "lucide-react";
+import TickSign from "@/components/shared/TickSign";
 import PriceDisplay from "../../../components/shared/PriceDisplay";
 import ContactInfo from "../../../components/shared/ContactInfo";
 import RelatedProducts from "../../../components/shared/RelatedProducts";
@@ -140,7 +140,7 @@ export default function BuyOldYahooAccounts() {
                 <ul className="space-y-1.5">
                   {productFeatures.map((feature, index) => (
                     <li key={index} className="flex items-start gap-2">
-                      <Check className="w-4 h-4 text-green-600 mt-0.5 flex-shrink-0" />
+                      <TickSign className="w-4 h-4 mt-0.5 flex-shrink-0" />
                       <span className="text-gray-700 text-sm">{feature}</span>
                     </li>
                   ))}
@@ -333,6 +333,15 @@ export default function BuyOldYahooAccounts() {
                 </div>
               </div>
 
+              <div className="flex justify-center items-center my-8">
+                <Image
+                  src="/images/long-description-photo/Buy Old Yahoo Accounts.png"
+                  alt="Old Yahoo Accounts Description"
+                  width={500}
+                  height={350}
+                />
+              </div>
+
               <div>
                 <h3 className="text-lg font-bold text-gray-900 mb-3">
                   Security and Privacy
@@ -394,7 +403,7 @@ export default function BuyOldYahooAccounts() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {productFeatures.map((feature, index) => (
                   <div key={index} className="flex items-start gap-3">
-                    <Check className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
+                    <TickSign className="w-5 h-5 mt-0.5 flex-shrink-0" />
                     <span className="text-gray-700">{feature}</span>
                   </div>
                 ))}

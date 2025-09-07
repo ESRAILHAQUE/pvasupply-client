@@ -7,7 +7,6 @@ import {
   Search,
   Globe,
   Send,
-  Check,
   ShoppingCart,
   Scale,
   FileText,
@@ -15,6 +14,7 @@ import {
   User,
   Globe as GlobeIcon,
 } from "lucide-react";
+import TickSign from "@/components/shared/TickSign";
 import PriceDisplay from "../../../components/shared/PriceDisplay";
 import ContactInfo from "../../../components/shared/ContactInfo";
 import RelatedProducts from "../../../components/shared/RelatedProducts";
@@ -112,7 +112,7 @@ export default function BuyVerifiedPaypalAccounts() {
               </h1>
 
               {/* Price */}
-              <PriceDisplay price="$60.00 - $900.00" className="mb-4" />
+              <PriceDisplay price="$110.00 - $150.00" className="mb-4" />
 
               {/* Product Description */}
               <div className="mb-4 space-y-3">
@@ -137,7 +137,7 @@ export default function BuyVerifiedPaypalAccounts() {
                 <ul className="space-y-1.5">
                   {productFeatures.map((feature, index) => (
                     <li key={index} className="flex items-start gap-2">
-                      <Check className="w-4 h-4 text-green-600 mt-0.5 flex-shrink-0" />
+                      <TickSign className="w-4 h-4 mt-0.5 flex-shrink-0" />
                       <span className="text-gray-700 text-sm">{feature}</span>
                     </li>
                   ))}
@@ -165,12 +165,12 @@ export default function BuyVerifiedPaypalAccounts() {
                         onChange={(e) => setSelectedOption(e.target.value)}
                         className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent text-sm">
                         <option value="">Select an option</option>
-                        <option value="basic">Basic Package - $60.00</option>
+                        <option value="basic">Basic Package - $110.00</option>
                         <option value="premium">
-                          Premium Package - $350.00
+                          Premium Package - $130.00
                         </option>
                         <option value="enterprise">
-                          Enterprise Package - $900.00
+                          Enterprise Package - $150.00
                         </option>
                       </select>
                     </div>
@@ -659,7 +659,7 @@ export default function BuyVerifiedPaypalAccounts() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   {productFeatures.map((feature, index) => (
                     <div key={index} className="flex items-start gap-3">
-                      <Check className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
+                      <TickSign className="w-5 h-5 mt-0.5 flex-shrink-0" />
                       <span className="text-gray-700">{feature}</span>
                     </div>
                   ))}

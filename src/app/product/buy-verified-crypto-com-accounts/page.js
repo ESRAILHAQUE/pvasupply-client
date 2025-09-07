@@ -7,7 +7,6 @@ import {
   Search,
   Globe,
   Send,
-  Check,
   ShoppingCart,
   Scale,
   FileText,
@@ -15,6 +14,7 @@ import {
   User,
   Globe as GlobeIcon,
 } from "lucide-react";
+import TickSign from "@/components/shared/TickSign";
 import PriceDisplay from "../../../components/shared/PriceDisplay";
 import ContactInfo from "../../../components/shared/ContactInfo";
 import RelatedProducts from "../../../components/shared/RelatedProducts";
@@ -112,7 +112,7 @@ export default function BuyVerifiedCryptoComAccounts() {
               </h1>
 
               {/* Price */}
-              <PriceDisplay price="$18.00 - $350.00" className="mb-4" />
+              <PriceDisplay price="$220.00 - $350.00" className="mb-4" />
 
               {/* Product Description */}
               <div className="mb-4 space-y-3">
@@ -137,7 +137,7 @@ export default function BuyVerifiedCryptoComAccounts() {
                 <ul className="space-y-1.5">
                   {productFeatures.map((feature, index) => (
                     <li key={index} className="flex items-start gap-2">
-                      <Check className="w-4 h-4 text-green-600 mt-0.5 flex-shrink-0" />
+                      <TickSign className="w-4 h-4 mt-0.5 flex-shrink-0" />
                       <span className="text-gray-700 text-sm">{feature}</span>
                     </li>
                   ))}
@@ -165,9 +165,9 @@ export default function BuyVerifiedCryptoComAccounts() {
                         onChange={(e) => setSelectedOption(e.target.value)}
                         className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent text-sm">
                         <option value="">Select an option</option>
-                        <option value="basic">Basic Package - $18.00</option>
+                        <option value="basic">Basic Package - $220.00</option>
                         <option value="premium">
-                          Premium Package - $120.00
+                          Premium Package - $285.00
                         </option>
                         <option value="enterprise">
                           Enterprise Package - $350.00
@@ -356,6 +356,17 @@ export default function BuyVerifiedCryptoComAccounts() {
                         reliability.
                       </p>
                     </div>
+                  </div>
+
+                  {/* Description Image */}
+                  <div className="flex justify-center my-8">
+                    <Image
+                      src="/images/long-description-photo/Buy Verified Crypto.com Account.png"
+                      alt="Crypto.com Accounts Description"
+                      width={500}
+                      height={350}
+                      className="rounded-lg shadow-lg"
+                    />
                   </div>
 
                   {/* Risks Of Unverified Accounts Section */}
@@ -622,7 +633,7 @@ export default function BuyVerifiedCryptoComAccounts() {
                     <div
                       key={index}
                       className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg">
-                      <Check className="w-4 h-4 text-green-600" />
+                      <TickSign className="w-4 h-4" />
                       <span className="text-gray-700">{feature}</span>
                     </div>
                   ))}

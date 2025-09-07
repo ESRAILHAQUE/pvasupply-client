@@ -7,7 +7,6 @@ import {
   Search,
   Globe,
   Send,
-  Check,
   ShoppingCart,
   Scale,
   FileText,
@@ -15,6 +14,7 @@ import {
   User,
   Globe as GlobeIcon,
 } from "lucide-react";
+import TickSign from "@/components/shared/TickSign";
 import PriceDisplay from "../../../components/shared/PriceDisplay";
 import ContactInfo from "../../../components/shared/ContactInfo";
 
@@ -136,7 +136,7 @@ export default function BuyVerifiedChaseBankAccounts() {
                 <ul className="space-y-1.5">
                   {productFeatures.map((feature, index) => (
                     <li key={index} className="flex items-start gap-2">
-                      <Check className="w-4 h-4 text-green-600 mt-0.5 flex-shrink-0" />
+                      <TickSign className="w-4 h-4 mt-0.5 flex-shrink-0" />
                       <span className="text-gray-700 text-sm">{feature}</span>
                     </li>
                   ))}
@@ -172,7 +172,6 @@ export default function BuyVerifiedChaseBankAccounts() {
                           Enterprise Package - $1000.00
                         </option>
                       </select>
-
                     </div>
                   </div>
 
@@ -257,6 +256,17 @@ export default function BuyVerifiedChaseBankAccounts() {
                   <li>Credit card access</li>
                   <li>24/7 customer support</li>
                 </ul>
+
+                {/* Description Image */}
+                <div className="flex justify-center my-8">
+                  <Image
+                    src="/images/long-description-photo/Buy Verified Chase Bank Accounts.png"
+                    alt="Chase Bank Accounts Description"
+                    width={500}
+                    height={350}
+                    className="rounded-lg shadow-lg"
+                  />
+                </div>
               </div>
             )}
 

@@ -6,7 +6,6 @@ import {
   Search,
   Globe,
   Send,
-  Check,
   ShoppingCart,
   Scale,
   FileText,
@@ -14,6 +13,7 @@ import {
   User,
   Globe as GlobeIcon,
 } from "lucide-react";
+import TickSign from "@/components/shared/TickSign";
 import { useCart } from "../../../contexts/CartContext";
 import PriceDisplay from "../../../components/shared/PriceDisplay";
 import ContactInfo from "../../../components/shared/ContactInfo";
@@ -133,7 +133,7 @@ export default function BuyVerifiedOnlyFansAccounts() {
               <div className="space-y-3 mb-6">
                 {features.map((feature, index) => (
                   <div key={index} className="flex items-center gap-2">
-                    <Check className="w-4 h-4 text-green-600" />
+                    <TickSign className="w-4 h-4" />
                     <span className="text-sm text-gray-800 font-medium">
                       {feature}
                     </span>
@@ -199,7 +199,7 @@ export default function BuyVerifiedOnlyFansAccounts() {
             <div className="space-y-2 mb-6">
               {productFeatures.map((feature, index) => (
                 <div key={index} className="flex items-center gap-2">
-                  <Check className="w-4 h-4 text-green-600" />
+                  <TickSign className="w-4 h-4" />
                   <span className="text-sm text-gray-700">{feature}</span>
                 </div>
               ))}
@@ -227,7 +227,6 @@ export default function BuyVerifiedOnlyFansAccounts() {
                       Enterprise Package - $360.00
                     </option>
                   </select>
-                  
                 </div>
               </div>
 
@@ -336,6 +335,17 @@ export default function BuyVerifiedOnlyFansAccounts() {
                   <li>Social media integration</li>
                   <li>24/7 customer support</li>
                 </ul>
+
+                {/* Description Image */}
+                <div className="flex justify-center my-8">
+                  <Image
+                    src="/images/long-description-photo/Buy Verified OnlyFans Accounts.png"
+                    alt="OnlyFans Accounts Description"
+                    width={500}
+                    height={350}
+                    className="rounded-lg shadow-lg"
+                  />
+                </div>
               </div>
             )}
 
@@ -347,7 +357,7 @@ export default function BuyVerifiedOnlyFansAccounts() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   {productFeatures.map((feature, index) => (
                     <div key={index} className="flex items-start gap-3">
-                      <Check className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
+                      <TickSign className="w-5 h-5 mt-0.5 flex-shrink-0" />
                       <span className="text-gray-700">{feature}</span>
                     </div>
                   ))}

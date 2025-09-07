@@ -6,7 +6,6 @@ import {
   Search,
   Globe,
   Send,
-  Check,
   ShoppingCart,
   Scale,
   FileText,
@@ -14,6 +13,7 @@ import {
   User,
   Globe as GlobeIcon,
 } from "lucide-react";
+import TickSign from "@/components/shared/TickSign";
 import { useCart } from "../../../contexts/CartContext";
 import PriceDisplay from "../../../components/shared/PriceDisplay";
 import ContactInfo from "../../../components/shared/ContactInfo";
@@ -149,7 +149,7 @@ export default function BuyVerifiedGoogleAdsAccounts() {
               </h3>
               {productFeatures.map((feature, index) => (
                 <div key={index} className="flex items-center gap-2">
-                  <Check className="w-4 h-4 text-green-600" />
+                  <TickSign className="w-4 h-4" />
                   <span className="text-sm text-gray-700">{feature}</span>
                 </div>
               ))}
@@ -345,6 +345,17 @@ export default function BuyVerifiedGoogleAdsAccounts() {
                         smart move to consider.
                       </p>
                     </div>
+                  </div>
+
+                  {/* Description Image */}
+                  <div className="flex justify-center my-8">
+                    <Image
+                      src="/images/long-description-photo/Buy Verified Google Ads Accounts.png"
+                      alt="Google Ads Accounts Description"
+                      width={500}
+                      height={350}
+                      className="rounded-lg shadow-lg"
+                    />
                   </div>
 
                   {/* Benefits Of Verified Accounts Section */}
@@ -612,7 +623,7 @@ export default function BuyVerifiedGoogleAdsAccounts() {
                     <div
                       key={index}
                       className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg">
-                      <Check className="w-4 h-4 text-green-600" />
+                      <TickSign className="w-4 h-4" />
                       <span className="text-gray-700">{feature}</span>
                     </div>
                   ))}

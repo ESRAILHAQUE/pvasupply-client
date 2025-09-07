@@ -6,7 +6,6 @@ import {
   Search,
   Globe,
   Send,
-  Check,
   ShoppingCart,
   Scale,
   FileText,
@@ -14,6 +13,7 @@ import {
   User,
   Globe as GlobeIcon,
 } from "lucide-react";
+import TickSign from "@/components/shared/TickSign";
 import { useCart } from "../../../contexts/CartContext";
 import PriceDisplay from "../../../components/shared/PriceDisplay";
 import ContactInfo from "../../../components/shared/ContactInfo";
@@ -96,72 +96,15 @@ export default function BuyVerifiedWiseAccounts() {
     <div className="min-h-screen bg-gray-100 py-4">
       <div className="max-w-6xl mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
-          {/* Left Section - Promotional Banner */}
-          <div className="relative h-[600px]">
-            <div className="bg-gradient-to-br from-orange-400 via-orange-500 to-yellow-400 rounded-xl p-6 h-full relative overflow-hidden shadow-lg">
-              {/* Sale Badge */}
-              <div className="absolute top-3 left-3 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded-full">
-                Sale!
-              </div>
-
-              {/* Order Now Badge */}
-              <div className="absolute top-3 right-3 bg-black text-white text-xs font-bold px-3 py-1.5 rounded-lg flex items-center gap-1.5">
-                <Search className="w-3 h-3" />
-                ORDER NOW
-              </div>
-
-              {/* Main Title */}
-              <div className="mt-12 mb-4">
-                <h1 className="text-3xl font-bold leading-tight">
-                  <span className="text-green-600">BUY VERIFIED</span>
-                  <br />
-                  <span className="text-black">WISE ACCOUNTS</span>
-                </h1>
-              </div>
-
-              {/* Wise Graphic */}
-              <div className="relative mb-6">
-                <div className="w-24 h-20 bg-white rounded-lg shadow-md relative">
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="text-blue-500 text-3xl font-bold">W</div>
-                  </div>
-                </div>
-
-                {/* 15% OFF Badge */}
-                <div className="absolute -top-1 -right-1 w-12 h-12 bg-green-500 border-3 border-yellow-400 rounded-full flex items-center justify-center">
-                  <span className="text-white text-xs font-bold">15% OFF</span>
-                </div>
-              </div>
-
-              {/* Service Features */}
-              <div className="space-y-3 mb-6">
-                {features.map((feature, index) => (
-                  <div key={index} className="flex items-center gap-2">
-                    <Check className="w-4 h-4 text-green-600" />
-                    <span className="text-sm text-gray-800 font-medium">
-                      {feature}
-                    </span>
-                  </div>
-                ))}
-              </div>
-
-              {/* Contact Section */}
-              <div className="absolute bottom-6 left-6 right-6">
-                <div className="bg-white/20 backdrop-blur-sm rounded-lg p-4">
-                  <h3 className="text-white font-bold mb-3">Contact Us</h3>
-                  <div className="space-y-2">
-                    {contactInfo.map((info, index) => (
-                      <div
-                        key={index}
-                        className="flex items-center gap-2 text-white text-sm">
-                        <div className="w-2 h-2 bg-white rounded-full"></div>
-                        <span>{info.text}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
+          {/* Left Section - Product Image */}
+          <div className="relative h-[600px] flex items-center justify-center bg-gray-50 rounded-xl shadow-lg">
+            <Image
+              src="/images/All Product/Buy Verified Wise Accounts.png"
+              alt="Wise Accounts"
+              width={500}
+              height={500}
+              className="max-w-full max-h-full object-contain"
+            />
           </div>
 
           {/* Right Section - Product Details */}
@@ -214,7 +157,7 @@ export default function BuyVerifiedWiseAccounts() {
               </h3>
               {productFeatures.map((feature, index) => (
                 <div key={index} className="flex items-center gap-2">
-                  <Check className="w-4 h-4 text-green-600" />
+                  <TickSign className="w-4 h-4" />
                   <span className="text-sm text-gray-700">{feature}</span>
                 </div>
               ))}
@@ -453,6 +396,17 @@ export default function BuyVerifiedWiseAccounts() {
                         any unusual activity.
                       </p>
                     </div>
+                  </div>
+
+                  {/* Description Image */}
+                  <div className="flex justify-center my-8">
+                    <Image
+                      src="/images/long-description-photo/Buy Verified Wise Accounts.png"
+                      alt="Wise Accounts Description"
+                      width={500}
+                      height={350}
+                      className="rounded-lg shadow-lg"
+                    />
                   </div>
 
                   {/* What is a Wise Account Section */}
@@ -703,7 +657,7 @@ export default function BuyVerifiedWiseAccounts() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   {productFeatures.map((feature, index) => (
                     <div key={index} className="flex items-start gap-3">
-                      <Check className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
+                      <TickSign className="w-5 h-5 mt-0.5 flex-shrink-0" />
                       <span className="text-gray-700">{feature}</span>
                     </div>
                   ))}

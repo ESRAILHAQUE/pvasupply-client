@@ -1,6 +1,7 @@
 "use client";
 import { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 import * as THREE from "three";
 
 export default function Hero() {
@@ -36,7 +37,7 @@ export default function Hero() {
       nextSlide();
     }, 5000);
     return () => clearInterval(interval);
-  }, []);
+  }, [nextSlide]);
 
   // Three.js Particle System
   useEffect(() => {
@@ -145,8 +146,9 @@ export default function Hero() {
       if (animationIdRef.current) {
         cancelAnimationFrame(animationIdRef.current);
       }
-      if (mountRef.current && renderer.domElement) {
-        mountRef.current.removeChild(renderer.domElement);
+      const currentMountRef = mountRef.current;
+      if (currentMountRef && renderer.domElement) {
+        currentMountRef.removeChild(renderer.domElement);
       }
       if (renderer) {
         renderer.dispose();
@@ -333,11 +335,12 @@ export default function Hero() {
                         ? "transform -translate-x-full"
                         : "transform translate-x-full"
                     }`}>
-                    <img
+                    <Image
                       src={img}
                       alt={`Service slide ${idx + 1}`}
-                      className="w-full h-full object-cover"
-                      loading={idx === 0 ? "eager" : "lazy"}
+                      fill
+                      className="object-cover"
+                      priority={idx === 0}
                     />
 
                     {/* Overlay with service info */}

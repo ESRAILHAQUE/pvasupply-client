@@ -7,7 +7,6 @@ import {
   Search,
   Globe,
   Send,
-  Check,
   ShoppingCart,
   Scale,
   FileText,
@@ -15,6 +14,7 @@ import {
   User,
   Globe as GlobeIcon,
 } from "lucide-react";
+import TickSign from "@/components/shared/TickSign";
 import PriceDisplay from "../../../components/shared/PriceDisplay";
 import ContactInfo from "../../../components/shared/ContactInfo";
 
@@ -111,7 +111,7 @@ export default function BuyVerifiedChimeBankAccounts() {
               </h1>
 
               {/* Price */}
-              <PriceDisplay price="$40.00 - $600.00" className="mb-4" />
+              <PriceDisplay price="$100.00 - $220.00" className="mb-4" />
 
               {/* Product Description */}
               <div className="mb-4 space-y-3">
@@ -136,7 +136,7 @@ export default function BuyVerifiedChimeBankAccounts() {
                 <ul className="space-y-1.5">
                   {productFeatures.map((feature, index) => (
                     <li key={index} className="flex items-start gap-2">
-                      <Check className="w-4 h-4 text-green-600 mt-0.5 flex-shrink-0" />
+                      <TickSign className="w-4 h-4 mt-0.5 flex-shrink-0" />
                       <span className="text-gray-700 text-sm">{feature}</span>
                     </li>
                   ))}
@@ -164,12 +164,12 @@ export default function BuyVerifiedChimeBankAccounts() {
                         onChange={(e) => setSelectedOption(e.target.value)}
                         className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent text-sm">
                         <option value="">Select an option</option>
-                        <option value="basic">Basic Package - $40.00</option>
+                        <option value="basic">Basic Package - $100.00</option>
                         <option value="premium">
-                          Premium Package - $200.00
+                          Premium Package - $160.00
                         </option>
                         <option value="enterprise">
-                          Enterprise Package - $600.00
+                          Enterprise Package - $220.00
                         </option>
                       </select>
                     </div>
@@ -253,6 +253,17 @@ export default function BuyVerifiedChimeBankAccounts() {
                         accounts are in demand and how they can help you.
                       </p>
                     </div>
+                  </div>
+
+                  {/* Description Image */}
+                  <div className="flex justify-center my-8">
+                    <Image
+                      src="/images/long-description-photo/Buy Verified Chime Bank Accounts.png"
+                      alt="Chime Bank Accounts Description"
+                      width={500}
+                      height={350}
+                      className="rounded-lg shadow-lg"
+                    />
                   </div>
 
                   {/* Benefits Section */}
@@ -583,7 +594,7 @@ export default function BuyVerifiedChimeBankAccounts() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   {productFeatures.map((feature, index) => (
                     <div key={index} className="flex items-start gap-3">
-                      <Check className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
+                      <TickSign className="w-5 h-5 mt-0.5 flex-shrink-0" />
                       <span className="text-gray-700">{feature}</span>
                     </div>
                   ))}
