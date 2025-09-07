@@ -4,8 +4,7 @@ import React from "react";
 
 export default function ContactInfo({ className = "" }) {
   return (
-    <div
-      className={`  p-4   ${className}`}>
+    <div className={`p-4 ${className}`}>
       <h3 className="font-semibold text-gray-800 mb-2">
         If you want to more information just contact now-
       </h3>
