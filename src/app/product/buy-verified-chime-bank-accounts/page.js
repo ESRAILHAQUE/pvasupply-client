@@ -19,6 +19,7 @@ import {
 import TickSign from "@/components/shared/TickSign";
 import PriceDisplay from "../../../components/shared/PriceDisplay";
 import ContactInfo from "../../../components/shared/ContactInfo";
+import RelatedProducts from "../../../components/shared/RelatedProducts";
 
 export default function BuyVerifiedChimeBankAccounts() {
   const [selectedOption, setSelectedOption] = useState("");
@@ -585,6 +586,12 @@ export default function BuyVerifiedChimeBankAccounts() {
                     </div>
                   </div>
                 </div>
+
+                {/* Related Products */}
+                <RelatedProducts
+                  currentProduct="Buy Verified Chime Bank Accounts"
+                  category="Bank Accounts"
+                />
               </div>
             )}
 

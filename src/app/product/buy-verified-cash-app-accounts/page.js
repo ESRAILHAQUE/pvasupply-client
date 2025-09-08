@@ -19,6 +19,7 @@ import {
 import TickSign from "@/components/shared/TickSign";
 import PriceDisplay from "../../../components/shared/PriceDisplay";
 import ContactInfo from "../../../components/shared/ContactInfo";
+import RelatedProducts from "../../../components/shared/RelatedProducts";
 
 export default function BuyVerifiedCashAppAccounts() {
   const [selectedOption, setSelectedOption] = useState("");
@@ -639,6 +640,12 @@ export default function BuyVerifiedCashAppAccounts() {
                     </div>
                   </div>
                 </div>
+
+                {/* Related Products */}
+                <RelatedProducts
+                  currentProduct="Buy Verified Cash App Accounts"
+                  category="Bank Accounts"
+                />
               </div>
             )}
 

@@ -17,6 +17,7 @@ import {
 import TickSign from "@/components/shared/TickSign";
 import PriceDisplay from "../../../components/shared/PriceDisplay";
 import ContactInfo from "../../../components/shared/ContactInfo";
+import RelatedProducts from "../../../components/shared/RelatedProducts";
 
 export default function BuyVerifiedGo2BankAccounts() {
   const [selectedOption, setSelectedOption] = useState("");
@@ -597,6 +598,12 @@ export default function BuyVerifiedGo2BankAccounts() {
                     </div>
                   </div>
                 </div>
+
+                {/* Related Products */}
+                <RelatedProducts
+                  currentProduct="Buy Verified Go2Bank Accounts"
+                  category="Bank Accounts"
+                />
               </div>
             )}
 

@@ -17,6 +17,7 @@ import {
 import TickSign from "@/components/shared/TickSign";
 import PriceDisplay from "../../../components/shared/PriceDisplay";
 import ContactInfo from "../../../components/shared/ContactInfo";
+import RelatedProducts from "../../../components/shared/RelatedProducts";
 
 export default function BuyVerifiedVenmoAccounts() {
   const [selectedOption, setSelectedOption] = useState("");
@@ -538,6 +539,12 @@ export default function BuyVerifiedVenmoAccounts() {
                     </div>
                   </div>
                 </div>
+
+                {/* Related Products */}
+                <RelatedProducts
+                  currentProduct="Buy Verified Venmo Accounts"
+                  category="Bank Accounts"
+                />
               </div>
             )}
 
