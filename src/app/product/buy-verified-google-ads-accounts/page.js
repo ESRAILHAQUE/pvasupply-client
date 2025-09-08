@@ -608,7 +608,7 @@ export default function BuyVerifiedGoogleAdsAccounts() {
                 {/* Related Products */}
                 <RelatedProducts
                   currentProduct="Buy Verified Google Ads Accounts"
-                  category="Special Accounts"
+                  category="Social Accounts"
                 />
               </div>
             )}

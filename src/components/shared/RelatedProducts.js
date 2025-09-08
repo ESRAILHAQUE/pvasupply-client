@@ -43,6 +43,13 @@ const allProducts = {
       price: "$8.00 - $25.00",
       category: "Social Accounts",
     },
+    {
+      name: "Buy Verified OnlyFans Accounts",
+      href: "/product/buy-verified-onlyfans-accounts",
+      image: "/images/All Product/Buy Verified OnlyFans Accounts.png",
+      price: "$25.00 - $200.00",
+      category: "Social Accounts",
+    },
   ],
   "Crypto Accounts": [
     {
@@ -124,6 +131,13 @@ const allProducts = {
       price: "$30.00 - $350.00",
       category: "Bank Accounts",
     },
+    {
+      name: "Buy Verified Chase Bank Accounts",
+      href: "/product/buy-verified-chase-bank-accounts",
+      image: "/images/All Product/Buy Verified Chase Bank Accounts.png",
+      price: "$40.00 - $400.00",
+      category: "Bank Accounts",
+    },
   ],
   "Special Accounts": [
     {
@@ -183,14 +197,8 @@ export default function RelatedProducts({ currentProduct, category }) {
     (product) => product.name !== currentProduct
   );
 
-  // Return different number of products based on category
-  let relatedProducts;
-  if (category === "Special Accounts") {
-    relatedProducts = filteredProducts.slice(0, 2);
-  } else {
-    // Return exactly 4 products for other categories
-    relatedProducts = filteredProducts.slice(0, 4);
-  }
+  // Return exactly 4 products for all categories
+  let relatedProducts = filteredProducts.slice(0, 4);
 
   if (relatedProducts.length === 0) {
     return null;
@@ -206,13 +214,14 @@ export default function RelatedProducts({ currentProduct, category }) {
             key={product.name}
             href={product.href}
             className="group block bg-white rounded-lg border border-gray-200 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
-            <div className="relative h-48 bg-gray-50 rounded-t-lg overflow-hidden">
+            <div className="relative h-48 bg-gray-50 rounded-t-lg overflow-hidden flex items-center justify-center">
               <Image
                 src={product.image}
                 alt={product.name}
-                fill
+                width={200}
+                height={150}
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                className="object-cover"
+                className="object-contain max-w-full max-h-full"
               />
             </div>
 
