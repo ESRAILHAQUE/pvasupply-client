@@ -7,7 +7,6 @@ import {
   Search,
   Globe,
   Send,
-  
   ShoppingCart,
   Scale,
   FileText,
@@ -203,7 +202,6 @@ export default function OldGmailAccountsComponent() {
                           Enterprise Package - $340.00
                         </option>
                       </select>
-                    
                     </div>
                   </div>
 
@@ -616,16 +614,16 @@ export default function OldGmailAccountsComponent() {
                   />
                 </div>
 
-                {/* Buy PVA Gmail Accounts On Pvasmmpro Platform Section */}
+                {/* Buy PVA Gmail Accounts On PVA Supply Platform Section */}
                 <div>
                   <h3 className="text-xl font-bold text-gray-900 mb-4">
-                    Buy PVA Gmail Accounts On the Pvasmmpro Platform
+                    Buy PVA Gmail Accounts On the PVA Supply Platform
                   </h3>
 
                   <div className="space-y-4">
                     <p className="text-gray-700 leading-relaxed">
-                      When looking for reliable phone-verified accounts, the
-                      Pvasmmpro platform stands out as a trusted choice for
+                      When looking for reliable phone-verified accounts, the PVA
+                      Supply platform stands out as a trusted choice for
                       purchasing PVA Gmail accounts.
                     </p>
 
@@ -648,7 +646,7 @@ export default function OldGmailAccountsComponent() {
                     </p>
 
                     <p className="text-gray-700 leading-relaxed">
-                      Excellent customer support is a hallmark of the Pvasmmpro
+                      Excellent customer support is a hallmark of the PVA Supply
                       platform, ensuring that clients receive the assistance
                       they need throughout their purchasing journey.
                     </p>

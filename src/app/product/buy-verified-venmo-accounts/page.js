@@ -125,7 +125,7 @@ export default function BuyVerifiedVenmoAccounts() {
                 <p className="text-gray-700 text-sm">
                   Phone verified accounts are provided upon request. Aged Venmo
                   accounts are indispensable for your business or personal use.
-                  We provide instant delivery at Pvasmmpro.
+                  We provide instant delivery at PVA Supply.
                 </p>
               </div>
 

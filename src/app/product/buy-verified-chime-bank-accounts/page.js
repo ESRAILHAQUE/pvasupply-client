@@ -127,7 +127,7 @@ export default function BuyVerifiedChimeBankAccounts() {
                 <p className="text-gray-700 text-sm">
                   Phone verified accounts are provided upon request. Aged Chime
                   Bank accounts are indispensable for your business or personal
-                  use. We provide instant delivery at Pvasmmpro.
+                  use. We provide instant delivery at PVA Supply.
                 </p>
               </div>
 

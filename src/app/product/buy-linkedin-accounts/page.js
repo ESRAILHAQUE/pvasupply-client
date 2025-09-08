@@ -132,7 +132,7 @@ export default function BuyLinkedInAccounts() {
                 <p className="text-gray-700 text-sm">
                   Phone verified accounts are provided upon request. Aged
                   LinkedIn accounts are indispensable for your business or
-                  personal use. We provide instant delivery at Pvasmmpro.
+                  personal use. We provide instant delivery at PVA Supply.
                 </p>
                 <p className="text-gray-700 text-sm">
                   Don&apos;t wait — get your LinkedIn accounts now from
