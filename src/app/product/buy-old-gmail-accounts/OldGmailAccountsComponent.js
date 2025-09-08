@@ -7,7 +7,7 @@ import {
   Search,
   Globe,
   Send,
-  ChevronDown,
+  
   ShoppingCart,
   Scale,
   FileText,
@@ -203,7 +203,7 @@ export default function OldGmailAccountsComponent() {
                           Enterprise Package - $340.00
                         </option>
                       </select>
-                      <ChevronDown className="absolute right-3 top-2.5 w-4 h-4 text-gray-400 pointer-events-none" />
+                    
                     </div>
                   </div>
 
