@@ -2,9 +2,9 @@ import Script from "next/script";
 import { buildProductMetadata, productJsonLd } from "@/lib/seo";
 
 const product = {
-  title: "Buy Old Gmail Accounts",
+  title: "Buy Old Gmail Accounts — Aged, Phone‑Verified Gmail",
   description:
-    "Buy old Gmail accounts (aged). Phone-verified, secure and ready. Instant delivery.",
+    "High‑quality aged Gmail accounts, phone‑verified and secure. Perfect for business and outreach.",
   slug: "buy-old-gmail-accounts",
   image: "/images/All Product/Buy Gmail Accounts.png",
   price: undefined,

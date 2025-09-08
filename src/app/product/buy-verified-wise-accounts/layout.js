@@ -2,9 +2,9 @@ import Script from "next/script";
 import { buildProductMetadata, productJsonLd } from "@/lib/seo";
 
 const product = {
-  title: "Buy Verified Wise Accounts",
+  title: "Buy Verified Wise Accounts (TransferWise) — Ready to Use",
   description:
-    "Buy verified Wise accounts (TransferWise). Secure and ready to use.",
+    "Verified Wise accounts for global payments. Secure setup and quick delivery.",
   slug: "buy-verified-wise-accounts",
   image: "/images/All Product/Buy Verified Wise Accounts.png",
   price: undefined,

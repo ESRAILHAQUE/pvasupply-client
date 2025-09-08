@@ -2,9 +2,9 @@ import Script from "next/script";
 import { buildProductMetadata, productJsonLd } from "@/lib/seo";
 
 const product = {
-  title: "Buy Verified Binance Accounts",
+  title: "Buy Verified Binance Accounts — KYC‑Verified Trading",
   description:
-    "Buy verified Binance accounts. KYC verified, secure, and ready for trading.",
+    "KYC‑verified Binance accounts for instant trading access. Secure and ready to use.",
   slug: "buy-verified-binance-accounts",
   image: "/images/All Product/Buy KYC Verified Binance Accounts.png",
   price: undefined,

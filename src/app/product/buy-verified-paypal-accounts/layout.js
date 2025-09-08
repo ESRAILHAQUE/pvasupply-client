@@ -2,9 +2,9 @@ import Script from "next/script";
 import { buildProductMetadata, productJsonLd } from "@/lib/seo";
 
 const product = {
-  title: "Buy Verified PayPal Accounts",
+  title: "Buy Verified PayPal Accounts — ID/Phone Verified",
   description:
-    "Buy verified PayPal accounts. USA/EU IP, phone/email verified, secure & ready. Instant delivery.",
+    "Verified PayPal accounts for smooth online payments. Secure, compliant, and quickly delivered.",
   slug: "buy-verified-paypal-accounts",
   image: "/images/All Product/Buy Verified PayPal Accounts.png",
   price: "110.00",

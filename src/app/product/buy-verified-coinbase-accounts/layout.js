@@ -2,9 +2,9 @@ import Script from "next/script";
 import { buildProductMetadata, productJsonLd } from "@/lib/seo";
 
 const product = {
-  title: "Buy Verified Coinbase Accounts",
+  title: "Buy Verified Coinbase Accounts — KYC‑Verified",
   description:
-    "Buy verified Coinbase accounts. KYC verified, secure, and ready for trading.",
+    "Verified Coinbase accounts with KYC. Trusted access for secure crypto trading.",
   slug: "buy-verified-coinbase-accounts",
   image: "/images/All Product/Buy Verified Coinbase Account.png",
   price: undefined,

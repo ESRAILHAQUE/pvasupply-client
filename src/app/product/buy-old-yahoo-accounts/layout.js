@@ -2,9 +2,9 @@ import Script from "next/script";
 import { buildProductMetadata, productJsonLd } from "@/lib/seo";
 
 const product = {
-  title: "Buy Old Yahoo Accounts",
+  title: "Buy Old Yahoo Accounts — Aged, Verified Yahoo",
   description:
-    "Buy old Yahoo accounts (aged). Phone-verified, secure, and ready. Instant delivery.",
+    "Purchase aged Yahoo accounts, verified and ready to use. Reliable seller, fast delivery.",
   slug: "buy-old-yahoo-accounts",
   image: "/images/All Product/Buy Verified Yahoo Accounts.jpg",
   price: undefined,

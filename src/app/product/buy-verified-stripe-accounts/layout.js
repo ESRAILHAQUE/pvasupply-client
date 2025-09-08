@@ -2,9 +2,9 @@ import Script from "next/script";
 import { buildProductMetadata, productJsonLd } from "@/lib/seo";
 
 const product = {
-  title: "Buy Verified Stripe Accounts",
+  title: "Buy Verified Stripe Accounts — Fully KYC Verified",
   description:
-    "Buy fully verified Stripe accounts with KYC. Secure, bank/card verified, instant delivery.",
+    "Fully verified Stripe accounts with KYC. Bank/card verified and ready for payment processing.",
   slug: "buy-verified-stripe-accounts",
   image: "/images/All Product/Buy Verified Stripe Accounts.png",
   price: "370.00",
