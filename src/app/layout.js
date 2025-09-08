@@ -2,6 +2,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/shared/navbar";
 import Footer from "@/components/shared/footer";
+import FloatingContactIcons from "@/components/shared/FloatingContactIcons";
 import { CartProvider } from "@/contexts/CartContext";
 
 const geistSans = Geist({
@@ -29,6 +30,7 @@ export default function RootLayout({ children }) {
           {children}
           <Footer />
         </CartProvider>
+        <FloatingContactIcons />
       </body>
     </html>
   );
