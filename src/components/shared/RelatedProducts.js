@@ -106,7 +106,7 @@ const allProducts = {
     {
       name: "Buy Verified Wise Accounts",
       href: "/product/buy-verified-wise-accounts",
-      image: "/images/All Product/Buy Wise Accounts.png",
+      image: "/images/All Product/Buy Verified Wise Accounts.png",
       price: "$35.00 - $400.00",
       category: "Bank Accounts",
     },
@@ -127,7 +127,7 @@ const allProducts = {
     {
       name: "Buy Verified Skrill Accounts",
       href: "/product/buy-verified-skrill-accounts",
-      image: "/images/All Product/Buy Skrill Accounts.png",
+      image: "/images/All Product/Buy Verified Skrill Accounts.png",
       price: "$30.00 - $350.00",
       category: "Bank Accounts",
     },
@@ -164,7 +164,7 @@ const allProducts = {
     {
       name: "Buy Verified Stripe Accounts",
       href: "/product/buy-verified-stripe-accounts",
-      image: "/images/All Product/Buy Stripe Accounts.png",
+      image: "/images/All Product/Buy Verified Stripe Accounts.png",
       price: "$70.00 - $500.00",
       category: "Special Accounts",
     },
@@ -191,21 +191,44 @@ export default function RelatedProducts({ currentProduct, category }) {
     ));
   };
 
-  // Get products from the same category, excluding current product
+  // Get products from the same category
   const categoryProducts = allProducts[category] || [];
-  const filteredProducts = categoryProducts.filter(
-    (product) => product.name !== currentProduct
-  );
 
-  // Return exactly 4 products for all categories
-  let relatedProducts = filteredProducts.slice(0, 4);
+  // For crypto accounts, show all 4 products including current one
+  let relatedProducts;
+  if (category === "Crypto Accounts") {
+    relatedProducts = categoryProducts.slice(0, 4);
+  } else {
+    // For other categories, exclude current product
+    const filteredProducts = categoryProducts.filter(
+      (product) => product.name !== currentProduct
+    );
+
+    // If we don't have enough products in the same category, add products from other categories
+    relatedProducts = [...filteredProducts];
+
+    if (relatedProducts.length < 4) {
+      // Get products from other categories
+      const otherProducts = Object.keys(allProducts)
+        .filter((cat) => cat !== category)
+        .flatMap((cat) => allProducts[cat])
+        .filter((product) => product.name !== currentProduct);
+
+      // Add products from other categories to reach 4 total
+      const needed = 4 - relatedProducts.length;
+      relatedProducts = [...relatedProducts, ...otherProducts.slice(0, needed)];
+    } else {
+      // Return exactly 4 products from the same category
+      relatedProducts = relatedProducts.slice(0, 4);
+    }
+  }
 
   if (relatedProducts.length === 0) {
     return null;
   }
 
   return (
-    <div className="bg-white rounded-xl shadow-lg p-6">
+    <div className="p-6">
       <h3 className="text-xl font-bold text-gray-900 mb-6">Related Products</h3>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
