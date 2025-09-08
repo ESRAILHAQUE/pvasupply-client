@@ -17,6 +17,7 @@ import TickSign from "@/components/shared/TickSign";
 import { useCart } from "../../../contexts/CartContext";
 import PriceDisplay from "../../../components/shared/PriceDisplay";
 import ContactInfo from "../../../components/shared/ContactInfo";
+import RelatedProducts from "../../../components/shared/RelatedProducts";
 
 export default function BuyVerifiedOnlyFansAccounts() {
   const [selectedOption, setSelectedOption] = useState("");
@@ -92,76 +93,20 @@ export default function BuyVerifiedOnlyFansAccounts() {
     <div className="min-h-screen bg-gray-100 py-4">
       <div className="max-w-6xl mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
-          {/* Left Section - Promotional Banner */}
-          <div className="relative h-[600px]">
-            <div className="bg-gradient-to-br from-orange-400 via-orange-500 to-yellow-400 rounded-xl p-6 h-full relative overflow-hidden shadow-lg">
-              {/* Sale Badge */}
-              <div className="absolute top-3 left-3 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded-full">
-                Sale!
-              </div>
-
-              {/* Order Now Badge */}
-              <div className="absolute top-3 right-3 bg-black text-white text-xs font-bold px-3 py-1.5 rounded-lg flex items-center gap-1.5">
-                <Search className="w-3 h-3" />
-                ORDER NOW
-              </div>
-
-              {/* Main Title */}
-              <div className="mt-12 mb-4">
-                <h1 className="text-3xl font-bold leading-tight">
-                  <span className="text-green-600">BUY VERIFIED</span>
-                  <br />
-                  <span className="text-black">ONLYFANS ACCOUNTS</span>
-                </h1>
-              </div>
-
-              {/* OnlyFans Graphic */}
-              <div className="relative mb-6">
-                <div className="w-24 h-20 bg-white rounded-lg shadow-md relative">
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="text-pink-500 text-3xl font-bold">O</div>
-                  </div>
-                </div>
-
-                {/* 15% OFF Badge */}
-                <div className="absolute -top-1 -right-1 w-12 h-12 bg-green-500 border-3 border-yellow-400 rounded-full flex items-center justify-center">
-                  <span className="text-white text-xs font-bold">15% OFF</span>
-                </div>
-              </div>
-
-              {/* Service Features */}
-              <div className="space-y-3 mb-6">
-                {features.map((feature, index) => (
-                  <div key={index} className="flex items-center gap-2">
-                    <TickSign className="w-4 h-4" />
-                    <span className="text-sm text-gray-800 font-medium">
-                      {feature}
-                    </span>
-                  </div>
-                ))}
-              </div>
-
-              {/* Contact Section */}
-              <div className="absolute bottom-6 left-6 right-6">
-                <div className="bg-white/20 backdrop-blur-sm rounded-lg p-4">
-                  <h3 className="text-white font-bold mb-3">Contact Us</h3>
-                  <div className="space-y-2">
-                    {contactInfo.map((info, index) => (
-                      <div
-                        key={index}
-                        className="flex items-center gap-2 text-white text-sm">
-                        <div className="w-2 h-2 bg-white rounded-full"></div>
-                        <span>{info.text}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
+          {/* Left Section - Product Image */}
+          <div className="relative h-[600px] flex items-center justify-center">
+            <Image
+              src="/images/All Product/Buy Verified OnlyFans Accounts.png"
+              alt="Buy Verified OnlyFans Accounts"
+              width={1200}
+              height={1200}
+              className="max-w-full max-h-full object-contain"
+              priority
+            />
           </div>
 
           {/* Right Section - Product Details */}
-          <div className="bg-white rounded-lg p-6 shadow-lg">
+          <div className="space-y-6">
             {/* Breadcrumbs */}
             <div className="flex items-center gap-2 text-sm text-gray-500 mb-4">
               <span>Home</span>
@@ -346,6 +291,102 @@ export default function BuyVerifiedOnlyFansAccounts() {
                     className="rounded-lg shadow-lg"
                   />
                 </div>
+
+                {/* Additional Content */}
+                <div className="space-y-6">
+                  <div>
+                    <h4 className="text-md font-semibold text-gray-900 mb-3">
+                      Why Choose OnlyFans Accounts?
+                    </h4>
+                    <div className="space-y-3">
+                      <p className="text-gray-600">
+                        OnlyFans has become one of the most popular content
+                        creation platforms, allowing creators to monetize their
+                        content through subscriptions and tips. Our verified
+                        OnlyFans accounts provide you with immediate access to
+                        start your content creation journey without the lengthy
+                        verification process.
+                      </p>
+                      <p className="text-gray-600">
+                        With a verified OnlyFans account, you can start earning
+                        from day one. These accounts come with established
+                        profiles, verified status, and are ready for content
+                        upload and monetization. Perfect for content creators,
+                        influencers, and digital entrepreneurs.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div>
+                    <h4 className="text-md font-semibold text-gray-900 mb-3">
+                      Account Features & Benefits
+                    </h4>
+                    <div className="space-y-3">
+                      <p className="text-gray-600">
+                        Our verified OnlyFans accounts include full access to
+                        all platform features, including content upload,
+                        subscription management, messaging system, and analytics
+                        dashboard. You'll have complete control over your
+                        content and earnings.
+                      </p>
+                      <p className="text-gray-600">
+                        These accounts support various content types including
+                        photos, videos, live streaming, and pay-per-view
+                        content. The verification status ensures your account
+                        appears trustworthy to potential subscribers and reduces
+                        the risk of account suspension.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div>
+                    <h4 className="text-md font-semibold text-gray-900 mb-3">
+                      Monetization & Growth
+                    </h4>
+                    <div className="space-y-3">
+                      <p className="text-gray-600">
+                        Verified OnlyFans accounts provide better visibility and
+                        credibility, leading to higher subscription rates and
+                        increased earnings. The established account history
+                        helps build trust with subscribers and improves your
+                        overall platform standing.
+                      </p>
+                      <p className="text-gray-600">
+                        With our accounts, you can focus on creating quality
+                        content rather than dealing with verification delays.
+                        The accounts are optimized for maximum performance and
+                        come with detailed setup instructions to help you get
+                        started quickly.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div>
+                    <h4 className="text-md font-semibold text-gray-900 mb-3">
+                      Security & Privacy
+                    </h4>
+                    <div className="space-y-3">
+                      <p className="text-gray-600">
+                        All our OnlyFans accounts undergo thorough verification
+                        processes to ensure they meet platform standards. This
+                        includes identity verification, payment method setup,
+                        and compliance with platform policies.
+                      </p>
+                      <p className="text-gray-600">
+                        We provide comprehensive account information and
+                        security guidelines to help you maintain account safety.
+                        Our customer support team is available to assist with
+                        any questions or technical issues you may encounter.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Related Products */}
+                <RelatedProducts
+                  currentProduct="Buy Verified OnlyFans Accounts"
+                  category="Social Accounts"
+                />
               </div>
             )}
 

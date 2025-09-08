@@ -171,7 +171,7 @@ const allProducts = {
     {
       name: "Buy Verified Payoneer Accounts",
       href: "/product/buy-verified-payoneer-accounts",
-      image: "/images/All Product/Buy Payoneer Accounts.png",
+      image: "/images/All Product/Buy Verified Payoneer Accounts.png",
       price: "$45.00 - $380.00",
       category: "Special Accounts",
     },

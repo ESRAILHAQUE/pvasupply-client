@@ -17,6 +17,7 @@ import {
 import TickSign from "@/components/shared/TickSign";
 import PriceDisplay from "../../../components/shared/PriceDisplay";
 import ContactInfo from "../../../components/shared/ContactInfo";
+import RelatedProducts from "../../../components/shared/RelatedProducts";
 
 export default function BuyVerifiedChaseBankAccounts() {
   const [selectedOption, setSelectedOption] = useState("");
@@ -267,6 +268,81 @@ export default function BuyVerifiedChaseBankAccounts() {
                     className="rounded-lg shadow-lg"
                   />
                 </div>
+
+                {/* Additional Content */}
+                <div className="space-y-6">
+                  <div>
+                    <h4 className="text-md font-semibold text-gray-900 mb-3">
+                      Why Choose Chase Bank Accounts?
+                    </h4>
+                    <div className="space-y-3">
+                      <p className="text-gray-600">
+                        Chase Bank is one of the largest and most trusted
+                        financial institutions in the United States. Our
+                        verified Chase Bank accounts provide you with access to
+                        comprehensive banking services, including checking
+                        accounts, savings accounts, credit cards, and investment
+                        options.
+                      </p>
+                      <p className="text-gray-600">
+                        With a verified Chase Bank account, you can enjoy
+                        benefits like mobile banking, online bill pay, ATM
+                        access, and premium customer service. These accounts are
+                        perfect for both personal and business banking needs.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div>
+                    <h4 className="text-md font-semibold text-gray-900 mb-3">
+                      Account Features & Benefits
+                    </h4>
+                    <div className="space-y-3">
+                      <p className="text-gray-600">
+                        Our verified Chase Bank accounts come with full access
+                        to Chase's digital banking platform, allowing you to
+                        manage your finances online and through mobile apps.
+                        You'll have access to features like mobile check
+                        deposit, account transfers, and real-time balance
+                        monitoring.
+                      </p>
+                      <p className="text-gray-600">
+                        These accounts also provide access to Chase's credit
+                        card offerings, including premium cards with travel
+                        rewards, cash back options, and business credit
+                        solutions. The verification process ensures your account
+                        is ready for immediate use without restrictions.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div>
+                    <h4 className="text-md font-semibold text-gray-900 mb-3">
+                      Security & Verification
+                    </h4>
+                    <div className="space-y-3">
+                      <p className="text-gray-600">
+                        All our Chase Bank accounts undergo thorough
+                        verification processes to ensure they meet the bank's
+                        security standards. This includes phone number
+                        verification, email confirmation, and identity
+                        verification to protect your account and transactions.
+                      </p>
+                      <p className="text-gray-600">
+                        We provide detailed account information and setup
+                        instructions to help you get started quickly and
+                        securely. Our customer support team is available to
+                        assist with any questions or issues you may encounter.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Related Products */}
+                <RelatedProducts
+                  currentProduct="Buy Verified Chase Bank Accounts"
+                  category="Bank Accounts"
+                />
               </div>
             )}
 
