@@ -30,9 +30,9 @@ function Contact() {
     camera.position.z = 5;
 
     // Renderer setup
-    const renderer = new THREE.WebGLRenderer({ 
-      alpha: true, 
-      antialias: true 
+    const renderer = new THREE.WebGLRenderer({
+      alpha: true,
+      antialias: true,
     });
     renderer.setSize(window.innerWidth, window.innerHeight);
     renderer.setClearColor(0x000000, 0);
@@ -50,24 +50,24 @@ function Contact() {
       positions[i * 3 + 2] = (Math.random() - 0.5) * 15; // z
 
       // Green theme colors
-      colors[i * 3] = Math.random() * 0.3 + 0.1; // r (low red)
-      colors[i * 3 + 1] = Math.random() * 0.6 + 0.4; // g (high green)
-      colors[i * 3 + 2] = Math.random() * 0.4 + 0.2; // b (medium blue)
+      colors[i * 3] = Math.random() * 0.2 + 0.1; // r (low red)
+      colors[i * 3 + 1] = Math.random() * 0.7 + 0.5; // g (high green)
+      colors[i * 3 + 2] = Math.random() * 0.5 + 0.3; // b (medium blue-green)
 
       sizes[i] = Math.random() * 3 + 1;
     }
 
     const geometry = new THREE.BufferGeometry();
-    geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
-    geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
-    geometry.setAttribute('size', new THREE.BufferAttribute(sizes, 1));
+    geometry.setAttribute("position", new THREE.BufferAttribute(positions, 3));
+    geometry.setAttribute("color", new THREE.BufferAttribute(colors, 3));
+    geometry.setAttribute("size", new THREE.BufferAttribute(sizes, 1));
 
     // Particle material
     const material = new THREE.PointsMaterial({
       size: 0.08,
       vertexColors: true,
       transparent: true,
-      opacity: 0.7,
+      opacity: 0.3,
       blending: THREE.AdditiveBlending,
     });
 
@@ -77,11 +77,11 @@ function Contact() {
 
     // Add to DOM
     mountRef.current.appendChild(renderer.domElement);
-    renderer.domElement.style.position = 'absolute';
-    renderer.domElement.style.top = '0';
-    renderer.domElement.style.left = '0';
-    renderer.domElement.style.zIndex = '0';
-    renderer.domElement.style.pointerEvents = 'none';
+    renderer.domElement.style.position = "absolute";
+    renderer.domElement.style.top = "0";
+    renderer.domElement.style.left = "0";
+    renderer.domElement.style.zIndex = "0";
+    renderer.domElement.style.pointerEvents = "none";
 
     // Animation loop
     const animate = () => {
@@ -90,9 +90,10 @@ function Contact() {
       if (particlesRef.current) {
         particlesRef.current.rotation.x += 0.0005;
         particlesRef.current.rotation.y += 0.001;
-        
+
         // Float particles in wave pattern
-        const positions = particlesRef.current.geometry.attributes.position.array;
+        const positions =
+          particlesRef.current.geometry.attributes.position.array;
         for (let i = 0; i < positions.length; i += 3) {
           positions[i + 1] += Math.sin(Date.now() * 0.001 + i * 0.1) * 0.002;
           positions[i] += Math.cos(Date.now() * 0.0008 + i * 0.1) * 0.001;
@@ -112,11 +113,11 @@ function Contact() {
       renderer.setSize(window.innerWidth, window.innerHeight);
     };
 
-    window.addEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
 
     // Cleanup
     return () => {
-      window.removeEventListener('resize', handleResize);
+      window.removeEventListener("resize", handleResize);
       if (animationIdRef.current) {
         cancelAnimationFrame(animationIdRef.current);
       }
@@ -198,180 +199,89 @@ function Contact() {
   };
 
   return (
-    <div className="relative w-full bg-gradient-to-br from-green-300 via-green-400 to-green-600 flex items-center justify-center py-12 sm:py-16 md:py-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
+    <div className="relative w-full flex items-center justify-center py-12 sm:py-16 md:py-18 px-4 sm:px-6 lg:px-8 overflow-hidden min-h-[60vh]">
+      {/* Background Image */}
+      <div
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat bg-fixed"
+        style={{
+          backgroundImage: "url('/images/bg.png')",
+        }}
+      />
+
+      {/* Dark overlay for better text readability */}
+      <div className="absolute inset-0 bg-black/30" />
+
       {/* Three.js Particle Background */}
       <div ref={mountRef} className="absolute inset-0" />
-      
-      {/* Animated Background decorative elements */}
-      <motion.div 
+
+      {/* Subtle animated overlay elements */}
+      <motion.div
         className="absolute inset-0 overflow-hidden"
         variants={containerVariants}
         initial="hidden"
-        animate="visible"
-      >
-        <motion.div 
-          className="absolute -top-40 -right-40 w-80 h-80 bg-green-200 rounded-full mix-blend-multiply filter blur-xl opacity-30"
+        animate="visible">
+        <motion.div
+          className="absolute -top-40 -right-40 w-80 h-80 bg-green-400/10 rounded-full mix-blend-multiply filter blur-xl opacity-20"
           variants={floatingVariants}
           animate="animate"
         />
-        <motion.div 
-          className="absolute -bottom-40 -left-40 w-80 h-80 bg-emerald-200 rounded-full mix-blend-multiply filter blur-xl opacity-30"
+        <motion.div
+          className="absolute -bottom-40 -left-40 w-80 h-80 bg-emerald-400/10 rounded-full mix-blend-multiply filter blur-xl opacity-20"
           variants={floatingVariants}
           animate="animate"
           style={{ animationDelay: "1s" }}
         />
-        <motion.div 
-          className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-teal-200 rounded-full mix-blend-multiply filter blur-2xl opacity-20"
-          variants={floatingVariants}
-          animate="animate"
-          style={{ animationDelay: "2s" }}
-        />
       </motion.div>
 
       {/* Main content container */}
-      <motion.div 
-        className="relative z-10 text-center max-w-4xl mx-auto"
+      <motion.div
+        className="relative z-10 text-center max-w-5xl mx-auto"
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, amount: 0.6, margin: "-100px" }}
-      >
+        viewport={{ once: true, amount: 0.6, margin: "-100px" }}>
         {/* Services subtitle */}
-        <motion.p 
-          className="text-white text-lg sm:text-xl md:text-2xl font-medium mb-4 sm:mb-5 opacity-90"
-          variants={itemVariants}
-        >
-          Some of Our Bank Card Services
-        </motion.p>
+        <motion.div
+          className="inline-flex items-center px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 mb-6"
+          variants={itemVariants}>
+          <span className="text-white/90 text-sm font-medium tracking-wide">
+            🚀 Premium Digital Services
+          </span>
+        </motion.div>
 
         {/* Main heading */}
-        <motion.h1 
-          className="text-white text-2xl sm:text-4xl md:text-3xl lg:text-4xl font-bold leading-tight mb-6 sm:mb-8 md:mb-10"
-          variants={itemVariants}
-        >
-          USA-based expert in local business marketing
+        <motion.h1
+          className="text-white text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-8"
+          variants={itemVariants}>
+          <span className="bg-gradient-to-r from-white via-green-100 to-emerald-200 bg-clip-text text-transparent">
+            Connect With Our
+          </span>
+          <br />
+          <span className="bg-gradient-to-r from-green-300 via-emerald-400 to-teal-500 bg-clip-text text-transparent">
+            Expert Team
+          </span>
         </motion.h1>
 
+        {/* Subtitle */}
+        <motion.p
+          className="text-white/80 text-lg sm:text-xl md:text-2xl font-medium mb-8 max-w-3xl mx-auto leading-relaxed"
+          variants={itemVariants}>
+          Get instant support for verified accounts, digital services, and
+          business solutions
+        </motion.p>
+
         {/* Contact buttons */}
-        <motion.div 
-          className="flex flex-col sm:flex-row gap-4 justify-center mb-8"
-          variants={itemVariants}
-        >
-          {/* WhatsApp Button */}
-          <motion.a
-            href="https://wa.me/message/LMBKKSKH7RLRG1?src=qr"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center justify-center px-6 sm:px-8 md:px-10 py-2.5 sm:py-3 md:py-3.5 bg-green-500 hover:bg-green-600 text-white text-base sm:text-lg md:text-xl font-semibold rounded-full border-2 border-white/20 transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-2xl focus:outline-none focus:ring-4 focus:ring-white/30 active:scale-95"
-            variants={buttonVariants}
-            whileHover="hover"
-            whileTap="tap"
-          >
-            <span className="mr-2">WhatsApp Chat</span>
-            <svg
-              className="w-5 h-5 sm:w-6 sm:h-6"
-              fill="currentColor"
-              viewBox="0 0 24 24">
-              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488" />
-            </svg>
-          </motion.a>
-
-          {/* Telegram Button */}
-          <motion.a
-            href="https://t.me/pvasupply"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center justify-center px-6 sm:px-8 md:px-10 py-2.5 sm:py-3 md:py-3.5 bg-blue-500 hover:bg-blue-600 text-white text-base sm:text-lg md:text-xl font-semibold rounded-full border-2 border-white/20 transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-2xl focus:outline-none focus:ring-4 focus:ring-white/30 active:scale-95"
-            variants={buttonVariants}
-            whileHover="hover"
-            whileTap="tap"
-          >
-            <span className="mr-2">Telegram</span>
-            <svg
-              className="w-5 h-5 sm:w-6 sm:h-6"
-              fill="currentColor"
-              viewBox="0 0 24 24">
-              <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.25-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z" />
-            </svg>
-          </motion.a>
-
-          {/* Email Button */}
-          <motion.a
-            href="mailto:pvasupply0@gmail.com?subject=Service%20Inquiry&body=Hi%20PVA%20Supply%20Team,%0D%0A%0D%0AI%20would%20like%20to%20inquire%20about%20your%20services.%0D%0A%0D%0APlease%20contact%20me%20at%20your%20earliest%20convenience.%0D%0A%0D%0ABest%20regards"
-            className="inline-flex items-center justify-center px-6 sm:px-8 md:px-10 py-2.5 sm:py-3 md:py-3.5 bg-red-500 hover:bg-red-600 text-white text-base sm:text-lg md:text-xl font-semibold rounded-full border-2 border-white/20 transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-2xl focus:outline-none focus:ring-4 focus:ring-white/30 active:scale-95"
-            onClick={(e) => handleEmailClick(e, 'pvasupply0@gmail.com', 'Service Inquiry', 'Hi PVA Supply Team,\n\nI would like to inquire about your services.\n\nPlease contact me at your earliest convenience.\n\nBest regards')}
-            variants={buttonVariants}
-            whileHover="hover"
-            whileTap="tap"
-          >
-            <span className="mr-2">Email Us</span>
-            <svg
-              className="w-5 h-5 sm:w-6 sm:h-6"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24">
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-              />
-            </svg>
-          </motion.a>
-        </motion.div>
+      
 
         {/* Alternative Contact Methods */}
-        <motion.div 
-          className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 sm:p-8 border border-white/20"
-          variants={itemVariants}
-        >
-          <motion.h3 
-            className="text-white text-xl sm:text-2xl font-semibold mb-4"
-            whileHover={{ scale: 1.02, textShadow: "0 0 20px rgba(255,255,255,0.5)" }}
-            transition={{ type: "spring", stiffness: 300 }}
-          >
-            📧 Alternative Contact Methods
-          </motion.h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-white/90">
-            <motion.div 
-              className="text-center p-4 bg-white/10 rounded-xl"
-              whileHover={{ scale: 1.05, backgroundColor: "rgba(255,255,255,0.15)" }}
-              transition={{ type: "spring", stiffness: 300 }}
-            >
-              <div className="text-2xl mb-2">📱</div>
-              <div className="font-medium">Direct Email</div>
-              <div className="text-sm opacity-80">pvasupply0@gmail.com</div>
-                             <motion.button
-                 className="mt-2 px-4 py-2 bg-white/20 hover:bg-white/30 rounded-lg text-sm transition-colors"
-                 onClick={() => copyEmailToClipboard('pvasupply0@gmail.com')}
-                 whileHover={{ scale: 1.1, backgroundColor: "rgba(255,255,255,0.3)" }}
-                 whileTap={{ scale: 0.95 }}
-               >
-                 Copy Email
-               </motion.button>
-            </motion.div>
-            <motion.div 
-              className="text-center p-4 bg-white/10 rounded-xl"
-              whileHover={{ scale: 1.05, backgroundColor: "rgba(255,255,255,0.15)" }}
-              transition={{ type: "spring", stiffness: 300 }}
-            >
-              <div className="text-2xl mb-2">💬</div>
-              <div className="font-medium">Instant Chat</div>
-              <div className="text-sm opacity-80">WhatsApp & Telegram</div>
-              <div className="mt-2 text-xs opacity-70">
-                Recommended for mobile users
-              </div>
-            </motion.div>
-          </div>
-        </motion.div>
+       
       </motion.div>
 
       {/* Animated Bottom wave decoration */}
-      <motion.div 
+      <motion.div
         className="absolute bottom-0 left-0 right-0"
         variants={waveVariants}
-        animate="animate"
-      >
+        animate="animate">
         <svg
           viewBox="0 0 1200 120"
           preserveAspectRatio="none"

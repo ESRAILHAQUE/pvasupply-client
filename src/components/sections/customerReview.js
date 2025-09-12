@@ -1,18 +1,20 @@
 "use client";
 import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
+import { motion, AnimatePresence } from "framer-motion";
 import * as THREE from "three";
 import {
   ChevronLeft,
   ChevronRight,
   Star,
-  ExternalLink,
   MessageCircle,
-  Youtube,
-  Facebook,
-  Mail,
   Send,
-  MapPin,
+  Mail,
+  Quote,
+  Shield,
+  Award,
+  Users,
+  Clock,
 } from "lucide-react";
 
 const CustomerReview = () => {
@@ -22,6 +24,69 @@ const CustomerReview = () => {
   const rendererRef = useRef(null);
   const shapesRef = useRef(null);
   const animationIdRef = useRef(null);
+  const autoPlayRef = useRef(null);
+
+  // Auto-play functionality
+  useEffect(() => {
+    const startAutoPlay = () => {
+      autoPlayRef.current = setInterval(() => {
+        setCurrentReview((prev) => (prev + 1) % reviews.length);
+      }, 4000); // Change every 4 seconds
+    };
+
+    const stopAutoPlay = () => {
+      if (autoPlayRef.current) {
+        clearInterval(autoPlayRef.current);
+        autoPlayRef.current = null;
+      }
+    };
+
+    startAutoPlay();
+
+    // Cleanup on unmount
+    return () => {
+      stopAutoPlay();
+    };
+  }, []);
+
+  // Animation variants
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        duration: 0.6,
+        staggerChildren: 0.1,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: "easeOut",
+      },
+    },
+  };
+
+  const cardVariants = {
+    hidden: { opacity: 0, scale: 0.9, y: 50 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      y: 0,
+      transition: {
+        duration: 0.8,
+        ease: "easeOut",
+        type: "spring",
+        stiffness: 100,
+      },
+    },
+  };
 
   // Three.js Floating Geometric Shapes
   useEffect(() => {
@@ -41,9 +106,9 @@ const CustomerReview = () => {
     camera.position.z = 8;
 
     // Renderer setup
-    const renderer = new THREE.WebGLRenderer({ 
-      alpha: true, 
-      antialias: true 
+    const renderer = new THREE.WebGLRenderer({
+      alpha: true,
+      antialias: true,
     });
     renderer.setSize(window.innerWidth, window.innerHeight);
     renderer.setClearColor(0x000000, 0);
@@ -63,38 +128,61 @@ const CustomerReview = () => {
     ];
 
     const materials = [
-      new THREE.MeshBasicMaterial({ color: 0x3b82f6, transparent: true, opacity: 0.3 }),
-      new THREE.MeshBasicMaterial({ color: 0x10b981, transparent: true, opacity: 0.3 }),
-      new THREE.MeshBasicMaterial({ color: 0x8b5cf6, transparent: true, opacity: 0.3 }),
-      new THREE.MeshBasicMaterial({ color: 0xf59e0b, transparent: true, opacity: 0.3 }),
-      new THREE.MeshBasicMaterial({ color: 0xef4444, transparent: true, opacity: 0.3 }),
+      new THREE.MeshBasicMaterial({
+        color: 0x6b7280,
+        transparent: true,
+        opacity: 0.1,
+      }),
+      new THREE.MeshBasicMaterial({
+        color: 0x374151,
+        transparent: true,
+        opacity: 0.1,
+      }),
+      new THREE.MeshBasicMaterial({
+        color: 0x1f2937,
+        transparent: true,
+        opacity: 0.1,
+      }),
+      new THREE.MeshBasicMaterial({
+        color: 0x111827,
+        transparent: true,
+        opacity: 0.1,
+      }),
+      new THREE.MeshBasicMaterial({
+        color: 0x000000,
+        transparent: true,
+        opacity: 0.1,
+      }),
     ];
 
     // Create multiple instances of each shape
-    for (let i = 0; i < 20; i++) {
+    for (let i = 0; i < 15; i++) {
       const geometryIndex = Math.floor(Math.random() * geometries.length);
       const materialIndex = Math.floor(Math.random() * materials.length);
-      
-      const mesh = new THREE.Mesh(geometries[geometryIndex], materials[materialIndex]);
-      
+
+      const mesh = new THREE.Mesh(
+        geometries[geometryIndex],
+        materials[materialIndex]
+      );
+
       // Random position
       mesh.position.set(
         (Math.random() - 0.5) * 20,
         (Math.random() - 0.5) * 20,
         (Math.random() - 0.5) * 10
       );
-      
+
       // Random rotation
       mesh.rotation.set(
         Math.random() * Math.PI,
         Math.random() * Math.PI,
         Math.random() * Math.PI
       );
-      
+
       // Random scale
-      const scale = Math.random() * 0.5 + 0.5;
+      const scale = Math.random() * 0.3 + 0.3;
       mesh.scale.set(scale, scale, scale);
-      
+
       shapes.add(mesh);
     }
 
@@ -102,26 +190,26 @@ const CustomerReview = () => {
 
     // Add to DOM
     mountRef.current.appendChild(renderer.domElement);
-    renderer.domElement.style.position = 'absolute';
-    renderer.domElement.style.top = '0';
-    renderer.domElement.style.left = '0';
-    renderer.domElement.style.zIndex = '0';
-    renderer.domElement.style.pointerEvents = 'none';
+    renderer.domElement.style.position = "absolute";
+    renderer.domElement.style.top = "0";
+    renderer.domElement.style.left = "0";
+    renderer.domElement.style.zIndex = "0";
+    renderer.domElement.style.pointerEvents = "none";
 
     // Animation loop
     const animate = () => {
       animationIdRef.current = requestAnimationFrame(animate);
 
       if (shapesRef.current) {
-        shapesRef.current.rotation.x += 0.002;
-        shapesRef.current.rotation.y += 0.003;
-        
+        shapesRef.current.rotation.x += 0.001;
+        shapesRef.current.rotation.y += 0.002;
+
         // Float shapes in different patterns
         shapesRef.current.children.forEach((shape, index) => {
-          shape.position.y += Math.sin(Date.now() * 0.001 + index) * 0.01;
-          shape.position.x += Math.cos(Date.now() * 0.0008 + index) * 0.008;
-          shape.rotation.x += 0.01;
-          shape.rotation.z += 0.005;
+          shape.position.y += Math.sin(Date.now() * 0.0008 + index) * 0.005;
+          shape.position.x += Math.cos(Date.now() * 0.0006 + index) * 0.004;
+          shape.rotation.x += 0.005;
+          shape.rotation.z += 0.003;
         });
       }
 
@@ -137,11 +225,11 @@ const CustomerReview = () => {
       renderer.setSize(window.innerWidth, window.innerHeight);
     };
 
-    window.addEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
 
     // Cleanup
     return () => {
-      window.removeEventListener('resize', handleResize);
+      window.removeEventListener("resize", handleResize);
       if (animationIdRef.current) {
         cancelAnimationFrame(animationIdRef.current);
       }
@@ -159,19 +247,19 @@ const CustomerReview = () => {
   const socialIcons = [
     {
       name: "Telegram",
-      color: "bg-blue-500",
+      color: "bg-gradient-to-r from-gray-600 to-gray-800",
       icon: Send,
       href: "https://t.me/pvasupply",
     },
     {
       name: "WhatsApp",
-      color: "bg-green-500",
+      color: "bg-gradient-to-r from-gray-700 to-black",
       icon: MessageCircle,
       href: "https://wa.me/message/LMBKKSKH7RLRG1?src=qr",
     },
     {
       name: "Email",
-      color: "bg-blue-600",
+      color: "bg-gradient-to-r from-gray-800 to-gray-600",
       icon: Mail,
       href: "mailto:pvasupply0@gmail.com",
     },
@@ -181,13 +269,15 @@ const CustomerReview = () => {
   const reviews = [
     {
       id: 1,
-      name: "Mila Kunis",
+      name: "Jane Doe",
       avatar: "https://randomuser.me/api/portraits/women/44.jpg",
-      rating: 5,
+      rating: 4,
       review:
-        "Have been using premiumgps for more than a year. It's the most reliable and easy-to-use place to buy social media accounts ever. Always get fast and professional consultation.",
+        "I absolutely love this product! It works so well. I love that it. I'm super impressed with the quality for the price! And the delivery was real quick! Thank you so much",
       date: "2 weeks ago",
       verified: true,
+      location: "New York, USA",
+      role: "Frequent Member",
     },
     {
       id: 2,
@@ -195,9 +285,11 @@ const CustomerReview = () => {
       avatar: "https://randomuser.me/api/portraits/men/32.jpg",
       rating: 5,
       review:
-        "Great site premiumgps, used several times, simple and user friendly interface, prices are reasonable. I bought accounts, everything works well, they are filled with high quality.",
+        "Great site PVA Supply, used several times, simple and user friendly interface, prices are reasonable. I bought accounts, everything works well, they are filled with high quality.",
       date: "1 week ago",
       verified: true,
+      location: "London, UK",
+      role: "Verified Buyer",
     },
     {
       id: 3,
@@ -208,6 +300,32 @@ const CustomerReview = () => {
         "Excellent service and support! The team is very responsive and professional. I've been using their services for months and never had any issues.",
       date: "3 days ago",
       verified: true,
+      location: "Toronto, Canada",
+      role: "Premium Member",
+    },
+    {
+      id: 4,
+      name: "David Chen",
+      avatar: "https://randomuser.me/api/portraits/men/45.jpg",
+      rating: 5,
+      review:
+        "Outstanding quality accounts! Fast delivery and excellent customer support. PVA Supply has become my go-to platform for all verified accounts.",
+      date: "5 days ago",
+      verified: true,
+      location: "Sydney, Australia",
+      role: "Business Customer",
+    },
+    {
+      id: 5,
+      name: "Emily Rodriguez",
+      avatar: "https://randomuser.me/api/portraits/women/25.jpg",
+      rating: 5,
+      review:
+        "Amazing experience! The accounts are exactly as described and the customer service is top-notch. Highly recommend PVA Supply to anyone looking for verified accounts.",
+      date: "1 week ago",
+      verified: true,
+      location: "Los Angeles, USA",
+      role: "VIP Member",
     },
   ];
 
@@ -223,7 +341,7 @@ const CustomerReview = () => {
     return [...Array(5)].map((_, i) => (
       <Star
         key={i}
-        className={`w-4 h-4 ${
+        className={`w-5 h-5 ${
           i < rating ? "fill-yellow-400 text-yellow-400" : "text-gray-300"
         }`}
       />
@@ -231,190 +349,186 @@ const CustomerReview = () => {
   };
 
   return (
-    <div className="bg-gray-50 py-16 px-4 relative overflow-hidden">
+    <motion.div
+      className="relative w-full bg-gradient-to-br from-gray-50 via-white to-gray-100 py-20 px-4 sm:px-6 lg:px-8 overflow-hidden"
+      initial={{
+        opacity: 0,
+        x: 200,
+        scale: 0.9,
+        rotateY: 15,
+      }}
+      whileInView={{
+        opacity: 1,
+        x: 0,
+        scale: 1,
+        rotateY: 0,
+      }}
+      viewport={{ once: true, amount: 0.1 }}
+      transition={{
+        duration: 1.5,
+        ease: "easeOut",
+        type: "spring",
+        stiffness: 60,
+        damping: 25,
+      }}>
       {/* Three.js Floating Shapes Background */}
       <div ref={mountRef} className="absolute inset-0" />
-      
-      <div className="max-w-6xl mx-auto relative z-10">
-        {/* Social Media Icons */}
-        <div className="flex justify-center items-center gap-4 mb-12">
-          {socialIcons.map((social, index) => {
-            const IconComponent = social.icon;
-            return (
-              <a
-                key={index}
-                href={social.href}
-                target={
-                  social.href.startsWith("http") ||
-                  social.href.startsWith("mailto:")
-                    ? "_blank"
-                    : undefined
-                }
-                rel={
-                  social.href.startsWith("http")
-                    ? "noopener noreferrer"
-                    : undefined
-                }
-                className={`w-12 h-12 ${social.color} rounded-full flex items-center justify-center text-white cursor-pointer hover:scale-110 transition-transform duration-200 shadow-lg`}
-                title={social.name}>
-                <IconComponent className="w-6 h-6" />
-              </a>
-            );
-          })}
-        </div>
 
-        {/* Main Content Grid */}
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Left Side - Reviews */}
-          <div className="space-y-8">
-            <div className="text-center lg:text-left">
-              <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-                Customer Reviews
-              </h2>
-              <p className="text-gray-600 text-lg">
-                See what our satisfied customers have to say about our services
-              </p>
+      <motion.div
+        className="max-w-7xl mx-auto relative z-10"
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}>
+        {/* Header Section */}
+        <motion.div className="text-center mb-16" variants={itemVariants}>
+          <motion.h2
+            className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-8"
+            whileHover={{ scale: 1.02 }}
+            transition={{ type: "spring", stiffness: 300 }}>
+            <span className="bg-gradient-to-r from-gray-700 via-gray-900 to-black bg-clip-text text-transparent">
+              Customer Reviews
+            </span>
+
+          </motion.h2>
+
+          <motion.p
+            className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed"
+            whileHover={{ scale: 1.01 }}
+            transition={{ type: "spring", stiffness: 300 }}>
+            Discover why thousands of customers trust PVA Supply for their
+            verified account needs
+          </motion.p>
+        </motion.div>
+
+        {/* Reviews Carousel Section */}
+        <motion.div className="max-w-4xl mx-auto" variants={itemVariants}>
+          {/* Review Card */}
+          <motion.div
+            className="bg-white rounded-3xl p-10 shadow-2xl border border-gray-200 relative overflow-hidden"
+            variants={cardVariants}
+            whileHover={{
+              y: -5,
+              scale: 1.01,
+              boxShadow: "0 30px 60px rgba(0,0,0,0.1)",
+              transition: { type: "spring", stiffness: 300 },
+            }}>
+            {/* Quote Icon */}
+            <motion.div
+              className="absolute top-6 left-6 w-10 h-10 bg-black rounded-full flex items-center justify-center"
+              whileHover={{ rotate: 360 }}
+              transition={{ duration: 0.6 }}>
+              <Quote className="w-5 h-5 text-white" />
+            </motion.div>
+
+            {/* Stars */}
+            <div className="flex gap-1 mb-8 justify-center">
+              {renderStars(reviews[currentReview].rating)}
             </div>
 
-            {/* Review Card */}
-            <div className="bg-white rounded-2xl p-8 shadow-xl border border-gray-100 relative overflow-hidden">
-              <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-blue-500 to-purple-600 opacity-10 rounded-bl-full"></div>
-
-              {/* Stars */}
-              <div className="flex gap-1 mb-4">
-                {renderStars(reviews[currentReview].rating)}
-              </div>
-
-              {/* Review Text */}
-              <p className="text-gray-700 text-lg leading-relaxed mb-6 min-h-[120px]">
+            {/* Review Text */}
+            <AnimatePresence mode="wait">
+              <motion.p
+                key={currentReview}
+                className="text-gray-800 text-xl leading-relaxed  min-h-[120px] text-center italic font-medium"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.6 }}>
                 &ldquo;{reviews[currentReview].review}&rdquo;
-              </p>
+              </motion.p>
+            </AnimatePresence>
 
-              {/* Reviewer Info */}
-              <div className="flex items-center justify-between">
-                <div className="flex items-center gap-3">
-                  <Image
-                    src={reviews[currentReview].avatar}
-                    alt={reviews[currentReview].name}
-                    width={48}
-                    height={48}
-                    className="w-12 h-12 rounded-full object-cover border-2 border-gray-200"
-                  />
-                  <div>
-                    <h4 className="font-semibold text-gray-900 flex items-center gap-2">
-                      {reviews[currentReview].name}
-                      {reviews[currentReview].verified && (
-                        <span className="bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full">
-                          Verified
-                        </span>
-                      )}
-                    </h4>
-                    <p className="text-gray-500 text-sm">
-                      {reviews[currentReview].date}
-                    </p>
-                  </div>
-                </div>
+            {/* Reviewer Info */}
+            <div className="flex flex-col items-center text-center">
+              <motion.div
+                className=""
+                whileHover={{ scale: 1.05 }}
+                transition={{ type: "spring", stiffness: 400 }}>
+                <Image
+                  src={reviews[currentReview].avatar}
+                  alt={reviews[currentReview].name}
+                  width={80}
+                  height={80}
+                  className="w-20 h-20 rounded-full object-cover border-4 border-gray-200 shadow-lg"
+                />
+              </motion.div>
 
-                {/* Navigation */}
-                <div className="flex gap-2">
-                  <button
-                    onClick={prevReview}
-                    className="p-2 rounded-full bg-gray-100 hover:bg-gray-200 transition-colors duration-200"
-                    aria-label="Previous review">
-                    <ChevronLeft className="w-5 h-5 text-gray-600" />
-                  </button>
-                  <button
-                    onClick={nextReview}
-                    className="p-2 rounded-full bg-gray-100 hover:bg-gray-200 transition-colors duration-200"
-                    aria-label="Next review">
-                    <ChevronRight className="w-5 h-5 text-gray-600" />
-                  </button>
-                </div>
-              </div>
+              <AnimatePresence mode="wait">
+                <motion.h4
+                  key={`name-${currentReview}`}
+                  className="font-bold text-gray-900 text-xl mb-2"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.5 }}>
+                  {reviews[currentReview].name.toUpperCase()}
+                </motion.h4>
+              </AnimatePresence>
 
-              {/* Review Indicators */}
-              <div className="flex justify-center gap-2 mt-6">
-                {reviews.map((_, index) => (
-                  <button
-                    key={index}
-                    onClick={() => setCurrentReview(index)}
-                    className={`w-2 h-2 rounded-full transition-colors duration-200 ${
-                      index === currentReview ? "bg-blue-600" : "bg-gray-300"
-                    }`}
-                  />
-                ))}
-              </div>
+              <AnimatePresence mode="wait">
+                <motion.p
+                  key={`role-${currentReview}`}
+                  className="text-gray-500 text-sm mb-1"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.5, delay: 0.1 }}>
+                  {reviews[currentReview].role}
+                </motion.p>
+              </AnimatePresence>
+
+              {reviews[currentReview].verified && (
+                <motion.span
+                  className="bg-gradient-to-r from-green-100 to-green-200 text-green-800 text-xs px-3 py-1 rounded-full font-semibold mt-2"
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ type: "spring", stiffness: 400 }}>
+                  <Shield className="w-3 h-3 inline mr-1" />
+                  Verified
+                </motion.span>
+              )}
             </div>
-          </div>
 
-          {/* Right Side - Promotional Banner */}
-          <div className="relative">
-            <div
-              className="bg-gradient-to-br from-orange-500 via-red-500 to-pink-500 rounded-2xl p-8 text-white shadow-2xl overflow-hidden relative"
-              style={{
-                backgroundImage:
-                  'url("https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=600&h=400&fit=crop&crop=center")',
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-              }}>
-              <div className="absolute inset-0 bg-gradient-to-br from-orange-500/90 via-red-500/90 to-pink-500/90"></div>
-
-              <div className="relative z-10">
-                <h3 className="text-3xl font-bold mb-2">Deal Of The Day</h3>
-                <p className="text-4xl font-extrabold mb-4">
-                  15% Off On All Orders!
-                </p>
-
-                <p className="text-white/90 mb-2">
-                  Use coupon &apos;OFF15&apos; to get 15% instant
-                </p>
-                <p className="text-white/90 mb-6">off on your all order</p>
-
-                <div className="flex flex-col sm:flex-row gap-3">
-                  <a
-                    href="https://wa.me/message/LMBKKSKH7RLRG1?src=qr"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-8 rounded-lg transition-colors duration-200 flex items-center gap-2 group">
-                    Shop Now
-                    <ExternalLink className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" />
-                  </a>
-
-                  <a
-                    href="https://t.me/pvasupply"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-8 rounded-lg transition-colors duration-200 flex items-center gap-2 group">
-                    Contact
-                    <ExternalLink className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" />
-                  </a>
-                </div>
-              </div>
-
-              {/* Decorative elements */}
-              <div className="absolute top-4 right-4 w-16 h-16 bg-white/10 rounded-full"></div>
-              <div className="absolute bottom-4 left-4 w-8 h-8 bg-white/10 rounded-full"></div>
+            {/* Navigation */}
+            <div className="flex justify-center gap-4 mt-8">
+              <motion.button
+                onClick={prevReview}
+                className="p-3 rounded-full bg-gray-100 hover:bg-gray-200 transition-all duration-300 shadow-lg hover:shadow-xl"
+                aria-label="Previous review"
+                whileHover={{ scale: 1.1, y: -2 }}
+                whileTap={{ scale: 0.95 }}>
+                <ChevronLeft className="w-5 h-5 text-gray-700" />
+              </motion.button>
+              <motion.button
+                onClick={nextReview}
+                className="p-3 rounded-full bg-gray-100 hover:bg-gray-200 transition-all duration-300 shadow-lg hover:shadow-xl"
+                aria-label="Next review"
+                whileHover={{ scale: 1.1, y: -2 }}
+                whileTap={{ scale: 0.95 }}>
+                <ChevronRight className="w-5 h-5 text-gray-700" />
+              </motion.button>
             </div>
-          </div>
-        </div>
 
-        {/* Bottom Stats */}
-        <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-          <div className="bg-white rounded-xl p-6 shadow-lg">
-            <div className="text-3xl font-bold text-blue-600 mb-2">1000+</div>
-            <div className="text-gray-600">Happy Customers</div>
-          </div>
-          <div className="bg-white rounded-xl p-6 shadow-lg">
-            <div className="text-3xl font-bold text-green-600 mb-2">4.9</div>
-            <div className="text-gray-600">Average Rating</div>
-          </div>
-          <div className="bg-white rounded-xl p-6 shadow-lg">
-            <div className="text-3xl font-bold text-purple-600 mb-2">24/7</div>
-            <div className="text-gray-600">Customer Support</div>
-          </div>
-        </div>
-      </div>
-    </div>
+            {/* Review Indicators */}
+            <div className="flex justify-center gap-3 mt-6">
+              {reviews.map((_, index) => (
+                <motion.button
+                  key={index}
+                  onClick={() => setCurrentReview(index)}
+                  className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                    index === currentReview
+                      ? "bg-black shadow-lg"
+                      : "bg-gray-300 hover:bg-gray-400"
+                  }`}
+                  whileHover={{ scale: 1.2 }}
+                  whileTap={{ scale: 0.9 }}
+                />
+              ))}
+            </div>
+          </motion.div>
+        </motion.div>
+      </motion.div>
+    </motion.div>
   );
 };
 

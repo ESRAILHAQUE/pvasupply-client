@@ -7,7 +7,7 @@ const product = {
     "Buy verified Skrill accounts. ID verified, secure, and ready to use.",
   slug: "buy-verified-skrill-accounts",
   image: "/images/All Product/Buy Verified Skrill Accounts.png",
-  price: undefined,
+  price: "90.00",
   category: "Payment Accounts",
 };
 

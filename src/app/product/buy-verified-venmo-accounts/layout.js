@@ -7,7 +7,7 @@ const product = {
     "Buy verified Venmo accounts. Phone/ID verified, secure, and ready.",
   slug: "buy-verified-venmo-accounts",
   image: "/images/All Product/Buy Verified Venmo Accounts.png",
-  price: undefined,
+  price: "120.00",
   category: "Payment Accounts",
 };
 

@@ -7,7 +7,7 @@ const product = {
     "KYC‑verified Binance accounts for instant trading access. Secure and ready to use.",
   slug: "buy-verified-binance-accounts",
   image: "/images/All Product/Buy KYC Verified Binance Accounts.png",
-  price: undefined,
+  price: "200.00",
   category: "Crypto Accounts",
 };
 

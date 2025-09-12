@@ -7,7 +7,7 @@ const product = {
     "Buy verified Bybit account. KYC verified, secure, and ready to trade.",
   slug: "buy-verified-bybit-accounts",
   image: "/images/All Product/Buy Verified Bybit Account.png",
-  price: undefined,
+  price: "170.00",
   category: "Crypto Accounts",
 };
 

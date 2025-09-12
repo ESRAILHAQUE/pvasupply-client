@@ -17,7 +17,7 @@ export default function RealDocuments() {
   const itemVariants = {
     hidden: {
       opacity: 0,
-      x: -100,
+      x: 100,
       scale: 0.9,
     },
     visible: {

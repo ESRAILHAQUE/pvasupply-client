@@ -7,7 +7,7 @@ const product = {
     "Verified Coinbase accounts with KYC. Trusted access for secure crypto trading.",
   slug: "buy-verified-coinbase-accounts",
   image: "/images/All Product/Buy Verified Coinbase Account.png",
-  price: undefined,
+  price: "180.00",
   category: "Crypto Accounts",
 };
 

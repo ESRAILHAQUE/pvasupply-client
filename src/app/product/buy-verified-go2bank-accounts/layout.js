@@ -7,7 +7,7 @@ const product = {
     "Buy verified Go2Bank accounts. Secure, verified, and ready to use.",
   slug: "buy-verified-go2bank-accounts",
   image: "/images/All Product/Buy Verified Go2Bank Accounts.png",
-  price: undefined,
+  price: "50.00",
   category: "Bank Accounts",
 };
 

@@ -7,7 +7,7 @@ const product = {
     "Buy Google Voice accounts with real phone verification and aged options. Instant delivery and safe checkout.",
   slug: "buy-google-voice-accounts",
   image: "/images/All Product/Buy Google Voice Accounts.png",
-  price: "15.00",
+  price: "6.00",
   category: "Social Accounts",
 };
 

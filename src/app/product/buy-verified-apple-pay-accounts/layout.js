@@ -7,7 +7,7 @@ const product = {
     "Buy verified Apple Pay account. KYC-ready, secure, and ready to use.",
   slug: "buy-verified-apple-pay-accounts",
   image: "/images/All Product/Buy Verified Apple Pay Account.png",
-  price: undefined,
+  price: "370.00",
   category: "Payment Accounts",
 };
 

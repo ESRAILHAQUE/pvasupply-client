@@ -7,7 +7,7 @@ const product = {
     "Buy verified Chime bank accounts. Secure, verified, and ready to use.",
   slug: "buy-verified-chime-bank-accounts",
   image: "/images/All Product/Buy Verified Chime Bank Accounts.png",
-  price: undefined,
+  price: "100.00",
   category: "Bank Accounts",
 };
 

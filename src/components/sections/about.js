@@ -80,7 +80,26 @@ const About = () => {
   };
 
   return (
-    <div className="bg-gray-50 py-16 px-4 sm:px-6 lg:px-8 overflow-hidden">
+    <motion.div 
+      className="bg-gray-50 py-16 px-4 sm:px-6 lg:px-8 overflow-hidden"
+      initial={{
+        opacity: 0,
+        x: -100,
+        scale: 0.95,
+      }}
+      whileInView={{
+        opacity: 1,
+        x: 0,
+        scale: 1,
+      }}
+      viewport={{ once: true, amount: 0.3 }}
+      transition={{
+        duration: 1.0,
+        ease: "easeOut",
+        type: "spring",
+        stiffness: 100,
+        damping: 15,
+      }}>
       <motion.div
         className="max-w-7xl mx-auto"
         variants={containerVariants}
@@ -255,7 +274,7 @@ const About = () => {
           </motion.div>
         </div>
       </motion.div>
-    </div>
+    </motion.div>
   );
 };
 

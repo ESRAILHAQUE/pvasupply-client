@@ -7,7 +7,7 @@ const product = {
     "Buy verified Payoneer accounts. ID verified, secure, and ready to use.",
   slug: "buy-verified-payoneer-accounts",
   image: "/images/All Product/Buy Verified Payoneer Accounts.png",
-  price: undefined,
+  price: "120.00",
   category: "Payment Accounts",
 };
 

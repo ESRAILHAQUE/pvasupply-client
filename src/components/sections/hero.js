@@ -224,21 +224,21 @@ export default function Hero() {
       className="w-full bg-[#FAFCFC] py-8 md:py-16 lg:py-20 overflow-hidden relative"
       initial={{
         opacity: 0,
-        y: 100,
+        x: -100,
         scale: 0.9,
       }}
       whileInView={{
         opacity: 1,
-        y: 0,
+        x: 0,
         scale: 1,
       }}
       viewport={{ once: true, amount: 0.3 }}
       transition={{
-        duration: 1.5,
-        ease: [0.68, -0.55, 0.265, 1.55], // Bounce easing
+        duration: 1.2,
+        ease: "easeOut",
         type: "spring",
-        stiffness: 80,
-        damping: 10,
+        stiffness: 100,
+        damping: 15,
       }}>
       {/* Three.js Particle Background */}
       <div ref={mountRef} className="absolute inset-0" />

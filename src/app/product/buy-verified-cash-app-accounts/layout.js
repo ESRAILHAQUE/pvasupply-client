@@ -7,7 +7,7 @@ const product = {
     "Buy verified Cash App accounts. Phone/ID verified, secure, and ready.",
   slug: "buy-verified-cash-app-accounts",
   image: "/images/All Product/Buy Verified Cash App Accounts.png",
-  price: undefined,
+  price: "160.00",
   category: "Payment Accounts",
 };
 

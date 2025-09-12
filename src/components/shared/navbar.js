@@ -166,28 +166,31 @@ export default function Navbar() {
           <div className="font-medium tracking-wide">
             Welcome To pvasupply.com
           </div>
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-2 sm:gap-4">
             <a
               href="https://wa.me/19796330236"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-1 hover:text-green-400 transition-colors">
+              className="flex items-center gap-1 hover:text-green-400 transition-colors"
+              title="WhatsApp: +1 (979) 633-0236">
               <MessageCircle className="w-4 h-4" />
-              <span>+1 (979) 633-0236</span>
+              <span className="hidden sm:inline">+1 (979) 633-0236</span>
             </a>
             <a
               href="https://t.me/pvasupply"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-1 hover:text-blue-400 transition-colors">
+              className="flex items-center gap-1 hover:text-blue-400 transition-colors"
+              title="Telegram: @pvasupply">
               <Send className="w-4 h-4" />
-              <span>@pvasupply</span>
+              <span className="hidden sm:inline">@pvasupply</span>
             </a>
             <a
               href="mailto:pvasupply0@gmail.com"
-              className="flex items-center gap-1 hover:text-red-400 transition-colors">
+              className="flex items-center gap-1 hover:text-red-400 transition-colors"
+              title="Email: pvasupply0@gmail.com">
               <Mail className="w-4 h-4" />
-              <span>pvasupply0@gmail.com</span>
+              <span className="hidden sm:inline">pvasupply0@gmail.com</span>
             </a>
           </div>
         </div>

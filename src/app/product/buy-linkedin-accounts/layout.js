@@ -7,7 +7,7 @@ const product = {
     "Buy LinkedIn accounts (PVA). Phone-verified, ready for marketing and outreach. Instant delivery.",
   slug: "buy-linkedin-accounts",
   image: "/images/All Product/Buy LinkedIn Accounts.png",
-  price: undefined,
+  price: "30.00",
   category: "Social Accounts",
 };
 

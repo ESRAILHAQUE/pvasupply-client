@@ -7,7 +7,7 @@ const product = {
     "Verified Wise accounts for global payments. Secure setup and quick delivery.",
   slug: "buy-verified-wise-accounts",
   image: "/images/All Product/Buy Verified Wise Accounts.png",
-  price: undefined,
+  price: "200.00",
   category: "Payment Accounts",
 };
 
