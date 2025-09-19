@@ -31,7 +31,8 @@ const CustomerReview = () => {
     {
       id: 1,
       name: "Jane Doe",
-      avatar: "https://randomuser.me/api/portraits/women/44.jpg",
+      avatar:
+        "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&h=150&fit=crop&crop=face",
       rating: 4,
       review:
         "I absolutely love this product! It works so well. I love that it. I'm super impressed with the quality for the price! And the delivery was real quick! Thank you so much",
@@ -43,7 +44,8 @@ const CustomerReview = () => {
     {
       id: 2,
       name: "Mike Sendler",
-      avatar: "https://randomuser.me/api/portraits/men/32.jpg",
+      avatar:
+        "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop&crop=face",
       rating: 5,
       review:
         "Great site PVA Supply, used several times, simple and user friendly interface, prices are reasonable. I bought accounts, everything works well, they are filled with high quality.",
@@ -55,7 +57,8 @@ const CustomerReview = () => {
     {
       id: 3,
       name: "Sarah Johnson",
-      avatar: "https://randomuser.me/api/portraits/women/68.jpg",
+      avatar:
+        "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=150&h=150&fit=crop&crop=face",
       rating: 5,
       review:
         "Excellent service and support! The team is very responsive and professional. I've been using their services for months and never had any issues.",
@@ -67,7 +70,8 @@ const CustomerReview = () => {
     {
       id: 4,
       name: "David Chen",
-      avatar: "https://randomuser.me/api/portraits/men/45.jpg",
+      avatar:
+        "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face",
       rating: 5,
       review:
         "Outstanding quality accounts! Fast delivery and excellent customer support. PVA Supply has become my go-to platform for all verified accounts.",
@@ -79,7 +83,8 @@ const CustomerReview = () => {
     {
       id: 5,
       name: "Emily Rodriguez",
-      avatar: "https://randomuser.me/api/portraits/women/25.jpg",
+      avatar:
+        "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face",
       rating: 5,
       review:
         "Amazing experience! The accounts are exactly as described and the customer service is top-notch. Highly recommend PVA Supply to anyone looking for verified accounts.",
@@ -453,6 +458,12 @@ const CustomerReview = () => {
                     width={80}
                     height={80}
                     className="w-20 h-20 rounded-full object-cover border-4 border-gray-200 shadow-lg"
+                    onError={(e) => {
+                      e.target.src =
+                        "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODAiIGhlaWdodD0iODAiIHZpZXdCb3g9IjAgMCA4MCA4MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iNDAiIGN5PSI0MCIgcj0iNDAiIGZpbGw9IiNGM0Y0RjYiLz4KPGNpcmNsZSBjeD0iNDAiIGN5PSIzMiIgcj0iMTIiIGZpbGw9IiM5Q0EzQUYiLz4KPHBhdGggZD0iTTIwIDY0QzIwIDU2LjI2ODcgMjYuMjY4NyA1MCAzNCA1MEg0NkM1My43MzEzIDUwIDYwIDU2LjI2ODcgNjAgNjRWNjRIMjBaIiBmaWxsPSIjOUNBM0FGIi8+Cjwvc3ZnPgo=";
+                    }}
+                    placeholder="blur"
+                    blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCdABmX/9k="
                   />
                 </motion.div>
 

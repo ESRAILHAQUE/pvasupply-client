@@ -10,7 +10,12 @@ const nextConfig = {
         protocol: "https",
         hostname: "randomuser.me",
       },
+      {
+        protocol: "https",
+        hostname: "api.randomuser.me",
+      },
     ],
+    unoptimized: true, // For better deployment compatibility
   },
 };
 
