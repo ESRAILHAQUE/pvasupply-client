@@ -138,7 +138,7 @@ const CustomerReview = () => {
   };
 
   const cardVariants = {
-    hidden: { opacity: 0, scale: 0.9, y: 50 },
+    hidden: { opacity: 0, scale: 0.95, y: 30 },
     visible: {
       opacity: 1,
       scale: 1,
@@ -349,185 +349,189 @@ const CustomerReview = () => {
   };
 
   return (
-    <motion.div
-      className="relative w-full bg-gradient-to-br from-gray-50 via-white to-gray-100 py-20 px-4 sm:px-6 lg:px-8 overflow-hidden"
-      initial={{
-        opacity: 0,
-        x: 200,
-        scale: 0.9,
-        rotateY: 15,
-      }}
-      whileInView={{
-        opacity: 1,
-        x: 0,
-        scale: 1,
-        rotateY: 0,
-      }}
-      viewport={{ once: true, amount: 0.1 }}
-      transition={{
-        duration: 1.5,
-        ease: "easeOut",
-        type: "spring",
-        stiffness: 60,
-        damping: 25,
-      }}>
-      {/* Three.js Floating Shapes Background */}
-      <div ref={mountRef} className="absolute inset-0" />
-
+    <div className="w-full overflow-hidden">
       <motion.div
-        className="max-w-7xl mx-auto relative z-10"
-        variants={containerVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.2 }}>
-        {/* Header Section */}
-        <motion.div className="text-center mb-16" variants={itemVariants}>
-          <motion.h2
-            className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-8"
-            whileHover={{ scale: 1.02 }}
-            transition={{ type: "spring", stiffness: 300 }}>
-            <span className="bg-gradient-to-r from-gray-700 via-gray-900 to-black bg-clip-text text-transparent">
-              Customer Reviews
-            </span>
-          </motion.h2>
+        className="relative w-full bg-gradient-to-br from-gray-50 via-white to-gray-100 py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 overflow-hidden max-w-full"
+        initial={{
+          opacity: 0,
+          x: 50,
+          scale: 0.95,
+          rotateY: 5,
+        }}
+        whileInView={{
+          opacity: 1,
+          x: 0,
+          scale: 1,
+          rotateY: 0,
+        }}
+        viewport={{ once: true, amount: 0.1 }}
+        transition={{
+          duration: 1.5,
+          ease: "easeOut",
+          type: "spring",
+          stiffness: 60,
+          damping: 25,
+        }}>
+        {/* Three.js Floating Shapes Background */}
+        <div ref={mountRef} className="absolute inset-0" />
 
-          <motion.p
-            className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed"
-            whileHover={{ scale: 1.01 }}
-            transition={{ type: "spring", stiffness: 300 }}>
-            Discover why thousands of customers trust PVA Supply for their
-            verified account needs
-          </motion.p>
-        </motion.div>
+        <motion.div
+          className="max-w-7xl mx-auto relative z-10 w-full"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}>
+          {/* Header Section */}
+          <motion.div className="text-center mb-16" variants={itemVariants}>
+            <motion.h2
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 sm:mb-8"
+              whileHover={{ scale: 1.02 }}
+              transition={{ type: "spring", stiffness: 300 }}>
+              <span className="bg-gradient-to-r from-gray-700 via-gray-900 to-black bg-clip-text text-transparent">
+                Customer Reviews
+              </span>
+            </motion.h2>
 
-        {/* Reviews Carousel Section */}
-        <motion.div className="max-w-4xl mx-auto" variants={itemVariants}>
-          {/* Review Card */}
+            <motion.p
+              className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed px-4"
+              whileHover={{ scale: 1.01 }}
+              transition={{ type: "spring", stiffness: 300 }}>
+              Discover why thousands of customers trust PVA Supply for their
+              verified account needs
+            </motion.p>
+          </motion.div>
+
+          {/* Reviews Carousel Section */}
           <motion.div
-            className="bg-white rounded-3xl p-10 shadow-2xl border border-gray-200 relative overflow-hidden"
-            variants={cardVariants}
-            whileHover={{
-              y: -5,
-              scale: 1.01,
-              boxShadow: "0 30px 60px rgba(0,0,0,0.1)",
-              transition: { type: "spring", stiffness: 300 },
-            }}>
-            {/* Quote Icon */}
+            className="max-w-4xl mx-auto w-full px-4"
+            variants={itemVariants}>
+            {/* Review Card */}
             <motion.div
-              className="absolute top-6 left-6 w-10 h-10 bg-black rounded-full flex items-center justify-center"
-              whileHover={{ rotate: 360 }}
-              transition={{ duration: 0.6 }}>
-              <Quote className="w-5 h-5 text-white" />
-            </motion.div>
-
-            {/* Stars */}
-            <div className="flex gap-1 mb-8 justify-center">
-              {renderStars(reviews[currentReview].rating)}
-            </div>
-
-            {/* Review Text */}
-            <AnimatePresence mode="wait">
-              <motion.p
-                key={currentReview}
-                className="text-gray-800 text-xl leading-relaxed  min-h-[120px] text-center italic font-medium"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -20 }}
-                transition={{ duration: 0.6 }}>
-                &ldquo;{reviews[currentReview].review}&rdquo;
-              </motion.p>
-            </AnimatePresence>
-
-            {/* Reviewer Info */}
-            <div className="flex flex-col items-center text-center">
+              className="bg-white rounded-2xl sm:rounded-3xl p-6 sm:p-8 lg:p-10 shadow-2xl border border-gray-200 relative overflow-hidden"
+              variants={cardVariants}
+              whileHover={{
+                y: -2,
+                scale: 1.005,
+                boxShadow: "0 20px 40px rgba(0,0,0,0.1)",
+                transition: { type: "spring", stiffness: 300 },
+              }}>
+              {/* Quote Icon */}
               <motion.div
-                className=""
-                whileHover={{ scale: 1.05 }}
-                transition={{ type: "spring", stiffness: 400 }}>
-                <Image
-                  src={reviews[currentReview].avatar}
-                  alt={reviews[currentReview].name}
-                  width={80}
-                  height={80}
-                  className="w-20 h-20 rounded-full object-cover border-4 border-gray-200 shadow-lg"
-                />
+                className="absolute top-6 left-6 w-10 h-10 bg-black rounded-full flex items-center justify-center"
+                whileHover={{ rotate: 360 }}
+                transition={{ duration: 0.6 }}>
+                <Quote className="w-5 h-5 text-white" />
               </motion.div>
 
-              <AnimatePresence mode="wait">
-                <motion.h4
-                  key={`name-${currentReview}`}
-                  className="font-bold text-gray-900 text-xl mb-2"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  transition={{ duration: 0.5 }}>
-                  {reviews[currentReview].name.toUpperCase()}
-                </motion.h4>
-              </AnimatePresence>
+              {/* Stars */}
+              <div className="flex gap-1 mb-8 justify-center">
+                {renderStars(reviews[currentReview].rating)}
+              </div>
 
+              {/* Review Text */}
               <AnimatePresence mode="wait">
                 <motion.p
-                  key={`role-${currentReview}`}
-                  className="text-gray-500 text-sm mb-1"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  transition={{ duration: 0.5, delay: 0.1 }}>
-                  {reviews[currentReview].role}
+                  key={currentReview}
+                  className="text-gray-800 text-lg sm:text-xl leading-relaxed min-h-[100px] sm:min-h-[120px] text-center italic font-medium px-2"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -20 }}
+                  transition={{ duration: 0.6 }}>
+                  &ldquo;{reviews[currentReview].review}&rdquo;
                 </motion.p>
               </AnimatePresence>
 
-              {reviews[currentReview].verified && (
-                <motion.span
-                  className="bg-gradient-to-r from-green-100 to-green-200 text-green-800 text-xs px-3 py-1 rounded-full font-semibold mt-2"
+              {/* Reviewer Info */}
+              <div className="flex flex-col items-center text-center">
+                <motion.div
+                  className=""
                   whileHover={{ scale: 1.05 }}
                   transition={{ type: "spring", stiffness: 400 }}>
-                  <Shield className="w-3 h-3 inline mr-1" />
-                  Verified
-                </motion.span>
-              )}
-            </div>
+                  <Image
+                    src={reviews[currentReview].avatar}
+                    alt={reviews[currentReview].name}
+                    width={80}
+                    height={80}
+                    className="w-20 h-20 rounded-full object-cover border-4 border-gray-200 shadow-lg"
+                  />
+                </motion.div>
 
-            {/* Navigation */}
-            <div className="flex justify-center gap-4 mt-8">
-              <motion.button
-                onClick={prevReview}
-                className="p-3 rounded-full bg-gray-100 hover:bg-gray-200 transition-all duration-300 shadow-lg hover:shadow-xl"
-                aria-label="Previous review"
-                whileHover={{ scale: 1.1, y: -2 }}
-                whileTap={{ scale: 0.95 }}>
-                <ChevronLeft className="w-5 h-5 text-gray-700" />
-              </motion.button>
-              <motion.button
-                onClick={nextReview}
-                className="p-3 rounded-full bg-gray-100 hover:bg-gray-200 transition-all duration-300 shadow-lg hover:shadow-xl"
-                aria-label="Next review"
-                whileHover={{ scale: 1.1, y: -2 }}
-                whileTap={{ scale: 0.95 }}>
-                <ChevronRight className="w-5 h-5 text-gray-700" />
-              </motion.button>
-            </div>
+                <AnimatePresence mode="wait">
+                  <motion.h4
+                    key={`name-${currentReview}`}
+                    className="font-bold text-gray-900 text-lg sm:text-xl mb-2"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.5 }}>
+                    {reviews[currentReview].name.toUpperCase()}
+                  </motion.h4>
+                </AnimatePresence>
 
-            {/* Review Indicators */}
-            <div className="flex justify-center gap-3 mt-6">
-              {reviews.map((_, index) => (
+                <AnimatePresence mode="wait">
+                  <motion.p
+                    key={`role-${currentReview}`}
+                    className="text-gray-500 text-sm mb-1"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.5, delay: 0.1 }}>
+                    {reviews[currentReview].role}
+                  </motion.p>
+                </AnimatePresence>
+
+                {reviews[currentReview].verified && (
+                  <motion.span
+                    className="bg-gradient-to-r from-green-100 to-green-200 text-green-800 text-xs px-3 py-1 rounded-full font-semibold mt-2"
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ type: "spring", stiffness: 400 }}>
+                    <Shield className="w-3 h-3 inline mr-1" />
+                    Verified
+                  </motion.span>
+                )}
+              </div>
+
+              {/* Navigation */}
+              <div className="flex justify-center gap-4 mt-8">
                 <motion.button
-                  key={index}
-                  onClick={() => setCurrentReview(index)}
-                  className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                    index === currentReview
-                      ? "bg-black shadow-lg"
-                      : "bg-gray-300 hover:bg-gray-400"
-                  }`}
-                  whileHover={{ scale: 1.2 }}
-                  whileTap={{ scale: 0.9 }}
-                />
-              ))}
-            </div>
+                  onClick={prevReview}
+                  className="p-3 rounded-full bg-gray-100 hover:bg-gray-200 transition-all duration-300 shadow-lg hover:shadow-xl"
+                  aria-label="Previous review"
+                  whileHover={{ scale: 1.1, y: -2 }}
+                  whileTap={{ scale: 0.95 }}>
+                  <ChevronLeft className="w-5 h-5 text-gray-700" />
+                </motion.button>
+                <motion.button
+                  onClick={nextReview}
+                  className="p-3 rounded-full bg-gray-100 hover:bg-gray-200 transition-all duration-300 shadow-lg hover:shadow-xl"
+                  aria-label="Next review"
+                  whileHover={{ scale: 1.1, y: -2 }}
+                  whileTap={{ scale: 0.95 }}>
+                  <ChevronRight className="w-5 h-5 text-gray-700" />
+                </motion.button>
+              </div>
+
+              {/* Review Indicators */}
+              <div className="flex justify-center gap-3 mt-6">
+                {reviews.map((_, index) => (
+                  <motion.button
+                    key={index}
+                    onClick={() => setCurrentReview(index)}
+                    className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                      index === currentReview
+                        ? "bg-black shadow-lg"
+                        : "bg-gray-300 hover:bg-gray-400"
+                    }`}
+                    whileHover={{ scale: 1.2 }}
+                    whileTap={{ scale: 0.9 }}
+                  />
+                ))}
+              </div>
+            </motion.div>
           </motion.div>
         </motion.div>
       </motion.div>
-    </motion.div>
+    </div>
   );
 };
 
