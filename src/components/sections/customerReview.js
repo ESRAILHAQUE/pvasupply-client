@@ -26,6 +26,70 @@ const CustomerReview = () => {
   const animationIdRef = useRef(null);
   const autoPlayRef = useRef(null);
 
+  // Customer reviews data
+  const reviews = [
+    {
+      id: 1,
+      name: "Jane Doe",
+      avatar: "https://randomuser.me/api/portraits/women/44.jpg",
+      rating: 4,
+      review:
+        "I absolutely love this product! It works so well. I love that it. I'm super impressed with the quality for the price! And the delivery was real quick! Thank you so much",
+      date: "2 weeks ago",
+      verified: true,
+      location: "New York, USA",
+      role: "Frequent Member",
+    },
+    {
+      id: 2,
+      name: "Mike Sendler",
+      avatar: "https://randomuser.me/api/portraits/men/32.jpg",
+      rating: 5,
+      review:
+        "Great site PVA Supply, used several times, simple and user friendly interface, prices are reasonable. I bought accounts, everything works well, they are filled with high quality.",
+      date: "1 week ago",
+      verified: true,
+      location: "London, UK",
+      role: "Verified Buyer",
+    },
+    {
+      id: 3,
+      name: "Sarah Johnson",
+      avatar: "https://randomuser.me/api/portraits/women/68.jpg",
+      rating: 5,
+      review:
+        "Excellent service and support! The team is very responsive and professional. I've been using their services for months and never had any issues.",
+      date: "3 days ago",
+      verified: true,
+      location: "Toronto, Canada",
+      role: "Premium Member",
+    },
+    {
+      id: 4,
+      name: "David Chen",
+      avatar: "https://randomuser.me/api/portraits/men/45.jpg",
+      rating: 5,
+      review:
+        "Outstanding quality accounts! Fast delivery and excellent customer support. PVA Supply has become my go-to platform for all verified accounts.",
+      date: "5 days ago",
+      verified: true,
+      location: "Sydney, Australia",
+      role: "Business Customer",
+    },
+    {
+      id: 5,
+      name: "Emily Rodriguez",
+      avatar: "https://randomuser.me/api/portraits/women/25.jpg",
+      rating: 5,
+      review:
+        "Amazing experience! The accounts are exactly as described and the customer service is top-notch. Highly recommend PVA Supply to anyone looking for verified accounts.",
+      date: "1 week ago",
+      verified: true,
+      location: "Los Angeles, USA",
+      role: "VIP Member",
+    },
+  ];
+
   // Auto-play functionality
   useEffect(() => {
     const startAutoPlay = () => {
@@ -47,7 +111,7 @@ const CustomerReview = () => {
     return () => {
       stopAutoPlay();
     };
-  }, []);
+  }, [reviews.length]);
 
   // Animation variants
   const containerVariants = {
@@ -265,70 +329,6 @@ const CustomerReview = () => {
     },
   ];
 
-  // Customer reviews data
-  const reviews = [
-    {
-      id: 1,
-      name: "Jane Doe",
-      avatar: "https://randomuser.me/api/portraits/women/44.jpg",
-      rating: 4,
-      review:
-        "I absolutely love this product! It works so well. I love that it. I'm super impressed with the quality for the price! And the delivery was real quick! Thank you so much",
-      date: "2 weeks ago",
-      verified: true,
-      location: "New York, USA",
-      role: "Frequent Member",
-    },
-    {
-      id: 2,
-      name: "Mike Sendler",
-      avatar: "https://randomuser.me/api/portraits/men/32.jpg",
-      rating: 5,
-      review:
-        "Great site PVA Supply, used several times, simple and user friendly interface, prices are reasonable. I bought accounts, everything works well, they are filled with high quality.",
-      date: "1 week ago",
-      verified: true,
-      location: "London, UK",
-      role: "Verified Buyer",
-    },
-    {
-      id: 3,
-      name: "Sarah Johnson",
-      avatar: "https://randomuser.me/api/portraits/women/68.jpg",
-      rating: 5,
-      review:
-        "Excellent service and support! The team is very responsive and professional. I've been using their services for months and never had any issues.",
-      date: "3 days ago",
-      verified: true,
-      location: "Toronto, Canada",
-      role: "Premium Member",
-    },
-    {
-      id: 4,
-      name: "David Chen",
-      avatar: "https://randomuser.me/api/portraits/men/45.jpg",
-      rating: 5,
-      review:
-        "Outstanding quality accounts! Fast delivery and excellent customer support. PVA Supply has become my go-to platform for all verified accounts.",
-      date: "5 days ago",
-      verified: true,
-      location: "Sydney, Australia",
-      role: "Business Customer",
-    },
-    {
-      id: 5,
-      name: "Emily Rodriguez",
-      avatar: "https://randomuser.me/api/portraits/women/25.jpg",
-      rating: 5,
-      review:
-        "Amazing experience! The accounts are exactly as described and the customer service is top-notch. Highly recommend PVA Supply to anyone looking for verified accounts.",
-      date: "1 week ago",
-      verified: true,
-      location: "Los Angeles, USA",
-      role: "VIP Member",
-    },
-  ];
-
   const nextReview = () => {
     setCurrentReview((prev) => (prev + 1) % reviews.length);
   };
@@ -389,7 +389,6 @@ const CustomerReview = () => {
             <span className="bg-gradient-to-r from-gray-700 via-gray-900 to-black bg-clip-text text-transparent">
               Customer Reviews
             </span>
-
           </motion.h2>
 
           <motion.p

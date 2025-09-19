@@ -18,11 +18,19 @@ import TickSign from "@/components/shared/TickSign";
 import PriceDisplay from "../../../components/shared/PriceDisplay";
 import ContactInfo from "../../../components/shared/ContactInfo";
 import RelatedProducts from "../../../components/shared/RelatedProducts";
+import CustomDropdown from "../../../components/shared/CustomDropdown";
 
 export default function BuyNaverAccounts() {
   const [selectedOption, setSelectedOption] = useState("");
   const [quantity, setQuantity] = useState(1);
   const [activeTab, setActiveTab] = useState("description");
+
+  // Dropdown options
+  const dropdownOptions = [
+    { value: "basic", label: "Basic Package - $10.00" },
+    { value: "premium", label: "Premium Package - $100.00" },
+    { value: "enterprise", label: "Enterprise Package - $300.00" },
+  ];
 
   const features = [
     "Korean Local IP Created Accounts",
@@ -152,26 +160,17 @@ export default function BuyNaverAccounts() {
                 </h3>
 
                 <div className="space-y-3">
-                  {/* Option Dropdown */}
+                  {/* Custom Dropdown */}
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-1.5">
                       Choose an option
                     </label>
-                    <div className="relative">
-                      <select
-                        value={selectedOption}
-                        onChange={(e) => setSelectedOption(e.target.value)}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent text-sm">
-                        <option value="">Select an option</option>
-                        <option value="basic">Basic Package - $10.00</option>
-                        <option value="premium">
-                          Premium Package - $100.00
-                        </option>
-                        <option value="enterprise">
-                          Enterprise Package - $300.00
-                        </option>
-                      </select>
-                    </div>
+                    <CustomDropdown
+                      options={dropdownOptions}
+                      selectedOption={selectedOption}
+                      onOptionSelect={setSelectedOption}
+                      placeholder="Select an option"
+                    />
                   </div>
 
                   {/* Quantity */}

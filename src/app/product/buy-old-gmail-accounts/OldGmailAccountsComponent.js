@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -24,6 +24,43 @@ export default function OldGmailAccountsComponent() {
   const [selectedOption, setSelectedOption] = useState("");
   const [quantity, setQuantity] = useState(1);
   const [activeTab, setActiveTab] = useState("description");
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const dropdownRef = useRef(null);
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setIsDropdownOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
+  // Dropdown options
+  const dropdownOptions = [
+    { value: "05-new", label: "05 New Gmail Accounts", price: "$6.00" },
+    { value: "05-old", label: "05 Old Gmail Accounts", price: "$8.00" },
+    { value: "10-new", label: "10 New Gmail Accounts", price: "$12.00" },
+    { value: "10-old", label: "10 Old Gmail Accounts", price: "$15.00" },
+    { value: "20-new", label: "20 New Gmail Accounts", price: "$24.00" },
+    { value: "20-old", label: "20 Old Gmail Accounts", price: "$30.00" },
+    { value: "50-new", label: "50 New Gmail Accounts", price: "$60.00" },
+    { value: "50-old", label: "50 Old Gmail Accounts", price: "$75.00" },
+    { value: "100-new", label: "100 New Gmail Accounts", price: "$120.00" },
+    { value: "100-old", label: "100 Old Gmail Accounts", price: "$150.00" },
+    { value: "200-new", label: "200 New Gmail Accounts", price: "$240.00" },
+    { value: "200-old", label: "200 Old Gmail Accounts", price: "$300.00" },
+  ];
+
+  // Get selected option details
+  const selectedOptionDetails = dropdownOptions.find(
+    (option) => option.value === selectedOption
+  );
 
   // Helper function to render stars
   const renderStars = (rating = 5) => {
@@ -183,25 +220,62 @@ export default function OldGmailAccountsComponent() {
                 </h3>
 
                 <div className="space-y-3">
-                  {/* Option Dropdown */}
+                  {/* Custom Dropdown */}
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-1.5">
                       Choose an option
                     </label>
-                    <div className="relative">
-                      <select
-                        value={selectedOption}
-                        onChange={(e) => setSelectedOption(e.target.value)}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent text-sm">
-                        <option value="">Select an option</option>
-                        <option value="basic">Basic Package - $6.00</option>
-                        <option value="premium">
-                          Premium Package - $100.00
-                        </option>
-                        <option value="enterprise">
-                          Enterprise Package - $340.00
-                        </option>
-                      </select>
+                    <div className="relative" ref={dropdownRef}>
+                      {/* Dropdown Button */}
+                      <button
+                        type="button"
+                        onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent text-sm text-left bg-white hover:bg-gray-50 transition-colors duration-200 flex items-center justify-between">
+                        <span
+                          className={
+                            selectedOption ? "text-gray-900" : "text-gray-500"
+                          }>
+                          {selectedOptionDetails
+                            ? selectedOptionDetails.label
+                            : "Select an option"}
+                        </span>
+                        <svg
+                          className={`w-4 h-4 text-gray-400 transition-transform duration-200 ${
+                            isDropdownOpen ? "rotate-180" : ""
+                          }`}
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24">
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M19 9l-7 7-7-7"
+                          />
+                        </svg>
+                      </button>
+
+                      {/* Dropdown Menu */}
+                      {isDropdownOpen && (
+                        <div className="absolute z-10 w-full mt-1 bg-white border border-gray-300 rounded-md shadow-lg max-h-60 overflow-y-auto">
+                          {dropdownOptions.map((option) => (
+                            <button
+                              key={option.value}
+                              type="button"
+                              onClick={() => {
+                                setSelectedOption(option.value);
+                                setIsDropdownOpen(false);
+                              }}
+                              className={`w-full px-3 py-2 text-left text-sm hover:bg-gray-100 transition-colors duration-200 ${
+                                selectedOption === option.value
+                                  ? "bg-green-50 text-green-700"
+                                  : "text-gray-900"
+                              }`}>
+                              <span>{option.label}</span>
+                            </button>
+                          ))}
+                        </div>
+                      )}
                     </div>
                   </div>
 

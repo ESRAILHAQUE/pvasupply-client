@@ -18,11 +18,20 @@ import TickSign from "@/components/shared/TickSign";
 import PriceDisplay from "../../../components/shared/PriceDisplay";
 import ContactInfo from "../../../components/shared/ContactInfo";
 import RelatedProducts from "../../../components/shared/RelatedProducts";
+import CustomDropdown from "../../../components/shared/CustomDropdown";
 
 export default function BuyOldYahooAccounts() {
   const [selectedOption, setSelectedOption] = useState("");
   const [quantity, setQuantity] = useState(1);
   const [activeTab, setActiveTab] = useState("description");
+
+  // Dropdown options
+  const dropdownOptions = [
+    { value: "old-yahoo-1", label: "Old Yahoo Account (2019-2020) - $8.00" },
+    { value: "old-yahoo-2", label: "Old Yahoo Account (2021-2022) - $12.00" },
+    { value: "old-yahoo-3", label: "Old Yahoo Account (2023-2024) - $15.00" },
+    { value: "premium-yahoo", label: "Premium Old Yahoo Account - $25.00" },
+  ];
 
   const features = [
     "USA & European Local IP Created Accounts",
@@ -157,31 +166,17 @@ export default function BuyOldYahooAccounts() {
                 </h3>
 
                 <div className="space-y-3">
-                  {/* Option Dropdown */}
+                  {/* Custom Dropdown */}
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-1.5">
                       Choose an option
                     </label>
-                    <div className="relative">
-                      <select
-                        value={selectedOption}
-                        onChange={(e) => setSelectedOption(e.target.value)}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent text-sm">
-                        <option value="">Select an option</option>
-                        <option value="old-yahoo-1">
-                          Old Yahoo Account (2019-2020) - $8.00
-                        </option>
-                        <option value="old-yahoo-2">
-                          Old Yahoo Account (2021-2022) - $12.00
-                        </option>
-                        <option value="old-yahoo-3">
-                          Old Yahoo Account (2023-2024) - $15.00
-                        </option>
-                        <option value="premium-yahoo">
-                          Premium Old Yahoo Account - $25.00
-                        </option>
-                      </select>
-                    </div>
+                    <CustomDropdown
+                      options={dropdownOptions}
+                      selectedOption={selectedOption}
+                      onOptionSelect={setSelectedOption}
+                      placeholder="Select an option"
+                    />
                   </div>
 
                   {/* Quantity */}
