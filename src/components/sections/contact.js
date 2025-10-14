@@ -1,135 +1,10 @@
 "use client";
-import React, { useEffect, useRef } from "react";
+import React from "react";
 import { motion } from "framer-motion";
-import * as THREE from "three";
 import { useEmailHandler } from "@/hooks/useEmailHandler";
 
 function Contact() {
-  const mountRef = useRef(null);
-  const sceneRef = useRef(null);
-  const rendererRef = useRef(null);
-  const particlesRef = useRef(null);
-  const animationIdRef = useRef(null);
   const { handleEmailClick, copyEmailToClipboard } = useEmailHandler();
-
-  // Three.js Particle System
-  useEffect(() => {
-    if (!mountRef.current) return;
-
-    // Scene setup
-    const scene = new THREE.Scene();
-    sceneRef.current = scene;
-
-    // Camera setup
-    const camera = new THREE.PerspectiveCamera(
-      75,
-      window.innerWidth / window.innerHeight,
-      0.1,
-      1000
-    );
-    camera.position.z = 5;
-
-    // Renderer setup
-    const renderer = new THREE.WebGLRenderer({
-      alpha: true,
-      antialias: true,
-    });
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    renderer.setClearColor(0x000000, 0);
-    rendererRef.current = renderer;
-
-    // Create particles with green theme
-    const particleCount = 150;
-    const positions = new Float32Array(particleCount * 3);
-    const colors = new Float32Array(particleCount * 3);
-    const sizes = new Float32Array(particleCount);
-
-    for (let i = 0; i < particleCount; i++) {
-      positions[i * 3] = (Math.random() - 0.5) * 15; // x
-      positions[i * 3 + 1] = (Math.random() - 0.5) * 15; // y
-      positions[i * 3 + 2] = (Math.random() - 0.5) * 15; // z
-
-      // Green theme colors
-      colors[i * 3] = Math.random() * 0.2 + 0.1; // r (low red)
-      colors[i * 3 + 1] = Math.random() * 0.7 + 0.5; // g (high green)
-      colors[i * 3 + 2] = Math.random() * 0.5 + 0.3; // b (medium blue-green)
-
-      sizes[i] = Math.random() * 3 + 1;
-    }
-
-    const geometry = new THREE.BufferGeometry();
-    geometry.setAttribute("position", new THREE.BufferAttribute(positions, 3));
-    geometry.setAttribute("color", new THREE.BufferAttribute(colors, 3));
-    geometry.setAttribute("size", new THREE.BufferAttribute(sizes, 1));
-
-    // Particle material
-    const material = new THREE.PointsMaterial({
-      size: 0.08,
-      vertexColors: true,
-      transparent: true,
-      opacity: 0.3,
-      blending: THREE.AdditiveBlending,
-    });
-
-    const particles = new THREE.Points(geometry, material);
-    scene.add(particles);
-    particlesRef.current = particles;
-
-    // Add to DOM
-    mountRef.current.appendChild(renderer.domElement);
-    renderer.domElement.style.position = "absolute";
-    renderer.domElement.style.top = "0";
-    renderer.domElement.style.left = "0";
-    renderer.domElement.style.zIndex = "0";
-    renderer.domElement.style.pointerEvents = "none";
-
-    // Animation loop
-    const animate = () => {
-      animationIdRef.current = requestAnimationFrame(animate);
-
-      if (particlesRef.current) {
-        particlesRef.current.rotation.x += 0.0005;
-        particlesRef.current.rotation.y += 0.001;
-
-        // Float particles in wave pattern
-        const positions =
-          particlesRef.current.geometry.attributes.position.array;
-        for (let i = 0; i < positions.length; i += 3) {
-          positions[i + 1] += Math.sin(Date.now() * 0.001 + i * 0.1) * 0.002;
-          positions[i] += Math.cos(Date.now() * 0.0008 + i * 0.1) * 0.001;
-        }
-        particlesRef.current.geometry.attributes.position.needsUpdate = true;
-      }
-
-      renderer.render(scene, camera);
-    };
-
-    animate();
-
-    // Handle resize
-    const handleResize = () => {
-      camera.aspect = window.innerWidth / window.innerHeight;
-      camera.updateProjectionMatrix();
-      renderer.setSize(window.innerWidth, window.innerHeight);
-    };
-
-    window.addEventListener("resize", handleResize);
-
-    // Cleanup
-    return () => {
-      window.removeEventListener("resize", handleResize);
-      if (animationIdRef.current) {
-        cancelAnimationFrame(animationIdRef.current);
-      }
-      const currentMountRef = mountRef.current;
-      if (currentMountRef && renderer.domElement) {
-        currentMountRef.removeChild(renderer.domElement);
-      }
-      if (renderer) {
-        renderer.dispose();
-      }
-    };
-  }, []);
 
   // Animation variants
   const containerVariants = {
@@ -211,8 +86,12 @@ function Contact() {
       {/* Dark overlay for better text readability */}
       <div className="absolute inset-0 bg-black/30" />
 
-      {/* Three.js Particle Background */}
-      <div ref={mountRef} className="absolute inset-0" />
+      {/* Simple CSS Animated Background */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute top-20 left-20 w-80 h-80 bg-green-400/10 rounded-full mix-blend-multiply filter blur-xl animate-blob-contact" />
+        <div className="absolute top-40 right-20 w-80 h-80 bg-emerald-400/10 rounded-full mix-blend-multiply filter blur-xl animate-blob-contact animation-delay-2s" />
+        <div className="absolute bottom-20 left-1/3 w-80 h-80 bg-teal-400/10 rounded-full mix-blend-multiply filter blur-xl animate-blob-contact animation-delay-4s" />
+      </div>
 
       {/* Subtle animated overlay elements */}
       <motion.div
@@ -271,10 +150,8 @@ function Contact() {
         </motion.p>
 
         {/* Contact buttons */}
-      
 
         {/* Alternative Contact Methods */}
-       
       </motion.div>
 
       {/* Animated Bottom wave decoration */}
@@ -299,6 +176,33 @@ function Contact() {
             fill="rgba(255,255,255,0.2)"></path>
         </svg>
       </motion.div>
+
+      <style jsx>{`
+        @keyframes blob-contact {
+          0%,
+          100% {
+            transform: translate(0px, 0px) scale(1);
+          }
+          33% {
+            transform: translate(50px, -40px) scale(1.2);
+          }
+          66% {
+            transform: translate(-30px, 30px) scale(0.8);
+          }
+        }
+
+        :global(.animate-blob-contact) {
+          animation: blob-contact 8s infinite;
+        }
+
+        :global(.animation-delay-2s) {
+          animation-delay: 2s;
+        }
+
+        :global(.animation-delay-4s) {
+          animation-delay: 4s;
+        }
+      `}</style>
     </div>
   );
 }

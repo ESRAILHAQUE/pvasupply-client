@@ -1,8 +1,7 @@
 "use client";
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import * as THREE from "three";
 import {
   ChevronLeft,
   ChevronRight,
@@ -19,12 +18,6 @@ import {
 
 const CustomerReview = () => {
   const [currentReview, setCurrentReview] = useState(0);
-  const mountRef = useRef(null);
-  const sceneRef = useRef(null);
-  const rendererRef = useRef(null);
-  const shapesRef = useRef(null);
-  const animationIdRef = useRef(null);
-  const autoPlayRef = useRef(null);
 
   // Customer reviews data
   const reviews = [
@@ -97,25 +90,11 @@ const CustomerReview = () => {
 
   // Auto-play functionality
   useEffect(() => {
-    const startAutoPlay = () => {
-      autoPlayRef.current = setInterval(() => {
-        setCurrentReview((prev) => (prev + 1) % reviews.length);
-      }, 4000); // Change every 4 seconds
-    };
+    const interval = setInterval(() => {
+      setCurrentReview((prev) => (prev + 1) % reviews.length);
+    }, 4000); // Change every 4 seconds
 
-    const stopAutoPlay = () => {
-      if (autoPlayRef.current) {
-        clearInterval(autoPlayRef.current);
-        autoPlayRef.current = null;
-      }
-    };
-
-    startAutoPlay();
-
-    // Cleanup on unmount
-    return () => {
-      stopAutoPlay();
-    };
+    return () => clearInterval(interval);
   }, [reviews.length]);
 
   // Animation variants
@@ -156,161 +135,6 @@ const CustomerReview = () => {
       },
     },
   };
-
-  // Three.js Floating Geometric Shapes
-  useEffect(() => {
-    if (!mountRef.current) return;
-
-    // Scene setup
-    const scene = new THREE.Scene();
-    sceneRef.current = scene;
-
-    // Camera setup
-    const camera = new THREE.PerspectiveCamera(
-      75,
-      window.innerWidth / window.innerHeight,
-      0.1,
-      1000
-    );
-    camera.position.z = 8;
-
-    // Renderer setup
-    const renderer = new THREE.WebGLRenderer({
-      alpha: true,
-      antialias: true,
-    });
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    renderer.setClearColor(0x000000, 0);
-    rendererRef.current = renderer;
-
-    // Create floating geometric shapes
-    const shapes = new THREE.Group();
-    shapesRef.current = shapes;
-
-    // Create different geometric shapes
-    const geometries = [
-      new THREE.BoxGeometry(1, 1, 1),
-      new THREE.SphereGeometry(0.5, 16, 16),
-      new THREE.ConeGeometry(0.5, 1, 16),
-      new THREE.TorusGeometry(0.5, 0.2, 16, 32),
-      new THREE.OctahedronGeometry(0.5),
-    ];
-
-    const materials = [
-      new THREE.MeshBasicMaterial({
-        color: 0x6b7280,
-        transparent: true,
-        opacity: 0.1,
-      }),
-      new THREE.MeshBasicMaterial({
-        color: 0x374151,
-        transparent: true,
-        opacity: 0.1,
-      }),
-      new THREE.MeshBasicMaterial({
-        color: 0x1f2937,
-        transparent: true,
-        opacity: 0.1,
-      }),
-      new THREE.MeshBasicMaterial({
-        color: 0x111827,
-        transparent: true,
-        opacity: 0.1,
-      }),
-      new THREE.MeshBasicMaterial({
-        color: 0x000000,
-        transparent: true,
-        opacity: 0.1,
-      }),
-    ];
-
-    // Create multiple instances of each shape
-    for (let i = 0; i < 15; i++) {
-      const geometryIndex = Math.floor(Math.random() * geometries.length);
-      const materialIndex = Math.floor(Math.random() * materials.length);
-
-      const mesh = new THREE.Mesh(
-        geometries[geometryIndex],
-        materials[materialIndex]
-      );
-
-      // Random position
-      mesh.position.set(
-        (Math.random() - 0.5) * 20,
-        (Math.random() - 0.5) * 20,
-        (Math.random() - 0.5) * 10
-      );
-
-      // Random rotation
-      mesh.rotation.set(
-        Math.random() * Math.PI,
-        Math.random() * Math.PI,
-        Math.random() * Math.PI
-      );
-
-      // Random scale
-      const scale = Math.random() * 0.3 + 0.3;
-      mesh.scale.set(scale, scale, scale);
-
-      shapes.add(mesh);
-    }
-
-    scene.add(shapes);
-
-    // Add to DOM
-    mountRef.current.appendChild(renderer.domElement);
-    renderer.domElement.style.position = "absolute";
-    renderer.domElement.style.top = "0";
-    renderer.domElement.style.left = "0";
-    renderer.domElement.style.zIndex = "0";
-    renderer.domElement.style.pointerEvents = "none";
-
-    // Animation loop
-    const animate = () => {
-      animationIdRef.current = requestAnimationFrame(animate);
-
-      if (shapesRef.current) {
-        shapesRef.current.rotation.x += 0.001;
-        shapesRef.current.rotation.y += 0.002;
-
-        // Float shapes in different patterns
-        shapesRef.current.children.forEach((shape, index) => {
-          shape.position.y += Math.sin(Date.now() * 0.0008 + index) * 0.005;
-          shape.position.x += Math.cos(Date.now() * 0.0006 + index) * 0.004;
-          shape.rotation.x += 0.005;
-          shape.rotation.z += 0.003;
-        });
-      }
-
-      renderer.render(scene, camera);
-    };
-
-    animate();
-
-    // Handle resize
-    const handleResize = () => {
-      camera.aspect = window.innerWidth / window.innerHeight;
-      camera.updateProjectionMatrix();
-      renderer.setSize(window.innerWidth, window.innerHeight);
-    };
-
-    window.addEventListener("resize", handleResize);
-
-    // Cleanup
-    return () => {
-      window.removeEventListener("resize", handleResize);
-      if (animationIdRef.current) {
-        cancelAnimationFrame(animationIdRef.current);
-      }
-      const currentMountRef = mountRef.current;
-      if (currentMountRef && renderer.domElement) {
-        currentMountRef.removeChild(renderer.domElement);
-      }
-      if (renderer) {
-        renderer.dispose();
-      }
-    };
-  }, []);
 
   // Social media icons data
   const socialIcons = [
@@ -377,8 +201,12 @@ const CustomerReview = () => {
           stiffness: 60,
           damping: 25,
         }}>
-        {/* Three.js Floating Shapes Background */}
-        <div ref={mountRef} className="absolute inset-0" />
+        {/* Simple CSS Animated Background */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gray-200/30 rounded-full mix-blend-multiply filter blur-xl animate-blob-slow" />
+          <div className="absolute top-1/3 right-1/4 w-96 h-96 bg-slate-200/30 rounded-full mix-blend-multiply filter blur-xl animate-blob-slow animation-delay-3000" />
+          <div className="absolute bottom-1/4 left-1/3 w-96 h-96 bg-zinc-200/30 rounded-full mix-blend-multiply filter blur-xl animate-blob-slow animation-delay-5000" />
+        </div>
 
         <motion.div
           className="max-w-7xl mx-auto relative z-10 w-full"
@@ -542,6 +370,33 @@ const CustomerReview = () => {
           </motion.div>
         </motion.div>
       </motion.div>
+
+      <style jsx>{`
+        @keyframes blob-slow {
+          0%,
+          100% {
+            transform: translate(0px, 0px) scale(1);
+          }
+          33% {
+            transform: translate(40px, -60px) scale(1.15);
+          }
+          66% {
+            transform: translate(-30px, 40px) scale(0.85);
+          }
+        }
+
+        :global(.animate-blob-slow) {
+          animation: blob-slow 10s infinite;
+        }
+
+        :global(.animation-delay-3000) {
+          animation-delay: 3s;
+        }
+
+        :global(.animation-delay-5000) {
+          animation-delay: 5s;
+        }
+      `}</style>
     </div>
   );
 };

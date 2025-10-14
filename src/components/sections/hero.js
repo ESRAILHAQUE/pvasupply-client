@@ -1,16 +1,9 @@
 "use client";
-import { useState, useEffect, useRef, useCallback } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import * as THREE from "three";
 
 export default function Hero() {
-  const mountRef = useRef(null);
-  const sceneRef = useRef(null);
-  const rendererRef = useRef(null);
-  const particlesRef = useRef(null);
-  const animationIdRef = useRef(null);
-
   const images = [
     "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=500&h=400&fit=crop&crop=center",
     "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=500&h=400&fit=crop&crop=center",
@@ -41,123 +34,6 @@ export default function Hero() {
     }, 5000);
     return () => clearInterval(interval);
   }, [nextSlide]);
-
-  // Three.js Particle System
-  useEffect(() => {
-    if (!mountRef.current) return;
-
-    // Scene setup
-    const scene = new THREE.Scene();
-    sceneRef.current = scene;
-
-    // Camera setup
-    const camera = new THREE.PerspectiveCamera(
-      75,
-      window.innerWidth / window.innerHeight,
-      0.1,
-      1000
-    );
-    camera.position.z = 5;
-
-    // Renderer setup
-    const renderer = new THREE.WebGLRenderer({
-      alpha: true,
-      antialias: true,
-    });
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    renderer.setClearColor(0x000000, 0);
-    rendererRef.current = renderer;
-
-    // Create particles
-    const particleCount = 200;
-    const positions = new Float32Array(particleCount * 3);
-    const colors = new Float32Array(particleCount * 3);
-    const sizes = new Float32Array(particleCount);
-
-    for (let i = 0; i < particleCount; i++) {
-      positions[i * 3] = (Math.random() - 0.5) * 20; // x
-      positions[i * 3 + 1] = (Math.random() - 0.5) * 20; // y
-      positions[i * 3 + 2] = (Math.random() - 0.5) * 20; // z
-
-      colors[i * 3] = Math.random() * 0.3 + 0.7; // r (warm tones)
-      colors[i * 3 + 1] = Math.random() * 0.2 + 0.3; // g
-      colors[i * 3 + 2] = Math.random() * 0.1 + 0.1; // b
-
-      sizes[i] = Math.random() * 2 + 0.5;
-    }
-
-    const geometry = new THREE.BufferGeometry();
-    geometry.setAttribute("position", new THREE.BufferAttribute(positions, 3));
-    geometry.setAttribute("color", new THREE.BufferAttribute(colors, 3));
-    geometry.setAttribute("size", new THREE.BufferAttribute(sizes, 1));
-
-    // Particle material
-    const material = new THREE.PointsMaterial({
-      size: 0.05,
-      vertexColors: true,
-      transparent: true,
-      opacity: 0.8,
-      blending: THREE.AdditiveBlending,
-    });
-
-    const particles = new THREE.Points(geometry, material);
-    scene.add(particles);
-    particlesRef.current = particles;
-
-    // Add to DOM
-    mountRef.current.appendChild(renderer.domElement);
-    renderer.domElement.style.position = "absolute";
-    renderer.domElement.style.top = "0";
-    renderer.domElement.style.left = "0";
-    renderer.domElement.style.zIndex = "0";
-    renderer.domElement.style.pointerEvents = "none";
-
-    // Animation loop
-    const animate = () => {
-      animationIdRef.current = requestAnimationFrame(animate);
-
-      if (particlesRef.current) {
-        particlesRef.current.rotation.x += 0.001;
-        particlesRef.current.rotation.y += 0.002;
-
-        // Float particles
-        const positions =
-          particlesRef.current.geometry.attributes.position.array;
-        for (let i = 0; i < positions.length; i += 3) {
-          positions[i + 1] += Math.sin(Date.now() * 0.001 + i) * 0.001;
-        }
-        particlesRef.current.geometry.attributes.position.needsUpdate = true;
-      }
-
-      renderer.render(scene, camera);
-    };
-
-    animate();
-
-    // Handle resize
-    const handleResize = () => {
-      camera.aspect = window.innerWidth / window.innerHeight;
-      camera.updateProjectionMatrix();
-      renderer.setSize(window.innerWidth, window.innerHeight);
-    };
-
-    window.addEventListener("resize", handleResize);
-
-    // Cleanup
-    return () => {
-      window.removeEventListener("resize", handleResize);
-      if (animationIdRef.current) {
-        cancelAnimationFrame(animationIdRef.current);
-      }
-      const currentMountRef = mountRef.current;
-      if (currentMountRef && renderer.domElement) {
-        currentMountRef.removeChild(renderer.domElement);
-      }
-      if (renderer) {
-        renderer.dispose();
-      }
-    };
-  }, []);
 
   // Animation variants
   const containerVariants = {
@@ -222,26 +98,16 @@ export default function Hero() {
   return (
     <motion.section
       className="w-full bg-[#FAFCFC] py-8 md:py-16 lg:py-20 overflow-hidden relative"
-      initial={{
-        opacity: 0,
-        x: -100,
-        scale: 0.9,
-      }}
-      whileInView={{
-        opacity: 1,
-        x: 0,
-        scale: 1,
-      }}
-      viewport={{ once: true, amount: 0.3 }}
-      transition={{
-        duration: 1.2,
-        ease: "easeOut",
-        type: "spring",
-        stiffness: 100,
-        damping: 15,
-      }}>
-      {/* Three.js Particle Background */}
-      <div ref={mountRef} className="absolute inset-0" />
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.6 }}>
+      {/* Simple CSS Animated Background */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute top-10 left-10 w-72 h-72 bg-orange-200/20 rounded-full mix-blend-multiply filter blur-xl animate-blob" />
+        <div className="absolute top-20 right-10 w-72 h-72 bg-red-200/20 rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-2000" />
+        <div className="absolute -bottom-8 left-20 w-72 h-72 bg-pink-200/20 rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-4000" />
+      </div>
 
       {/* Content with higher z-index */}
       <div className="container max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -394,6 +260,33 @@ export default function Hero() {
           50% {
             background-position: 100% 50%;
           }
+        }
+
+        @keyframes blob {
+          0% {
+            transform: translate(0px, 0px) scale(1);
+          }
+          33% {
+            transform: translate(30px, -50px) scale(1.1);
+          }
+          66% {
+            transform: translate(-20px, 20px) scale(0.9);
+          }
+          100% {
+            transform: translate(0px, 0px) scale(1);
+          }
+        }
+
+        :global(.animate-blob) {
+          animation: blob 7s infinite;
+        }
+
+        :global(.animation-delay-2000) {
+          animation-delay: 2s;
+        }
+
+        :global(.animation-delay-4000) {
+          animation-delay: 4s;
         }
       `}</style>
     </motion.section>
