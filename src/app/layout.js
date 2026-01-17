@@ -9,11 +9,15 @@ import Script from "next/script";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
+  display: "swap",
+  preload: true,
 });
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+  display: "swap",
+  preload: true,
 });
 
 const siteUrl = "https://pvasupply.com";
@@ -89,12 +93,19 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <head>
         <link rel="canonical" href={siteUrl} />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        {/* Skip to main content link for accessibility */}
+        <a href="#main-content" className="skip-to-main">
+          Skip to main content
+        </a>
         <CartProvider>
           <Navbar />
-          {children}
+          <main id="main-content" role="main">
+            {children}
+          </main>
           <Footer />
         </CartProvider>
         <FloatingContactIcons />
