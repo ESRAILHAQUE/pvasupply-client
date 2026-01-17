@@ -155,62 +155,76 @@ export default function BankAccountsPage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Breadcrumb */}
-      <div className="bg-gray-50 ">
+      <nav className="bg-gray-50" aria-label="Breadcrumb">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2">
-          <nav className="flex items-center space-x-2 text-sm text-gray-600">
-            <Link href="/" className="hover:text-gray-900">
-              Home
-            </Link>
-            <span>{">"}</span>
-            <span className="text-gray-900">Bank Accounts</span>
-          </nav>
+          <ol className="flex items-center space-x-2 text-sm text-gray-600">
+            <li>
+              <Link href="/" className="hover:text-gray-900 transition-colors">
+                Home
+              </Link>
+            </li>
+            <li aria-hidden="true">{">"}</li>
+            <li aria-current="page" className="text-gray-900 font-medium">
+              Bank Accounts
+            </li>
+          </ol>
         </div>
-      </div>
+      </nav>
+
+      {/* Page Header */}
+      <header className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">
+          Bank & Payment Accounts
+        </h1>
+        <p className="text-lg text-gray-600 max-w-3xl">
+          Buy verified bank and payment accounts. PayPal, Cash App, Chime, Wise, Stripe, Venmo, Skrill, Chase, Payoneer - All fully verified with instant delivery.
+        </p>
+      </header>
 
       {/* Products Grid */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {bankProducts.map((product) => (
-            <Link
+            <article
               key={product.id}
-              href={product.href}
-              className="bg-white rounded-sm shadow-sm overflow-hidden hover:shadow-md transition-shadow duration-300 hover:scale-101 transform">
-              {/* Product Card */}
-              <div className="relative">
-                {/* Banner */}
-
-                {/* Main Content */}
-                <div className="relative bg-white">
+              className="bg-white rounded-sm shadow-sm overflow-hidden hover:shadow-lg transition-all duration-300 group">
+              <Link
+                href={product.href}
+                className="block"
+                aria-label={`View details for ${product.title}`}>
+                <div className="relative">
                   {/* Product Image */}
-                  <div className="flex justify-center mb-1">
-                    <div className="relative">
-                      <div className=" bg-white border-gray-200  flex items-center justify-center  overflow-hidden">
-                        <Image
-                          src={product.image}
-                          alt={product.title}
-                          width={120}
-                          height={120}
-                          className="w-full h-full object-contain"
-                        />
-                      </div>
+                  <div className="flex justify-center mb-1 p-4 bg-gray-50 group-hover:bg-gray-100 transition-colors">
+                    <div className="relative w-full max-w-[200px] aspect-square">
+                      <Image
+                        src={product.image}
+                        alt={`${product.title} - ${product.category}`}
+                        width={200}
+                        height={200}
+                        className="w-full h-full object-contain"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                        quality={85}
+                        loading="eager"
+                      />
                     </div>
                   </div>
 
                   {/* Product Info */}
-                  <div className="text-center">
-                    <h3 className="text-xl font-medium text-gray-900 ">
+                  <div className="text-center p-4">
+                    <h2 className="text-xl font-medium text-gray-900 mb-2 group-hover:text-green-600 transition-colors">
                       {product.title}
-                    </h3>
-                    <div className="text-red-600 font-normal text-lg">
+                    </h2>
+                    <p className="text-sm text-gray-500 mb-2">{product.category}</p>
+                    <p className="text-red-600 font-semibold text-lg" aria-label={`Price: ${product.price}`}>
                       {product.price}
-                    </div>
+                    </p>
                   </div>
                 </div>
-              </div>
-            </Link>
+              </Link>
+            </article>
           ))}
         </div>
-      </div>
+      </section>
     </div>
   );
 }
