@@ -281,10 +281,11 @@ export default function Navbar() {
               {/* Cart Button */}
               <Link
                 href="/cart"
+                aria-label={`Shopping cart${getCartCount() > 0 ? ` with ${getCartCount()} items` : ', empty'}`}
                 className="relative bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white p-3 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2">
-                <ShoppingCart className="w-5 h-5" />
+                <ShoppingCart className="w-5 h-5" aria-hidden="true" />
                 {getCartCount() > 0 && (
-                  <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center animate-pulse">
+                  <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center animate-pulse" aria-label={`${getCartCount()} items in cart`}>
                     {getCartCount()}
                   </span>
                 )}
@@ -293,18 +294,23 @@ export default function Navbar() {
               {/* Mobile Menu Button */}
               <button
                 onClick={toggleMenu}
+                aria-label={isMenuOpen ? "Close mobile menu" : "Open mobile menu"}
+                aria-expanded={isMenuOpen}
+                aria-controls="mobile-menu"
                 className="lg:hidden p-2 rounded-lg text-gray-600 hover:text-gray-900 hover:bg-gray-100 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-gray-300">
                 {isMenuOpen ? (
-                  <X className="w-6 h-6" />
+                  <X className="w-6 h-6" aria-hidden="true" />
                 ) : (
-                  <Menu className="w-6 h-6" />
+                  <Menu className="w-6 h-6" aria-hidden="true" />
                 )}
               </button>
             </div>
           </div>
 
           {/* Mobile Menu */}
-          <div
+          <nav
+            id="mobile-menu"
+            aria-label="Mobile navigation"
             className={`lg:hidden transition-all duration-300 ease-in-out ${
               isMenuOpen
                 ? "max-h-96 opacity-100"
@@ -362,7 +368,7 @@ export default function Navbar() {
                 );
               })}
             </div>
-          </div>
+          </nav>
         </div>
       </nav>
     </div>
