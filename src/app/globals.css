@@ -71,10 +71,11 @@ svg {
   }
 }
 
-/* Focus visible for better accessibility */
+/* Focus visible for better accessibility - Enhanced */
 *:focus-visible {
-  outline: 2px solid #3b82f6;
-  outline-offset: 2px;
+  outline: 3px solid #3b82f6;
+  outline-offset: 3px;
+  border-radius: 2px;
 }
 
 /* Skip to main content link for screen readers */
@@ -82,14 +83,62 @@ svg {
   position: absolute;
   left: -9999px;
   z-index: 999;
+  padding: 1rem 1.5rem;
+  background: #3b82f6;
+  color: white;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 0.375rem;
 }
 
 .skip-to-main:focus {
   left: 50%;
   transform: translateX(-50%);
   top: 1rem;
-  background: #fff;
-  padding: 1rem;
-  border-radius: 0.5rem;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  outline: 3px solid white;
+  outline-offset: 2px;
+}
+
+/* Better button focus styles */
+button:focus-visible,
+a:focus-visible,
+[role="button"]:focus-visible {
+  outline: 3px solid #3b82f6;
+  outline-offset: 3px;
+}
+
+/* Ensure text has sufficient contrast */
+.text-gray-500 {
+  color: #6b7280;
+}
+
+.text-gray-600 {
+  color: #4b5563;
+}
+
+/* Improve link visibility */
+a {
+  text-decoration-skip-ink: auto;
+}
+
+/* Better form control focus */
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 3px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+/* Visually hidden but accessible to screen readers */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
 }

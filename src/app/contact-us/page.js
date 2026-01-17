@@ -237,32 +237,36 @@ export default function ContactUs() {
                     </button>
                   </div>
                 ) : (
-                  <form onSubmit={handleSubmit} className="space-y-6">
+                  <form onSubmit={handleSubmit} className="space-y-6" aria-label="Contact form">
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                        <label htmlFor="contact-name" className="block text-sm font-medium text-gray-700 mb-2">
                           Full Name *
                         </label>
                         <input
                           type="text"
+                          id="contact-name"
                           name="name"
                           value={formData.name}
                           onChange={handleInputChange}
                           required
+                          aria-required="true"
                           className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 bg-gray-50 focus:bg-white"
                           placeholder="Enter your full name"
                         />
                       </div>
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                        <label htmlFor="contact-email" className="block text-sm font-medium text-gray-700 mb-2">
                           Email Address *
                         </label>
                         <input
                           type="email"
+                          id="contact-email"
                           name="email"
                           value={formData.email}
                           onChange={handleInputChange}
                           required
+                          aria-required="true"
                           className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 bg-gray-50 focus:bg-white"
                           placeholder="Enter your email"
                         />
@@ -271,11 +275,12 @@ export default function ContactUs() {
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                        <label htmlFor="contact-phone" className="block text-sm font-medium text-gray-700 mb-2">
                           Phone Number
                         </label>
                         <input
                           type="tel"
+                          id="contact-phone"
                           name="phone"
                           value={formData.phone}
                           onChange={handleInputChange}
@@ -284,14 +289,16 @@ export default function ContactUs() {
                         />
                       </div>
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                        <label htmlFor="contact-service" className="block text-sm font-medium text-gray-700 mb-2">
                           Service Interest *
                         </label>
                         <select
+                          id="contact-service"
                           name="service"
                           value={formData.service}
                           onChange={handleInputChange}
                           required
+                          aria-required="true"
                           className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 bg-gray-50 focus:bg-white">
                           <option value="">Select a service</option>
                           {services.map((service, index) => (
@@ -308,14 +315,16 @@ export default function ContactUs() {
                     </div>
 
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                      <label htmlFor="contact-message" className="block text-sm font-medium text-gray-700 mb-2">
                         Message *
                       </label>
                       <textarea
+                        id="contact-message"
                         name="message"
                         value={formData.message}
                         onChange={handleInputChange}
                         required
+                        aria-required="true"
                         rows={5}
                         className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 bg-gray-50 focus:bg-white resize-none"
                         placeholder="Tell us about your project or inquiry..."></textarea>
@@ -324,15 +333,17 @@ export default function ContactUs() {
                     <button
                       type="submit"
                       disabled={isLoading}
-                      className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold py-4 px-8 rounded-xl transition-all duration-300 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none flex items-center justify-center gap-3">
+                      aria-live="polite"
+                      aria-busy={isLoading}
+                      className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold py-4 px-8 rounded-xl transition-all duration-300 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none flex items-center justify-center gap-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
                       {isLoading ? (
                         <>
-                          <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                          <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" aria-hidden="true"></div>
                           Sending Message...
                         </>
                       ) : (
                         <>
-                          <Send className="w-5 h-5" />
+                          <Send className="w-5 h-5" aria-hidden="true" />
                           Send Message
                         </>
                       )}
