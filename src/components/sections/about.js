@@ -73,8 +73,8 @@ const About = () => {
           <div className="flex justify-center lg:justify-end">
             <div className="relative transition-transform duration-300 hover:scale-105">
               <Image
-                src="/images/All Product/Buy Gmail Accounts.png"
-                alt="Social Media Marketing and Digital Services Illustration"
+                src="/images/homepage/ourcompany.png"
+                alt="About Our Company - PVA Supply Team and Services"
                 width={500}
                 height={375}
                 className="w-full max-w-lg h-auto rounded-2xl shadow-2xl"
