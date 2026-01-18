@@ -146,6 +146,11 @@ export default function SpecialAccountsPage() {
                   name: product.title,
                   description: product.title,
                   image: `https://pvasupply.com${product.image}`,
+                  sku: `PVA-SPECIAL-${product.id}`,
+                  brand: {
+                    "@type": "Brand",
+                    name: "PVA Supply",
+                  },
                   offers: {
                     "@type": "AggregateOffer",
                     priceCurrency: "USD",
@@ -155,6 +160,47 @@ export default function SpecialAccountsPage() {
                       product.price.match(/\$(\d+)/)?.[1] ||
                       "0",
                     availability: "https://schema.org/InStock",
+                    url: `https://pvasupply.com${product.href}`,
+                    priceValidUntil: new Date(new Date().setFullYear(new Date().getFullYear() + 1)).toISOString().split('T')[0],
+                    seller: {
+                      "@type": "Organization",
+                      name: "PVA Supply",
+                    },
+                    shippingDetails: {
+                      "@type": "OfferShippingDetails",
+                      shippingRate: {
+                        "@type": "MonetaryAmount",
+                        value: "0",
+                        currency: "USD",
+                      },
+                      shippingDestination: {
+                        "@type": "DefinedRegion",
+                        addressCountry: "US",
+                      },
+                      deliveryTime: {
+                        "@type": "ShippingDeliveryTime",
+                        handlingTime: {
+                          "@type": "QuantitativeValue",
+                          minValue: 0,
+                          maxValue: 1,
+                          unitCode: "DAY",
+                        },
+                        transitTime: {
+                          "@type": "QuantitativeValue",
+                          minValue: 0,
+                          maxValue: 1,
+                          unitCode: "DAY",
+                        },
+                      },
+                    },
+                    hasMerchantReturnPolicy: {
+                      "@type": "MerchantReturnPolicy",
+                      applicableCountry: "US",
+                      returnPolicyCategory: "https://schema.org/MerchantReturnFiniteReturnWindow",
+                      merchantReturnDays: 7,
+                      returnMethod: "https://schema.org/ReturnByMail",
+                      returnFees: "https://schema.org/FreeReturn",
+                    },
                   },
                 },
               })),

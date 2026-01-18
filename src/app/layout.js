@@ -118,8 +118,27 @@ export default function RootLayout({ children }) {
               "@context": "https://schema.org",
               "@type": "Organization",
               name: "PVA Supply",
+              alternateName: "PVA Supply - Verified Accounts Provider",
               url: siteUrl,
               logo: `${siteUrl}/images/logo/logo.png`,
+              description: "Leading provider of verified digital accounts and services. Secure, reliable, and instant delivery with 24/7 support.",
+              contactPoint: {
+                "@type": "ContactPoint",
+                contactType: "Customer Service",
+                availableLanguage: ["English"],
+                areaServed: "Worldwide",
+              },
+              sameAs: [
+                // Add your social media profiles here when available
+                // "https://www.facebook.com/pvasupply",
+                // "https://twitter.com/pvasupply",
+                // "https://www.linkedin.com/company/pvasupply",
+              ],
+              potentialAction: {
+                "@type": "SearchAction",
+                target: `${siteUrl}/search?q={search_term_string}`,
+                "query-input": "required name=search_term_string",
+              },
             }),
           }}
         />
@@ -133,9 +152,21 @@ export default function RootLayout({ children }) {
               "@type": "WebSite",
               name: "PVA Supply",
               url: siteUrl,
+              description: "Buy verified accounts and digital services with confidence. Trusted seller, secure checkout, 24/7 support.",
+              publisher: {
+                "@type": "Organization",
+                name: "PVA Supply",
+                logo: {
+                  "@type": "ImageObject",
+                  url: `${siteUrl}/images/logo/logo.png`,
+                },
+              },
               potentialAction: {
                 "@type": "SearchAction",
-                target: `${siteUrl}/search?q={search_term_string}`,
+                target: {
+                  "@type": "EntryPoint",
+                  urlTemplate: `${siteUrl}/search?q={search_term_string}`,
+                },
                 "query-input": "required name=search_term_string",
               },
             }),
