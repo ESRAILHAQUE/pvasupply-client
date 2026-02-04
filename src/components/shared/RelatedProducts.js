@@ -168,13 +168,14 @@ const allProducts = {
       price: "$220.00 – $320.00",
       category: "Special Accounts",
     },
-    {
-      name: "Buy Verified Stripe Accounts",
-      href: "/product/buy-verified-stripe-accounts",
-      image: "/images/All Product/Buy Verified Stripe Accounts.png",
-      price: "$370.00 – $570.00",
-      category: "Special Accounts",
-    },
+    // Stripe temporarily disabled - uncomment to re-enable
+    // {
+    //   name: "Buy Verified Stripe Accounts",
+    //   href: "/product/buy-verified-stripe-accounts",
+    //   image: "/images/All Product/Buy Verified Stripe Accounts.png",
+    //   price: "$370.00 – $570.00",
+    //   category: "Special Accounts",
+    // },
     {
       name: "Buy Verified Payoneer Accounts",
       href: "/product/buy-verified-payoneer-accounts",

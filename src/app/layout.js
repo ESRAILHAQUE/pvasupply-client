@@ -38,7 +38,7 @@ export const metadata = {
     "Buy Binance Accounts",
     "Buy Coinbase Accounts",
     "Buy PayPal Accounts",
-    "Buy Stripe Accounts",
+    // "Buy Stripe Accounts", // Temporarily disabled - uncomment to re-enable
     "Buy Wise Accounts",
   ],
   applicationName: "PVA Supply",

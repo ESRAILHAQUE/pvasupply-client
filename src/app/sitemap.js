@@ -45,6 +45,7 @@ export default function sitemap() {
       .readdirSync(productDir, { withFileTypes: true })
       .filter((d) => d.isDirectory())
       .filter((d) => d.name !== "bank-accounts") // Already added as category
+      .filter((d) => d.name !== "buy-verified-stripe-accounts") // Temporarily disabled - remove filter to re-enable
       .map((d) => ({
         url: `${baseUrl}/product/${d.name}`,
         lastModified: now,

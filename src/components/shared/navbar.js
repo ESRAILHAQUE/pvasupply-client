@@ -104,10 +104,11 @@ export default function Navbar() {
           name: "Buy Verified Wise Accounts",
           href: "/product/buy-verified-wise-accounts",
         },
-        {
-          name: "Buy Verified Stripe Accounts",
-          href: "/product/buy-verified-stripe-accounts",
-        },
+        // Stripe temporarily disabled - uncomment to re-enable
+        // {
+        //   name: "Buy Verified Stripe Accounts",
+        //   href: "/product/buy-verified-stripe-accounts",
+        // },
         {
           name: "Buy Verified Payoneer Accounts",
           href: "/product/buy-verified-payoneer-accounts",

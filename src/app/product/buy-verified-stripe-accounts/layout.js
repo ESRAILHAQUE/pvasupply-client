@@ -1,3 +1,5 @@
+// Stripe product temporarily disabled - not linked in navbar/bank-accounts/related.
+// Page still accessible via direct URL. To re-enable: uncomment in navbar.js, bank-accounts/page.js, RelatedProducts.js, and remove sitemap filter.
 import Script from "next/script";
 import { buildProductMetadata, productJsonLd } from "@/lib/seo";
 
