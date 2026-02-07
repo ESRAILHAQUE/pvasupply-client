@@ -97,10 +97,6 @@ export default function Navbar() {
           href: "/product/buy-verified-cash-app-accounts",
         },
         {
-          name: "Buy Verified Chime Bank Accounts",
-          href: "/product/buy-verified-chime-bank-accounts",
-        },
-        {
           name: "Buy Verified Wise Accounts",
           href: "/product/buy-verified-wise-accounts",
         },

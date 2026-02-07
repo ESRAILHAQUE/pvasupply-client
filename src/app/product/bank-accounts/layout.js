@@ -1,11 +1,10 @@
 export const metadata = {
   title: "Bank & Payment Accounts — PayPal, Wise, Stripe & More | PVA Supply",
   description:
-    "Buy verified bank and payment accounts. PayPal, Cash App, Chime, Wise, Stripe, Venmo, Skrill, Chase, Payoneer accounts. KYC verified, instant delivery.",
+    "Buy verified bank and payment accounts. PayPal, Cash App, Wise, Stripe, Venmo, Skrill, Chase, Payoneer accounts. KYC verified, instant delivery.",
   keywords: [
     "Buy Verified PayPal Accounts",
     "Buy Verified Cash App",
-    "Buy Verified Chime Accounts",
     "Buy Verified Wise Accounts",
     "Buy Verified Stripe Accounts",
     "Buy Verified Venmo Accounts",
@@ -15,7 +14,7 @@ export const metadata = {
   openGraph: {
     title: "Bank & Payment Accounts | PVA Supply",
     description:
-      "Buy verified bank and payment accounts with instant delivery. PayPal, Wise, Stripe, Cash App, Chime and more.",
+      "Buy verified bank and payment accounts with instant delivery. PayPal, Wise, Stripe, Cash App and more.",
     type: "website",
     url: "https://pvasupply.com/product/bank-accounts",
     images: [

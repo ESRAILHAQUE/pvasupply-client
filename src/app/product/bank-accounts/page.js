@@ -31,18 +31,6 @@ export default function BankAccountsPage() {
       logoColor: "bg-green-500",
     },
     {
-      id: 3,
-      name: "Buy Verified Chime Bank Accounts",
-      title: "Buy Verified Chime Bank Accounts",
-      href: "/product/buy-verified-chime-bank-accounts",
-      image: "/images/All Product/Buy Verified Chime Bank Accounts.png",
-      price: "$100.00 – $220.00",
-      category: "Banking",
-      bannerText: "BUY VERIFIED CHIME BANK ACCOUNTS",
-      logo: "Chime",
-      logoColor: "bg-teal-500",
-    },
-    {
       id: 4,
       name: "Buy Verified Wise Accounts",
       title: "Buy Verified Wise Accounts",
@@ -178,7 +166,7 @@ export default function BankAccountsPage() {
           Bank & Payment Accounts
         </h1>
         <p className="text-lg text-gray-600 max-w-3xl">
-          Buy verified bank and payment accounts. PayPal, Cash App, Chime, Wise, Stripe, Venmo, Skrill, Chase, Payoneer - All fully verified with instant delivery.
+          Buy verified bank and payment accounts. PayPal, Cash App, Wise, Stripe, Venmo, Skrill, Chase, Payoneer - All fully verified with instant delivery.
         </p>
       </header>
 

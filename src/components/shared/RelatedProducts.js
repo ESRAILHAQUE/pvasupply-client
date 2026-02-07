@@ -97,13 +97,6 @@ const allProducts = {
       category: "Bank Accounts",
     },
     {
-      name: "Buy Verified Chime Bank Accounts",
-      href: "/product/buy-verified-chime-bank-accounts",
-      image: "/images/All Product/Buy Verified Chime Bank Accounts.png",
-      price: "$100.00 – $220.00",
-      category: "Bank Accounts",
-    },
-    {
       name: "Buy Verified Wise Accounts",
       href: "/product/buy-verified-wise-accounts",
       image: "/images/All Product/Buy Verified Wise Accounts.png",
